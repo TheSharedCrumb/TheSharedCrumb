@@ -1,63 +1,103 @@
 ---
+layout: default
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} - The Shared Crumb</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-<body>
-
-  {% include header.html %}
-
-  <main class="recipe-detail-container">
-    <article class="recipe-article">
-      <!-- Recipe Header & Metadata -->
-      <header class="recipe-header">
-        <h1>{{ page.title }}</h1>
-        {% if page.description %}
-          <p class="recipe-description">{{ page.description }}</p>
-        {% endif %}
-
-        <div class="recipe-meta">
-          {% if page.prep_time %}
-            <div class="meta-item">
-              <span class="meta-label">Prep Time</span>
-              <span class="meta-value">{{ page.prep_time }}</span>
-            </div>
-          {% endif %}
-          {% if page.cook_time %}
-            <div class="meta-item">
-              <span class="meta-label">Cook Time</span>
-              <span class="meta-value">{{ page.cook_time }}</span>
-            </div>
-          {% endif %}
-          {% if page.yield %}
-            <div class="meta-item">
-              <span class="meta-label">Yield</span>
-              <span class="meta-value">{{ page.yield }}</span>
-            </div>
-          {% endif %}
-        </div>
-      </header>
-
-      <!-- Featured Image (Constrained Height) -->
-      {% if page.image %}
-        <div class="recipe-image-container">
-          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+<div class="recipe-detail-container">
+  <article class="recipe-article">
+    <header class="recipe-header">
+      
+      {% comment %} Category Badges {% endcomment %}
+      {% if page.category %}
+        <div class="recipe-category-badges recipe-category-badges-center">
+          {% for cat in page.category %}
+            <span class="recipe-category-badge">{{ cat }}</span>
+          {% endfor %}
         </div>
       {% endif %}
 
-      <!-- Recipe Content Body -->
-      <div class="recipe-body">
-        {{ content }}
+      <h1>{{ page.title }}</h1>
+
+      {% if page.description %}
+        <p class="recipe-description">{{ page.description }}</p>
+      {% endif %}
+
+      <!-- Print Recipe Action Button -->
+      <div class="recipe-actions">
+        <button onclick="window.print()" class="print-btn">
+          🖨️ Print Recipe
+        </button>
       </div>
-    </article>
-  </main>
 
-  {% include footer.html %}
+      <div class="recipe-meta">
+        {% if page.prep_time %}
+          <div class="meta-item">
+            <span class="meta-label">Prep Time</span>
+            <span class="meta-value">{{ page.prep_time }}</span>
+          </div>
+        {% endif %}
+        {% if page.cook_time %}
+          <div class="meta-item">
+            <span class="meta-label">Cook Time</span>
+            <span class="meta-value">{{ page.cook_time }}</span>
+          </div>
+        {% endif %}
+        {% if page.yield %}
+          <div class="meta-item">
+            <span class="meta-label">Yield</span>
+            <span class="meta-value">{{ page.yield }}</span>
+          </div>
+        {% endif %}
+      </div>
+    </header>
 
-</body>
-</html>
+    {% if page.image %}
+      <div class="recipe-image-container">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      </div>
+    {% endif %}
+
+    <div class="recipe-body">
+      {{ content }}
+    </div>
+  </article>
+</div>
+
+<!-- Interactive Ingredient Checkboxes Script -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Find ingredient lists (the first <ul> inside .recipe-body)
+    const ingredientLists = document.querySelectorAll('.recipe-body ul');
+    if (ingredientLists.length === 0) return;
+
+    ingredientLists.forEach(ul => {
+      const items = ul.querySelectorAll('li');
+      items.forEach(li => {
+        // Create custom checkbox structure
+        const label = document.createElement('label');
+        label.className = 'ingredient-checkbox-label';
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'ingredient-checkbox';
+
+        const textSpan = document.createElement('span');
+        textSpan.className = 'ingredient-text';
+        textSpan.innerHTML = li.innerHTML;
+
+        label.appendChild(checkbox);
+        label.appendChild(textSpan);
+
+        li.innerHTML = '';
+        li.appendChild(label);
+
+        // Toggle struck-through state on change
+        checkbox.addEventListener('change', () => {
+          if (checkbox.checked) {
+            label.classList.add('checked');
+          } else {
+            label.classList.remove('checked');
+          }
+        });
+      });
+    });
+  });
+</script>
