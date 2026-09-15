@@ -13,7 +13,7 @@ title: All Recipes
       <input 
         type="text" 
         id="recipeSearchInput" 
-        placeholder="Search recipes by name, ingredient, or category..." 
+        placeholder="Search by name, category, or combination (e.g. Breakfast Poached Egg)..." 
         aria-label="Search recipes">
     </div>
   </header>
@@ -58,7 +58,7 @@ title: All Recipes
         {% if recipe.image %}
           <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
         {% else %}
-          <div class="carousel-card-placeholder"></div>
+          <div class="carousel-card-placeholder">🍽️</div>
         {% endif %}
 
         <div class="grid-card-content">
@@ -95,18 +95,23 @@ title: All Recipes
     function filterRecipes() {
       let visibleCount = 0;
 
+      // Split current search query into individual lowercase words (words array)
+      const queryWords = currentQuery.split(/\s+/).filter(word => word.length > 0);
+
       cards.forEach(card => {
         const cardCategories = (card.getAttribute('data-categories') || '').split(' ');
         const cardRawCats = card.getAttribute('data-raw-categories') || '';
         const cardTitle = card.getAttribute('data-title') || '';
         const cardDesc = card.getAttribute('data-description') || '';
 
+        // Combine all searchable text for this card into a single combined string
+        const searchableContent = `${cardTitle} ${cardDesc} ${cardRawCats}`;
+
+        // 1. Check if card matches active Category Pill
         const matchesCategory = (currentFilter === 'all') || cardCategories.includes(currentFilter);
-        
-        const matchesSearch = !currentQuery || 
-                              cardTitle.includes(currentQuery) || 
-                              cardDesc.includes(currentQuery) || 
-                              cardRawCats.includes(currentQuery);
+
+        // 2. Check if EVERY word typed in the search box exists somewhere in the searchable content
+        const matchesSearch = queryWords.every(word => searchableContent.includes(word));
 
         if (matchesCategory && matchesSearch) {
           card.style.display = 'flex';
@@ -121,6 +126,7 @@ title: All Recipes
       }
     }
 
+    // Read URL query parameter ?category=...
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category');
 
@@ -135,6 +141,7 @@ title: All Recipes
 
     filterRecipes();
 
+    // Event listeners for category buttons
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
@@ -144,6 +151,7 @@ title: All Recipes
       });
     });
 
+    // Event listener for search input
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         currentQuery = e.target.value.toLowerCase().trim();
