@@ -45,14 +45,26 @@ layout: default
         </div>
       </div>
 
-      <!-- Print Recipe Action Button -->
+      <!-- Action Buttons Row -->
       <div class="recipe-actions">
-        <button onclick="window.print()" class="print-btn">
+        <button onclick="window.print()" class="action-btn print-btn">
           🖨️ Print Recipe
+        </button>
+        
+        <a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url }}&media={{ page.image | absolute_url }}&description={{ page.description | url_encode }}" 
+           target="_blank" 
+           rel="noopener" 
+           class="action-btn pinterest-btn">
+          📌 Save to Pinterest
+        </a>
+
+        <!-- Cook Mode Toggle (Visible ONLY on Mobile/Tablet) -->
+        <button id="cookModeBtn" class="action-btn cook-mode-btn">
+          💡 Cook Mode <span class="cook-mode-status">OFF</span>
         </button>
       </div>
 
-      <!-- Compact Square Image (Floats Right on Print) -->
+      <!-- Main Recipe Image -->
       {% if page.image %}
         <div class="recipe-image-container">
           <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
@@ -67,40 +79,70 @@ layout: default
   </article>
 </div>
 
-<!-- Interactive Ingredient Checkboxes Script -->
+<!-- Interactive Checkboxes & Mobile Cook Mode Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // 1. Interactive Checkboxes
     const ingredientLists = document.querySelectorAll('.recipe-body ul');
-    if (ingredientLists.length === 0) return;
+    if (ingredientLists.length > 0) {
+      ingredientLists.forEach(ul => {
+        const items = ul.querySelectorAll('li');
+        items.forEach(li => {
+          const label = document.createElement('label');
+          label.className = 'ingredient-checkbox-label';
 
-    ingredientLists.forEach(ul => {
-      const items = ul.querySelectorAll('li');
-      items.forEach(li => {
-        const label = document.createElement('label');
-        label.className = 'ingredient-checkbox-label';
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.className = 'ingredient-checkbox';
 
-        const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        checkbox.className = 'ingredient-checkbox';
+          const textSpan = document.createElement('span');
+          textSpan.className = 'ingredient-text';
+          textSpan.innerHTML = li.innerHTML;
 
-        const textSpan = document.createElement('span');
-        textSpan.className = 'ingredient-text';
-        textSpan.innerHTML = li.innerHTML;
+          label.appendChild(checkbox);
+          label.appendChild(textSpan);
 
-        label.appendChild(checkbox);
-        label.appendChild(textSpan);
+          li.innerHTML = '';
+          li.appendChild(label);
 
-        li.innerHTML = '';
-        li.appendChild(label);
-
-        checkbox.addEventListener('change', () => {
-          if (checkbox.checked) {
-            label.classList.add('checked');
-          } else {
-            label.classList.remove('checked');
-          }
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+              label.classList.add('checked');
+            } else {
+              label.classList.remove('checked');
+            }
+          });
         });
       });
-    });
+    }
+
+    // 2. Mobile Cook Mode (Screen WakeLock API)
+    const cookBtn = document.getElementById('cookModeBtn');
+    let wakeLock = null;
+
+    if (cookBtn) {
+      if ('wakeLock' in navigator) {
+        cookBtn.addEventListener('click', async () => {
+          if (!wakeLock) {
+            try {
+              wakeLock = await navigator.wakeLock.request('screen');
+              cookBtn.classList.add('active');
+              cookBtn.querySelector('.cook-mode-status').textContent = 'ON';
+            } catch (err) {
+              console.error(`Wake Lock failed: ${err.name}, ${err.message}`);
+            }
+          } else {
+            wakeLock.release().then(() => {
+              wakeLock = null;
+              cookBtn.classList.remove('active');
+              cookBtn.querySelector('.cook-mode-status').textContent = 'OFF';
+            });
+          }
+        });
+      } else {
+        // Hide if browser doesn't support wakeLock
+        cookBtn.style.display = 'none';
+      }
+    }
   });
 </script>
