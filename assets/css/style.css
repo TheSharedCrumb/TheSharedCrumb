@@ -349,7 +349,7 @@ footer {
   transition: transform 0.4s ease-in-out;
 }
 
-/* Enforces exactly 3 cards across on desktop */
+/* Enforces exactly 3 cards across on desktop & makes whole card clickable */
 .carousel-card {
   flex: 0 0 calc((100% - 40px) / 3);
   max-width: calc((100% - 40px) / 3);
@@ -360,6 +360,13 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
+  text-decoration: none; /* Removes underline from whole card block */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.carousel-card:hover {
+  transform: translateY(-3px); /* Gentle lift on hover */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Force Square 1:1 Aspect Ratio Crop */
@@ -385,16 +392,13 @@ footer {
 
 .carousel-card-content h3 {
   font-size: 1.1rem;
-  margin-bottom: 6px;
-}
-
-.carousel-card-content a {
   color: #2D3748;
-  text-decoration: none;
+  margin-bottom: 6px;
   transition: color 0.2s ease;
 }
 
-.carousel-card-content a:hover {
+/* Highlights card title when hovering anywhere on the card */
+.carousel-card:hover .carousel-card-content h3 {
   color: #9B2C2C;
 }
 
