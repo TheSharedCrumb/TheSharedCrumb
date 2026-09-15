@@ -777,20 +777,22 @@ footer {
 }
 
 /* ==========================================================================
-   11. Print Stylesheet Overrides
+   11. Print Stylesheet Overrides (Compact Side-by-Side Header)
    ========================================================================== */
 @media print {
-  /* Hide site-wide header, footer, and interactive print button */
+  /* Hide site navigation, footer, interactive buttons, and checkboxes */
   body > header,
   body > footer,
   .recipe-actions,
-  .carousel-btn {
+  .carousel-btn,
+  .ingredient-checkbox {
     display: none !important;
   }
 
   body {
     background-color: #FFFFFF !important;
     color: #000000 !important;
+    font-size: 13px !important;
   }
 
   main {
@@ -799,38 +801,89 @@ footer {
     max-width: 100% !important;
   }
 
-  /* Ensure recipe header, title, and metadata remain visible */
-  .recipe-header,
-  .recipe-header h1,
-  .recipe-description,
-  .recipe-meta,
-  .meta-item {
-    display: block !important;
-  }
-
-  .recipe-meta {
-    display: flex !important;
-    border: 1px solid #CCCCCC !important;
-    background-color: #FAFAFA !important;
-    padding: 10px 16px !important;
-    margin-bottom: 20px !important;
-  }
-
   .recipe-article {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
   }
 
-  /* Compact Image Sizing for Print */
+  /* Side-by-Side Header Layout for Print */
+  .recipe-header {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+    margin-bottom: 16px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 2px solid #E2E8F0 !important;
+  }
+
+  /* Left Column: Title, Description, Metadata */
+  .recipe-header-text {
+    flex: 1 !important;
+    padding-right: 20px !important;
+  }
+
+  .recipe-header h1 {
+    font-size: 1.6rem !important;
+    margin-bottom: 4px !important;
+    color: #9B2C2C !important;
+  }
+
+  .recipe-description {
+    font-size: 0.9rem !important;
+    margin: 0 0 10px 0 !important;
+    color: #4A5568 !important;
+  }
+
+  .recipe-meta {
+    display: flex !important;
+    gap: 16px !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .meta-item {
+    align-items: flex-start !important;
+  }
+
+  .meta-label {
+    font-size: 0.65rem !important;
+  }
+
+  .meta-value {
+    font-size: 0.85rem !important;
+  }
+
+  /* Right Column: Square Cropped Compact Image */
   .recipe-image-container {
-    max-height: 180px !important;
-    margin: 16px 0 24px !important;
+    width: 120px !important;
+    height: 120px !important;
+    max-height: 120px !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
+    flex-shrink: 0 !important;
   }
 
   .recipe-image-container img {
-    max-height: 180px !important;
+    width: 120px !important;
+    height: 120px !important;
+    max-height: 120px !important;
     object-fit: cover !important;
+    border-radius: 8px !important;
+  }
+
+  .recipe-body h3 {
+    font-size: 1.1rem !important;
+    margin: 16px 0 8px !important;
+  }
+
+  .recipe-body li {
+    margin-bottom: 4px !important;
   }
 }
 
