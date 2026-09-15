@@ -2,6 +2,9 @@
   <div class="footer-container">
     <div class="footer-brand">
       <a href="{{ '/' | relative_url }}" class="footer-logo">
+        {% if site.logo %}
+          <img src="{{ site.logo | relative_url }}" alt="{{ site.title }}" class="footer-logo-img">
+        {% endif %}
         <span class="footer-logo-text">The Shared Crumb</span>
       </a>
       <p class="footer-tagline">Your favorite recipes, tested and shared.</p>
@@ -17,10 +20,10 @@
 
       <!-- Small Footer Social Links -->
       <div class="footer-social-links">
-        <a href="https://www.pinterest.com/thesharedcrumb/" target="_blank" rel="noopener" aria-label="Pinterest" class="social-icon-sm">Pinterest</a>
-        <a href="https://www.instagram.com/thesharedcrumb" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-sm">Instagram</a>
-        <a href="https://www.tiktok.com/@thesharedcrumb_" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon-sm">TikTok</a>
-        <a href="https://www.youtube.com/@TheSharedCrumb" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-sm">YouTube</a>
+        <a href="https://www.pinterest.com/thesharedcrumb/" target="_blank" rel="noopener" aria-label="Pinterest" class="social-icon-sm"><i class="fab fa-pinterest"></i></a>
+        <a href="https://www.instagram.com/thesharedcrumb" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-sm"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@thesharedcrumb_" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon-sm"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@TheSharedCrumb" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-sm"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>
