@@ -137,167 +137,7 @@ nav a:hover::after {
 }
 
 /* ==========================================================================
-   4. Footer Layout & Styling
-   ========================================================================== */
-footer {
-  background-color: #FFFFFF;
-  border-top: 2px solid #E2E8F0;
-  padding: 40px 24px 20px;
-  margin-top: auto; /* Pins footer to bottom on short pages */
-}
-
-.footer-container {
-  max-width: 1050px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 32px;
-  padding-bottom: 28px;
-  border-bottom: 1px solid #EDF2F7;
-}
-
-/* Footer Logo & Brand Link */
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-}
-
-.footer-logo-img {
-  height: 32px !important;
-  max-height: 32px !important;
-  width: auto !important;
-  border-radius: 4px;
-  display: block;
-}
-
-.footer-logo-text {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #9B2C2C;
-  letter-spacing: -0.5px;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-}
-
-.footer-logo:hover .footer-logo-text {
-  opacity: 0.85;
-}
-
-.footer-tagline {
-  color: #718096;
-  font-size: 0.9rem;
-  margin-top: 10px;
-  max-width: 320px;
-  line-height: 1.5;
-}
-
-/* Footer Navigation Links */
-.footer-links ul {
-  list-style: none;
-  display: flex;
-  gap: 24px;
-}
-
-.footer-links a {
-  text-decoration: none;
-  color: #4A5568;
-  font-size: 0.9rem;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-  color: #9B2C2C;
-}
-
-/* Copyright Bar */
-.footer-bottom {
-  max-width: 1050px;
-  margin: 20px auto 0;
-  text-align: center;
-  color: #A0AEC0;
-  font-size: 0.825rem;
-}
-
-/* ==========================================================================
-   5. About & Contact Page Styles
-   ========================================================================== */
-.about-container {
-  max-width: 900px;
-  margin: 40px auto 60px;
-  padding: 0 24px;
-}
-
-.about-hero {
-  text-align: center;
-  margin-bottom: 48px;
-}
-
-.about-hero h1 {
-  font-size: 2.5rem;
-  color: #9B2C2C;
-  letter-spacing: -0.5px;
-  margin-bottom: 8px;
-}
-
-.about-subtitle {
-  font-size: 1.15rem;
-  color: #718096;
-  font-weight: 500;
-}
-
-.about-card {
-  background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  padding: 36px;
-  margin-bottom: 32px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-}
-
-.about-card h2 {
-  color: #2D3748;
-  font-size: 1.5rem;
-  margin-bottom: 16px;
-}
-
-.about-card p {
-  color: #4A5568;
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-.contact-coming-soon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 50vh;
-  padding: 40px 24px;
-}
-
-.coming-soon-card {
-  background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  border-radius: 12px;
-  padding: 48px 32px;
-  max-width: 540px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-}
-
-.coming-soon-card h1 {
-  font-size: 2.25rem;
-  color: #9B2C2C;
-  letter-spacing: -0.5px;
-  margin-bottom: 12px;
-}
-
-/* ==========================================================================
-   6. Featured Recipe Carousel
+   4. Featured Recipe Carousel
    ========================================================================== */
 .featured-section {
   margin: 20px 0 60px;
@@ -412,7 +252,148 @@ footer {
 }
 
 /* ==========================================================================
-   7. Individual Recipe Layout Styles
+   5. Recipe Index Page & Grid Controls
+   ========================================================================== */
+.recipes-archive-container {
+  max-width: 1050px;
+  margin: 20px auto 60px;
+}
+
+.archive-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.archive-header h1 {
+  font-size: 2.25rem;
+  color: #9B2C2C;
+  margin-bottom: 8px;
+}
+
+.archive-header p {
+  color: #718096;
+  margin-bottom: 24px;
+}
+
+/* Search Bar */
+.search-box-wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+#recipeSearchInput {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid #E2E8F0;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  background-color: #FFFFFF;
+  color: #2D3748;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#recipeSearchInput:focus {
+  border-color: #9B2C2C;
+  box-shadow: 0 4px 12px rgba(155, 44, 44, 0.1);
+}
+
+/* Category Filter Navigation */
+.category-filter-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.filter-btn {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  color: #4A5568;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #9B2C2C;
+  color: #FFFFFF;
+  border-color: #9B2C2C;
+}
+
+/* Responsive Grid with Image Caps */
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
+  justify-content: center; /* Keeps cards centered if only a few match */
+  gap: 24px;
+}
+
+.recipe-grid-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recipe-grid-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Image Height Cap for Index Grid */
+.grid-card-img {
+  width: 100%;
+  max-height: 220px; /* Prevents oversized cards */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.grid-card-content {
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.grid-card-content h3 {
+  font-size: 1.15rem;
+  color: #2D3748;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.recipe-grid-card:hover .grid-card-content h3 {
+  color: #9B2C2C;
+}
+
+.grid-card-content p {
+  color: #718096;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.no-results-message {
+  text-align: center;
+  padding: 60px 20px;
+  color: #A0AEC0;
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   6. Individual Recipe Layout Styles
    ========================================================================== */
 .recipe-detail-container {
   max-width: 800px;
@@ -526,6 +507,92 @@ footer {
 }
 
 /* ==========================================================================
+   7. Footer Layout & Styling
+   ========================================================================== */
+footer {
+  background-color: #FFFFFF;
+  border-top: 2px solid #E2E8F0;
+  padding: 40px 24px 20px;
+  margin-top: auto; /* Pins footer to bottom on short pages */
+}
+
+.footer-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #EDF2F7;
+}
+
+/* Footer Logo & Brand Link */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.footer-logo-img {
+  height: 32px !important;
+  max-height: 32px !important;
+  width: auto !important;
+  border-radius: 4px;
+  display: block;
+}
+
+.footer-logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #9B2C2C;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-logo:hover .footer-logo-text {
+  opacity: 0.85;
+}
+
+.footer-tagline {
+  color: #718096;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+/* Footer Navigation Links */
+.footer-links ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #4A5568;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #9B2C2C;
+}
+
+/* Copyright Bar */
+.footer-bottom {
+  max-width: 1050px;
+  margin: 20px auto 0;
+  text-align: center;
+  color: #A0AEC0;
+  font-size: 0.825rem;
+}
+
+/* ==========================================================================
    8. Mobile Responsive Adjustments
    ========================================================================== */
 @media (max-width: 600px) {
@@ -565,6 +632,11 @@ footer {
   .carousel-card {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+
+  /* Recipe Grid Mobile */
+  .recipes-grid {
+    grid-template-columns: 1fr;
   }
 
   /* Recipe Page Mobile */
