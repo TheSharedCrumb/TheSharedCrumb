@@ -7,8 +7,6 @@ layout: default
       
       <!-- Text & Meta Column -->
       <div class="recipe-header-text">
-        
-        {% comment %} Centered Category Badges {% endcomment %}
         {% if page.category %}
           <div class="recipe-category-badges recipe-category-badges-center">
             {% for cat in page.category %}
@@ -47,21 +45,21 @@ layout: default
         </div>
       </div>
 
-    </header>
-
-    <!-- Print Recipe Action Button (Placed ABOVE the main image) -->
-    <div class="recipe-actions">
-      <button onclick="window.print()" class="print-btn">
-        🖨️ Print Recipe
-      </button>
-    </div>
-
-    <!-- Main Recipe Image -->
-    {% if page.image %}
-      <div class="recipe-image-container">
-        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      <!-- Print Recipe Action Button -->
+      <div class="recipe-actions">
+        <button onclick="window.print()" class="print-btn">
+          🖨️ Print Recipe
+        </button>
       </div>
-    {% endif %}
+
+      <!-- Compact Square Image (Floats Right on Print) -->
+      {% if page.image %}
+        <div class="recipe-image-container">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+        </div>
+      {% endif %}
+
+    </header>
 
     <div class="recipe-body">
       {{ content }}
