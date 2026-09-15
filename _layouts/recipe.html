@@ -7,8 +7,10 @@ layout: default
       
       <!-- Text & Meta Column -->
       <div class="recipe-header-text">
+        
+        {% comment %} Centered Category Badges {% endcomment %}
         {% if page.category %}
-          <div class="recipe-category-badges">
+          <div class="recipe-category-badges recipe-category-badges-center">
             {% for cat in page.category %}
               <a href="{{ '/recipes.html' | relative_url }}?category={{ cat | slugify }}" class="recipe-category-badge recipe-category-link">
                 {{ cat }}
@@ -45,7 +47,7 @@ layout: default
         </div>
       </div>
 
-      <!-- Compact Square Image (Moves to the Right Column on Print) -->
+      <!-- Compact Square Image (Moves to Right Column on Print) -->
       {% if page.image %}
         <div class="recipe-image-container">
           <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
@@ -54,7 +56,7 @@ layout: default
 
     </header>
 
-    <!-- Print Recipe Action Button -->
+    <!-- Print Recipe Action Button (Positioned directly above the main image area) -->
     <div class="recipe-actions">
       <button onclick="window.print()" class="print-btn">
         🖨️ Print Recipe
@@ -67,6 +69,7 @@ layout: default
   </article>
 </div>
 
+<!-- Interactive Ingredient Checkboxes Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const ingredientLists = document.querySelectorAll('.recipe-body ul');
