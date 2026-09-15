@@ -5,7 +5,7 @@ description: "Golden edges, soft chewy centers, and rich nutty depth from browne
 prep_time: "20 mins"
 cook_time: "12 mins"
 yield: "18 cookies"
-image: "/assets/images/Cookies_TEST.png"
+image: "/assets/images/Cookies_TEST.jpg"
 ---
 
 ### Ingredients
