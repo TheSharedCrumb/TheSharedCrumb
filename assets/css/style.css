@@ -422,7 +422,7 @@ a.recipe-category-link:hover {
 }
 
 /* ==========================================================================
-   7. About & Contact Page Styles
+   7. About & Contact Page Styles (Including Large Social Cards)
    ========================================================================== */
 .about-container {
   max-width: 900px;
@@ -493,48 +493,45 @@ a.recipe-category-link:hover {
   line-height: 1.5;
 }
 
-.contact-coming-soon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 40vh;
-  padding: 20px 0;
+/* Contact Page Social Grid */
+.contact-social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
 }
 
-.coming-soon-card {
+.contact-social-card {
   background-color: #FFFFFF;
   border: 1px solid #E2E8F0;
   border-radius: 12px;
-  padding: 40px 32px;
-  max-width: 500px;
-  width: 100%;
-  text-align: center;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.coming-soon-card h1 {
+.contact-social-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.social-card-icon {
   font-size: 2rem;
-  color: #9B2C2C;
-  letter-spacing: -0.5px;
-  margin-bottom: 12px;
 }
 
-.coming-soon-badge {
-  display: inline-block;
-  background-color: #FAF5EF;
-  color: #9B2C2C;
-  border: 1px solid #E2E8F0;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 4px 12px;
-  border-radius: 12px;
-  margin-bottom: 16px;
+.contact-social-card h3 {
+  color: #2D3748;
+  font-size: 1.1rem;
+  margin-bottom: 2px;
 }
 
-.coming-soon-text {
+.contact-social-card p {
   color: #718096;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
 }
 
 /* ==========================================================================
@@ -668,15 +665,15 @@ a.recipe-category-link:hover {
   order: 2;
   display: flex;
   justify-content: center;
+  gap: 12px;
   margin: 20px 0 0;
   position: relative;
   z-index: 1 !important;
 }
 
-.print-btn {
+.action-btn {
   background-color: #FFFFFF;
   border: 1px solid #E2E8F0;
-  color: #9B2C2C;
   font-size: 0.875rem;
   font-weight: 700;
   padding: 8px 18px;
@@ -684,12 +681,31 @@ a.recipe-category-link:hover {
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.print-btn {
+  color: #9B2C2C;
 }
 
 .print-btn:hover {
   background-color: #9B2C2C;
   color: #FFFFFF;
   border-color: #9B2C2C;
+}
+
+.pinterest-btn {
+  color: #E60023;
+  border-color: #FED7D7;
+}
+
+.pinterest-btn:hover {
+  background-color: #E60023;
+  color: #FFFFFF;
+  border-color: #E60023;
 }
 
 .ingredient-checkbox-label {
@@ -714,7 +730,7 @@ a.recipe-category-link:hover {
 }
 
 /* ==========================================================================
-   10. Footer Layout & Styling
+   10. Footer Layout & Small Social Links Styling
    ========================================================================== */
 footer {
   background-color: #FFFFFF;
@@ -785,6 +801,25 @@ footer {
 }
 
 .footer-links a:hover {
+  color: #9B2C2C;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.social-icon-sm {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #718096;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social-icon-sm:hover {
   color: #9B2C2C;
 }
 
