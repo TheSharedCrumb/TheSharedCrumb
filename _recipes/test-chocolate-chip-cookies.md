@@ -6,7 +6,7 @@ category: [Desserts, Baking]
 prep_time: "20 mins"
 cook_time: "12 mins"
 yield: "18 cookies"
-image: "/assets/images/Sourdough-Bread_TEST.png"
+image: "/assets/images/Cookies_TEST.jpg"
 ---
 
 ### Ingredients
