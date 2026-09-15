@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Recipes Archive
+title: All Recipes
 ---
 
 <div class="recipes-archive-container">
@@ -8,7 +8,7 @@ title: Recipes Archive
     <h1>Recipe Index</h1>
     <p>Explore our full collection of tested recipes.</p>
 
-    <!-- Instant Real-Time Search Bar -->
+    <!-- Instant Search Bar -->
     <div class="search-box-wrapper">
       <input 
         type="text" 
@@ -18,9 +18,7 @@ title: Recipes Archive
     </div>
   </header>
 
-  {% comment %} 
-    Extract and sort all unique categories dynamically from site.recipes 
-  {% endcomment %}
+  {% comment %} Extract unique categories across all recipes {% endcomment %}
   {% assign raw_categories = "" | split: "" %}
   {% for recipe in site.recipes %}
     {% if recipe.category %}
@@ -41,7 +39,6 @@ title: Recipes Archive
   <div class="recipes-grid" id="recipesGrid">
     {% for recipe in site.recipes %}
       
-      {% comment %} Build a comma-separated slugified string of categories for JS filtering {% endcomment %}
       {% assign cat_slugs = "" %}
       {% if recipe.category %}
         {% for cat in recipe.category %}
@@ -83,7 +80,6 @@ title: Recipes Archive
   </div>
 </div>
 
-<!-- Instant Filtering & Search JavaScript -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
@@ -102,10 +98,7 @@ title: Recipes Archive
         const cardTitle = card.getAttribute('data-title');
         const cardDesc = card.getAttribute('data-description');
 
-        // Check if card matches category filter
         const matchesCategory = (currentFilter === 'all') || cardCategories.includes(currentFilter);
-
-        // Check if card matches search text query
         const matchesSearch = !currentQuery || cardTitle.includes(currentQuery) || cardDesc.includes(currentQuery);
 
         if (matchesCategory && matchesSearch) {
@@ -116,15 +109,9 @@ title: Recipes Archive
         }
       });
 
-      // Toggle no results notice
-      if (visibleCount === 0) {
-        noResultsMsg.style.display = 'block';
-      } else {
-        noResultsMsg.style.display = 'none';
-      }
+      noResultsMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
     }
 
-    // Category Button Clicks
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
@@ -134,7 +121,6 @@ title: Recipes Archive
       });
     });
 
-    // Real-Time Search Input
     searchInput.addEventListener('input', (e) => {
       currentQuery = e.target.value.toLowerCase().trim();
       filterRecipes();
