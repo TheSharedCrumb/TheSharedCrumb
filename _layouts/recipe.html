@@ -1,0 +1,55 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} - The Shared Crumb</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+
+  {% include header.html %}
+
+  <main class="recipe-detail-container">
+    <article class="recipe-card">
+      <header class="recipe-header">
+        <h1>{{ page.title }}</h1>
+        <p class="recipe-description">{{ page.description }}</p>
+        
+        <div class="recipe-meta">
+          <span><strong>Prep:</strong> {{ page.prep_time }}</span>
+          <span><strong>Cook:</strong> {{ page.cook_time }}</span>
+          <span><strong>Yield:</strong> {{ page.yield }}</span>
+        </div>
+      </header>
+
+      {% if page.image %}
+        <div class="recipe-image-container">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+        </div>
+      {% endif %}
+
+      <div class="recipe-body">
+        <section class="ingredients-section">
+          <h2>Ingredients</h2>
+          <ul>
+            {% for ingredient in page.ingredients %}
+              <li>{{ ingredient }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <section class="instructions-section">
+          <h2>Instructions</h2>
+          {{ content }}
+        </section>
+      </div>
+    </article>
+  </main>
+
+  {% include footer.html %}
+
+</body>
+</html>
