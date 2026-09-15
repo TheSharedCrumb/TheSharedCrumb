@@ -272,7 +272,7 @@ nav a:hover::after {
 }
 
 /* ==========================================================================
-   6. Recipe Index Page & Grid Controls
+   6. Recipe Index Page & Grid Controls (Fixed 3 Tiles Wide)
    ========================================================================== */
 .recipes-archive-container {
   max-width: 1050px;
@@ -347,12 +347,11 @@ nav a:hover::after {
   border-color: #9B2C2C;
 }
 
-/* Responsive Grid with Image Caps */
+/* Grid layout strictly enforced to 3 tiles wide on desktop */
 .recipes-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
-  justify-content: center; /* Keeps cards centered if only a few match */
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .recipe-grid-card {
@@ -372,10 +371,8 @@ nav a:hover::after {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* Image Height Cap for Index Grid */
 .grid-card-img {
   width: 100%;
-  max-height: 220px; /* Prevents oversized cards */
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
@@ -484,7 +481,6 @@ nav a:hover::after {
   line-height: 1.5;
 }
 
-/* Contact Page Coming Soon Card */
 .contact-coming-soon {
   display: flex;
   justify-content: center;
@@ -549,7 +545,7 @@ nav a:hover::after {
   text-align: center;
   margin-bottom: 24px;
   position: relative;
-  z-index: 1; /* Keeps title underneath sticky header */
+  z-index: 1;
 }
 
 .recipe-header h1 {
@@ -566,7 +562,6 @@ nav a:hover::after {
   margin: 0 auto 24px;
 }
 
-/* Metadata Row (Prep, Cook, Yield) */
 .recipe-meta {
   display: flex;
   justify-content: center;
@@ -597,7 +592,6 @@ nav a:hover::after {
   font-weight: 600;
 }
 
-/* Recipe Hero Image Constraints */
 .recipe-image-container {
   width: 100%;
   max-height: 400px;
@@ -616,7 +610,6 @@ nav a:hover::after {
   display: block;
 }
 
-/* Recipe Content & Markdown Styling */
 .recipe-body h3 {
   font-size: 1.3rem;
   color: #9B2C2C;
@@ -650,7 +643,7 @@ footer {
   background-color: #FFFFFF;
   border-top: 2px solid #E2E8F0;
   padding: 40px 24px 20px;
-  margin-top: auto; /* Pins footer to bottom on short pages */
+  margin-top: auto;
 }
 
 .footer-container {
@@ -664,7 +657,6 @@ footer {
   border-bottom: 1px solid #EDF2F7;
 }
 
-/* Footer Logo & Brand Link */
 .footer-logo {
   display: flex;
   align-items: center;
@@ -701,7 +693,6 @@ footer {
   line-height: 1.5;
 }
 
-/* Footer Navigation Links */
 .footer-links ul {
   list-style: none;
   display: flex;
@@ -720,7 +711,6 @@ footer {
   color: #9B2C2C;
 }
 
-/* Copyright Bar */
 .footer-bottom {
   max-width: 1050px;
   margin: 20px auto 0;
@@ -732,8 +722,13 @@ footer {
 /* ==========================================================================
    10. Mobile Responsive Adjustments
    ========================================================================== */
+@media (max-width: 850px) {
+  .recipes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 600px) {
-  /* Header Mobile */
   .header-container {
     flex-direction: column;
     gap: 14px;
@@ -747,7 +742,6 @@ footer {
     font-size: 0.9rem;
   }
 
-  /* Footer Mobile */
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -765,18 +759,15 @@ footer {
     gap: 16px;
   }
 
-  /* Carousel Mobile */
   .carousel-card {
     flex: 0 0 100%;
     max-width: 100%;
   }
 
-  /* Recipe Grid Mobile */
   .recipes-grid {
     grid-template-columns: 1fr;
   }
 
-  /* Recipe Page Mobile */
   .recipe-article {
     padding: 24px 18px;
   }
