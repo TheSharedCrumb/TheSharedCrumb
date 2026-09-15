@@ -2,10 +2,11 @@
 layout: recipe
 title: "Poached Egg & Avocado Toast"
 description: "Smashed avocado over toasted sourdough, topped with a runny poached egg and chili flakes."
+category: [Breakfast, Quick & Easy]
 prep_time: "10 mins"
 cook_time: "5 mins"
 yield: "2 toasts"
-image: "/assets/images/poached-egg-toast_TEST.webp"
+image: "/assets/images/Sourdough-Bread_TEST.png"
 ---
 
 ### Ingredients
