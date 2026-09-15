@@ -776,9 +776,28 @@ a.recipe-category-link:hover {
   cursor: pointer;
 }
 
+/* Ingredients Dimming (No Strikethrough) */
 .ingredient-checkbox-label.checked .ingredient-text {
-  text-decoration: line-through;
+  text-decoration: none !important; /* Removes strikethrough */
+  opacity: 0.4;
   color: #A0AEC0;
+  transition: opacity 0.2s ease;
+}
+
+/* Instruction Step Progress (Click-to-Dim) */
+.recipe-body ol li {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.recipe-body ol li:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.recipe-body ol li.completed-step {
+  opacity: 0.4;
 }
 
 /* ==========================================================================
