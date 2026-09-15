@@ -47,21 +47,21 @@ layout: default
         </div>
       </div>
 
-      <!-- Compact Square Image (Moves to Right Column on Print) -->
-      {% if page.image %}
-        <div class="recipe-image-container">
-          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-        </div>
-      {% endif %}
-
     </header>
 
-    <!-- Print Recipe Action Button (Positioned directly above the main image area) -->
+    <!-- Print Recipe Action Button (Placed ABOVE the main image) -->
     <div class="recipe-actions">
       <button onclick="window.print()" class="print-btn">
         🖨️ Print Recipe
       </button>
     </div>
+
+    <!-- Main Recipe Image -->
+    {% if page.image %}
+      <div class="recipe-image-container">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+      </div>
+    {% endif %}
 
     <div class="recipe-body">
       {{ content }}
