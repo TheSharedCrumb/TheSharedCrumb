@@ -15,6 +15,17 @@
               <div class="carousel-card-placeholder"></div>
             {% endif %}
             <div class="carousel-card-content">
+              
+              {% comment %} Render Multi-Category Badges {% endcomment %}
+              {% if recipe.category %}
+                <div class="recipe-category-badges">
+                  {% assign categories = recipe.category %}
+                  {% for cat in categories %}
+                    <span class="recipe-category-badge">{{ cat }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+
               <h3>{{ recipe.title }}</h3>
               <p>{{ recipe.description }}</p>
             </div>
@@ -35,7 +46,7 @@
     
     if (!track || !prevBtn || !nextBtn) return;
 
-    // 1. Shuffle cards on page load
+    // Shuffle cards on page load
     const initialCards = Array.from(track.children);
     for (let i = initialCards.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -45,14 +56,13 @@
     let isTransitioning = false;
     let autoSlideTimer = null;
 
-    // 2. Next Button Action (Infinite Forward Scroll)
     function slideNext() {
       if (isTransitioning) return;
       const cards = track.querySelectorAll('.carousel-card');
       if (cards.length === 0) return;
 
       isTransitioning = true;
-      const cardWidth = cards[0].offsetWidth + 20; // Card width + gap
+      const cardWidth = cards[0].offsetWidth + 20;
 
       track.style.transition = 'transform 0.4s ease-in-out';
       track.style.transform = `translateX(-${cardWidth}px)`;
@@ -65,7 +75,6 @@
       }, 400);
     }
 
-    // 3. Prev Button Action (Infinite Backward Scroll)
     function slidePrev() {
       if (isTransitioning) return;
       const cards = track.querySelectorAll('.carousel-card');
@@ -88,7 +97,6 @@
       }, 420);
     }
 
-    // 4. Timer Reset Handler
     function startAutoSlide() {
       if (autoSlideTimer) clearInterval(autoSlideTimer);
       autoSlideTimer = setInterval(() => {
@@ -96,7 +104,6 @@
       }, 5000);
     }
 
-    // Event Listeners with Timer Reset
     nextBtn.addEventListener('click', () => {
       slideNext();
       startAutoSlide();
@@ -107,7 +114,6 @@
       startAutoSlide();
     });
 
-    // Start auto-slide on page load
     startAutoSlide();
   });
 </script>
