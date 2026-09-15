@@ -5,7 +5,7 @@ description: "Smashed avocado over toasted sourdough, topped with a runny poache
 prep_time: "10 mins"
 cook_time: "5 mins"
 yield: "2 toasts"
-image: "/assets/images/Sourdough-Bread_TEST.png"
+image: "/assets/images/poached-egg-toast_TEST.webp"
 ---
 
 ### Ingredients
