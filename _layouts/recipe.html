@@ -58,6 +58,11 @@ layout: default
           📌 Save to Pinterest
         </a>
 
+        <!-- Native Share Button -->
+        <button id="shareBtn" class="action-btn share-btn">
+          🔗 Share
+        </button>
+
         <!-- Cook Mode Toggle (Visible ONLY on Mobile/Tablet) -->
         <button id="cookModeBtn" class="action-btn cook-mode-btn">
           💡 Cook Mode <span class="cook-mode-status">OFF</span>
@@ -164,7 +169,7 @@ layout: default
   {% endif %}
 </div>
 
-<!-- Interactive Checkboxes, Step Dimming, Auto-Copy & Cook Mode Script -->
+<!-- Interactive Checkboxes, Step Dimming, Auto-Copy, Share & Cook Mode Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // 1. Interactive Checkboxes & Dynamic "Copy Ingredients" Insertion
@@ -233,7 +238,38 @@ layout: default
       });
     }
 
-    // 2. Click-to-Dim Instruction Steps Progress
+    // 2. Native Mobile Web Share API
+    const shareBtn = document.getElementById('shareBtn');
+    if (shareBtn) {
+      shareBtn.addEventListener('click', async () => {
+        const shareData = {
+          title: "{{ page.title | escape }}",
+          text: "{{ page.description | escape }}",
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+          } catch (err) {
+            console.log('Share sheet dismissed');
+          }
+        } else {
+          // Desktop fallback: copies current URL
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            shareBtn.innerHTML = '✓ Link Copied!';
+            shareBtn.classList.add('copied');
+
+            setTimeout(() => {
+              shareBtn.innerHTML = '🔗 Share';
+              shareBtn.classList.remove('copied');
+            }, 2000);
+          });
+        }
+      });
+    }
+
+    // 3. Click-to-Dim Instruction Steps Progress
     const instructionLists = document.querySelectorAll('.recipe-body ol');
     if (instructionLists.length > 0) {
       instructionLists.forEach(ol => {
@@ -246,7 +282,7 @@ layout: default
       });
     }
 
-    // 3. Mobile Cook Mode (Screen WakeLock API)
+    // 4. Mobile Cook Mode (Screen WakeLock API)
     const cookBtn = document.getElementById('cookModeBtn');
     let wakeLock = null;
 
