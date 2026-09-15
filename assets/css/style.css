@@ -430,7 +430,119 @@ footer {
 }
 
 /* ==========================================================================
-   7. Mobile Responsive Adjustments
+   7. Individual Recipe Layout Styles
+   ========================================================================== */
+.recipe-detail-container {
+  max-width: 800px;
+  margin: 20px auto 60px;
+}
+
+.recipe-article {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.recipe-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.recipe-header h1 {
+  font-size: 2.25rem;
+  color: #9B2C2C;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.recipe-description {
+  font-size: 1.1rem;
+  color: #718096;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+/* Metadata Row (Prep, Cook, Yield) */
+.recipe-meta {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 16px 20px;
+  background-color: #FAF5EF;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.meta-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #718096;
+  font-weight: 700;
+}
+
+.meta-value {
+  font-size: 0.95rem;
+  color: #2D3748;
+  font-weight: 600;
+}
+
+/* Recipe Hero Image Constraints */
+.recipe-image-container {
+  width: 100%;
+  max-height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 28px 0 36px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background-color: #EDF2F7;
+}
+
+.recipe-image-container img {
+  width: 100%;
+  height: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Recipe Content & Markdown Styling */
+.recipe-body h3 {
+  font-size: 1.3rem;
+  color: #9B2C2C;
+  margin: 28px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #EDF2F7;
+}
+
+.recipe-body ul, 
+.recipe-body ol {
+  padding-left: 20px;
+  margin-bottom: 20px;
+  color: #4A5568;
+}
+
+.recipe-body li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.recipe-body p {
+  color: #4A5568;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   8. Mobile Responsive Adjustments
    ========================================================================== */
 @media (max-width: 600px) {
   /* Header Mobile */
@@ -487,5 +599,23 @@ footer {
   .carousel-card {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+
+  /* Recipe Page Mobile */
+  .recipe-article {
+    padding: 24px 18px;
+  }
+
+  .recipe-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .recipe-meta {
+    gap: 16px;
+  }
+
+  .recipe-image-container,
+  .recipe-image-container img {
+    max-height: 260px;
   }
 }
