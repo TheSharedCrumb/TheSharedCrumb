@@ -2,10 +2,9 @@
   <div class="footer-container">
     <div class="footer-brand">
       <a href="{{ '/' | relative_url }}" class="footer-logo">
-        <img src="{{ '/assets/logos/TheSharedCrumb_logoMark.PNG' | relative_url }}" alt="The Shared Crumb Logo" class="footer-logo-img">
         <span class="footer-logo-text">The Shared Crumb</span>
       </a>
-      <p class="footer-tagline">Simple, reliable recipes baked with love and shared around the table.</p>
+      <p class="footer-tagline">Your favorite recipes, tested and shared.</p>
     </div>
 
     <div class="footer-links">
@@ -15,10 +14,18 @@
         <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
         <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
       </ul>
+
+      <!-- Small Footer Social Links -->
+      <div class="footer-social-links">
+        <a href="https://www.pinterest.com/thesharedcrumb/" target="_blank" rel="noopener" aria-label="Pinterest" class="social-icon-sm">Pinterest</a>
+        <a href="https://www.instagram.com/thesharedcrumb" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-sm">Instagram</a>
+        <a href="https://www.tiktok.com/@thesharedcrumb_" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon-sm">TikTok</a>
+        <a href="https://www.youtube.com/@TheSharedCrumb" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-sm">YouTube</a>
+      </div>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2026 The Shared Crumb. All rights reserved.</p>
+    <p>&copy; {{ 'now' | date: "%Y" }} The Shared Crumb. All rights reserved.</p>
   </div>
 </footer>
