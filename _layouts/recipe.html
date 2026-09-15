@@ -78,30 +78,33 @@ layout: default
     </div>
   </article>
 
-  <!-- Smart Category-First Related Recipes Section -->
+  <!-- Multi-Category Smart Related Recipes Section -->
+  {% assign related_candidates = "" | split: "" %}
+
+  {% comment %} 1. Loop through all assigned categories to collect matching recipes {% endcomment %}
   {% if page.category and page.category.size > 0 %}
-    {% assign primary_category = page.category[0] %}
-    {% comment %} 1. Find all recipes matching the same category, excluding the current recipe {% endcomment %}
-    {% assign same_cat_recipes = site.recipes | where_exp: "item", "item.url != page.url and item.category contains primary_category" %}
-    {% assign same_cat_count = same_cat_recipes | size %}
-  {% else %}
-    {% assign same_cat_recipes = "" | split: "" %}
-    {% assign same_cat_count = 0 %}
+    {% for cat in page.category %}
+      {% assign matches = site.recipes | where_exp: "item", "item.url != page.url and item.category contains cat" %}
+      {% assign related_candidates = related_candidates | concat: matches %}
+    {% endfor %}
+    {% assign related_candidates = related_candidates | uniq %}
   {% endif %}
 
-  {% comment %} 2. If we have 3 or more category matches, take 3 randomly from that matching group {% endcomment %}
-  {% if same_cat_count >= 3 %}
-    {% assign final_related = same_cat_recipes | sample: 3 %}
+  {% assign candidate_count = related_candidates | size %}
+
+  {% comment %} 2. If 3 or more category matches exist across all tags, pick 3 randomly {% endcomment %}
+  {% if candidate_count >= 3 %}
+    {% assign final_related = related_candidates | sample: 3 %}
   {% else %}
-    {% comment %} 3. Otherwise, get all other recipes to fill the remaining slots {% endcomment %}
-    {% assign other_recipes = site.recipes | where_exp: "item", "item.url != page.url" %}
-    {% for cat_item in same_cat_recipes %}
-      {% assign other_recipes = other_recipes | where_exp: "item", "item.url != cat_item.url" %}
+    {% comment %} 3. Fill missing slots with random recipes from the rest of the site {% endcomment %}
+    {% assign remaining_recipes = site.recipes | where_exp: "item", "item.url != page.url" %}
+    {% for matched_item in related_candidates %}
+      {% assign remaining_recipes = remaining_recipes | where_exp: "item", "item.url != matched_item.url" %}
     {% endfor %}
-    
-    {% assign fill_needed = 3 | minus: same_cat_count %}
-    {% assign random_fills = other_recipes | sample: fill_needed %}
-    {% assign final_related = same_cat_recipes | concat: random_fills %}
+
+    {% assign fill_needed = 3 | minus: candidate_count %}
+    {% assign random_fills = remaining_recipes | sample: fill_needed %}
+    {% assign final_related = related_candidates | concat: random_fills %}
   {% endif %}
 
   <!-- Display 3-Card Grid -->
@@ -117,7 +120,7 @@ layout: default
             <div class="grid-card-content">
               {% if recipe.category %}
                 <div class="recipe-category-badges">
-                  {% for cat in recipe.category limit:1 %}
+                  {% for cat in recipe.category %}
                     <span class="recipe-category-badge">{{ cat }}</span>
                   {% endfor %}
                 </div>
