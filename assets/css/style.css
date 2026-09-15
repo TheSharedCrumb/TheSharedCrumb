@@ -9,7 +9,7 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background-color: #FAF5EF; /* Warm off-white dough background */
+  background-color: #FAF5EF; /* Warm off-white background */
   color: #2D3748;
   line-height: 1.6;
   min-height: 100vh;
@@ -187,10 +187,84 @@ footer {
 }
 
 /* ==========================================================================
-   4. Mobile Responsive Adjustments
+   4. About Page Styles
+   ========================================================================== */
+.about-container {
+  max-width: 900px;
+  margin: 40px auto 60px;
+  padding: 0 24px;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  color: #9B2C2C;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.about-subtitle {
+  font-size: 1.15rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.about-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 36px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.about-card h2 {
+  color: #2D3748;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.about-card p {
+  color: #4A5568;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.about-box {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.about-box h3 {
+  color: #9B2C2C;
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+}
+
+.about-box p {
+  color: #4A5568;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   5. Mobile Responsive Adjustments
    ========================================================================== */
 @media (max-width: 600px) {
-  /* Header Mobile Adjustments */
+  /* Header Mobile */
   .header-container {
     flex-direction: column;
     gap: 14px;
@@ -204,7 +278,7 @@ footer {
     font-size: 0.9rem;
   }
 
-  /* Footer Mobile Adjustments */
+  /* Footer Mobile */
   .footer-container {
     flex-direction: column;
     align-items: center;
@@ -220,5 +294,14 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
+  }
+
+  /* About Page Mobile */
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-card {
+    padding: 24px;
   }
 }
