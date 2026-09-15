@@ -39,7 +39,7 @@
     function updateCarousel() {
       const cards = track.querySelectorAll('.carousel-card');
       if (cards.length === 0) return;
-      const cardWidth = cards[0].offsetWidth + 20; // Card width + gap
+      const cardWidth = cards[0].offsetWidth + 20;
       track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
     }
 
