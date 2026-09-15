@@ -1,11 +1,120 @@
 /* ==========================================================================
-   Footer Styles
+   1. Reset & Base Setup
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #FAF5EF; /* Warm off-white dough background */
+  color: #2D3748;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  max-width: 1050px;
+  margin: 40px auto;
+  padding: 0 24px;
+  flex: 1;
+  width: 100%;
+}
+
+/* ==========================================================================
+   2. Navigation Header & Sticky Bar
+   ========================================================================== */
+header {
+  background-color: #FFFFFF;
+  border-bottom: 2px solid #E2E8F0;
+  padding: 12px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.header-container {
+  max-width: 1050px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand Logo Link & Guard */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 42px !important;
+  max-height: 42px !important;
+  width: auto !important;
+  border-radius: 6px;
+  display: block;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #9B2C2C; /* Warm deep burgundy red */
+  letter-spacing: -0.5px;
+}
+
+/* Navigation Menu */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: #4A5568;
+  font-weight: 600;
+  font-size: 0.95rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+/* Hover & Active States */
+nav a:hover, 
+nav a.active {
+  color: #9B2C2C;
+}
+
+/* Active tab underline indicator */
+nav a.active::after,
+nav a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #9B2C2C;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   3. Footer Layout & Styling
    ========================================================================== */
 footer {
   background-color: #FFFFFF;
   border-top: 2px solid #E2E8F0;
   padding: 40px 24px 20px;
-  margin-top: auto; /* Keeps footer pinned to bottom on short pages */
+  margin-top: auto; /* Pins footer to bottom on short pages */
 }
 
 .footer-container {
@@ -19,6 +128,21 @@ footer {
   border-bottom: 1px solid #EDF2F7;
 }
 
+/* Footer Logo & Brand */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo-img {
+  height: 32px !important;
+  max-height: 32px !important;
+  width: auto !important;
+  border-radius: 4px;
+  display: block;
+}
+
 .footer-logo-text {
   font-size: 1.25rem;
   font-weight: 700;
@@ -29,10 +153,12 @@ footer {
 .footer-tagline {
   color: #718096;
   font-size: 0.9rem;
-  margin-top: 8px;
+  margin-top: 10px;
   max-width: 320px;
+  line-height: 1.5;
 }
 
+/* Footer Navigation Links */
 .footer-links ul {
   list-style: none;
   display: flex;
@@ -43,7 +169,7 @@ footer {
   text-decoration: none;
   color: #4A5568;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: color 0.2s ease;
 }
 
@@ -51,6 +177,7 @@ footer {
   color: #9B2C2C;
 }
 
+/* Copyright Bar */
 .footer-bottom {
   max-width: 1050px;
   margin: 20px auto 0;
@@ -59,13 +186,34 @@ footer {
   font-size: 0.825rem;
 }
 
-/* Mobile Footer Adjustments */
+/* ==========================================================================
+   4. Mobile Responsive Adjustments
+   ========================================================================== */
 @media (max-width: 600px) {
+  /* Header Mobile Adjustments */
+  .header-container {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  nav ul {
+    gap: 18px;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  /* Footer Mobile Adjustments */
   .footer-container {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 20px;
+  }
+
+  .footer-logo {
+    justify-content: center;
   }
 
   .footer-links ul {
