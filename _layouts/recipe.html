@@ -78,15 +78,18 @@ layout: default
     </div>
   </article>
 
-  <!-- Fail-Safe Related Recipes Section -->
+  <!-- Multi-Category Related Recipes (Without where_exp) -->
   {% assign related_candidates = "" | split: "" %}
 
   {% if page.category and page.category.size > 0 %}
     {% for cat in page.category %}
-      {% assign cat_matches = site.recipes | where_exp: "item", "item.url != page.url and item.category contains cat" %}
-      {% for match in cat_matches %}
-        {% assign match_arr = site.recipes | where: "url", match.url %}
-        {% assign related_candidates = related_candidates | push: match_arr[0] %}
+      {% for recipe in site.recipes %}
+        {% if recipe.url != page.url %}
+          {% if recipe.category contains cat %}
+            {% assign match_item = site.recipes | where: "url", recipe.url %}
+            {% assign related_candidates = related_candidates | push: match_item[0] %}
+          {% endif %}
+        {% endif %}
       {% endfor %}
     {% endfor %}
     {% assign related_candidates = related_candidates | uniq %}
@@ -97,26 +100,26 @@ layout: default
   {% if candidate_count >= 3 %}
     {% assign final_related = related_candidates | sample: 3 %}
   {% else %}
-    {% assign remaining_recipes = site.recipes | where_exp: "item", "item.url != page.url" %}
-    {% assign fill_needed = 3 | minus: candidate_count %}
-    
-    {% comment %} Exclude already matched candidates from the remaining pool {% endcomment %}
+    {% comment %} Collect unused recipes to fill remaining slots {% endcomment %}
     {% assign unused_recipes = "" | split: "" %}
-    {% for recipe in remaining_recipes %}
-      {% assign is_used = false %}
-      {% for cand in related_candidates %}
-        {% if cand.url == recipe.url %}
-          {% assign is_used = true %}
-        {% endif %}
-      {% endfor %}
-      {% unless is_used %}
-        {% assign item_arr = site.recipes | where: "url", recipe.url %}
-        {% assign unused_recipes = unused_recipes | push: item_arr[0] %}
-      {% endunless %}
+    {% for recipe in site.recipes %}
+      {% if recipe.url != page.url %}
+        {% assign is_candidate = false %}
+        {% for cand in related_candidates %}
+          {% if cand.url == recipe.url %}
+            {% assign is_candidate = true %}
+          {% endif %}
+        {% endfor %}
+        {% unless is_candidate %}
+          {% assign rem_item = site.recipes | where: "url", recipe.url %}
+          {% assign unused_recipes = unused_recipes | push: rem_item[0] %}
+        {% endunless %}
+      {% endif %}
     {% endfor %}
 
+    {% assign fill_needed = 3 | minus: candidate_count %}
     {% assign random_fills = unused_recipes | sample: fill_needed %}
-    
+
     {% assign final_related = "" | split: "" %}
     {% for cand in related_candidates %}
       {% assign final_related = final_related | push: cand %}
