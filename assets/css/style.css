@@ -684,12 +684,12 @@ a.recipe-category-link:hover {
 /* ==========================================================================
    9. Recipe Detail Actions, Interactive Ingredients & Cook Mode
    ========================================================================== */
+/* 2x2 Grid Layout on Mobile (Saves vertical space & improves tap targets) */
 .recipe-actions {
   order: 2;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
   margin: 20px 0 0;
   position: relative;
   z-index: 1 !important;
@@ -700,7 +700,7 @@ a.recipe-category-link:hover {
   border: 1px solid #E2E8F0;
   font-size: 0.875rem;
   font-weight: 700;
-  padding: 8px 18px;
+  padding: 8px 14px;
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
@@ -708,7 +708,10 @@ a.recipe-category-link:hover {
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  width: 100%; /* Fills grid column on mobile */
+  text-align: center;
 }
 
 .print-btn {
@@ -732,7 +735,7 @@ a.recipe-category-link:hover {
   border-color: #E60023;
 }
 
-/* Share Button Styling */
+/* Native Web Share Button */
 .share-btn {
   color: #4A5568;
   border-color: #CBD5E0;
@@ -778,6 +781,22 @@ a.recipe-category-link:hover {
   font-weight: 800;
 }
 
+/* Desktop Overrides: Switch from 2x2 Grid to Centered Flex Row */
+@media (min-width: 601px) {
+  .recipe-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .action-btn {
+    width: auto; /* Shrinks back to natural button width on desktop */
+    padding: 8px 18px;
+  }
+}
+
+/* Interactive Ingredient Checkboxes (Dimmed, No Strikethrough) */
 .ingredient-checkbox-label {
   display: flex;
   align-items: flex-start;
@@ -794,7 +813,6 @@ a.recipe-category-link:hover {
   cursor: pointer;
 }
 
-/* Ingredients Dimming (No Strikethrough) */
 .ingredient-checkbox-label.checked .ingredient-text {
   text-decoration: none !important; /* Removes strikethrough */
   opacity: 0.4;
@@ -802,23 +820,7 @@ a.recipe-category-link:hover {
   transition: opacity 0.2s ease;
 }
 
-/* Instruction Step Progress (Click-to-Dim) */
-.recipe-body ol li {
-  cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: opacity 0.2s ease, background-color 0.2s ease;
-}
-
-.recipe-body ol li:hover {
-  background-color: rgba(0, 0, 0, 0.03);
-}
-
-.recipe-body ol li.completed-step {
-  opacity: 0.4;
-}
-
-/* Copy Ingredients Button Styling */
+/* Copy Ingredients Button Below List */
 .copy-ingredients-wrapper {
   margin: 12px 0 28px;
 }
@@ -838,6 +840,22 @@ a.recipe-category-link:hover {
   background-color: #2F855A !important;
   color: #FFFFFF !important;
   border-color: #2F855A !important;
+}
+
+/* Instruction Step Progress (Click-to-Dim) */
+.recipe-body ol li {
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.recipe-body ol li:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.recipe-body ol li.completed-step {
+  opacity: 0.4;
 }
 
 /* ==========================================================================
