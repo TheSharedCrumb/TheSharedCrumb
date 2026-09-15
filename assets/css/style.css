@@ -268,7 +268,56 @@ footer {
 }
 
 /* ==========================================================================
-   5. Mobile Responsive Adjustments
+   5. Contact Page Styles (Coming Soon)
+   ========================================================================== */
+.contact-coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  padding: 40px 24px;
+}
+
+.coming-soon-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 48px 32px;
+  max-width: 540px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.coming-soon-card h1 {
+  font-size: 2.25rem;
+  color: #9B2C2C;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+  background-color: #FAF5EF;
+  color: #9B2C2C;
+  border: 1px solid #E2E8F0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.coming-soon-text {
+  color: #4A5568;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   6. Mobile Responsive Adjustments
    ========================================================================== */
 @media (max-width: 600px) {
   /* Header Mobile */
@@ -310,5 +359,14 @@ footer {
 
   .about-card {
     padding: 24px;
+  }
+
+  /* Contact Page Mobile */
+  .coming-soon-card {
+    padding: 32px 20px;
+  }
+  
+  .coming-soon-card h1 {
+    font-size: 1.8rem;
   }
 }
