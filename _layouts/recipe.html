@@ -136,7 +136,6 @@ layout: default
       <h2>You Might Also Like</h2>
       <div class="recipes-grid">
         {% for recipe in final_related %}
-          {% comment %} Guard Check: Strictly render valid recipe cards with titles {% endcomment %}
           {% if recipe.title and recipe.url %}
             <a href="{{ recipe.url | relative_url }}" class="recipe-grid-card">
               {% if recipe.image %}
@@ -165,7 +164,7 @@ layout: default
   {% endif %}
 </div>
 
-<!-- Interactive Checkboxes & Mobile Cook Mode Script -->
+<!-- Interactive Checkboxes, Step Dimming & Cook Mode Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // 1. Interactive Checkboxes
@@ -202,7 +201,20 @@ layout: default
       });
     }
 
-    // 2. Mobile Cook Mode (Screen WakeLock API)
+    // 2. Click-to-Dim Instruction Steps Progress
+    const instructionLists = document.querySelectorAll('.recipe-body ol');
+    if (instructionLists.length > 0) {
+      instructionLists.forEach(ol => {
+        const steps = ol.querySelectorAll('li');
+        steps.forEach(step => {
+          step.addEventListener('click', () => {
+            step.classList.toggle('completed-step');
+          });
+        });
+      });
+    }
+
+    // 3. Mobile Cook Mode (Screen WakeLock API)
     const cookBtn = document.getElementById('cookModeBtn');
     let wakeLock = null;
 
