@@ -645,7 +645,13 @@ a.recipe-category-link:hover {
   border-bottom: 1px solid #EDF2F7;
 }
 
-.recipe-body ul, 
+/* Remove bullets & padding for ingredient lists */
+.recipe-body ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin-bottom: 20px;
+}
+
 .recipe-body ol {
   padding-left: 20px;
   margin-bottom: 20px;
