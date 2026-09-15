@@ -5,57 +5,61 @@ layout: default
   <article class="recipe-article">
     <header class="recipe-header">
       
-      {% comment %} Clickable Category Badges {% endcomment %}
-      {% if page.category %}
-        <div class="recipe-category-badges recipe-category-badges-center">
-          {% for cat in page.category %}
-            <a href="{{ '/recipes.html' | relative_url }}?category={{ cat | slugify }}" class="recipe-category-badge recipe-category-link">
-              {{ cat }}
-            </a>
-          {% endfor %}
+      <!-- Text & Meta Column -->
+      <div class="recipe-header-text">
+        {% if page.category %}
+          <div class="recipe-category-badges">
+            {% for cat in page.category %}
+              <a href="{{ '/recipes.html' | relative_url }}?category={{ cat | slugify }}" class="recipe-category-badge recipe-category-link">
+                {{ cat }}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <h1>{{ page.title }}</h1>
+
+        {% if page.description %}
+          <p class="recipe-description">{{ page.description }}</p>
+        {% endif %}
+
+        <div class="recipe-meta">
+          {% if page.prep_time %}
+            <div class="meta-item">
+              <span class="meta-label">Prep Time</span>
+              <span class="meta-value">{{ page.prep_time }}</span>
+            </div>
+          {% endif %}
+          {% if page.cook_time %}
+            <div class="meta-item">
+              <span class="meta-label">Cook Time</span>
+              <span class="meta-value">{{ page.cook_time }}</span>
+            </div>
+          {% endif %}
+          {% if page.yield %}
+            <div class="meta-item">
+              <span class="meta-label">Yield</span>
+              <span class="meta-value">{{ page.yield }}</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Compact Square Image (Moves to the Right Column on Print) -->
+      {% if page.image %}
+        <div class="recipe-image-container">
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
         </div>
       {% endif %}
 
-      <h1>{{ page.title }}</h1>
-
-      {% if page.description %}
-        <p class="recipe-description">{{ page.description }}</p>
-      {% endif %}
-
-      <!-- Print Recipe Action Button -->
-      <div class="recipe-actions">
-        <button onclick="window.print()" class="print-btn">
-          🖨️ Print Recipe
-        </button>
-      </div>
-
-      <div class="recipe-meta">
-        {% if page.prep_time %}
-          <div class="meta-item">
-            <span class="meta-label">Prep Time</span>
-            <span class="meta-value">{{ page.prep_time }}</span>
-          </div>
-        {% endif %}
-        {% if page.cook_time %}
-          <div class="meta-item">
-            <span class="meta-label">Cook Time</span>
-            <span class="meta-value">{{ page.cook_time }}</span>
-          </div>
-        {% endif %}
-        {% if page.yield %}
-          <div class="meta-item">
-            <span class="meta-label">Yield</span>
-            <span class="meta-value">{{ page.yield }}</span>
-          </div>
-        {% endif %}
-      </div>
     </header>
 
-    {% if page.image %}
-      <div class="recipe-image-container">
-        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-      </div>
-    {% endif %}
+    <!-- Print Recipe Action Button -->
+    <div class="recipe-actions">
+      <button onclick="window.print()" class="print-btn">
+        🖨️ Print Recipe
+      </button>
+    </div>
 
     <div class="recipe-body">
       {{ content }}
@@ -63,7 +67,6 @@ layout: default
   </article>
 </div>
 
-<!-- Interactive Ingredient Checkboxes Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const ingredientLists = document.querySelectorAll('.recipe-body ul');
