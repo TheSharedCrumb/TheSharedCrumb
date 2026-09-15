@@ -13,38 +13,46 @@
   {% include header.html %}
 
   <main class="recipe-detail-container">
-    <article class="recipe-card">
+    <article class="recipe-article">
+      <!-- Recipe Header & Metadata -->
       <header class="recipe-header">
         <h1>{{ page.title }}</h1>
-        <p class="recipe-description">{{ page.description }}</p>
-        
+        {% if page.description %}
+          <p class="recipe-description">{{ page.description }}</p>
+        {% endif %}
+
         <div class="recipe-meta">
-          <span><strong>Prep:</strong> {{ page.prep_time }}</span>
-          <span><strong>Cook:</strong> {{ page.cook_time }}</span>
-          <span><strong>Yield:</strong> {{ page.yield }}</span>
+          {% if page.prep_time %}
+            <div class="meta-item">
+              <span class="meta-label">Prep Time</span>
+              <span class="meta-value">{{ page.prep_time }}</span>
+            </div>
+          {% endif %}
+          {% if page.cook_time %}
+            <div class="meta-item">
+              <span class="meta-label">Cook Time</span>
+              <span class="meta-value">{{ page.cook_time }}</span>
+            </div>
+          {% endif %}
+          {% if page.yield %}
+            <div class="meta-item">
+              <span class="meta-label">Yield</span>
+              <span class="meta-value">{{ page.yield }}</span>
+            </div>
+          {% endif %}
         </div>
       </header>
 
+      <!-- Featured Image (Constrained Height) -->
       {% if page.image %}
         <div class="recipe-image-container">
           <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
         </div>
       {% endif %}
 
+      <!-- Recipe Content Body -->
       <div class="recipe-body">
-        <section class="ingredients-section">
-          <h2>Ingredients</h2>
-          <ul>
-            {% for ingredient in page.ingredients %}
-              <li>{{ ingredient }}</li>
-            {% endfor %}
-          </ul>
-        </section>
-
-        <section class="instructions-section">
-          <h2>Instructions</h2>
-          {{ content }}
-        </section>
+        {{ content }}
       </div>
     </article>
   </main>
