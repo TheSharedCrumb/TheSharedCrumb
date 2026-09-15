@@ -6,7 +6,7 @@ category: [Main Courses, Quick & Easy]
 prep_time: "10 mins"
 cook_time: "15 mins"
 yield: "4 servings"
-image: "/assets/images/Sourdough-Bread_TEST.png"
+image: "/assets/images/Tuscan_TEST.jpg"
 ---
 
 ### Ingredients
