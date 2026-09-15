@@ -29,7 +29,7 @@ main {
    2. Navigation Header & Sticky Bar
    ========================================================================== */
 header {
-  background-color: #FFFFFF;
+  background-color: #FFFFFF !important;
   border-bottom: 2px solid #E2E8F0;
   padding: 12px 24px;
   position: sticky;
@@ -149,7 +149,7 @@ footer {
   font-weight: 700;
   color: #9B2C2C;
   letter-spacing: -0.5px;
-  text-decoration: none; /* Extra check against default link underlines */
+  text-decoration: none;
   transition: opacity 0.2s ease;
 }
 
@@ -360,20 +360,20 @@ footer {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   display: flex;
   flex-direction: column;
-  text-decoration: none; /* Removes underline from whole card block */
+  text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .carousel-card:hover {
-  transform: translateY(-3px); /* Gentle lift on hover */
+  transform: translateY(-3px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Force Square 1:1 Aspect Ratio Crop */
 .carousel-card-img {
   width: 100%;
-  aspect-ratio: 1 / 1;    /* Keeps image perfectly square regardless of card width */
-  object-fit: cover;      /* Crops top/bottom/sides without stretching */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   display: block;
 }
 
@@ -397,7 +397,6 @@ footer {
   transition: color 0.2s ease;
 }
 
-/* Highlights card title when hovering anywhere on the card */
 .carousel-card:hover .carousel-card-content h3 {
   color: #9B2C2C;
 }
@@ -448,6 +447,8 @@ footer {
 .recipe-header {
   text-align: center;
   margin-bottom: 24px;
+  position: relative;
+  z-index: 1; /* Stays below sticky header */
 }
 
 .recipe-header h1 {
