@@ -50,7 +50,7 @@ layout: default
         <button onclick="window.print()" class="action-btn print-btn">
           🖨️ Print Recipe
         </button>
-        
+
         <a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url }}&media={{ page.image | absolute_url }}&description={{ page.description | url_encode }}" 
            target="_blank" 
            rel="noopener" 
@@ -77,6 +77,29 @@ layout: default
       {{ content }}
     </div>
   </article>
+
+  <!-- Clean Related Recipes Section -->
+  {% assign related = site.recipes | where_exp: "item", "item.url != page.url" | sample: 3 %}
+  {% if related.size > 0 %}
+    <div class="related-recipes-section">
+      <h2>You Might Also Like</h2>
+      <div class="recipes-grid">
+        {% for recipe in related %}
+          <a href="{{ recipe.url | relative_url }}" class="recipe-grid-card">
+            {% if recipe.image %}
+              <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
+            {% endif %}
+            <div class="grid-card-content">
+              <h3>{{ recipe.title }}</h3>
+              {% if recipe.description %}
+                <p>{{ recipe.description | truncate: 75 }}</p>
+              {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 </div>
 
 <!-- Interactive Checkboxes & Mobile Cook Mode Script -->
@@ -140,7 +163,6 @@ layout: default
           }
         });
       } else {
-        // Hide if browser doesn't support wakeLock
         cookBtn.style.display = 'none';
       }
     }
