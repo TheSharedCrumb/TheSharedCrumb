@@ -110,6 +110,21 @@ title: All Recipes
       noResultsMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
     }
 
+    // Read URL query parameter ?category=...
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+
+    if (categoryParam) {
+      const targetBtn = document.querySelector(`.filter-btn[data-filter="${categoryParam}"]`);
+      if (targetBtn) {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        targetBtn.classList.add('active');
+        currentFilter = categoryParam;
+      }
+    }
+
+    filterRecipes();
+
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
