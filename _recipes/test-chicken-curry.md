@@ -2,7 +2,7 @@
 layout: recipe
 title: "One-Pot Coconut Chickpea Curry"
 description: "A warming 20-minute vegetarian curry featuring chickpeas and coconut milk."
-category: [Main Courses, Vegetarian]
+category: [Main Courses, Vegetarian, Chicken, tag for it, dinner]
 prep_time: "10 mins"
 cook_time: "20 mins"
 yield: "4 servings"
