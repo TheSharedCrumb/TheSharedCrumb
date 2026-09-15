@@ -13,7 +13,7 @@ title: All Recipes
       <input 
         type="text" 
         id="recipeSearchInput" 
-        placeholder="Search recipes by name or description..." 
+        placeholder="Search recipes by name, ingredient, or category..." 
         aria-label="Search recipes">
     </div>
   </header>
@@ -38,16 +38,19 @@ title: All Recipes
   <div class="recipes-grid" id="recipesGrid">
     {% for recipe in site.recipes %}
       {% assign cat_slugs = "" %}
+      {% assign cat_raw_string = "" %}
       {% if recipe.category %}
         {% for cat in recipe.category %}
           {% assign slug = cat | slugify %}
           {% assign cat_slugs = cat_slugs | append: slug | append: " " %}
+          {% assign cat_raw_string = cat_raw_string | append: cat | downcase | append: " " %}
         {% endfor %}
       {% endif %}
 
       <a href="{{ recipe.url | relative_url }}" 
          class="recipe-grid-card" 
          data-categories="{{ cat_slugs | strip }}"
+         data-raw-categories="{{ cat_raw_string | strip }}"
          data-title="{{ recipe.title | downcase }}"
          data-description="{{ recipe.description | downcase }}">
         
@@ -93,11 +96,17 @@ title: All Recipes
 
       cards.forEach(card => {
         const cardCategories = card.getAttribute('data-categories').split(' ');
-        const cardTitle = card.getAttribute('data-title');
-        const cardDesc = card.getAttribute('data-description');
+        const cardRawCats = card.getAttribute('data-raw-categories') || '';
+        const cardTitle = card.getAttribute('data-title') || '';
+        const cardDesc = card.getAttribute('data-description') || '';
 
         const matchesCategory = (currentFilter === 'all') || cardCategories.includes(currentFilter);
-        const matchesSearch = !currentQuery || cardTitle.includes(currentQuery) || cardDesc.includes(currentQuery);
+        
+        // Search matches against Title, Description, OR Category names
+        const matchesSearch = !currentQuery || 
+                              cardTitle.includes(currentQuery) || 
+                              cardDesc.includes(currentQuery) || 
+                              cardRawCats.includes(currentQuery);
 
         if (matchesCategory && matchesSearch) {
           card.style.display = 'flex';
