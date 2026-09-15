@@ -164,10 +164,10 @@ layout: default
   {% endif %}
 </div>
 
-<!-- Interactive Checkboxes, Step Dimming & Cook Mode Script -->
+<!-- Interactive Checkboxes, Step Dimming, Auto-Copy & Cook Mode Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // 1. Interactive Checkboxes
+    // 1. Interactive Checkboxes & Dynamic "Copy Ingredients" Insertion
     const ingredientLists = document.querySelectorAll('.recipe-body ul');
     if (ingredientLists.length > 0) {
       ingredientLists.forEach(ul => {
@@ -198,6 +198,38 @@ layout: default
             }
           });
         });
+
+        // Insert "Copy Ingredients" button directly beneath the <ul> list
+        const copyWrapper = document.createElement('div');
+        copyWrapper.className = 'copy-ingredients-wrapper';
+
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'action-btn copy-btn';
+        copyBtn.innerHTML = '📋 Copy Ingredients';
+
+        copyBtn.addEventListener('click', () => {
+          const allTextSpans = ul.querySelectorAll('.ingredient-text');
+          if (allTextSpans.length === 0) return;
+
+          const textToCopy = Array.from(allTextSpans)
+            .map(span => `• ${span.innerText.trim()}`)
+            .join('\n');
+
+          navigator.clipboard.writeText(textToCopy).then(() => {
+            copyBtn.innerHTML = '✓ Copied!';
+            copyBtn.classList.add('copied');
+
+            setTimeout(() => {
+              copyBtn.innerHTML = '📋 Copy Ingredients';
+              copyBtn.classList.remove('copied');
+            }, 2000);
+          }).catch(err => {
+            console.error('Clipboard copy failed: ', err);
+          });
+        });
+
+        copyWrapper.appendChild(copyBtn);
+        ul.parentNode.insertBefore(copyWrapper, ul.nextSibling);
       });
     }
 
