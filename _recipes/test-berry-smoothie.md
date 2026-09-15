@@ -5,7 +5,7 @@ description: "A thick, refreshing blend of blueberries, strawberries, Greek yogu
 prep_time: "5 mins"
 cook_time: "0 mins"
 yield: "1 large smoothie"
-image: "/assets/images/Sourdough-Bread_TEST.png"
+image: "/assets/images/Berry_Smoothie_TEST.webp"
 ---
 
 ### Ingredients
