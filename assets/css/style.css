@@ -682,6 +682,7 @@ a.recipe-category-link:hover {
 }
 
 /* ==========================================================================
+   /* ==========================================================================
    9. Recipe Detail Actions, Interactive Ingredients & Cook Mode
    ========================================================================== */
 .recipe-actions {
@@ -798,6 +799,28 @@ a.recipe-category-link:hover {
 
 .recipe-body ol li.completed-step {
   opacity: 0.4;
+}
+
+/* Copy Ingredients Button Styling */
+.copy-ingredients-wrapper {
+  margin: 12px 0 28px;
+}
+
+.copy-btn {
+  color: #4A5568;
+  border-color: #CBD5E0;
+}
+
+.copy-btn:hover {
+  background-color: #9B2C2C;
+  color: #FFFFFF;
+  border-color: #9B2C2C;
+}
+
+.copy-btn.copied {
+  background-color: #2F855A !important;
+  color: #FFFFFF !important;
+  border-color: #2F855A !important;
 }
 
 /* ==========================================================================
