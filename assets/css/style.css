@@ -26,7 +26,7 @@ main {
 }
 
 /* ==========================================================================
-   2. Navigation Header & Sticky Bar
+   2. Navigation Header & Sticky Bar Guard
    ========================================================================== */
 header {
   background-color: #FFFFFF !important; /* Forces solid background when scrolling */
@@ -34,7 +34,7 @@ header {
   padding: 12px 24px;
   position: sticky;
   top: 0;
-  z-index: 1000; /* Stays on top of all page elements */
+  z-index: 9999 !important; /* Stays firmly above all scrolling page elements */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -272,7 +272,7 @@ nav a:hover::after {
 }
 
 /* ==========================================================================
-   6. Recipe Index Page & Grid Controls (Fixed 3 Tiles Wide)
+   6. Recipe Index Page & Grid Controls (Fixed 3 Tiles Wide & Z-Index Layered)
    ========================================================================== */
 .recipes-archive-container {
   max-width: 1050px;
@@ -282,6 +282,8 @@ nav a:hover::after {
 .archive-header {
   text-align: center;
   margin-bottom: 32px;
+  position: relative;
+  z-index: 1; /* Keeps header content underneath sticky navigation on scroll */
 }
 
 .archive-header h1 {
@@ -299,6 +301,8 @@ nav a:hover::after {
 .search-box-wrapper {
   max-width: 480px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 #recipeSearchInput {
@@ -326,6 +330,8 @@ nav a:hover::after {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
 }
 
 .filter-btn {
