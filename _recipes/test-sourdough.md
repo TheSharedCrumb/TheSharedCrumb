@@ -1,5 +1,4 @@
 ---
----
 layout: recipe
 title: "Classic Artisanal Sourdough"
 description: "A rustic sourdough loaf with a crispy crust, open crumb, and subtle tang."
