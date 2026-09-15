@@ -1,10 +1,12 @@
 ---
+---
 layout: recipe
 title: "Classic Artisanal Sourdough"
 description: "A rustic sourdough loaf with a crispy crust, open crumb, and subtle tang."
 prep_time: "30 mins"
 cook_time: "45 mins"
 yield: "1 loaf"
+image: "/assets/images/Sourdough-Bread_TEST.png"
 ---
 
 ### Ingredients
