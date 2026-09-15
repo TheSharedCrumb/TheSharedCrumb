@@ -43,6 +43,7 @@
     }
 
     let isTransitioning = false;
+    let autoSlideTimer = null;
 
     // 2. Next Button Action (Infinite Forward Scroll)
     function slideNext() {
@@ -53,11 +54,9 @@
       isTransitioning = true;
       const cardWidth = cards[0].offsetWidth + 20; // Card width + gap
 
-      // Smooth slide forward by 1 card
       track.style.transition = 'transform 0.4s ease-in-out';
       track.style.transform = `translateX(-${cardWidth}px)`;
 
-      // After slide completes, move the first card to the end and reset track offset without animation
       setTimeout(() => {
         track.style.transition = 'none';
         track.appendChild(cards[0]);
@@ -75,12 +74,10 @@
       isTransitioning = true;
       const cardWidth = cards[0].offsetWidth + 20;
 
-      // Move the last card to the front instantly behind the scenes
       track.style.transition = 'none';
       track.insertBefore(cards[cards.length - 1], cards[0]);
       track.style.transform = `translateX(-${cardWidth}px)`;
 
-      // Animate sliding back into view
       setTimeout(() => {
         track.style.transition = 'transform 0.4s ease-in-out';
         track.style.transform = 'translateX(0)';
@@ -91,12 +88,26 @@
       }, 420);
     }
 
-    nextBtn.addEventListener('click', slideNext);
-    prevBtn.addEventListener('click', slidePrev);
+    // 4. Timer Reset Handler
+    function startAutoSlide() {
+      if (autoSlideTimer) clearInterval(autoSlideTimer);
+      autoSlideTimer = setInterval(() => {
+        slideNext();
+      }, 5000);
+    }
 
-    // Auto advancement timer
-    setInterval(() => {
+    // Event Listeners with Timer Reset
+    nextBtn.addEventListener('click', () => {
       slideNext();
-    }, 5000);
+      startAutoSlide();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      slidePrev();
+      startAutoSlide();
+    });
+
+    // Start auto-slide on page load
+    startAutoSlide();
   });
 </script>
