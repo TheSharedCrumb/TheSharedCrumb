@@ -38,19 +38,20 @@ title: All Recipes
   <div class="recipes-grid" id="recipesGrid">
     {% for recipe in site.recipes %}
       {% assign cat_slugs = "" %}
-      {% assign cat_raw_string = "" %}
       {% if recipe.category %}
         {% for cat in recipe.category %}
           {% assign slug = cat | slugify %}
           {% assign cat_slugs = cat_slugs | append: slug | append: " " %}
-          {% assign cat_raw_string = cat_raw_string | append: cat | downcase | append: " " %}
         {% endfor %}
+        {% assign cat_raw_string = recipe.category | join: " " | downcase %}
+      {% else %}
+        {% assign cat_raw_string = "" %}
       {% endif %}
 
       <a href="{{ recipe.url | relative_url }}" 
          class="recipe-grid-card" 
          data-categories="{{ cat_slugs | strip }}"
-         data-raw-categories="{{ cat_raw_string | strip }}"
+         data-raw-categories="{{ cat_raw_string }}"
          data-title="{{ recipe.title | downcase }}"
          data-description="{{ recipe.description | downcase }}">
         
@@ -95,14 +96,13 @@ title: All Recipes
       let visibleCount = 0;
 
       cards.forEach(card => {
-        const cardCategories = card.getAttribute('data-categories').split(' ');
+        const cardCategories = (card.getAttribute('data-categories') || '').split(' ');
         const cardRawCats = card.getAttribute('data-raw-categories') || '';
         const cardTitle = card.getAttribute('data-title') || '';
         const cardDesc = card.getAttribute('data-description') || '';
 
         const matchesCategory = (currentFilter === 'all') || cardCategories.includes(currentFilter);
         
-        // Search matches against Title, Description, OR Category names
         const matchesSearch = !currentQuery || 
                               cardTitle.includes(currentQuery) || 
                               cardDesc.includes(currentQuery) || 
@@ -116,10 +116,11 @@ title: All Recipes
         }
       });
 
-      noResultsMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+      if (noResultsMsg) {
+        noResultsMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+      }
     }
 
-    // Read URL query parameter ?category=...
     const urlParams = new URLSearchParams(window.location.search);
     const categoryParam = urlParams.get('category');
 
@@ -143,9 +144,11 @@ title: All Recipes
       });
     });
 
-    searchInput.addEventListener('input', (e) => {
-      currentQuery = e.target.value.toLowerCase().trim();
-      filterRecipes();
-    });
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        currentQuery = e.target.value.toLowerCase().trim();
+        filterRecipes();
+      });
+    }
   });
 </script>
