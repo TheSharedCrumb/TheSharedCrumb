@@ -18,7 +18,6 @@ title: All Recipes
     </div>
   </header>
 
-  {% comment %} Extract unique categories across all recipes {% endcomment %}
   {% assign raw_categories = "" | split: "" %}
   {% for recipe in site.recipes %}
     {% if recipe.category %}
@@ -38,7 +37,6 @@ title: All Recipes
   <!-- Recipes Grid -->
   <div class="recipes-grid" id="recipesGrid">
     {% for recipe in site.recipes %}
-      
       {% assign cat_slugs = "" %}
       {% if recipe.category %}
         {% for cat in recipe.category %}
