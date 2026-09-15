@@ -1,27 +1,11 @@
 ---
+layout: default
+title: Home
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Shared Crumb</title>
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-</head>
-<body>
 
-  {% include header.html %}
+<section class="hero-welcome">
+  <h1>Welcome to The Shared Crumb</h1>
+  <p>Your favorite recipes, tested and shared.</p>
+</section>
 
-  <main>
-    <section class="hero-welcome">
-      <h1>Welcome to The Shared Crumb</h1>
-      <p>Your favorite recipes, tested and shared.</p>
-    </section>
-
-    {% include recipe-carousel.html %}
-  </main>
-
-  {% include footer.html %}
-
-</body>
-</html>
+{% include recipe-carousel.html %}
