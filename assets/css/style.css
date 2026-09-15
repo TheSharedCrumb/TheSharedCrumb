@@ -34,7 +34,7 @@ header {
   padding: 12px 24px;
   position: sticky;
   top: 0;
-  z-index: 9999 !important; /* Stays firmly above all scrolling page elements */
+  z-index: 99999 !important; /* Stays firmly above all scrolling page elements */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -539,6 +539,8 @@ a.recipe-category-link:hover {
 .recipe-detail-container {
   max-width: 800px;
   margin: 20px auto 60px;
+  position: relative;
+  z-index: 1 !important;
 }
 
 .recipe-article {
@@ -547,13 +549,15 @@ a.recipe-category-link:hover {
   border-radius: 12px;
   padding: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  position: relative;
+  z-index: 1 !important;
 }
 
 .recipe-header {
   text-align: center;
   margin-bottom: 24px;
   position: relative;
-  z-index: 1;
+  z-index: 1 !important;
   display: flex;
   flex-direction: column;
 }
@@ -615,6 +619,8 @@ a.recipe-category-link:hover {
   margin: 28px 0 36px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   background-color: #EDF2F7;
+  position: relative;
+  z-index: 1 !important;
 }
 
 .recipe-image-container img {
@@ -659,6 +665,8 @@ a.recipe-category-link:hover {
   display: flex;
   justify-content: center;
   margin: 20px 0 0;
+  position: relative;
+  z-index: 1 !important;
 }
 
 .print-btn {
