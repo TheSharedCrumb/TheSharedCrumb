@@ -650,7 +650,7 @@ a.recipe-category-link:hover {
 .recipe-actions {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 20px 0 24px;
 }
 
 .print-btn {
