@@ -81,25 +81,39 @@ layout: default
   <!-- Multi-Category Smart Related Recipes Section -->
   {% assign related_candidates = "" | split: "" %}
 
-  {% comment %} 1. Loop through all assigned categories to collect matching recipes {% endcomment %}
+  {% comment %} Safe loop matching across all assigned categories {% endcomment %}
   {% if page.category and page.category.size > 0 %}
     {% for cat in page.category %}
-      {% assign matches = site.recipes | where_exp: "item", "item.url != page.url and item.category contains cat" %}
-      {% assign related_candidates = related_candidates | concat: matches %}
+      {% for recipe in site.recipes %}
+        {% if recipe.url != page.url and recipe.category contains cat %}
+          {% assign single_match = site.recipes | where: "url", recipe.url %}
+          {% assign related_candidates = related_candidates | concat: single_match %}
+        {% endif %}
+      {% endfor %}
     {% endfor %}
     {% assign related_candidates = related_candidates | uniq %}
   {% endif %}
 
   {% assign candidate_count = related_candidates | size %}
 
-  {% comment %} 2. If 3 or more category matches exist across all tags, pick 3 randomly {% endcomment %}
+  {% comment %} Pick 3 category matches or fill remaining with random recipes {% endcomment %}
   {% if candidate_count >= 3 %}
     {% assign final_related = related_candidates | sample: 3 %}
   {% else %}
-    {% comment %} 3. Fill missing slots with random recipes from the rest of the site {% endcomment %}
-    {% assign remaining_recipes = site.recipes | where_exp: "item", "item.url != page.url" %}
-    {% for matched_item in related_candidates %}
-      {% assign remaining_recipes = remaining_recipes | where_exp: "item", "item.url != matched_item.url" %}
+    {% assign remaining_recipes = "" | split: "" %}
+    {% for recipe in site.recipes %}
+      {% unless recipe.url == page.url %}
+        {% assign is_candidate = false %}
+        {% for cand in related_candidates %}
+          {% if cand.url == recipe.url %}
+            {% assign is_candidate = true %}
+          {% endif %}
+        {% endfor %}
+        {% unless is_candidate %}
+          {% assign single_rem = site.recipes | where: "url", recipe.url %}
+          {% assign remaining_recipes = remaining_recipes | concat: single_rem %}
+        {% endunless %}
+      {% endunless %}
     {% endfor %}
 
     {% assign fill_needed = 3 | minus: candidate_count %}
