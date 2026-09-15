@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,52 +7,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Shared Crumb</title>
   <style>
+    /* Reset & Base Setup */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 680px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #FAF5EF; /* Warm off-white background */
       color: #2D3748;
-      background-color: #FAF5EF;
     }
+
+    /* Sticky Navigation Header Styles */
     header {
-      text-align: center;
-      padding-bottom: 20px;
+      background-color: #FFFFFF;
       border-bottom: 2px solid #E2E8F0;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
-    h1 { color: #C53030; margin-bottom: 5px; }
-    .tagline { color: #718096; font-style: italic; }
-    .recipe-card {
-      background: #FFFFFF;
-      border-radius: 12px;
-      padding: 24px;
-      margin-top: 30px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    .header-container {
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    ul { padding-left: 20px; }
+
+    /* Brand Logo Link */
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 42px;
+      width: auto;
+      border-radius: 6px;
+    }
+
+    .logo-text {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #9B2C2C; /* Warm deep burgundy red */
+      letter-spacing: -0.5px;
+    }
+
+    /* Navigation Menu */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #4A5568;
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    /* Hover & Active States */
+    nav a:hover, 
+    nav a.active {
+      color: #9B2C2C;
+    }
+
+    /* Active tab underline indicator */
+    nav a.active::after,
+    nav a:hover::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #9B2C2C;
+      border-radius: 2px;
+    }
+
+    /* Mobile Responsive Adjustments */
+    @media (max-width: 600px) {
+      .header-container {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      nav ul {
+        gap: 18px;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Page Content Container */
+    main {
+      max-width: 1050px;
+      margin: 40px auto;
+      padding: 0 24px;
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>The Shared Crumb</h1>
-    <p class="tagline">Simple recipes made to be shared.</p>
-  </header>
+  <!-- Pulls header directly from _includes/header.html -->
+  {% include header.html %}
 
   <main>
-    <div class="recipe-card">
-      <h2>Featured Recipe: Everyday Sourdough</h2>
-      <p>A classic sourdough bread with a crispy crust and a tender, airy interior.</p>
-      
-      <h3>Ingredients</h3>
-      <ul>
-        <li>500g Bread Flour</li>
-        <li>350g Warm Water</li>
-        <li>100g Active Starter</li>
-        <li>10g Salt</li>
-      </ul>
-    </div>
+    <h1>Welcome to The Shared Crumb</h1>
   </main>
 
 </body>
