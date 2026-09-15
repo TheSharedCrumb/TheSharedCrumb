@@ -128,11 +128,12 @@ footer {
   border-bottom: 1px solid #EDF2F7;
 }
 
-/* Footer Logo & Brand */
+/* Footer Logo & Brand Link */
 .footer-logo {
   display: flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none; /* Prevents underline on footer logo link */
 }
 
 .footer-logo-img {
@@ -148,6 +149,12 @@ footer {
   font-weight: 700;
   color: #9B2C2C;
   letter-spacing: -0.5px;
+  text-decoration: none; /* Extra check against default link underlines */
+  transition: opacity 0.2s ease;
+}
+
+.footer-logo:hover .footer-logo-text {
+  opacity: 0.85;
 }
 
 .footer-tagline {
