@@ -1,24 +1,25 @@
 ---
 layout: recipe
 title: "Creamy Garlic Tuscan Pasta"
-description: "Penne tossed in a rich garlic cream sauce with sun-dried tomatoes and fresh spinach."
-prep_time: "15 mins"
-cook_time: "20 mins"
+description: "Penne tossed in a velvety sun-dried tomato, spinach, and parmesan cream sauce."
+category: [Main Courses, Quick & Easy]
+prep_time: "10 mins"
+cook_time: "15 mins"
 yield: "4 servings"
-image: "/assets/images/Tuscan_TEST.jpg"
+image: "/assets/images/Sourdough-Bread_TEST.png"
 ---
 
 ### Ingredients
-* 12 oz Penne Pasta
-* 2 tbsp Olive Oil
+* 12 oz Penne or Rigatoni Pasta
+* 1/2 cup Sun-Dried Tomatoes (diced)
 * 4 cloves Garlic (minced)
-* 1/2 cup Sun-Dried Tomatoes (drained and chopped)
 * 1 cup Heavy Cream
-* 1/2 cup Parmesan Cheese (freshly grated)
+* 1/2 cup Freshly Grated Parmesan
 * 2 cups Fresh Baby Spinach
-* Salt and Black Pepper to taste
+* 1 tbsp Olive Oil
+* Salt, Black Pepper, and Red Pepper Flakes to taste
 
 ### Instructions
-1. **Boil Pasta**: Cook penne in salted water according to package instructions until al dente. Reserve 1/2 cup of pasta water and drain.
-2. **Sauté Aromatics**: Heat olive oil in a large skillet over medium heat. Add minced garlic and sun-dried tomatoes; sauté for 1-2 minutes until fragrant.
-3. **Simmer & Toss**: Reduce heat to low and stir in heavy cream and Parmesan until melted and smooth. Stir in spinach until wilted, then toss with cooked pasta (adding reserved pasta water as needed to thin the sauce). Season with salt and pepper.
+1. **Cook Pasta**: Boil pasta in salted water according to package directions until al dente. Reserve 1/2 cup pasta water.
+2. **Make Sauce**: Sauté garlic and sun-dried tomatoes in olive oil over medium heat for 2 minutes. Stir in heavy cream and bring to a simmer.
+3. **Combine & Toss**: Melt in parmesan cheese, toss in cooked pasta and spinach until spinach is wilted. Add reserved pasta water if needed to loosen the sauce.
