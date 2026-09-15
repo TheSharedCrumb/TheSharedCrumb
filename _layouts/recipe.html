@@ -78,13 +78,38 @@ layout: default
     </div>
   </article>
 
-  <!-- Clean Related Recipes Section with Category Badges -->
-  {% assign related = site.recipes | where_exp: "item", "item.url != page.url" | sample: 3 %}
-  {% if related.size > 0 %}
+  <!-- Smart Category-First Related Recipes Section -->
+  {% if page.category and page.category.size > 0 %}
+    {% assign primary_category = page.category[0] %}
+    {% comment %} 1. Find all recipes matching the same category, excluding the current recipe {% endcomment %}
+    {% assign same_cat_recipes = site.recipes | where_exp: "item", "item.url != page.url and item.category contains primary_category" %}
+    {% assign same_cat_count = same_cat_recipes | size %}
+  {% else %}
+    {% assign same_cat_recipes = "" | split: "" %}
+    {% assign same_cat_count = 0 %}
+  {% endif %}
+
+  {% comment %} 2. If we have 3 or more category matches, take 3 randomly from that matching group {% endcomment %}
+  {% if same_cat_count >= 3 %}
+    {% assign final_related = same_cat_recipes | sample: 3 %}
+  {% else %}
+    {% comment %} 3. Otherwise, get all other recipes to fill the remaining slots {% endcomment %}
+    {% assign other_recipes = site.recipes | where_exp: "item", "item.url != page.url" %}
+    {% for cat_item in same_cat_recipes %}
+      {% assign other_recipes = other_recipes | where_exp: "item", "item.url != cat_item.url" %}
+    {% endfor %}
+    
+    {% assign fill_needed = 3 | minus: same_cat_count %}
+    {% assign random_fills = other_recipes | sample: fill_needed %}
+    {% assign final_related = same_cat_recipes | concat: random_fills %}
+  {% endif %}
+
+  <!-- Display 3-Card Grid -->
+  {% if final_related.size > 0 %}
     <div class="related-recipes-section">
       <h2>You Might Also Like</h2>
       <div class="recipes-grid">
-        {% for recipe in related %}
+        {% for recipe in final_related %}
           <a href="{{ recipe.url | relative_url }}" class="recipe-grid-card">
             {% if recipe.image %}
               <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
