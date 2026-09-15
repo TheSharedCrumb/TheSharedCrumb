@@ -6,6 +6,8 @@ category: [Desserts, Baking]
 prep_time: "20 mins"
 cook_time: "12 mins"
 yield: "18 cookies"
+difficulty: "Easy"
+cost: "$"
 image: "/assets/images/Cookies_TEST.jpg"
 ---
 
