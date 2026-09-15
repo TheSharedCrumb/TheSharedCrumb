@@ -154,6 +154,14 @@ nav a:hover::after {
   padding: 3px 10px;
   border-radius: 12px;
   white-space: nowrap;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a.recipe-category-link:hover {
+  background-color: #9B2C2C;
+  color: #FFFFFF;
+  border-color: #9B2C2C;
 }
 
 /* ==========================================================================
@@ -189,7 +197,6 @@ nav a:hover::after {
   transition: transform 0.4s ease-in-out;
 }
 
-/* Enforces exactly 3 cards across on desktop & makes whole card clickable */
 .carousel-card {
   flex: 0 0 calc((100% - 40px) / 3);
   max-width: calc((100% - 40px) / 3);
@@ -209,7 +216,6 @@ nav a:hover::after {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
-/* Force Square 1:1 Aspect Ratio Crop */
 .carousel-card-img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -250,7 +256,6 @@ nav a:hover::after {
   line-height: 1.5;
 }
 
-/* Arrow Controls */
 .carousel-btn {
   background-color: #FFFFFF;
   border: 1px solid #E2E8F0;
@@ -272,7 +277,7 @@ nav a:hover::after {
 }
 
 /* ==========================================================================
-   6. Recipe Index Page & Grid Controls (Fixed 3 Tiles Wide & Z-Index Layered)
+   6. Recipe Index Page & Grid Controls
    ========================================================================== */
 .recipes-archive-container {
   max-width: 1050px;
@@ -283,7 +288,7 @@ nav a:hover::after {
   text-align: center;
   margin-bottom: 32px;
   position: relative;
-  z-index: 1; /* Keeps header content underneath sticky navigation on scroll */
+  z-index: 1;
 }
 
 .archive-header h1 {
@@ -297,7 +302,6 @@ nav a:hover::after {
   margin-bottom: 24px;
 }
 
-/* Search Bar */
 .search-box-wrapper {
   max-width: 480px;
   margin: 0 auto;
@@ -323,7 +327,6 @@ nav a:hover::after {
   box-shadow: 0 4px 12px rgba(155, 44, 44, 0.1);
 }
 
-/* Category Filter Navigation */
 .category-filter-nav {
   display: flex;
   justify-content: center;
@@ -353,7 +356,6 @@ nav a:hover::after {
   border-color: #9B2C2C;
 }
 
-/* Grid layout strictly enforced to 3 tiles wide on desktop */
 .recipes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -670,7 +672,6 @@ nav a:hover::after {
   border-color: #9B2C2C;
 }
 
-/* Interactive Checkboxes for Ingredients */
 .ingredient-checkbox-label {
   display: flex;
   align-items: flex-start;
@@ -779,8 +780,9 @@ footer {
    11. Print Stylesheet Overrides
    ========================================================================== */
 @media print {
-  header,
-  footer,
+  /* Hide site-wide header, footer, and interactive print button */
+  body > header,
+  body > footer,
   .recipe-actions,
   .carousel-btn {
     display: none !important;
@@ -797,14 +799,38 @@ footer {
     max-width: 100% !important;
   }
 
+  /* Ensure recipe header, title, and metadata remain visible */
+  .recipe-header,
+  .recipe-header h1,
+  .recipe-description,
+  .recipe-meta,
+  .meta-item {
+    display: block !important;
+  }
+
+  .recipe-meta {
+    display: flex !important;
+    border: 1px solid #CCCCCC !important;
+    background-color: #FAFAFA !important;
+    padding: 10px 16px !important;
+    margin-bottom: 20px !important;
+  }
+
   .recipe-article {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
   }
 
+  /* Compact Image Sizing for Print */
   .recipe-image-container {
-    max-height: 250px !important;
+    max-height: 180px !important;
+    margin: 16px 0 24px !important;
+  }
+
+  .recipe-image-container img {
+    max-height: 180px !important;
+    object-fit: cover !important;
   }
 }
 
