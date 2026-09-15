@@ -78,7 +78,7 @@ layout: default
     </div>
   </article>
 
-  <!-- Clean Related Recipes Section -->
+  <!-- Clean Related Recipes Section with Category Badges -->
   {% assign related = site.recipes | where_exp: "item", "item.url != page.url" | sample: 3 %}
   {% if related.size > 0 %}
     <div class="related-recipes-section">
@@ -90,6 +90,13 @@ layout: default
               <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
             {% endif %}
             <div class="grid-card-content">
+              {% if recipe.category %}
+                <div class="recipe-category-badges">
+                  {% for cat in recipe.category limit:1 %}
+                    <span class="recipe-category-badge">{{ cat }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
               <h3>{{ recipe.title }}</h3>
               {% if recipe.description %}
                 <p>{{ recipe.description | truncate: 75 }}</p>
