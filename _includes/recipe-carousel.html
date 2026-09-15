@@ -7,17 +7,17 @@
     <div class="carousel-track-wrapper">
       <div class="carousel-track" id="carouselTrack">
         {% for recipe in site.recipes %}
-          <article class="carousel-card">
+          <a href="{{ recipe.url | relative_url }}" class="carousel-card">
             {% if recipe.image %}
               <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="carousel-card-img">
             {% else %}
               <div class="carousel-card-placeholder"></div>
             {% endif %}
             <div class="carousel-card-content">
-              <h3><a href="{{ recipe.url | relative_url }}">{{ recipe.title }}</a></h3>
+              <h3>{{ recipe.title }}</h3>
               <p>{{ recipe.description }}</p>
             </div>
-          </article>
+          </a>
         {% endfor %}
       </div>
     </div>
