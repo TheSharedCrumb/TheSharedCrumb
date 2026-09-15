@@ -78,17 +78,15 @@ layout: default
     </div>
   </article>
 
-  <!-- Multi-Category Smart Related Recipes Section -->
+  <!-- Fail-Safe Related Recipes Section -->
   {% assign related_candidates = "" | split: "" %}
 
-  {% comment %} Safe loop matching across all assigned categories {% endcomment %}
   {% if page.category and page.category.size > 0 %}
     {% for cat in page.category %}
-      {% for recipe in site.recipes %}
-        {% if recipe.url != page.url and recipe.category contains cat %}
-          {% assign single_match = site.recipes | where: "url", recipe.url %}
-          {% assign related_candidates = related_candidates | concat: single_match %}
-        {% endif %}
+      {% assign cat_matches = site.recipes | where_exp: "item", "item.url != page.url and item.category contains cat" %}
+      {% for match in cat_matches %}
+        {% assign match_arr = site.recipes | where: "url", match.url %}
+        {% assign related_candidates = related_candidates | push: match_arr[0] %}
       {% endfor %}
     {% endfor %}
     {% assign related_candidates = related_candidates | uniq %}
@@ -96,29 +94,36 @@ layout: default
 
   {% assign candidate_count = related_candidates | size %}
 
-  {% comment %} Pick 3 category matches or fill remaining with random recipes {% endcomment %}
   {% if candidate_count >= 3 %}
     {% assign final_related = related_candidates | sample: 3 %}
   {% else %}
-    {% assign remaining_recipes = "" | split: "" %}
-    {% for recipe in site.recipes %}
-      {% unless recipe.url == page.url %}
-        {% assign is_candidate = false %}
-        {% for cand in related_candidates %}
-          {% if cand.url == recipe.url %}
-            {% assign is_candidate = true %}
-          {% endif %}
-        {% endfor %}
-        {% unless is_candidate %}
-          {% assign single_rem = site.recipes | where: "url", recipe.url %}
-          {% assign remaining_recipes = remaining_recipes | concat: single_rem %}
-        {% endunless %}
+    {% assign remaining_recipes = site.recipes | where_exp: "item", "item.url != page.url" %}
+    {% assign fill_needed = 3 | minus: candidate_count %}
+    
+    {% comment %} Exclude already matched candidates from the remaining pool {% endcomment %}
+    {% assign unused_recipes = "" | split: "" %}
+    {% for recipe in remaining_recipes %}
+      {% assign is_used = false %}
+      {% for cand in related_candidates %}
+        {% if cand.url == recipe.url %}
+          {% assign is_used = true %}
+        {% endif %}
+      {% endfor %}
+      {% unless is_used %}
+        {% assign item_arr = site.recipes | where: "url", recipe.url %}
+        {% assign unused_recipes = unused_recipes | push: item_arr[0] %}
       {% endunless %}
     {% endfor %}
 
-    {% assign fill_needed = 3 | minus: candidate_count %}
-    {% assign random_fills = remaining_recipes | sample: fill_needed %}
-    {% assign final_related = related_candidates | concat: random_fills %}
+    {% assign random_fills = unused_recipes | sample: fill_needed %}
+    
+    {% assign final_related = "" | split: "" %}
+    {% for cand in related_candidates %}
+      {% assign final_related = final_related | push: cand %}
+    {% endfor %}
+    {% for fill in random_fills %}
+      {% assign final_related = final_related | push: fill %}
+    {% endfor %}
   {% endif %}
 
   <!-- Display 3-Card Grid -->
