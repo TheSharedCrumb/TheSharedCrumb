@@ -5,7 +5,7 @@ description: "A warming 20-minute vegetarian curry featuring chickpeas and cocon
 prep_time: "10 mins"
 cook_time: "20 mins"
 yield: "4 servings"
-image: "/assets/images/Sourdough-Bread_TEST.png"
+image: "/assets/images/Chickpea-Curry_TEST.jpg"
 ---
 
 ### Ingredients
