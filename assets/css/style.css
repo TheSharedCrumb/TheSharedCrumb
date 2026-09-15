@@ -26,7 +26,7 @@ main {
 }
 
 /* ==========================================================================
-   2. Navigation Header & Sticky Bar Guard
+   2. Navigation Header & Sticky Bar Guard (Global Top Stacking)
    ========================================================================== */
 header {
   background-color: #FFFFFF !important; /* Forces solid background when scrolling */
@@ -34,7 +34,7 @@ header {
   padding: 12px 24px;
   position: sticky;
   top: 0;
-  z-index: 99999 !important; /* Stays firmly above all scrolling page elements */
+  z-index: 99999 !important; /* Stays firmly above ALL scrolling page elements */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -277,18 +277,20 @@ a.recipe-category-link:hover {
 }
 
 /* ==========================================================================
-   6. Recipe Index Page & Grid Controls
+   6. Recipe Index Page & Grid Controls (Lower Stacking Context)
    ========================================================================== */
 .recipes-archive-container {
   max-width: 1050px;
   margin: 20px auto 60px;
+  position: relative;
+  z-index: 1 !important;
 }
 
 .archive-header {
   text-align: center;
   margin-bottom: 32px;
   position: relative;
-  z-index: 1;
+  z-index: 1 !important;
 }
 
 .archive-header h1 {
@@ -306,7 +308,7 @@ a.recipe-category-link:hover {
   max-width: 480px;
   margin: 0 auto;
   position: relative;
-  z-index: 1;
+  z-index: 1 !important;
 }
 
 #recipeSearchInput {
@@ -334,7 +336,7 @@ a.recipe-category-link:hover {
   gap: 10px;
   margin-bottom: 36px;
   position: relative;
-  z-index: 1;
+  z-index: 1 !important;
 }
 
 .filter-btn {
@@ -360,6 +362,8 @@ a.recipe-category-link:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  position: relative;
+  z-index: 1 !important;
 }
 
 .recipe-grid-card {
@@ -796,7 +800,6 @@ footer {
    11. Print Stylesheet Overrides (Compact Side-by-Side Header)
    ========================================================================== */
 @media print {
-  /* Hide site navigation, footer, interactive buttons, and checkboxes */
   body > header,
   body > footer,
   .recipe-actions,
@@ -823,7 +826,6 @@ footer {
     padding: 0 !important;
   }
 
-  /* Side-by-Side Header Layout for Print */
   .recipe-header {
     display: flex !important;
     flex-direction: row !important;
@@ -836,7 +838,6 @@ footer {
     border-bottom: 2px solid #E2E8F0 !important;
   }
 
-  /* Left Column: Title, Description, Metadata */
   .recipe-header-text {
     flex: 1 !important;
     padding-right: 20px !important;
@@ -876,7 +877,6 @@ footer {
     font-size: 0.85rem !important;
   }
 
-  /* Right Column: Square Cropped Compact Image */
   .recipe-image-container {
     width: 120px !important;
     height: 120px !important;
