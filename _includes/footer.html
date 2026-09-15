@@ -2,7 +2,7 @@
   <div class="footer-container">
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="/assets/logos/TheSharedCrumb_logoMark.PNG" alt="The Shared Crumb Logo" class="footer-logo-img">
+        <img src="{{ '/assets/logos/TheSharedCrumb_logoMark.PNG' | relative_url }}" alt="The Shared Crumb Logo" class="footer-logo-img">
         <span class="footer-logo-text">The Shared Crumb</span>
       </div>
       <p class="footer-tagline">Simple, reliable recipes baked with love and shared around the table.</p>
@@ -10,10 +10,10 @@
 
     <div class="footer-links">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/recipes.html">Recipes</a></li>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/recipes.html' | relative_url }}">Recipes</a></li>
+        <li><a href="{{ '/about.html' | relative_url }}">About</a></li>
+        <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
       </ul>
     </div>
   </div>
