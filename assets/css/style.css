@@ -971,12 +971,13 @@ footer {
 }
 
 /* ==========================================================================
-   11. Print Stylesheet Overrides (Compact Side-by-Side Header)
+   11. Print Stylesheet Overrides (Compact Side-by-Side Header & 2-Column Body)
    ========================================================================== */
 @media print {
   body > header,
   body > footer,
   .recipe-actions,
+  .copy-ingredients-wrapper,
   .carousel-btn,
   .ingredient-checkbox,
   .related-recipes-section {
@@ -986,7 +987,7 @@ footer {
   body {
     background-color: #FFFFFF !important;
     color: #000000 !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
   }
 
   main {
@@ -1001,6 +1002,7 @@ footer {
     padding: 0 !important;
   }
 
+  /* Compact Side-by-Side Printable Header */
   .recipe-header {
     display: flex !important;
     flex-direction: row !important;
@@ -1008,8 +1010,8 @@ footer {
     justify-content: space-between !important;
     align-items: flex-start !important;
     text-align: left !important;
-    margin-bottom: 16px !important;
-    padding-bottom: 12px !important;
+    margin-bottom: 12px !important;
+    padding-bottom: 10px !important;
     border-bottom: 2px solid #E2E8F0 !important;
   }
 
@@ -1019,14 +1021,14 @@ footer {
   }
 
   .recipe-header h1 {
-    font-size: 1.6rem !important;
+    font-size: 1.5rem !important;
     margin-bottom: 4px !important;
     color: #9B2C2C !important;
   }
 
   .recipe-description {
-    font-size: 0.9rem !important;
-    margin: 0 0 10px 0 !important;
+    font-size: 0.85rem !important;
+    margin: 0 0 8px 0 !important;
     color: #4A5568 !important;
   }
 
@@ -1045,37 +1047,50 @@ footer {
   }
 
   .meta-label {
-    font-size: 0.65rem !important;
+    font-size: 0.6rem !important;
   }
 
   .meta-value {
-    font-size: 0.85rem !important;
+    font-size: 0.8rem !important;
   }
 
   .recipe-image-container {
-    width: 120px !important;
-    height: 120px !important;
-    max-height: 120px !important;
+    width: 110px !important;
+    height: 110px !important;
+    max-height: 110px !important;
     margin: 0 !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     flex-shrink: 0 !important;
   }
 
   .recipe-image-container img {
-    width: 120px !important;
-    height: 120px !important;
-    max-height: 120px !important;
+    width: 110px !important;
+    height: 110px !important;
+    max-height: 110px !important;
     object-fit: cover !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
+  }
+
+  /* 2-Column Printable Recipe Body (Ingredients Left, Instructions Right) */
+  .recipe-body {
+    display: grid !important;
+    grid-template-columns: 35% 62% !important; /* 35% left column, 62% right column */
+    gap: 3% !important;
+    align-items: start !important;
   }
 
   .recipe-body h3 {
-    font-size: 1.1rem !important;
-    margin: 16px 0 8px !important;
+    font-size: 1rem !important;
+    margin: 8px 0 6px !important;
+    break-after: avoid;
+    page-break-after: avoid;
   }
 
   .recipe-body li {
-    margin-bottom: 4px !important;
+    margin-bottom: 3px !important;
+    line-height: 1.4 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
 
