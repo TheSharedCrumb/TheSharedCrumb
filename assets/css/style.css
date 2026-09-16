@@ -1276,3 +1276,49 @@ footer {
     max-height: 260px;
   }
 }
+
+/* ==========================================================================
+   13. Fallback Brand Tile (For Recipes Without Images)
+   ========================================================================== */
+
+.brand-tile-placeholder,
+.carousel-card-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(135deg, #FAF5EF 0%, #EDF2F7 100%);
+  border-bottom: 2px solid #E2E8F0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-sizing: border-box;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Brand Name Accent */
+.brand-tile-placeholder::before,
+.carousel-card-placeholder::before {
+  content: "The Shared Crumb";
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #9B2C2C;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background-color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Center Icon Accent */
+.brand-tile-placeholder::after,
+.carousel-card-placeholder::after {
+  content: "🍽️";
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-top: 4px;
+}
