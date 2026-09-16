@@ -11,6 +11,8 @@ cost: "$"
 image: "/assets/images/Cookies_TEST.jpg"
 ---
 
+> *There is a specific magic to the moment butter begins to foam and turn golden in a saucepan. The first time I browned butter for a batch of cookies, the nutty, toffee-like aroma filled the entire apartment, changing how I baked forever. Adding an extra egg yolk keeps the centers melt-in-your-mouth soft, while the dark brown sugar builds a deep caramel chew. These are the cookies I pull out when someone needs a bit of comfort, best served warm while the chocolate chunks are still gooey.*
+
 ### Ingredients
 * 1 cup Unsalted Butter (browned and cooled slightly)
 * 3/4 cup Dark Brown Sugar
