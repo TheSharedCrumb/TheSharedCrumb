@@ -81,15 +81,15 @@ layout: default
         </button>
       </div>
 
-      <!-- Main Recipe Image -->
-      {% assign page_img_clean = page.image | strip %}
-      {% if page_img_clean != "" and page.image != nil %}
-        <div class="recipe-image-container">
+      <!-- Main Recipe Image Wrapper -->
+      <div class="recipe-image-container">
+        {% assign page_img_clean = page.image | strip %}
+        {% if page_img_clean != "" and page.image != nil %}
           <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
-        </div>
-      {% else %}
-        <div class="brand-tile-placeholder"></div>
-      {% endif %}
+        {% else %}
+          <div class="brand-tile-placeholder"></div>
+        {% endif %}
+      </div>
 
     </header>
 
