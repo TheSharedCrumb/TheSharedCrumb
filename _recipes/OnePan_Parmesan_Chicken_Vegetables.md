@@ -13,6 +13,17 @@ image: "/assets/images/OnePan_Parmesan_Chicken_Vegetables.jpg"
 
 > *There is a quiet joy in knowing dinner tomorrow is already taken care of. As this dish roasts, the rich drippings from the zesty-marinated chicken melt directly into the bed of potatoes below, creating a rich, garlicky parmesan flavor that gets even better overnight. Making a big batch means tonight's effortless, comforting feast transforms into the kind of savory, hot leftover lunch that makes the whole midday break feel like a luxury.*
 
+#### For Chicken
+* 8 chicken thighs
+* 1 tbsp seasoning salt
+* 1 tbsp paprika
+* 2 tsp garlic powder
+* 2 tsp onion powder
+* 2 tsp italian seasoning
+* 1 tsp cumin
+* 1 lemon juiced
+* 2 tbsp mayonnaise
+
 ### Ingredients
 #### For Vegetables
 * 1.5 lb baby potatoes diced in large chunks
@@ -26,17 +37,6 @@ image: "/assets/images/OnePan_Parmesan_Chicken_Vegetables.jpg"
 * 2 tsp garlic powder
 * 2 tsp salt
 * 2 tsp black pepper
-
-#### For Chicken
-* 8 chicken thighs
-* 1 tbsp seasoning salt
-* 1 tbsp paprika
-* 2 tsp garlic powder
-* 2 tsp onion powder
-* 2 tsp italian seasoning
-* 1 tsp cumin
-* 1 lemon juiced
-* 2 tbsp mayonnaise
 
 ### Instructions
 1. **Marinate**: Mix all ingredients for the chicken in a bowl to marinate. Mix thouroughly and let sit while preping the rest of the ingredients
