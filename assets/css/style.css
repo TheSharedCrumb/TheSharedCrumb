@@ -971,16 +971,18 @@ footer {
 }
 
 /* ==========================================================================
-   11. Print Stylesheet Overrides (Compact Side-by-Side Header & 2-Column Body)
+   11. Print Stylesheet Overrides (Compact Header & 2-Column Print Layout)
    ========================================================================== */
 @media print {
+  /* Hide Web-Only Elements */
   body > header,
   body > footer,
   .recipe-actions,
   .copy-ingredients-wrapper,
   .carousel-btn,
   .ingredient-checkbox,
-  .related-recipes-section {
+  .related-recipes-section,
+  .recipe-category-badges {
     display: none !important;
   }
 
@@ -1002,7 +1004,7 @@ footer {
     padding: 0 !important;
   }
 
-  /* Compact Side-by-Side Printable Header */
+  /* Side-by-Side Printable Header */
   .recipe-header {
     display: flex !important;
     flex-direction: row !important;
@@ -1071,26 +1073,37 @@ footer {
     border-radius: 6px !important;
   }
 
-  /* 2-Column Printable Recipe Body (Ingredients Left, Instructions Right) */
+  /* 2-Column Flow for Body Content */
   .recipe-body {
-    display: grid !important;
-    grid-template-columns: 35% 62% !important; /* 35% left column, 62% right column */
-    gap: 3% !important;
-    align-items: start !important;
+    display: block !important;
+    column-count: 2 !important;
+    column-gap: 28px !important;
+    width: 100% !important;
   }
 
   .recipe-body h3 {
     font-size: 1rem !important;
-    margin: 8px 0 6px !important;
-    break-after: avoid;
-    page-break-after: avoid;
+    color: #9B2C2C !important;
+    margin: 8px 0 6px 0 !important;
+    padding-bottom: 2px !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  .recipe-body ul,
+  .recipe-body ol {
+    margin-bottom: 12px !important;
+    padding-left: 18px !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   .recipe-body li {
-    margin-bottom: 3px !important;
+    margin-bottom: 4px !important;
     line-height: 1.4 !important;
-    break-inside: avoid;
-    page-break-inside: avoid;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 }
 
