@@ -42,5 +42,5 @@ image: "/assets/images/OnePan_Parmesan_Chicken_Vegetables.jpg"
 1. **Marinate**: Mix all ingredients for the chicken in a bowl to marinate. Mix thouroughly and let sit while preping the rest of the ingredients
 2. **Preheat**: Preheat oven to 400 degrees F.
 3. **Vegetables**: Add all ingredients for the vegetables into a casserole dish and mix thouroughly. Bake in the oven for 20 minutes.
-4. **Chicken**: Mix vegetables in the casserole dish and even out in the pan. Add the chicken with the marinade on top of the vegetables. Return to the oven tobake for an additional 40 minutes.
+4. **Chicken**: Mix vegetables in the casserole dish and even out in the pan. Add the chicken with the marinade on top of the vegetables. Return to the oven to bake for an additional 40 minutes.
 
