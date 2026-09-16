@@ -971,7 +971,7 @@ footer {
 }
 
 /* ==========================================================================
-   11. Print Stylesheet Overrides (Side-by-Side Printable Header & Body)
+   11. Print Stylesheet Overrides
    ========================================================================== */
 @media print {
   /* Hide Web-Only Elements */
@@ -1004,7 +1004,7 @@ footer {
     padding: 0 !important;
   }
 
-  /* Side-by-Side Printable Header */
+  /* Header Layout */
   .recipe-header {
     display: flex !important;
     flex-direction: row !important;
@@ -1073,11 +1073,11 @@ footer {
     border-radius: 6px !important;
   }
 
-  /* 2-Column Flow for Body Content */
+  /* Expanded 2-Column Body (Tighter gap gives Instructions more width) */
   .recipe-body {
     display: block !important;
     column-count: 2 !important;
-    column-gap: 24px !important;
+    column-gap: 16px !important; /* Reduced gap to give text more horizontal room */
     width: 100% !important;
   }
 
@@ -1091,27 +1091,12 @@ footer {
     page-break-after: avoid !important;
   }
 
-  /* Ingredients Formatting & Clean Bullet Dots */
-  .recipe-body ul {
-    list-style: none !important;
-    padding-left: 0 !important;
+  .recipe-body ul,
+  .recipe-body ol {
     margin-bottom: 12px !important;
+    padding-left: 16px !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
-  }
-
-  .recipe-body ul li .ingredient-checkbox-label::before {
-    content: "• " !important;
-    color: #9B2C2C !important;
-    font-weight: bold;
-    display: inline-block;
-    width: 12px;
-  }
-
-  /* Instructions Formatting */
-  .recipe-body ol {
-    padding-left: 18px !important;
-    margin-bottom: 12px !important;
   }
 
   .recipe-body li {
