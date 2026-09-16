@@ -296,7 +296,7 @@ a.recipe-category-link:hover {
 }
 
 .search-box-wrapper {
-  max-width: 480px;
+  max-width: 680px;
   margin: 0 auto;
   position: relative;
   z-index: 1 !important;
