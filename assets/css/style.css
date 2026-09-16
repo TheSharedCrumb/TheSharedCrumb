@@ -1003,13 +1003,14 @@ footer {
     position: relative !important;
     border: none !important;
     box-shadow: none !important;
-    padding-top: 28px !important; /* Space for the top header line */
+    padding-top: 28px !important;
     padding-bottom: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin: 0 !important;
   }
 
-  /* Top Left: Logo & Site Title */
+  /* Top Left: Logo & Site Title (Flush Left) */
   .recipe-article::before {
     content: "The Shared Crumb";
     position: absolute !important;
@@ -1018,17 +1019,11 @@ footer {
     font-size: 0.9rem !important;
     font-weight: bold !important;
     color: #9B2C2C !important;
-    
-    /* Logo setup */
-    background-image: url('/assets/images/logo.png') !important;
-    background-repeat: no-repeat !important;
-    background-position: left center !important;
-    background-size: 18px 18px !important;
-    padding-left: 24px !important;
+    padding-left: 0 !important; /* Zeroed out to align perfectly with left margin */
     line-height: 18px !important;
   }
 
-  /* Top Right: Page URL aligned to the exact same baseline */
+  /* Top Right: Page URL */
   .recipe-article::after {
     content: "www.thesharedcrumb.com" attr(data-print-url);
     position: absolute !important;
@@ -1040,7 +1035,7 @@ footer {
     line-height: 18px !important;
   }
 
-  /* Header Layout */
+  /* Header Layout (Flush Left Alignment) */
   .recipe-header {
     display: flex !important;
     flex-direction: row !important;
@@ -1051,24 +1046,29 @@ footer {
     margin-bottom: 12px !important;
     padding-top: 8px !important;
     padding-bottom: 10px !important;
-    border-top: 1px solid #E2E8F0 !important; /* Top border separating branding from recipe content */
+    padding-left: 0 !important; /* Forces title section flush left */
+    border-top: 1px solid #E2E8F0 !important;
     border-bottom: 2px solid #E2E8F0 !important;
   }
 
   .recipe-header-text {
     flex: 1 !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
     padding-right: 20px !important;
   }
 
   .recipe-header h1 {
     font-size: 1.5rem !important;
-    margin-bottom: 4px !important;
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
     color: #9B2C2C !important;
   }
 
   .recipe-description {
     font-size: 0.85rem !important;
     margin: 0 0 8px 0 !important;
+    padding: 0 !important;
     color: #4A5568 !important;
   }
 
@@ -1118,10 +1118,13 @@ footer {
     justify-content: space-between !important;
     align-items: flex-start !important;
     width: 100% !important;
+    padding-left: 0 !important;
   }
 
   .recipe-column-left {
     width: 30% !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
   }
 
   .recipe-column-right {
@@ -1133,14 +1136,22 @@ footer {
     color: #9B2C2C !important;
     margin: 0 0 6px 0 !important;
     padding-bottom: 2px !important;
+    padding-left: 0 !important;
     border-bottom: 1px solid #E2E8F0 !important;
   }
 
-  /* Ingredients Styling & Clean Bullets */
+  /* Ingredients Bullets Alignment */
   .recipe-body ul {
     list-style: none !important;
     padding-left: 0 !important;
+    margin-left: 0 !important;
     margin-bottom: 12px !important;
+  }
+
+  .ingredient-checkbox-label {
+    display: inline-block !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
   }
 
   .ingredient-checkbox-label::before {
