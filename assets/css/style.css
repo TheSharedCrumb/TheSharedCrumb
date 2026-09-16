@@ -1077,7 +1077,7 @@ footer {
   .recipe-body {
     display: block !important;
     column-count: 2 !important;
-    column-gap: 12px !important; /* Tightened gap grants more horizontal room to instructions */
+    column-gap: 16px !important;
     width: 100% !important;
   }
 
@@ -1087,17 +1087,15 @@ footer {
     margin: 0 0 6px 0 !important;
     padding-bottom: 2px !important;
     border-bottom: 1px solid #E2E8F0 !important;
-    break-after: avoid !important;
-    page-break-after: avoid !important;
   }
 
-  /* Ingredients Bullets */
+  /* Force Column Break right after the Ingredients List */
   .recipe-body ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin-bottom: 12px !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
+    break-after: column !important;
+    page-break-after: column !important;
   }
 
   .ingredient-checkbox-label::before {
