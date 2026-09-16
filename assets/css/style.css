@@ -1073,28 +1073,12 @@ footer {
     border-radius: 6px !important;
   }
 
-  /* 2-Column Asymmetric Flex Layout (Force-Splits Body) */
+  /* 2-Column Body Layout */
   .recipe-body {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important;
-    justify-content: space-between !important;
-    align-items: flex-start !important;
+    display: block !important;
+    column-count: 2 !important;
+    column-gap: 12px !important; /* Tightened gap grants more horizontal room to instructions */
     width: 100% !important;
-  }
-
-  /* Ingredients Side (30% Width) */
-  .recipe-body h3:nth-of-type(1),
-  .recipe-body ul {
-    width: 30% !important;
-    margin-top: 0 !important;
-  }
-
-  /* Instructions Side (65% Width) */
-  .recipe-body h3:nth-of-type(2),
-  .recipe-body ol {
-    width: 65% !important;
-    margin-top: 0 !important;
   }
 
   .recipe-body h3 {
@@ -1103,17 +1087,17 @@ footer {
     margin: 0 0 6px 0 !important;
     padding-bottom: 2px !important;
     border-bottom: 1px solid #E2E8F0 !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
 
-  /* Force Bullets Back onto JS-Generated Checkbox Labels */
+  /* Ingredients Bullets */
   .recipe-body ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin-bottom: 12px !important;
-  }
-
-  .ingredient-checkbox-label {
-    display: block !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   .ingredient-checkbox-label::before {
@@ -1123,6 +1107,7 @@ footer {
     margin-right: 4px !important;
   }
 
+  /* Instructions List */
   .recipe-body ol {
     padding-left: 18px !important;
     margin-bottom: 12px !important;
