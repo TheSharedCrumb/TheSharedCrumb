@@ -9,6 +9,8 @@ yield: "2 toasts"
 image: "/assets/images/poached-egg-toast_TEST.webp"
 ---
 
+> *There is a quiet satisfaction to slow weekend mornings that start with a hot cup of coffee and the sound of thick sourdough crisping in the toaster. I used to think getting a perfectly runny poached egg required restaurant-level skill, but mastering the gentle swirl of simmering water changed everything. The rich, golden yolk cascading over creamy, citrus-brightened avocado and crunchy toasted bread makes this feel like an effortless luxury right at home.*
+
 ### Ingredients
 * 2 thick slices Sourdough Bread
 * 1 ripe Avocado
