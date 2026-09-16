@@ -6,7 +6,7 @@ category: [Vegetarian, Dinner]
 prep_time: "10 mins"
 cook_time: "20 mins"
 yield: "4 servings"
-image: "/assets/images/Chickpea-Curry_TEST.jpg"
+image: ""
 ---
 
 ### Ingredients
