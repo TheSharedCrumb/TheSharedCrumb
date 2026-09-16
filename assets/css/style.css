@@ -1005,8 +1005,41 @@ footer {
     padding: 0 !important;
   }
 
-  /* Header Layout */
+  /* Print-Only Header Branding Banner */
+  .recipe-article::before {
+    content: "The Shared Crumb";
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+    color: #9B2C2C !important;
+    border-bottom: 1px solid #E2E8F0 !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 12px !important;
+    
+    /* Logo setup (adjust path if needed) */
+    background-image: url('/assets/images/logo.png') !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    background-size: 20px 20px !important;
+    padding-left: 26px !important;
+  }
+
+  /* Show Page URL in Top Right via CSS */
+  .recipe-header::before {
+    content: "www.thesharedcrumb.com" attr(data-print-url);
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    font-size: 0.75rem !important;
+    color: #718096 !important;
+    font-weight: normal !important;
+  }
+
   .recipe-header {
+    position: relative !important;
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
