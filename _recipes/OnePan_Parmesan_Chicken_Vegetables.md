@@ -1,7 +1,7 @@
 ---
 layout: recipe
 title: "One Pan Parmesan Chicken and Vegetables"
-description: "A delicious dinner."
+description: "Zesty-marinated chicken thighs and garlic-parmesan potatoes roasted together for maximum flavor with minimal cleanup."
 category: [One Pan, Chicken, Dinner]
 prep_time: "30 min"
 cook_time: "1 hr"
@@ -11,7 +11,7 @@ cost: "$"
 image: "/assets/images/Cookies_TEST.jpg"
 ---
 
-> *There is a specific magic to the moment butter begins to foam and turn golden in a saucepan. The first time I browned butter for a batch of cookies, the nutty, toffee-like aroma filled the entire apartment, changing how I baked forever. Adding an extra egg yolk keeps the centers melt-in-your-mouth soft, while the dark brown sugar builds a deep caramel chew. These are the cookies I pull out when someone needs a bit of comfort, best served warm while the chocolate chunks are still gooey.*
+> *There is a quiet joy in knowing dinner tomorrow is already taken care of. As this dish roasts, the rich drippings from the zesty-marinated chicken melt directly into the bed of potatoes below, creating a rich, garlicky parmesan flavor that gets even better overnight. Making a big batch means tonight's effortless, comforting feast transforms into the kind of savory, hot leftover lunch that makes the whole midday break feel like a luxury.*
 
 ### Ingredients
 #### For Vegetables
