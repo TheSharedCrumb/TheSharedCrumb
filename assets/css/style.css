@@ -971,7 +971,7 @@ footer {
 }
 
 /* ==========================================================================
-   11. Print Stylesheet Overrides (Compact Header & 2-Column Print Layout)
+   11. Print Stylesheet Overrides (Compact Header & Asymmetric 2-Column Print Layout)
    ========================================================================== */
 @media print {
   /* Hide Web-Only Elements */
@@ -1073,12 +1073,32 @@ footer {
     border-radius: 6px !important;
   }
 
-  /* 2-Column Flow for Body Content */
+  /* Asymmetric Flexbox Body (Ingredients: 35%, Instructions: 60%) */
   .recipe-body {
-    display: block !important;
-    column-count: 2 !important;
-    column-gap: 28px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
     width: 100% !important;
+  }
+
+  .recipe-body h3,
+  .recipe-body ul,
+  .recipe-body ol {
+    box-sizing: border-box !important;
+  }
+
+  /* Ingredients Side (35% Width) */
+  .recipe-body h3:nth-of-type(1),
+  .recipe-body ul {
+    width: 35% !important;
+  }
+
+  /* Instructions Side (60% Width) */
+  .recipe-body h3:nth-of-type(2),
+  .recipe-body ol {
+    width: 60% !important;
   }
 
   .recipe-body h3 {
@@ -1091,12 +1111,17 @@ footer {
     page-break-after: avoid !important;
   }
 
-  .recipe-body ul,
-  .recipe-body ol {
+  /* Restore Bullets for Printed Ingredient List */
+  .recipe-body ul {
+    list-style: disc !important;
+    list-style-position: inside !important;
+    padding-left: 0 !important;
     margin-bottom: 12px !important;
+  }
+
+  .recipe-body ol {
     padding-left: 18px !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
+    margin-bottom: 12px !important;
   }
 
   .recipe-body li {
