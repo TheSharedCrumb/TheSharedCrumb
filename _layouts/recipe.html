@@ -184,6 +184,12 @@ layout: default
 <!-- Interactive Checkboxes, Step Dimming, Auto-Copy, Share & Cook Mode Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Dynamic Print URL Binding
+    const recipeHeader = document.querySelector('.recipe-header');
+    if (recipeHeader) {
+      recipeHeader.setAttribute('data-print-url', window.location.pathname);
+    }
+
     // 0. Group Ingredients & Instructions into Column Containers (Text-Targeted)
     const recipeBody = document.querySelector('.recipe-body');
     if (recipeBody) {
