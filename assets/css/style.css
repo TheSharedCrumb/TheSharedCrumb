@@ -654,6 +654,15 @@ a.recipe-category-link:hover {
   border-bottom: 1px solid #EDF2F7;
 }
 
+/* Sub-group Ingredient Headers (Markdown ####) */
+.recipe-body h4 {
+  font-size: 0.95rem;
+  color: #4A5568;
+  margin: 16px 0 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 /* Remove bullets & padding for ingredient lists */
 .recipe-body ul {
   list-style: none !important;
@@ -676,6 +685,16 @@ a.recipe-category-link:hover {
   color: #4A5568;
   margin-bottom: 16px;
   line-height: 1.7;
+}
+
+/* Story Callout / Blockquotes */
+.recipe-body blockquote {
+  font-style: italic;
+  color: #4A5568;
+  border-left: 3px solid #9B2C2C;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1rem;
+  line-height: 1.6;
 }
 
 /* Related Recipes Section */
@@ -1138,6 +1157,15 @@ footer {
     padding-bottom: 2px !important;
     padding-left: 0 !important;
     border-bottom: 1px solid #E2E8F0 !important;
+  }
+
+  /* Ingredient Sub-group Headers in Print View */
+  .recipe-body h4 {
+    font-size: 0.8rem !important;
+    color: #9B2C2C !important;
+    margin: 8px 0 4px 0 !important;
+    padding-left: 0 !important;
+    border-bottom: 1px dashed #E2E8F0 !important;
   }
 
   /* Ingredients Bullets Alignment */
