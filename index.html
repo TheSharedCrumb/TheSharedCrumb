@@ -3,9 +3,20 @@ layout: default
 title: Home
 ---
 
+<!-- Hero Section -->
 <section class="hero-welcome">
   <h1>Welcome to The Shared Crumb</h1>
   <p>Your favorite recipes, tested and shared.</p>
 </section>
 
+<!-- Featured Carousel Include -->
 {% include recipe-carousel.html %}
+
+<!-- Modern Minimal Brand Intro -->
+<section class="home-section brand-about-card text-center">
+  <h2>Tested Recipes. Real Food. Made to Share.</h2>
+  <p>
+    At <strong>The Shared Crumb</strong>, we skip the fluff to bring you dependable, flavorful recipes designed for everyday home cooks. Whether you need a quick weeknight dinner or a weekend baking project, you're in the right place.
+  </p>
+  <a href="{{ '/recipes.html' | relative_url }}" class="about-cta-btn">Browse All Recipes &rarr;</a>
+</section>
