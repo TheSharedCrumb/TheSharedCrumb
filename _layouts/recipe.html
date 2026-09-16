@@ -86,6 +86,8 @@ layout: default
         <div class="recipe-image-container">
           <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
         </div>
+      {% else %}
+        <div class="brand-tile-placeholder"></div>
       {% endif %}
 
     </header>
