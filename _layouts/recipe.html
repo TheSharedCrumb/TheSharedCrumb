@@ -185,9 +185,9 @@ layout: default
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Dynamic Print URL Binding
-    const recipeHeader = document.querySelector('.recipe-header');
-    if (recipeHeader) {
-      recipeHeader.setAttribute('data-print-url', window.location.pathname);
+    const recipeArticle = document.querySelector('.recipe-article');
+    if (recipeArticle) {
+      recipeArticle.setAttribute('data-print-url', window.location.pathname);
     }
 
     // 0. Group Ingredients & Instructions into Column Containers (Text-Targeted)
