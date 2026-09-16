@@ -1278,47 +1278,45 @@ footer {
 }
 
 /* ==========================================================================
-   13. Fallback Brand Tile (For Recipes Without Images)
+   13. Fallback Brand Tile
    ========================================================================== */
 
-.brand-tile-placeholder,
-.carousel-card-placeholder {
+.brand-tile-placeholder {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  height: 100%;
+  min-height: 240px;
   background: linear-gradient(135deg, #FAF5EF 0%, #EDF2F7 100%);
   border-bottom: 2px solid #E2E8F0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 14px;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 2rem 1rem;
   text-align: center;
+  border-radius: 8px;
 }
 
 /* Brand Name Accent */
-.brand-tile-placeholder::before,
-.carousel-card-placeholder::before {
+.brand-tile-placeholder::before {
   content: "The Shared Crumb";
   font-family: inherit;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   font-weight: 800;
   color: #9B2C2C;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   background-color: #FFFFFF;
-  padding: 4px 12px;
-  border-radius: 12px;
+  padding: 6px 16px;
+  border-radius: 20px;
   border: 1px solid #E2E8F0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* Center Icon Accent */
-.brand-tile-placeholder::after,
-.carousel-card-placeholder::after {
+.brand-tile-placeholder::after {
   content: "🍽️";
-  font-size: 2.2rem;
+  font-size: 3.5rem;
   line-height: 1;
-  margin-top: 4px;
 }
