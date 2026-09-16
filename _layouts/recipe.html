@@ -184,6 +184,30 @@ layout: default
 <!-- Interactive Checkboxes, Step Dimming, Auto-Copy, Share & Cook Mode Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // 0. Group Ingredients & Instructions into Column Containers
+    const recipeBody = document.querySelector('.recipe-body');
+    if (recipeBody) {
+      const h3s = recipeBody.querySelectorAll('h3');
+      const ul = recipeBody.querySelector('ul');
+      const ol = recipeBody.querySelector('ol');
+
+      if (h3s[0] && ul) {
+        const leftCol = document.createElement('div');
+        leftCol.className = 'recipe-column-left';
+        recipeBody.insertBefore(leftCol, h3s[0]);
+        leftCol.appendChild(h3s[0]);
+        leftCol.appendChild(ul);
+      }
+
+      if (h3s[1] && ol) {
+        const rightCol = document.createElement('div');
+        rightCol.className = 'recipe-column-right';
+        recipeBody.insertBefore(rightCol, h3s[1]);
+        rightCol.appendChild(h3s[1]);
+        rightCol.appendChild(ol);
+      }
+    }
+
     // 1. Interactive Checkboxes & Dynamic "Copy Ingredients" Insertion
     const ingredientLists = document.querySelectorAll('.recipe-body ul');
     if (ingredientLists.length > 0) {
