@@ -82,7 +82,8 @@ layout: default
       </div>
 
       <!-- Main Recipe Image -->
-      {% if page.image %}
+      {% assign page_img_clean = page.image | strip %}
+      {% if page_img_clean != "" and page.image != nil %}
         <div class="recipe-image-container">
           <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
         </div>
@@ -157,7 +158,8 @@ layout: default
         {% for recipe in final_related %}
           {% if recipe.title and recipe.url %}
             <a href="{{ recipe.url | relative_url }}" class="recipe-grid-card">
-              {% if recipe.image %}
+              {% assign recipe_img_clean = recipe.image | strip %}
+              {% if recipe_img_clean != "" and recipe.image != nil %}
                 <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
               {% else %}
                 <div class="brand-tile-placeholder"></div>
