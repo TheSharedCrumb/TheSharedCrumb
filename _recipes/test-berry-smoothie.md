@@ -2,7 +2,7 @@
 layout: recipe
 title: "Triple Berry Protein Smoothie"
 description: "A thick, refreshing blend of blueberries, strawberries, Greek yogurt, and almond milk."
-category: [Breakfast, Drinks]
+category: [Breakfast, Drinks, Toddler Approved]
 prep_time: "5 mins"
 yield: "1 large smoothie"
 image: "/assets/images/Berry_Smoothie_TEST.webp"
