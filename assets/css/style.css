@@ -1073,33 +1073,28 @@ footer {
     border-radius: 6px !important;
   }
 
-  /* Asymmetric Grid Layout for Body (Aligns Titles & Controls Widths) */
+  /* 2-Column Asymmetric Flex Layout (Force-Splits Body) */
   .recipe-body {
-    display: grid !important;
-    grid-template-columns: 35% 60% !important;
-    column-gap: 5% !important;
-    align-items: start !important;
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    width: 100% !important;
   }
 
-  /* Align Both Section Titles to Column Top */
-  .recipe-body h3:nth-of-type(1) {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-  }
-
+  /* Ingredients Side (30% Width) */
+  .recipe-body h3:nth-of-type(1),
   .recipe-body ul {
-    grid-column: 1 !important;
-    grid-row: 2 !important;
+    width: 30% !important;
+    margin-top: 0 !important;
   }
 
-  .recipe-body h3:nth-of-type(2) {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-  }
-
+  /* Instructions Side (65% Width) */
+  .recipe-body h3:nth-of-type(2),
   .recipe-body ol {
-    grid-column: 2 !important;
-    grid-row: 2 !important;
+    width: 65% !important;
+    margin-top: 0 !important;
   }
 
   .recipe-body h3 {
@@ -1110,44 +1105,27 @@ footer {
     border-bottom: 1px solid #E2E8F0 !important;
   }
 
-  .recipe-body ul,
-  .recipe-body ol {
+  /* Force Bullets Back onto JS-Generated Checkbox Labels */
+  .recipe-body ul {
+    list-style: none !important;
+    padding-left: 0 !important;
     margin-bottom: 12px !important;
-    padding-left: 18px !important;
   }
 
-  .recipe-body li {
-    margin-bottom: 4px !important;
-    line-height: 1.4 !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-  }
-}
-
-  /* Expanded 2-Column Body (Tighter gap gives Instructions more width) */
-  .recipe-body {
+  .ingredient-checkbox-label {
     display: block !important;
-    column-count: 2 !important;
-    column-gap: 16px !important; /* Reduced gap to give text more horizontal room */
-    width: 100% !important;
   }
 
-  .recipe-body h3 {
-    font-size: 1rem !important;
+  .ingredient-checkbox-label::before {
+    content: "• " !important;
     color: #9B2C2C !important;
-    margin: 8px 0 6px 0 !important;
-    padding-bottom: 2px !important;
-    border-bottom: 1px solid #E2E8F0 !important;
-    break-after: avoid !important;
-    page-break-after: avoid !important;
+    font-weight: bold !important;
+    margin-right: 4px !important;
   }
 
-  .recipe-body ul,
   .recipe-body ol {
+    padding-left: 18px !important;
     margin-bottom: 12px !important;
-    padding-left: 16px !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
   }
 
   .recipe-body li {
