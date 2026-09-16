@@ -184,26 +184,29 @@ layout: default
 <!-- Interactive Checkboxes, Step Dimming, Auto-Copy, Share & Cook Mode Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // 0. Group Ingredients & Instructions into Column Containers
+    // 0. Group Ingredients & Instructions into Column Containers (Text-Targeted)
     const recipeBody = document.querySelector('.recipe-body');
     if (recipeBody) {
-      const h3s = recipeBody.querySelectorAll('h3');
+      const h3s = Array.from(recipeBody.querySelectorAll('h3'));
+      const ingredientsH3 = h3s.find(h3 => h3.textContent.trim().toLowerCase().includes('ingredients'));
+      const instructionsH3 = h3s.find(h3 => h3.textContent.trim().toLowerCase().includes('instructions'));
+
       const ul = recipeBody.querySelector('ul');
       const ol = recipeBody.querySelector('ol');
 
-      if (h3s[0] && ul) {
+      if (ingredientsH3 && ul) {
         const leftCol = document.createElement('div');
         leftCol.className = 'recipe-column-left';
-        recipeBody.insertBefore(leftCol, h3s[0]);
-        leftCol.appendChild(h3s[0]);
+        recipeBody.insertBefore(leftCol, ingredientsH3);
+        leftCol.appendChild(ingredientsH3);
         leftCol.appendChild(ul);
       }
 
-      if (h3s[1] && ol) {
+      if (instructionsH3 && ol) {
         const rightCol = document.createElement('div');
         rightCol.className = 'recipe-column-right';
-        recipeBody.insertBefore(rightCol, h3s[1]);
-        rightCol.appendChild(h3s[1]);
+        recipeBody.insertBefore(rightCol, instructionsH3);
+        rightCol.appendChild(instructionsH3);
         rightCol.appendChild(ol);
       }
     }
