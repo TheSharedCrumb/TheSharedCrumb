@@ -8,7 +8,7 @@ cook_time: "1 hr"
 yield: "8 servings"
 difficulty: "Medium"
 cost: "$"
-image: "/assets/images/Cookies_TEST.jpg"
+image: "/assets/images/OnePan_Parmesan_Chicken_Vegetables.jpg"
 ---
 
 > *There is a quiet joy in knowing dinner tomorrow is already taken care of. As this dish roasts, the rich drippings from the zesty-marinated chicken melt directly into the bed of potatoes below, creating a rich, garlicky parmesan flavor that gets even better overnight. Making a big batch means tonight's effortless, comforting feast transforms into the kind of savory, hot leftover lunch that makes the whole midday break feel like a luxury.*
@@ -19,6 +19,7 @@ image: "/assets/images/Cookies_TEST.jpg"
 * 1 lb of carrots diced
 * ⅓ cups butter melted
 * 1 cup shredded parmesan cheese
+* 1 red onion finely diced
 * 8 garlic cloves minced
 * 2 tsp paprika
 * 2 tsp oregano
@@ -36,7 +37,6 @@ image: "/assets/images/Cookies_TEST.jpg"
 * 1 tsp cumin
 * 1 lemon juiced
 * 2 tbsp mayonnaise
-* 1 red onion finely diced
 
 ### Instructions
 1. **Marinate**: Mix all ingredients for the chicken in a bowl to marinate. Mix thouroughly and let sit while preping the rest of the ingredients
