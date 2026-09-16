@@ -9,11 +9,14 @@
         {% assign sample_recipes = site.recipes | sample: 10 %}
         {% for recipe in sample_recipes %}
           <a href="{{ recipe.url | relative_url }}" class="carousel-card">
-            {% if recipe.image %}
+            
+            {% assign recipe_img_clean = recipe.image | strip %}
+            {% if recipe_img_clean != "" and recipe.image != nil %}
               <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="carousel-card-img">
             {% else %}
-              <div class="carousel-card-placeholder"></div>
+              <div class="brand-tile-placeholder"></div>
             {% endif %}
+
             <div class="carousel-card-content">
               
               {% comment %} Render Multi-Category Badges {% endcomment %}
