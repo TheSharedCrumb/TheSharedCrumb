@@ -190,30 +190,42 @@ layout: default
       recipeArticle.setAttribute('data-print-url', window.location.pathname);
     }
 
-    // 0. Group Ingredients & Instructions into Column Containers (Text-Targeted)
+    // 0. Group Ingredients & Instructions into Column Containers (Supports Sub-Groups & Multiple Lists)
     const recipeBody = document.querySelector('.recipe-body');
     if (recipeBody) {
       const h3s = Array.from(recipeBody.querySelectorAll('h3'));
       const ingredientsH3 = h3s.find(h3 => h3.textContent.trim().toLowerCase().includes('ingredients'));
       const instructionsH3 = h3s.find(h3 => h3.textContent.trim().toLowerCase().includes('instructions'));
 
-      const ul = recipeBody.querySelector('ul');
-      const ol = recipeBody.querySelector('ol');
-
-      if (ingredientsH3 && ul) {
+      if (ingredientsH3) {
         const leftCol = document.createElement('div');
         leftCol.className = 'recipe-column-left';
         recipeBody.insertBefore(leftCol, ingredientsH3);
+        
+        // Move the main "Ingredients" H3 into the left column
         leftCol.appendChild(ingredientsH3);
-        leftCol.appendChild(ul);
+
+        // Collect all elements (sub-headings, ul's, etc.) until reaching Instructions H3 or the end
+        let currentElem = leftCol.nextElementSibling;
+        while (currentElem && currentElem !== instructionsH3) {
+          const nextElem = currentElem.nextElementSibling;
+          leftCol.appendChild(currentElem);
+          currentElem = nextElem;
+        }
       }
 
-      if (instructionsH3 && ol) {
+      if (instructionsH3) {
         const rightCol = document.createElement('div');
         rightCol.className = 'recipe-column-right';
         recipeBody.insertBefore(rightCol, instructionsH3);
-        rightCol.appendChild(instructionsH3);
-        rightCol.appendChild(ol);
+        
+        // Move Instructions H3 and everything following it into the right column
+        let currentElem = rightCol.nextElementSibling;
+        while (currentElem) {
+          const nextElem = currentElem.nextElementSibling;
+          rightCol.appendChild(currentElem);
+          currentElem = nextElem;
+        }
       }
     }
 
