@@ -313,6 +313,7 @@ a.recipe-category-link:hover {
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  text-align: center; /* Centering added here */
 }
 
 #recipeSearchInput:focus {
