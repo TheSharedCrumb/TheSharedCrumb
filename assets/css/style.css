@@ -1073,12 +1073,21 @@ footer {
     border-radius: 6px !important;
   }
 
-  /* 2-Column Body Layout */
+  /* Structural 2-Column Layout (30% Left / 66% Right) */
   .recipe-body {
-    display: block !important;
-    column-count: 2 !important;
-    column-gap: 16px !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
     width: 100% !important;
+  }
+
+  .recipe-column-left {
+    width: 30% !important;
+  }
+
+  .recipe-column-right {
+    width: 66% !important;
   }
 
   .recipe-body h3 {
@@ -1089,13 +1098,11 @@ footer {
     border-bottom: 1px solid #E2E8F0 !important;
   }
 
-  /* Force Column Break right after the Ingredients List */
+  /* Ingredients Bullets */
   .recipe-body ul {
     list-style: none !important;
     padding-left: 0 !important;
     margin-bottom: 12px !important;
-    break-after: column !important;
-    page-break-after: column !important;
   }
 
   .ingredient-checkbox-label::before {
@@ -1107,7 +1114,7 @@ footer {
 
   /* Instructions List */
   .recipe-body ol {
-    padding-left: 18px !important;
+    padding-left: 16px !important;
     margin-bottom: 12px !important;
   }
 
