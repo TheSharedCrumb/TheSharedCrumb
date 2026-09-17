@@ -714,7 +714,7 @@ a.recipe-category-link:hover {
 /* ==========================================================================
    9. Recipe Detail Actions, Interactive Ingredients & Cook Mode
    ========================================================================== */
-/* 2x2 Grid Layout on Mobile Header Bar */
+/* Action Buttons Grid Layout */
 .recipe-actions {
   order: 2;
   display: grid;
@@ -722,7 +722,6 @@ a.recipe-category-link:hover {
   gap: 10px;
   margin: 20px 0 0;
   position: relative;
-  z-index: 1 !important;
 }
 
 .action-btn {
@@ -740,11 +739,11 @@ a.recipe-category-link:hover {
   align-items: center;
   justify-content: center;
   gap: 6px;
-  width: 100%; /* Fills grid column on mobile */
+  width: 100%;
   text-align: center;
 }
 
-/* Jump to Recipe Button (Outlined Default) */
+/* Jump to Recipe Button */
 .jump-btn {
   color: #4A5568;
   border-color: #CBD5E0;
@@ -795,7 +794,7 @@ a.recipe-category-link:hover {
   border-color: #2F855A !important;
 }
 
-/* Cook Mode Button - Default Desktop Hidden Rule */
+/* Cook Mode Button - Default Desktop View (Hidden) */
 .cook-mode-btn {
   display: none;
   color: #4A5568;
@@ -823,8 +822,8 @@ a.recipe-category-link:hover {
   font-weight: 800;
 }
 
-/* Desktop Overrides: Switch Action Bar from Grid to Centered Flex Row */
-@media (min-width: 601px) {
+/* Desktop Overrides for Action Bar */
+@media (min-width: 769px) {
   .recipe-actions {
     display: flex;
     justify-content: center;
@@ -833,26 +832,25 @@ a.recipe-category-link:hover {
   }
 
   .action-btn {
-    width: auto; /* Shrinks back to natural button width on desktop */
+    width: auto;
     padding: 8px 18px;
   }
 }
 
-/* Floating Sticky Mobile Cook Mode Button (Under 600px) */
-@media (max-width: 600px) {
+/* Floating Mobile/Tablet Cook Mode Button (Touch Devices / All Orientations) */
+@media (hover: none) and (pointer: coarse), (max-width: 768px) {
   .cook-mode-btn {
     display: inline-flex !important;
     position: fixed !important;
     bottom: 20px !important;
     right: 20px !important;
     width: auto !important;
-    z-index: 999999 !important; /* Forces top display over images & tiles */
-    isolation: isolate !important; /* Escapes parent container stacking context */
+    z-index: 2147483647 !important; /* Highest possible 32-bit browser z-index */
     padding: 10px 18px !important;
     border-radius: 25px !important;
     background-color: #FFFFFF !important;
     border: 1px solid #CBD5E0 !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
     font-size: 0.85rem !important;
     transition: transform 0.2s ease, background-color 0.2s ease;
   }
@@ -861,11 +859,11 @@ a.recipe-category-link:hover {
     background-color: #2B6CB0 !important;
     color: #FFFFFF !important;
     border-color: #2B6CB0 !important;
-    box-shadow: 0 4px 16px rgba(43, 108, 176, 0.4) !important;
+    box-shadow: 0 4px 18px rgba(43, 108, 176, 0.5) !important;
   }
 }
 
-/* Interactive Ingredient Checkboxes (Dimmed, No Strikethrough) */
+/* Interactive Ingredient Checkboxes */
 .ingredient-checkbox-label {
   display: flex;
   align-items: flex-start;
@@ -889,7 +887,7 @@ a.recipe-category-link:hover {
   transition: opacity 0.2s ease;
 }
 
-/* Copy Ingredients Button Below List */
+/* Copy Ingredients Button */
 .copy-ingredients-wrapper {
   margin: 12px 0 28px;
 }
