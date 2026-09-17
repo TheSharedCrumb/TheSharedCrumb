@@ -851,14 +851,15 @@ a.recipe-category-link:hover {
     display: inline-flex;
   }
 
-  /* Fixed Floating Clone Button Setup */
+  /* Fixed Floating Clone Button Setup with Absolute Layering Fix */
   .floating-cook-btn {
     display: flex !important;
     position: fixed !important;
     bottom: 20px !important;
     right: 20px !important;
     width: auto !important;
-    z-index: 2147483647 !important; /* Highest browser z-index */
+    z-index: 2147483647 !important; /* Maximum 32-bit integer z-index */
+    isolation: isolate !important; /* Breaks out of parent container stacking bounds */
     padding: 10px 18px !important;
     border-radius: 25px !important;
     background-color: #FFFFFF !important;
@@ -872,14 +873,14 @@ a.recipe-category-link:hover {
 
   /* Fade in floating clone when scrolled past top action bar */
   .floating-cook-btn.visible {
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 1 !important;
+    pointer-events: auto !important;
   }
 
   /* Soft translucent state after 3 seconds of user inactivity */
   .floating-cook-btn.visible.idle {
-    opacity: 0.25;
-    pointer-events: none;
+    opacity: 0.25 !important;
+    pointer-events: none !important;
   }
 
   .floating-cook-btn.active {
