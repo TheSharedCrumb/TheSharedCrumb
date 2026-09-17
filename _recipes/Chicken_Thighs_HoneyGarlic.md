@@ -31,7 +31,7 @@ Spoon it over a steamy bed of white rice or thick noodles to catch every last dr
 * ½ tsp ground ginger
 
 ### Instructions
-1. **Chicken**: Pat the chicken thighs thoroughly dry with paper towels, then season both sides with salt and pepper. Melt 1 tablespoon of butter in a skillet over medium-high heat. Add the chicken and sear for about 5 minutes per side until golden brown.
+1. **Chicken**: Pat dry the chicken thighs thoroughly with paper towels, then season both sides with salt and pepper. Melt 1 tablespoon of butter in a skillet over medium-high heat. Add the chicken and sear for about 5 minutes per side until golden brown.
 2. **Sauce**: Transfer the seared chicken onto a rimmed baking sheet. Reduce the skillet heat to medium, then add the remaining 1 tablespoon of butter, garlic, honey, soy sauce, thyme, and ginger. 
 3. **Thicken**: Whisk the sauce continuously for 1 to 2 minutes, scraping up any browned bits from the pan, until glossy and slightly thickened. Spoon half of the glaze over the chicken thighs.
 4. **Bake**: Bake at 400°F (200°C) for 20 minutes, flipping the chicken and brushing with the remaining glaze halfway through, until the internal temperature reaches 165°F.
