@@ -381,12 +381,14 @@ layout: default
       });
     }
 
-    // 4. Mobile Cook Mode (Screen WakeLock API & Dedicated Floating Clone)
+    // 4. Mobile Cook Mode (Screen WakeLock API, Floating Clone & Jitter-Free Footer Avoidance)
     const inlineCookBtn = document.getElementById('cookModeBtn');
     const recipeActions = document.querySelector('.recipe-actions');
     const footer = document.querySelector('footer');
     let wakeLock = null;
     let idleTimer = null;
+    let tick = false;
+    let lastOverlap = -1;
 
     if (inlineCookBtn && 'wakeLock' in navigator) {
       // Clone inline button to body so top layout grid is never altered
@@ -442,28 +444,44 @@ layout: default
         }, 3000);
       };
 
+      // Smooth, Jitter-Free Footer Avoidance calculation using requestAnimationFrame
+      const updateFooterAvoidance = () => {
+        if (footer && floatingCookBtn.classList.contains('visible')) {
+          const footerRect = footer.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          if (footerRect.top < windowHeight) {
+            const overlap = Math.round(windowHeight - footerRect.top + 10);
+            
+            // Only update transform if overlap shifts by more than 1px to eliminate micro-jitter
+            if (Math.abs(overlap - lastOverlap) > 1) {
+              lastOverlap = overlap;
+              floatingCookBtn.style.transform = `translate3d(0, -${overlap}px, 0)`;
+            }
+          } else if (lastOverlap !== 0) {
+            lastOverlap = 0;
+            floatingCookBtn.style.transform = `translate3d(0, 0, 0)`;
+          }
+        }
+        tick = false;
+      };
+
       window.addEventListener('scroll', () => {
         // Absolute Scroll Guard: Force hide floating button when at top of page
         if (window.scrollY < 100) {
           floatingCookBtn.classList.remove('visible', 'idle');
-          floatingCookBtn.style.transform = 'translateY(0)';
+          floatingCookBtn.style.transform = 'translate3d(0, 0, 0)';
+          lastOverlap = 0;
           clearTimeout(idleTimer);
           return;
         }
 
         resetIdleTimer();
 
-        // Footer avoidance logic for floating clone
-        if (footer && floatingCookBtn.classList.contains('visible')) {
-          const footerRect = footer.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
-
-          if (footerRect.top < windowHeight) {
-            const overlap = windowHeight - footerRect.top + 10;
-            floatingCookBtn.style.transform = `translateY(-${overlap}px)`;
-          } else {
-            floatingCookBtn.style.transform = 'translateY(0)';
-          }
+        // Throttled frame execution
+        if (!tick) {
+          window.requestAnimationFrame(updateFooterAvoidance);
+          tick = true;
         }
       }, { passive: true });
 
@@ -480,7 +498,8 @@ layout: default
               resetIdleTimer();
             } else {
               floatingCookBtn.classList.remove('visible', 'idle');
-              floatingCookBtn.style.transform = 'translateY(0)';
+              floatingCookBtn.style.transform = 'translate3d(0, 0, 0)';
+              lastOverlap = 0;
               clearTimeout(idleTimer);
             }
           }
