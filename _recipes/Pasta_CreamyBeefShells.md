@@ -2,7 +2,7 @@
 layout: recipe
 title: "Creamy Beef and Shells"
 icon: "🍝"
-description: "A homemade take on cheesy noodles with ground beef. Great for the whole family."
+description: "A rich, cheesy one-pan pasta with ground beef that the whole family will love."
 category: [One Pan, Beef, Dinner]
 prep_time: "5 min"
 cook_time: "40 min"
