@@ -390,14 +390,17 @@ layout: default
     let tick = false;
     let lastOverlap = -1;
 
-    if (inlineCookBtn && 'wakeLock' in navigator) {
-      // Clone inline button to body so top layout grid is never altered
-      const floatingCookBtn = inlineCookBtn.cloneNode(true);
-      floatingCookBtn.id = 'floatingCookBtn';
-      floatingCookBtn.classList.add('floating-cook-btn');
-      document.body.appendChild(floatingCookBtn);
+    if (inlineCookBtn) {
+      // Create the floating clone immediately so refreshes don't drop it
+      let floatingCookBtn = document.getElementById('floatingCookBtn');
+      if (!floatingCookBtn) {
+        floatingCookBtn = inlineCookBtn.cloneNode(true);
+        floatingCookBtn.id = 'floatingCookBtn';
+        floatingCookBtn.classList.add('floating-cook-btn');
+        document.body.appendChild(floatingCookBtn);
+      }
 
-      // Sync active state between inline and floating clone
+      // Sync active UI state between inline button and floating clone
       const updateCookModeState = (isActive) => {
         const statusText = isActive ? 'ON' : 'OFF';
         [inlineCookBtn, floatingCookBtn].forEach(btn => {
@@ -411,20 +414,29 @@ layout: default
         });
       };
 
-      // Toggle Screen Wake Lock
+      // Toggle Screen Wake Lock safely inside user click gesture
       const toggleWakeLock = async () => {
-        if (!wakeLock) {
-          try {
-            wakeLock = await navigator.wakeLock.request('screen');
-            updateCookModeState(true);
-          } catch (err) {
-            console.error(`Wake Lock failed: ${err.name}, ${err.message}`);
-          }
-        } else {
-          wakeLock.release().then(() => {
+        if ('wakeLock' in navigator) {
+          if (!wakeLock) {
+            try {
+              wakeLock = await navigator.wakeLock.request('screen');
+              updateCookModeState(true);
+            } catch (err) {
+              console.error(`Wake Lock failed: ${err.name}, ${err.message}`);
+            }
+          } else {
+            try {
+              await wakeLock.release();
+            } catch (err) {
+              console.error(`Wake Lock release failed: ${err.message}`);
+            }
             wakeLock = null;
             updateCookModeState(false);
-          });
+          }
+        } else {
+          // Fallback UI toggle if WakeLock API isn't supported
+          const isActive = inlineCookBtn.classList.contains('active');
+          updateCookModeState(!isActive);
         }
       };
 
@@ -453,7 +465,6 @@ layout: default
           if (footerRect.top < windowHeight) {
             const overlap = Math.round(windowHeight - footerRect.top + 10);
             
-            // Only update transform if overlap shifts by more than 1px to eliminate micro-jitter
             if (Math.abs(overlap - lastOverlap) > 1) {
               lastOverlap = overlap;
               floatingCookBtn.style.transform = `translate3d(0, -${overlap}px, 0)`;
@@ -466,11 +477,11 @@ layout: default
         tick = false;
       };
 
-      window.addEventListener('scroll', () => {
-        // Absolute Scroll Guard: Force hide floating button when at top of page
+      const handleScroll = () => {
+        // Absolute Scroll Guard: Force hide floating button when near top of page
         if (window.scrollY < 100) {
           floatingCookBtn.classList.remove('visible', 'idle');
-          floatingCookBtn.style.transform = 'translate3d(0, 0, 0)';
+          floatingCookBtn.style.transform = `translate3d(0, 0, 0)`;
           lastOverlap = 0;
           clearTimeout(idleTimer);
           return;
@@ -478,16 +489,16 @@ layout: default
 
         resetIdleTimer();
 
-        // Throttled frame execution
         if (!tick) {
           window.requestAnimationFrame(updateFooterAvoidance);
           tick = true;
         }
-      }, { passive: true });
+      };
 
+      window.addEventListener('scroll', handleScroll, { passive: true });
       window.addEventListener('touchstart', resetIdleTimer, { passive: true });
 
-      // Reveal floating clone ONLY when top action row is scrolled out of view AND scrollY > 100
+      // Observer: Reveal floating clone ONLY when top action row is scrolled out of view AND scrollY > 100
       if (recipeActions) {
         const observer = new IntersectionObserver(([entry]) => {
           const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
@@ -498,7 +509,7 @@ layout: default
               resetIdleTimer();
             } else {
               floatingCookBtn.classList.remove('visible', 'idle');
-              floatingCookBtn.style.transform = 'translate3d(0, 0, 0)';
+              floatingCookBtn.style.transform = `translate3d(0, 0, 0)`;
               lastOverlap = 0;
               clearTimeout(idleTimer);
             }
@@ -507,8 +518,9 @@ layout: default
 
         observer.observe(recipeActions);
       }
-    } else if (inlineCookBtn) {
-      inlineCookBtn.style.display = 'none';
+
+      // Check position immediately on load/refresh in case scroll position was restored midway down
+      handleScroll();
     }
   });
 </script>
