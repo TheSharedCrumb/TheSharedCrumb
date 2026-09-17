@@ -60,6 +60,11 @@ layout: default
 
       <!-- Action Buttons Row -->
       <div class="recipe-actions">
+        <!-- Jump to Recipe Button -->
+        <a href="#recipe-card" class="action-btn jump-btn">
+          🍳 Jump to Recipe
+        </a>
+
         <button onclick="window.print()" class="action-btn print-btn">
           🖨️ Print Recipe
         </button>
@@ -207,7 +212,7 @@ layout: default
       recipeArticle.setAttribute('data-print-url', window.location.pathname);
     }
 
-    // 0. Group Ingredients & Instructions into Column Containers
+    // 0. Group Ingredients & Instructions into Column Containers & Inject Jump Target
     const recipeBody = document.querySelector('.recipe-body');
     if (recipeBody) {
       const h3s = Array.from(recipeBody.querySelectorAll('h3'));
@@ -215,6 +220,9 @@ layout: default
       const instructionsH3 = h3s.find(h3 => h3.textContent.trim().toLowerCase().includes('instructions'));
 
       if (ingredientsH3) {
+        // Set anchor target for "Jump to Recipe"
+        ingredientsH3.id = 'recipe-card';
+
         const leftCol = document.createElement('div');
         leftCol.className = 'recipe-column-left';
         recipeBody.insertBefore(leftCol, ingredientsH3);
