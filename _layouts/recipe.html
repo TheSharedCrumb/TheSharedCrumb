@@ -17,7 +17,8 @@ layout: default
           </div>
         {% endif %}
 
-        <h1>{{ page.title }}</h1>
+        <!-- Title updated to show page.icon if defined -->
+        <h1>{% if page.icon %}<span class="header-recipe-icon">{{ page.icon }}</span> {% endif %}{{ page.title }}</h1>
 
         {% if page.description %}
           <p class="recipe-description">{{ page.description }}</p>
@@ -87,7 +88,11 @@ layout: default
         {% if page_img_clean != "" and page.image != nil %}
           <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
         {% else %}
-          <div class="brand-tile-placeholder"></div>
+          <div class="brand-tile-placeholder">
+            {% if page.icon %}
+              <span class="custom-recipe-icon">{{ page.icon }}</span>
+            {% endif %}
+          </div>
         {% endif %}
       </div>
 
@@ -162,7 +167,11 @@ layout: default
               {% if recipe_img_clean != "" and recipe.image != nil %}
                 <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
               {% else %}
-                <div class="brand-tile-placeholder"></div>
+                <div class="brand-tile-placeholder">
+                  {% if recipe.icon %}
+                    <span class="custom-recipe-icon">{{ recipe.icon }}</span>
+                  {% endif %}
+                </div>
               {% endif %}
               <div class="grid-card-content">
                 {% if recipe.category %}
@@ -194,7 +203,7 @@ layout: default
       recipeArticle.setAttribute('data-print-url', window.location.pathname);
     }
 
-    // 0. Group Ingredients & Instructions into Column Containers (Supports Sub-Groups & Multiple Lists)
+    // 0. Group Ingredients & Instructions into Column Containers
     const recipeBody = document.querySelector('.recipe-body');
     if (recipeBody) {
       const h3s = Array.from(recipeBody.querySelectorAll('h3'));
@@ -206,10 +215,8 @@ layout: default
         leftCol.className = 'recipe-column-left';
         recipeBody.insertBefore(leftCol, ingredientsH3);
         
-        // Move the main "Ingredients" H3 into the left column
         leftCol.appendChild(ingredientsH3);
 
-        // Collect all elements (sub-headings, ul's, etc.) until reaching Instructions H3 or the end
         let currentElem = leftCol.nextElementSibling;
         while (currentElem && currentElem !== instructionsH3) {
           const nextElem = currentElem.nextElementSibling;
@@ -223,7 +230,6 @@ layout: default
         rightCol.className = 'recipe-column-right';
         recipeBody.insertBefore(rightCol, instructionsH3);
         
-        // Move Instructions H3 and everything following it into the right column
         let currentElem = rightCol.nextElementSibling;
         while (currentElem) {
           const nextElem = currentElem.nextElementSibling;
@@ -265,7 +271,6 @@ layout: default
           });
         });
 
-        // Insert "Copy Ingredients" button directly beneath the <ul> list
         const copyWrapper = document.createElement('div');
         copyWrapper.className = 'copy-ingredients-wrapper';
 
@@ -316,7 +321,6 @@ layout: default
             console.log('Share sheet dismissed');
           }
         } else {
-          // Desktop fallback: copies current URL
           navigator.clipboard.writeText(window.location.href).then(() => {
             shareBtn.innerHTML = '✓ Link Copied!';
             shareBtn.classList.add('copied');
