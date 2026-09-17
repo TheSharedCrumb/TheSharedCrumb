@@ -17,6 +17,8 @@
               <div class="brand-tile-placeholder">
                 {% if recipe.icon %}
                   <span class="custom-recipe-icon">{{ recipe.icon }}</span>
+                {% else %}
+                  <span class="custom-recipe-icon">🍽️</span>
                 {% endif %}
               </div>
             {% endif %}
