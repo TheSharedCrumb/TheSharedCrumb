@@ -1318,11 +1318,13 @@ footer {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Enlarged Icon with Natural Drop Shadow */
+/* Enlarged Icon with Natural Drop Shadow & Multi-Emoji Support */
 .custom-recipe-icon {
-  font-size: 6rem; /* Bumped up from 5rem */
+  font-size: 5rem;
   line-height: 1;
   display: block;
+  white-space: nowrap; /* Prevents stacked emojis across all card views */
+  letter-spacing: -0.05em; /* Keeps multi-emoji pairs snugly placed */
   filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.15)); /* Soft 3D lift */
   transition: transform 0.2s ease-in-out;
 }
