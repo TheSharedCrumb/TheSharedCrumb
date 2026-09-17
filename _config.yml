@@ -1,4 +1,4 @@
 collections:
   recipes:
     output: true
-    permalink: /recipes/:path/
+    permalink: /recipes/:slug/
