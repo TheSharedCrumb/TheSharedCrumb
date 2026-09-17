@@ -1,6 +1,11 @@
 /* ==========================================================================
    1. Reset & Base Setup
    ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* Offset ensures jump target stops below sticky header */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -737,6 +742,19 @@ a.recipe-category-link:hover {
   gap: 6px;
   width: 100%; /* Fills grid column on mobile */
   text-align: center;
+}
+
+/* Primary Action: Jump to Recipe */
+.jump-btn {
+  color: #FFFFFF;
+  background-color: #9B2C2C;
+  border-color: #9B2C2C;
+}
+
+.jump-btn:hover {
+  background-color: #7B2222;
+  border-color: #7B2222;
+  color: #FFFFFF;
 }
 
 .print-btn {
