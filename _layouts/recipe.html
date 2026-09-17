@@ -381,11 +381,26 @@ layout: default
       });
     }
 
-    // 4. Mobile Cook Mode (Screen WakeLock API & Smooth Scroll Detachment)
+    // 4. Mobile Cook Mode (Screen WakeLock API, Dynamic Floating & Idle Fade)
     const cookBtn = document.getElementById('cookModeBtn');
     const recipeActions = document.querySelector('.recipe-actions');
     const footer = document.querySelector('footer');
     let wakeLock = null;
+    let idleTimer = null;
+
+    // Resets the 3-second inactivity timer while floating
+    const resetCookBtnIdleTimer = () => {
+      if (!cookBtn.classList.contains('floating')) return;
+
+      cookBtn.classList.remove('idle');
+      clearTimeout(idleTimer);
+
+      idleTimer = setTimeout(() => {
+        if (cookBtn.classList.contains('floating')) {
+          cookBtn.classList.add('idle');
+        }
+      }, 3000);
+    };
 
     if (cookBtn) {
       if ('wakeLock' in navigator) {
@@ -407,6 +422,26 @@ layout: default
           }
         });
 
+        // Wakes button up on scroll and manages footer avoidance
+        window.addEventListener('scroll', () => {
+          resetCookBtnIdleTimer();
+
+          if (footer && cookBtn.classList.contains('floating')) {
+            const footerRect = footer.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            if (footerRect.top < windowHeight) {
+              const overlap = windowHeight - footerRect.top + 10;
+              cookBtn.style.transform = `translateY(-${overlap}px)`;
+            } else {
+              cookBtn.style.transform = 'translateY(0)';
+            }
+          }
+        }, { passive: true });
+
+        // Wakes button up on screen touch
+        window.addEventListener('touchstart', resetCookBtnIdleTimer, { passive: true });
+
         // Detach to floating state ONLY after scrolling past top actions row
         if (recipeActions) {
           const observer = new IntersectionObserver(([entry]) => {
@@ -414,12 +449,12 @@ layout: default
             
             if (isTouchOrMobile) {
               if (!entry.isIntersecting) {
-                // Top action bar is out of view -> Float to bottom right
                 cookBtn.classList.add('floating');
+                resetCookBtnIdleTimer();
               } else {
-                // At top of page -> Return inline with other action buttons
-                cookBtn.classList.remove('floating');
+                cookBtn.classList.remove('floating', 'idle');
                 cookBtn.style.transform = 'translateY(0)';
+                clearTimeout(idleTimer);
               }
             }
           }, { 
@@ -428,23 +463,6 @@ layout: default
           });
 
           observer.observe(recipeActions);
-        }
-
-        // Prevent floating button from overlapping footer when near bottom
-        if (footer) {
-          window.addEventListener('scroll', () => {
-            if (cookBtn.classList.contains('floating')) {
-              const footerRect = footer.getBoundingClientRect();
-              const windowHeight = window.innerHeight;
-
-              if (footerRect.top < windowHeight) {
-                const overlap = windowHeight - footerRect.top + 10;
-                cookBtn.style.transform = `translateY(-${overlap}px)`;
-              } else {
-                cookBtn.style.transform = 'translateY(0)';
-              }
-            }
-          });
         }
       } else {
         cookBtn.style.display = 'none';
