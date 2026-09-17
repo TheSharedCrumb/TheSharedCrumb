@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: "Chewy Brown Butter Chocolate Chip Cookies"
+icon: "🍪"
 description: "Golden edges, soft chewy centers, and rich nutty depth from browned butter."
 category: [Desserts, Baking]
 prep_time: "20 mins"
