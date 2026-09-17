@@ -381,15 +381,13 @@ layout: default
       });
     }
 
-    // 4. Mobile Cook Mode (Screen WakeLock API & Body Mount for Absolute Stacking)
+    // 4. Mobile Cook Mode (Screen WakeLock API & Dynamic Scroll Detachment)
     const cookBtn = document.getElementById('cookModeBtn');
+    const recipeActions = document.querySelector('.recipe-actions');
     const footer = document.querySelector('footer');
     let wakeLock = null;
 
     if (cookBtn) {
-      // Reparent button to body so no container stacking traps it under images/tiles
-      document.body.appendChild(cookBtn);
-
       if ('wakeLock' in navigator) {
         cookBtn.addEventListener('click', async () => {
           if (!wakeLock) {
@@ -409,11 +407,32 @@ layout: default
           }
         });
 
-        // Scroll listener to prevent floating Cook Mode button from overlapping footer
+        // Detach to floating state ONLY after scrolling past top actions row
+        if (recipeActions) {
+          const observer = new IntersectionObserver(([entry]) => {
+            const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
+            
+            if (isTouchOrMobile) {
+              if (!entry.isIntersecting) {
+                // Top action bar is out of view -> Float to bottom right
+                document.body.appendChild(cookBtn);
+                cookBtn.classList.add('floating');
+              } else {
+                // At top of page -> Put back inline with other action buttons
+                recipeActions.appendChild(cookBtn);
+                cookBtn.classList.remove('floating');
+                cookBtn.style.transform = 'translateY(0)';
+              }
+            }
+          }, { threshold: 0 });
+
+          observer.observe(recipeActions);
+        }
+
+        // Prevent floating button from overlapping footer when near bottom
         if (footer) {
           window.addEventListener('scroll', () => {
-            const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
-            if (isTouchOrMobile) {
+            if (cookBtn.classList.contains('floating')) {
               const footerRect = footer.getBoundingClientRect();
               const windowHeight = window.innerHeight;
 
