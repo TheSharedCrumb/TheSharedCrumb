@@ -389,7 +389,7 @@ layout: default
     let idleTimer = null;
 
     if (inlineCookBtn && 'wakeLock' in navigator) {
-      // Clone inline button to body so top layout grid is never altered or collapsed
+      // Clone inline button to body so top layout grid is never altered
       const floatingCookBtn = inlineCookBtn.cloneNode(true);
       floatingCookBtn.id = 'floatingCookBtn';
       floatingCookBtn.classList.add('floating-cook-btn');
@@ -443,6 +443,14 @@ layout: default
       };
 
       window.addEventListener('scroll', () => {
+        // Absolute Scroll Guard: Force hide floating button when at top of page
+        if (window.scrollY < 100) {
+          floatingCookBtn.classList.remove('visible', 'idle');
+          floatingCookBtn.style.transform = 'translateY(0)';
+          clearTimeout(idleTimer);
+          return;
+        }
+
         resetIdleTimer();
 
         // Footer avoidance logic for floating clone
@@ -461,13 +469,13 @@ layout: default
 
       window.addEventListener('touchstart', resetIdleTimer, { passive: true });
 
-      // Reveal floating clone ONLY when top action row is scrolled out of view
+      // Reveal floating clone ONLY when top action row is scrolled out of view AND scrollY > 100
       if (recipeActions) {
         const observer = new IntersectionObserver(([entry]) => {
           const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
           
           if (isTouchOrMobile) {
-            if (!entry.isIntersecting) {
+            if (!entry.isIntersecting && window.scrollY > 100) {
               floatingCookBtn.classList.add('visible');
               resetIdleTimer();
             } else {
