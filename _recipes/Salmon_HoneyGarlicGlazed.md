@@ -2,7 +2,7 @@
 layout: recipe
 title: "Honey Garlic Glazed Salmon"
 icon: "🐟"
-description: "Sticky Sweet Salmon Fillets."
+description: "Tender, flaky salmon lacquered in a sticky-sweet garlic-honey glaze that comes together in under thirty minutes."
 category: [30 Minutes, Fish]
 prep_time: "5 min"
 cook_time: "20 min"
@@ -12,7 +12,13 @@ cost: "$$"
 image: ""
 ---
 
-Sticky Sweet Salmon Fillets
+If you have ever been intimidated by cooking fish at home, this recipe is your official peace treaty with seafood. Salmon has a bad reputation for turning dry and sad the second you look away, but bathing it in a bubbling skillet of garlic, soy sauce, honey, and fresh lemon juice makes it completely bulletproof.
+
+The real magic here is the sear-and-bake double team. Searing the filets on the stovetop lets that sweet glaze reduction soak into every crevice, while a quick blast in a screaming hot oven turns the honey into a sticky, caramelized lacquer. You end up with crisp, golden edges and an impossibly tender, flaky center that practically melts on your fork.
+
+It looks and tastes like something you would order at a high-end bistro, but it comes together faster than it takes to get door delivery on a Tuesday night.
+
+Serve these sticky fillets over a mountain of steamed jasmine rice to soak up every last drop of the pan sauce, toss a few roasted greens on the side, and prepare to feel like a total culinary genius for minimal effort.
 
 ### Ingredients
 * 4 (6oz) salmon filets
