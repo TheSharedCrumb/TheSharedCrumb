@@ -794,14 +794,15 @@ a.recipe-category-link:hover {
   border-color: #2F855A !important;
 }
 
-/* Cook Mode Button - Default Desktop View (Hidden) */
+/* Cook Mode Button - Default Inline Header Button */
 .cook-mode-btn {
   display: none;
   color: #4A5568;
   border-color: #CBD5E0;
 }
 
-.cook-mode-btn .cook-mode-status {
+.cook-mode-btn .cook-mode-status,
+.floating-cook-btn .cook-mode-status {
   font-size: 0.75rem;
   padding: 2px 6px;
   border-radius: 10px;
@@ -810,15 +811,17 @@ a.recipe-category-link:hover {
   margin-left: 4px;
 }
 
-.cook-mode-btn.active {
-  background-color: #2B6CB0;
-  color: #FFFFFF;
-  border-color: #2B6CB0;
+.cook-mode-btn.active,
+.floating-cook-btn.active {
+  background-color: #2B6CB0 !important;
+  color: #FFFFFF !important;
+  border-color: #2B6CB0 !important;
 }
 
-.cook-mode-btn.active .cook-mode-status {
-  background-color: #FFFFFF;
-  color: #2B6CB0;
+.cook-mode-btn.active .cook-mode-status,
+.floating-cook-btn.active .cook-mode-status {
+  background-color: #FFFFFF !important;
+  color: #2B6CB0 !important;
   font-weight: 800;
 }
 
@@ -837,41 +840,49 @@ a.recipe-category-link:hover {
   }
 }
 
-/* Floating Mobile/Tablet Cook Mode Button & Idle Fade */
+/* Floating Clone Button Styling (Mobile/Tablet Viewports) */
+.floating-cook-btn {
+  display: none;
+}
+
 @media (hover: none) and (pointer: coarse), (max-width: 768px) {
-  /* Visible inline at top of page inside .recipe-actions */
+  /* Make inline button visible in top header bar */
   .cook-mode-btn {
     display: inline-flex;
-    transition: opacity 0.4s ease, transform 0.2s ease, background-color 0.2s ease;
   }
 
-  /* Applied dynamically via JavaScript only when scrolled past top actions row */
-  .cook-mode-btn.floating {
+  /* Fixed Floating Clone Button Setup */
+  .floating-cook-btn {
+    display: flex !important;
     position: fixed !important;
     bottom: 20px !important;
     right: 20px !important;
     width: auto !important;
-    z-index: 2147483647 !important; /* Highest possible browser z-index */
+    z-index: 2147483647 !important; /* Highest browser z-index */
     padding: 10px 18px !important;
     border-radius: 25px !important;
     background-color: #FFFFFF !important;
     border: 1px solid #CBD5E0 !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
     font-size: 0.85rem !important;
+    opacity: 0;
+    pointer-events: none; /* Hidden at page top */
+    transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  /* Fade in floating clone when scrolled past top action bar */
+  .floating-cook-btn.visible {
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* Soft translucent idle state (fades out after 3s of inactivity) */
-  .cook-mode-btn.floating.idle {
+  /* Soft translucent state after 3 seconds of user inactivity */
+  .floating-cook-btn.visible.idle {
     opacity: 0.25;
-    pointer-events: none; /* Prevents accidental touch triggers while faded */
+    pointer-events: none;
   }
 
-  .cook-mode-btn.floating.active {
-    background-color: #2B6CB0 !important;
-    color: #FFFFFF !important;
-    border-color: #2B6CB0 !important;
+  .floating-cook-btn.active {
     box-shadow: 0 4px 18px rgba(43, 108, 176, 0.5) !important;
   }
 }
