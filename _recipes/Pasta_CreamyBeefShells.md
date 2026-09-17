@@ -1,7 +1,7 @@
 ---
 layout: recipe
 title: "Creamy Beef and Shells"
-icon: "🍗"
+icon: "🍝"
 description: "A homemade take on cheesy noodles with ground beef. Great for the whole family."
 category: [One Pan, Beef, Dinner]
 prep_time: "5 min"
