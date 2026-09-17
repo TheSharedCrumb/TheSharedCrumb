@@ -381,7 +381,7 @@ layout: default
       });
     }
 
-    // 4. Mobile Cook Mode (Screen WakeLock API & Dynamic Scroll Detachment)
+    // 4. Mobile Cook Mode (Screen WakeLock API & Smooth Scroll Detachment)
     const cookBtn = document.getElementById('cookModeBtn');
     const recipeActions = document.querySelector('.recipe-actions');
     const footer = document.querySelector('footer');
@@ -415,16 +415,17 @@ layout: default
             if (isTouchOrMobile) {
               if (!entry.isIntersecting) {
                 // Top action bar is out of view -> Float to bottom right
-                document.body.appendChild(cookBtn);
                 cookBtn.classList.add('floating');
               } else {
-                // At top of page -> Put back inline with other action buttons
-                recipeActions.appendChild(cookBtn);
+                // At top of page -> Return inline with other action buttons
                 cookBtn.classList.remove('floating');
                 cookBtn.style.transform = 'translateY(0)';
               }
             }
-          }, { threshold: 0 });
+          }, { 
+            rootMargin: '0px',
+            threshold: 0 
+          });
 
           observer.observe(recipeActions);
         }
