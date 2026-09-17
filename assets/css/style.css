@@ -3,7 +3,6 @@
    ========================================================================== */
 html {
   scroll-behavior: smooth;
-  /* Fixed scroll-padding-top removed in favor of dynamic JS header height calculation */
 }
 
 * {
@@ -34,12 +33,12 @@ main {
    2. Navigation Header & Sticky Bar Guard (Global Top Stacking)
    ========================================================================== */
 header {
-  background-color: #FFFFFF !important; /* Forces solid background when scrolling */
+  background-color: #FFFFFF !important;
   border-bottom: 2px solid #E2E8F0;
   padding: 12px 24px;
   position: sticky;
   top: 0;
-  z-index: 99999 !important; /* Stays firmly above ALL scrolling page elements */
+  z-index: 99999 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -99,7 +98,6 @@ nav a.active {
   color: #9B2C2C;
 }
 
-/* Active tab underline indicator */
 nav a.active::after,
 nav a:hover::after {
   content: '';
@@ -363,7 +361,6 @@ a.recipe-category-link:hover {
   z-index: 1 !important;
 }
 
-/* Base Card Styling with Eased Motion */
 .recipe-grid-card,
 .carousel-card {
   background-color: #FFFFFF;
@@ -378,7 +375,6 @@ a.recipe-category-link:hover {
               box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* Enhanced Hover Lift */
 .recipe-grid-card:hover,
 .carousel-card:hover {
   transform: translateY(-8px) scale(1.01);
@@ -495,7 +491,6 @@ a.recipe-category-link:hover {
   line-height: 1.5;
 }
 
-/* Contact Page Social Grid */
 .contact-social-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -588,7 +583,6 @@ a.recipe-category-link:hover {
   margin: 0 auto 24px;
 }
 
-/* Flexible, Auto-Scaling Meta Bar */
 .recipe-meta {
   display: flex;
   justify-content: center;
@@ -656,7 +650,6 @@ a.recipe-category-link:hover {
   border-bottom: 1px solid #EDF2F7;
 }
 
-/* Sub-group Ingredient Headers (Markdown ####) */
 .recipe-body h4 {
   font-size: 0.95rem;
   color: #4A5568;
@@ -665,7 +658,6 @@ a.recipe-category-link:hover {
   letter-spacing: 0.5px;
 }
 
-/* Remove bullets & padding for ingredient lists */
 .recipe-body ul {
   list-style: none !important;
   padding-left: 0 !important;
@@ -689,7 +681,6 @@ a.recipe-category-link:hover {
   line-height: 1.7;
 }
 
-/* Story Callout / Blockquotes */
 .recipe-body blockquote {
   font-style: italic;
   color: #4A5568;
@@ -699,7 +690,6 @@ a.recipe-category-link:hover {
   line-height: 1.6;
 }
 
-/* Related Recipes Section */
 .related-recipes-section {
   margin-top: 48px;
 }
@@ -714,7 +704,6 @@ a.recipe-category-link:hover {
 /* ==========================================================================
    9. Recipe Detail Actions, Interactive Ingredients & Cook Mode
    ========================================================================== */
-/* Action Buttons Grid Layout on Mobile */
 .recipe-actions {
   order: 2;
   display: grid;
@@ -743,7 +732,6 @@ a.recipe-category-link:hover {
   text-align: center;
 }
 
-/* Jump to Recipe Button */
 .jump-btn {
   color: #4A5568;
   border-color: #CBD5E0;
@@ -776,7 +764,6 @@ a.recipe-category-link:hover {
   border-color: #E60023;
 }
 
-/* Native Web Share Button */
 .share-btn {
   color: #4A5568;
   border-color: #CBD5E0;
@@ -794,7 +781,7 @@ a.recipe-category-link:hover {
   border-color: #2F855A !important;
 }
 
-/* Cook Mode Button - Default Inline Header Button */
+/* Cook Mode Button - Inline Header Bar Element */
 .cook-mode-btn {
   display: none;
   color: #4A5568;
@@ -846,13 +833,12 @@ a.recipe-category-link:hover {
 }
 
 @media (hover: none) and (pointer: coarse), (max-width: 768px) {
-  /* Make inline button visible in top header bar */
   .cook-mode-btn {
     display: inline-flex;
   }
 
-  /* Fixed Floating Clone Button Setup with Absolute Layering Fix */
-  .floating-cook-btn {
+  /* Fixed Floating Clone Button with Absolute Viewport Layering Lock */
+  body > .floating-cook-btn {
     display: flex !important;
     position: fixed !important;
     bottom: 20px !important;
@@ -871,19 +857,19 @@ a.recipe-category-link:hover {
     transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
   }
 
-  /* Fade in floating clone when scrolled past top action bar */
-  .floating-cook-btn.visible {
+  /* Revealed when scrolled past top action bar */
+  body > .floating-cook-btn.visible {
     opacity: 1 !important;
     pointer-events: auto !important;
   }
 
-  /* Soft translucent state after 3 seconds of user inactivity */
-  .floating-cook-btn.visible.idle {
+  /* Soft translucent state after 3s inactivity */
+  body > .floating-cook-btn.visible.idle {
     opacity: 0.25 !important;
     pointer-events: none !important;
   }
 
-  .floating-cook-btn.active {
+  body > .floating-cook-btn.active {
     box-shadow: 0 4px 18px rgba(43, 108, 176, 0.5) !important;
   }
 }
@@ -1057,7 +1043,6 @@ footer {
    11. Print Stylesheet Overrides
    ========================================================================== */
 @media print {
-  /* Hide Web Nav, Actions, Related Recipes, Footers & Story Elements */
   body > header,
   body > footer,
   .recipe-actions,
@@ -1067,10 +1052,11 @@ footer {
   .related-recipes-section,
   .recipe-category-badges,
   .recipe-body blockquote,
-  .recipe-body > p,          /* Hides story paragraphs inside recipe-body */
-  .recipe-body > img,        /* Hides inline story images */
-  .recipe-body > h2,         /* Hides story section headers */
-  .recipe-body > h4 {        /* Hides standalone subheaders outside columns */
+  .recipe-body > p,
+  .recipe-body > img,
+  .recipe-body > h2,
+  .recipe-body > h4,
+  .floating-cook-btn {
     display: none !important;
   }
 
@@ -1097,7 +1083,6 @@ footer {
     margin: 0 !important;
   }
 
-  /* Top Left: Site Title */
   .recipe-article::before {
     content: "The Shared Crumb";
     position: absolute !important;
@@ -1110,7 +1095,6 @@ footer {
     line-height: 18px !important;
   }
 
-  /* Top Right: Page URL */
   .recipe-article::after {
     content: "www.thesharedcrumb.com" attr(data-print-url);
     position: absolute !important;
@@ -1122,7 +1106,6 @@ footer {
     line-height: 18px !important;
   }
 
-  /* Header Layout (Title, Description, Meta & Main Image) */
   .recipe-header {
     display: flex !important;
     flex-direction: row !important;
@@ -1181,7 +1164,6 @@ footer {
     font-size: 0.8rem !important;
   }
 
-  /* Image Container & Photo Handling */
   .recipe-image-container {
     width: 110px !important;
     height: 110px !important;
@@ -1199,7 +1181,6 @@ footer {
     border-radius: 6px !important;
   }
 
-  /* Fallback Brand Tile Handling for Print */
   .brand-tile-placeholder {
     width: 110px !important;
     height: 110px !important;
@@ -1213,19 +1194,16 @@ footer {
     justify-content: center !important;
   }
 
-  /* Hide the wrapping text pill badge in print */
   .brand-tile-placeholder::before {
     display: none !important;
   }
 
-  /* Center & scale the emoji icon within the 110px square */
   .brand-tile-placeholder .custom-recipe-icon {
     font-size: 2.75rem !important;
     line-height: 1 !important;
     filter: none !important;
   }
 
-  /* Structural 2-Column Print Layout (Ingredients Left / Instructions Right) */
   .recipe-body {
     display: flex !important;
     flex-direction: row !important;
@@ -1256,7 +1234,6 @@ footer {
     border-bottom: 1px solid #E2E8F0 !important;
   }
 
-  /* Sub-group Ingredient Headers inside columns */
   .recipe-column-left h4,
   .recipe-column-right h4 {
     display: block !important;
@@ -1267,7 +1244,6 @@ footer {
     border-bottom: 1px dashed #E2E8F0 !important;
   }
 
-  /* Ingredients Bullets Alignment */
   .recipe-body ul {
     list-style: none !important;
     padding-left: 0 !important;
@@ -1288,7 +1264,6 @@ footer {
     margin-right: 4px !important;
   }
 
-  /* Instructions List */
   .recipe-body ol {
     padding-left: 16px !important;
     margin-bottom: 12px !important;
@@ -1305,7 +1280,6 @@ footer {
 /* ==========================================================================
    12. Mobile Responsive & Touch Device Adjustments
    ========================================================================== */
-/* Display Cook Mode button strictly on mobile/tablet viewports or touch screens */
 @media (max-width: 1024px), (hover: none) and (pointer: coarse) {
   .cook-mode-btn {
     display: inline-flex !important;
@@ -1379,8 +1353,6 @@ footer {
 /* ==========================================================================
    13. Fallback Brand Tile (Updated Sizing & Elevation)
    ========================================================================== */
-
-/* Fixed Thumbnail Height Across Grid, Carousel, & Placeholder */
 .carousel-card-img,
 .grid-card-img,
 .brand-tile-placeholder {
@@ -1389,7 +1361,6 @@ footer {
   object-fit: cover;
 }
 
-/* Updated Brand Tile Container */
 .brand-tile-placeholder {
   background: linear-gradient(135deg, #FAF5EF 0%, #EDF2F7 100%);
   border-bottom: 2px solid #E2E8F0;
@@ -1397,41 +1368,38 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px; /* Reduced gap to accommodate the larger icon */
+  gap: 10px;
   box-sizing: border-box;
   padding: 1.25rem 1rem;
   text-align: center;
   border-radius: 8px 8px 0 0;
 }
 
-/* Scaled-Down Brand Badge Accent */
 .brand-tile-placeholder::before {
   content: "The Shared Crumb";
   font-family: inherit;
-  font-size: 0.75rem; /* Scaled down from 0.95rem */
+  font-size: 0.75rem;
   font-weight: 800;
   color: #9B2C2C;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   background-color: #FFFFFF;
-  padding: 4px 12px; /* Scaled down padding */
+  padding: 4px 12px;
   border-radius: 20px;
   border: 1px solid #E2E8F0;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Enlarged Icon with Natural Drop Shadow & Multi-Emoji Support */
 .custom-recipe-icon {
   font-size: 5rem;
   line-height: 1;
   display: block;
-  white-space: nowrap; /* Prevents stacked emojis across all card views */
-  letter-spacing: -0.05em; /* Keeps multi-emoji pairs snugly placed */
-  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.15)); /* Soft 3D lift */
+  white-space: nowrap;
+  letter-spacing: -0.05em;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.15));
   transition: transform 0.2s ease-in-out;
 }
 
-/* Subtle hover pop effect on card hover */
 .recipe-grid-card:hover .custom-recipe-icon,
 .carousel-card:hover .custom-recipe-icon {
   transform: scale(1.05);
