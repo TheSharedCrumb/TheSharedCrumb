@@ -1272,10 +1272,18 @@ footer {
 /* ==========================================================================
    13. Fallback Brand Tile
    ========================================================================== */
+
+/* Fixed Thumbnail Height Across Grid, Carousel, & Placeholder */
+.carousel-card-img,
+.grid-card-img,
 .brand-tile-placeholder {
   width: 100%;
-  height: 100%;
-  min-height: 240px;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* Updated Brand Tile Container */
+.brand-tile-placeholder {
   background: linear-gradient(135deg, #FAF5EF 0%, #EDF2F7 100%);
   border-bottom: 2px solid #E2E8F0;
   display: flex;
@@ -1284,12 +1292,12 @@ footer {
   justify-content: center;
   gap: 14px;
   box-sizing: border-box;
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
 }
 
-/* Brand Name Accent */
+/* Brand Badge Accent */
 .brand-tile-placeholder::before {
   content: "The Shared Crumb";
   font-family: inherit;
@@ -1305,7 +1313,7 @@ footer {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Icon Sizing (Used for both custom and fallback icons) */
+/* Icon Sizing (Used for custom front matter icons & default fallback plate) */
 .custom-recipe-icon {
   font-size: 5rem;
   line-height: 1;
