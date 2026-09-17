@@ -1,6 +1,6 @@
 ---
 layout: recipe
-title: "Peanut Butter Cookies"
+title: "Three-Ingredient Peanut Butter Cookies"
 icon: "🍪"
 description: "Crispy around the edges, soft in the center, and packed with rich nutty flavor, three-ingredient peanut butter cookies are a quick-fix classic."
 category: [Desserts, Baking]
