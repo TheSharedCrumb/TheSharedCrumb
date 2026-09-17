@@ -865,7 +865,7 @@ a.recipe-category-link:hover {
 
   /* Soft translucent state after 3s inactivity */
   body > .floating-cook-btn.visible.idle {
-    opacity: 0.25 !important;
+    opacity: 0 !important;
     pointer-events: none !important;
   }
 
