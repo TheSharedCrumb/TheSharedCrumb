@@ -3,7 +3,7 @@
    ========================================================================== */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 140px; /* Offset ensures jump target stops below sticky header */
+  /* Fixed scroll-padding-top removed in favor of dynamic JS header height calculation */
 }
 
 * {
