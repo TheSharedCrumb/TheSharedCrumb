@@ -9,7 +9,7 @@ cook_time: "1 hr"
 yield: "8 servings"
 difficulty: "Medium"
 cost: "$"
-image: "/assets/images/OnePan_Parmesan_Chicken_Vegetables.jpg"
+image: ""
 ---
 
 There is a quiet, profound joy in knowing that dinner tomorrow is already taken care of. Life has a funny way of getting chaotic right around 5:00 PM, but opening the fridge to find a generous pan of roasted chicken and caramelized vegetables ready to reheat feels like a present from your past self. 
