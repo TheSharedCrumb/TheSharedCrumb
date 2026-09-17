@@ -12,9 +12,9 @@ cost: "$"
 image: ""
 ---
 
-There are few kitchen smells more comforting than warm vanilla, browning butter, and melted chocolate filling the air. Every baker needs a bulletproof classic chocolate chip cookie in their back pocket—the kind that delivers buttery, golden edges with a soft, gooey center every single time.
+There are few kitchen smells more comforting than warm vanilla, browning butter, and melted chocolate filling the air. Every baker needs a bulletproof classic chocolate chip cookie in their back pocket: the kind that delivers buttery, golden edges with a soft, gooey center every single time.
 
-This recipe keeps things straightforward without requiring hours of chilling or overly complicated steps. By using a blend of brown sugar for chewiness and white sugar for delicate crispiness, you get the absolute best of both worlds in every bite. 
+This recipe keeps things straightforward without requiring hours of chilling or overly complicated steps. By using a blend of brown sugar for chewiness and white sugar for delicate crispiness, you get the absolute best of both worlds in every bite.
 
 Whether you're baking a batch for a weekend get-together, sending them in school lunchboxes, or sneaking one straight off the cooling rack while the chocolate is still melted, these never last long.
 
