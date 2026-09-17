@@ -381,92 +381,107 @@ layout: default
       });
     }
 
-    // 4. Mobile Cook Mode (Screen WakeLock API, Dynamic Floating & Idle Fade)
-    const cookBtn = document.getElementById('cookModeBtn');
+    // 4. Mobile Cook Mode (Screen WakeLock API & Dedicated Floating Clone)
+    const inlineCookBtn = document.getElementById('cookModeBtn');
     const recipeActions = document.querySelector('.recipe-actions');
     const footer = document.querySelector('footer');
     let wakeLock = null;
     let idleTimer = null;
 
-    // Resets the 3-second inactivity timer while floating
-    const resetCookBtnIdleTimer = () => {
-      if (!cookBtn.classList.contains('floating')) return;
+    if (inlineCookBtn && 'wakeLock' in navigator) {
+      // Clone inline button to body so top layout grid is never altered or collapsed
+      const floatingCookBtn = inlineCookBtn.cloneNode(true);
+      floatingCookBtn.id = 'floatingCookBtn';
+      floatingCookBtn.classList.add('floating-cook-btn');
+      document.body.appendChild(floatingCookBtn);
 
-      cookBtn.classList.remove('idle');
-      clearTimeout(idleTimer);
-
-      idleTimer = setTimeout(() => {
-        if (cookBtn.classList.contains('floating')) {
-          cookBtn.classList.add('idle');
-        }
-      }, 3000);
-    };
-
-    if (cookBtn) {
-      if ('wakeLock' in navigator) {
-        cookBtn.addEventListener('click', async () => {
-          if (!wakeLock) {
-            try {
-              wakeLock = await navigator.wakeLock.request('screen');
-              cookBtn.classList.add('active');
-              cookBtn.querySelector('.cook-mode-status').textContent = 'ON';
-            } catch (err) {
-              console.error(`Wake Lock failed: ${err.name}, ${err.message}`);
-            }
+      // Sync active state between inline and floating clone
+      const updateCookModeState = (isActive) => {
+        const statusText = isActive ? 'ON' : 'OFF';
+        [inlineCookBtn, floatingCookBtn].forEach(btn => {
+          if (isActive) {
+            btn.classList.add('active');
           } else {
-            wakeLock.release().then(() => {
-              wakeLock = null;
-              cookBtn.classList.remove('active');
-              cookBtn.querySelector('.cook-mode-status').textContent = 'OFF';
-            });
+            btn.classList.remove('active');
           }
+          const statusSpan = btn.querySelector('.cook-mode-status');
+          if (statusSpan) statusSpan.textContent = statusText;
         });
+      };
 
-        // Wakes button up on scroll and manages footer avoidance
-        window.addEventListener('scroll', () => {
-          resetCookBtnIdleTimer();
+      // Toggle Screen Wake Lock
+      const toggleWakeLock = async () => {
+        if (!wakeLock) {
+          try {
+            wakeLock = await navigator.wakeLock.request('screen');
+            updateCookModeState(true);
+          } catch (err) {
+            console.error(`Wake Lock failed: ${err.name}, ${err.message}`);
+          }
+        } else {
+          wakeLock.release().then(() => {
+            wakeLock = null;
+            updateCookModeState(false);
+          });
+        }
+      };
 
-          if (footer && cookBtn.classList.contains('floating')) {
-            const footerRect = footer.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
+      inlineCookBtn.addEventListener('click', toggleWakeLock);
+      floatingCookBtn.addEventListener('click', toggleWakeLock);
 
-            if (footerRect.top < windowHeight) {
-              const overlap = windowHeight - footerRect.top + 10;
-              cookBtn.style.transform = `translateY(-${overlap}px)`;
+      // Reset 3-second inactivity timer while floating
+      const resetIdleTimer = () => {
+        if (!floatingCookBtn.classList.contains('visible')) return;
+        floatingCookBtn.classList.remove('idle');
+        clearTimeout(idleTimer);
+
+        idleTimer = setTimeout(() => {
+          if (floatingCookBtn.classList.contains('visible')) {
+            floatingCookBtn.classList.add('idle');
+          }
+        }, 3000);
+      };
+
+      window.addEventListener('scroll', () => {
+        resetIdleTimer();
+
+        // Footer avoidance logic for floating clone
+        if (footer && floatingCookBtn.classList.contains('visible')) {
+          const footerRect = footer.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+
+          if (footerRect.top < windowHeight) {
+            const overlap = windowHeight - footerRect.top + 10;
+            floatingCookBtn.style.transform = `translateY(-${overlap}px)`;
+          } else {
+            floatingCookBtn.style.transform = 'translateY(0)';
+          }
+        }
+      }, { passive: true });
+
+      window.addEventListener('touchstart', resetIdleTimer, { passive: true });
+
+      // Reveal floating clone ONLY when top action row is scrolled out of view
+      if (recipeActions) {
+        const observer = new IntersectionObserver(([entry]) => {
+          const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
+          
+          if (isTouchOrMobile) {
+            if (!entry.isIntersecting) {
+              floatingCookBtn.classList.add('visible');
+              resetIdleTimer();
             } else {
-              cookBtn.style.transform = 'translateY(0)';
+              floatingCookBtn.classList.remove('visible', 'idle');
+              floatingCookBtn.style.transform = 'translateY(0)';
+              clearTimeout(idleTimer);
             }
           }
-        }, { passive: true });
+        }, { threshold: 0 });
 
-        // Wakes button up on screen touch
-        window.addEventListener('touchstart', resetCookBtnIdleTimer, { passive: true });
-
-        // Detach to floating state ONLY after scrolling past top actions row
-        if (recipeActions) {
-          const observer = new IntersectionObserver(([entry]) => {
-            const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
-            
-            if (isTouchOrMobile) {
-              if (!entry.isIntersecting) {
-                cookBtn.classList.add('floating');
-                resetCookBtnIdleTimer();
-              } else {
-                cookBtn.classList.remove('floating', 'idle');
-                cookBtn.style.transform = 'translateY(0)';
-                clearTimeout(idleTimer);
-              }
-            }
-          }, { 
-            rootMargin: '0px',
-            threshold: 0 
-          });
-
-          observer.observe(recipeActions);
-        }
-      } else {
-        cookBtn.style.display = 'none';
+        observer.observe(recipeActions);
       }
+    } else if (inlineCookBtn) {
+      inlineCookBtn.style.display = 'none';
     }
   });
 </script>
