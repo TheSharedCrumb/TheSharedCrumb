@@ -1305,11 +1305,11 @@ footer {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Center Icon Accent */
-.brand-tile-placeholder::after {
-  content: "🍽️";
+/* Icon Sizing (Used for both custom and fallback icons) */
+.custom-recipe-icon {
   font-size: 3.5rem;
   line-height: 1;
+  display: block;
 }
 
 /* ==========================================================================
