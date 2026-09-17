@@ -5,7 +5,7 @@ icon: "🍪"
 description: "Crispy around the edges, soft in the center, and packed with rich nutty flavor, three-ingredient peanut butter cookies are a quick-fix classic."
 category: [Desserts, Baking]
 prep_time: "10 mins"
-cook_time: "8 mins"
+cook_time: "10 mins"
 yield: "12 cookies"
 difficulty: "Easy"
 cost: "$"
@@ -23,7 +23,7 @@ The best part about this ridiculous miracle is that it is basically a canvas for
 It is fast, naturally gluten-free, and requires virtually no cleanup. That means you can go from zero to cookie in under fifteen minutes without dirtying more than one bowl.
 
 ### Ingredients
-* 1 cup peanut butter
+* 1 cup creamy peanut butter
 * 1 cup granulated or brown sugar
 * 1 large egg
 
