@@ -251,6 +251,28 @@ layout: default
       }
     }
 
+    // Dynamic Jump-to-Recipe Scroll Handler (Calculates exact header height at click)
+    const jumpBtn = document.querySelector('.jump-btn');
+    if (jumpBtn) {
+      jumpBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const target = document.getElementById('recipe-card');
+        const header = document.querySelector('header');
+        
+        if (target && header) {
+          const headerHeight = header.offsetHeight;
+          const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+          const offsetPosition = elementPosition - headerHeight - 20;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+
     // 1. Interactive Checkboxes & Dynamic "Copy Ingredients" Insertion
     const ingredientLists = document.querySelectorAll('.recipe-body ul');
     if (ingredientLists.length > 0) {
