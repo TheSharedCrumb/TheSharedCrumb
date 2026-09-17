@@ -714,7 +714,7 @@ a.recipe-category-link:hover {
 /* ==========================================================================
    9. Recipe Detail Actions, Interactive Ingredients & Cook Mode
    ========================================================================== */
-/* Action Buttons Grid Layout */
+/* Action Buttons Grid Layout on Mobile */
 .recipe-actions {
   order: 2;
   display: grid;
@@ -839,8 +839,13 @@ a.recipe-category-link:hover {
 
 /* Floating Mobile/Tablet Cook Mode Button (Touch Devices / All Orientations) */
 @media (hover: none) and (pointer: coarse), (max-width: 768px) {
+  /* Visible inline at top of page inside .recipe-actions */
   .cook-mode-btn {
-    display: inline-flex !important;
+    display: inline-flex;
+  }
+
+  /* Applied dynamically via JavaScript only when scrolled past top actions row */
+  .cook-mode-btn.floating {
     position: fixed !important;
     bottom: 20px !important;
     right: 20px !important;
@@ -855,7 +860,7 @@ a.recipe-category-link:hover {
     transition: transform 0.2s ease, background-color 0.2s ease;
   }
 
-  .cook-mode-btn.active {
+  .cook-mode-btn.floating.active {
     background-color: #2B6CB0 !important;
     color: #FFFFFF !important;
     border-color: #2B6CB0 !important;
@@ -899,8 +904,8 @@ a.recipe-category-link:hover {
 
 .copy-btn:hover {
   background-color: #9B2C2C;
-  color: #FFFFFF;
   border-color: #9B2C2C;
+  color: #FFFFFF;
 }
 
 .copy-btn.copied {
