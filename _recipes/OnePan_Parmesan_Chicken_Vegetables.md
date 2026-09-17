@@ -1,6 +1,7 @@
 ---
 layout: recipe
-title: "One Pan Parmesan Chicken and Vegetables"
+title: "One-Pan Parmesan Chicken and Vegetables"
+icon: "🍗"
 description: "Zesty-marinated chicken thighs and garlic-parmesan potatoes roasted together for maximum flavor with minimal cleanup."
 category: [One Pan, Chicken, Dinner]
 prep_time: "30 min"
