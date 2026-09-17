@@ -17,8 +17,8 @@ layout: default
           </div>
         {% endif %}
 
-        <!-- Title updated to show page.icon if defined -->
-        <h1>{% if page.icon %}<span class="header-recipe-icon">{{ page.icon }}</span> {% endif %}{{ page.title }}</h1>
+        <!-- Clean Title without header icon -->
+        <h1>{{ page.title }}</h1>
 
         {% if page.description %}
           <p class="recipe-description">{{ page.description }}</p>
@@ -91,6 +91,8 @@ layout: default
           <div class="brand-tile-placeholder">
             {% if page.icon %}
               <span class="custom-recipe-icon">{{ page.icon }}</span>
+            {% else %}
+              <span class="custom-recipe-icon">🍽️</span>
             {% endif %}
           </div>
         {% endif %}
@@ -170,6 +172,8 @@ layout: default
                 <div class="brand-tile-placeholder">
                   {% if recipe.icon %}
                     <span class="custom-recipe-icon">{{ recipe.icon }}</span>
+                  {% else %}
+                    <span class="custom-recipe-icon">🍽️</span>
                   {% endif %}
                 </div>
               {% endif %}
