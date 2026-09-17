@@ -1,0 +1,14 @@
+{% comment %}
+  =============================================================================
+  AUTO-LINK RECIPE SNIPPET (r.html)
+  =============================================================================
+  Searches _recipes by title and renders a link if published, or plain text if not.
+  
+  Usage Example in Markdown:
+  {% include r.html t="Three-Ingredient Peanut Butter Cookies" %}
+  {% include r.html t="Classic Chocolate Chip Cookies" %}
+  =============================================================================
+{% endcomment %}
+
+{% assign match = site.recipes | where: "title", include.t | first %}
+{% if match %}<a href="{{ match.url | relative_url }}">{{ include.t }}</a>{% else %}{{ include.t }}{% endif %}

@@ -1,6 +1,0 @@
-{% assign match = site.recipes | where: "title", include.title | first %}
-{% if match %}
-  <a href="{{ match.url | relative_url }}">{{ include.title }}</a>
-{% else %}
-  {{ include.title }}
-{% endif %}
