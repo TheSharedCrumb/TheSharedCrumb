@@ -714,7 +714,7 @@ a.recipe-category-link:hover {
 /* ==========================================================================
    9. Recipe Detail Actions, Interactive Ingredients & Cook Mode
    ========================================================================== */
-/* 2x2 Grid Layout on Mobile (Saves vertical space & improves tap targets) */
+/* 2x2 Grid Layout on Mobile Header Bar */
 .recipe-actions {
   order: 2;
   display: grid;
@@ -744,7 +744,7 @@ a.recipe-category-link:hover {
   text-align: center;
 }
 
-/* Jump to Recipe Button (Default Outlined Style) */
+/* Jump to Recipe Button (Outlined Default) */
 .jump-btn {
   color: #4A5568;
   border-color: #CBD5E0;
@@ -795,7 +795,7 @@ a.recipe-category-link:hover {
   border-color: #2F855A !important;
 }
 
-/* Cook Mode Button - Hidden by Default on Desktop */
+/* Cook Mode Button - Default Desktop Hidden Rule */
 .cook-mode-btn {
   display: none;
   color: #4A5568;
@@ -823,7 +823,7 @@ a.recipe-category-link:hover {
   font-weight: 800;
 }
 
-/* Desktop Overrides: Switch from 2x2 Grid to Centered Flex Row */
+/* Desktop Overrides: Switch Action Bar from Grid to Centered Flex Row */
 @media (min-width: 601px) {
   .recipe-actions {
     display: flex;
@@ -835,6 +835,32 @@ a.recipe-category-link:hover {
   .action-btn {
     width: auto; /* Shrinks back to natural button width on desktop */
     padding: 8px 18px;
+  }
+}
+
+/* Floating Sticky Mobile Cook Mode Button (Under 600px) */
+@media (max-width: 600px) {
+  .cook-mode-btn {
+    display: inline-flex !important;
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    width: auto !important;
+    z-index: 9999 !important;
+    padding: 10px 18px !important;
+    border-radius: 25px !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid #CBD5E0 !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important;
+    font-size: 0.85rem !important;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  .cook-mode-btn.active {
+    background-color: #2B6CB0 !important;
+    color: #FFFFFF !important;
+    border-color: #2B6CB0 !important;
+    box-shadow: 0 4px 16px rgba(43, 108, 176, 0.4) !important;
   }
 }
 
@@ -856,7 +882,7 @@ a.recipe-category-link:hover {
 }
 
 .ingredient-checkbox-label.checked .ingredient-text {
-  text-decoration: none !important; /* Removes strikethrough */
+  text-decoration: none !important;
   opacity: 0.4;
   color: #A0AEC0;
   transition: opacity 0.2s ease;
