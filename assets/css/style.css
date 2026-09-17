@@ -1007,7 +1007,7 @@ footer {
    11. Print Stylesheet Overrides
    ========================================================================== */
 @media print {
-  /* Hide Web-Only Elements & Recipe Stories */
+  /* Hide Web Nav, Actions, Related Recipes, Footers & Story Elements */
   body > header,
   body > footer,
   .recipe-actions,
@@ -1016,7 +1016,11 @@ footer {
   .ingredient-checkbox,
   .related-recipes-section,
   .recipe-category-badges,
-  .recipe-body blockquote {
+  .recipe-body blockquote,
+  .recipe-body > p,          /* Hides story paragraphs inside recipe-body */
+  .recipe-body > img,        /* Hides inline story images */
+  .recipe-body > h2,         /* Hides story section headers */
+  .recipe-body > h4 {        /* Hides standalone subheaders outside columns */
     display: none !important;
   }
 
@@ -1043,7 +1047,7 @@ footer {
     margin: 0 !important;
   }
 
-  /* Top Left: Logo & Site Title (Flush Left) */
+  /* Top Left: Site Title */
   .recipe-article::before {
     content: "The Shared Crumb";
     position: absolute !important;
@@ -1052,7 +1056,7 @@ footer {
     font-size: 0.9rem !important;
     font-weight: bold !important;
     color: #9B2C2C !important;
-    padding-left: 0 !important; /* Zeroed out to align perfectly with left margin */
+    padding-left: 0 !important;
     line-height: 18px !important;
   }
 
@@ -1068,7 +1072,7 @@ footer {
     line-height: 18px !important;
   }
 
-  /* Header Layout (Flush Left Alignment) */
+  /* Header Layout (Title, Description, Meta & Main Image) */
   .recipe-header {
     display: flex !important;
     flex-direction: row !important;
@@ -1079,7 +1083,7 @@ footer {
     margin-bottom: 12px !important;
     padding-top: 8px !important;
     padding-bottom: 10px !important;
-    padding-left: 0 !important; /* Forces title section flush left */
+    padding-left: 0 !important;
     border-top: 1px solid #E2E8F0 !important;
     border-bottom: 2px solid #E2E8F0 !important;
   }
@@ -1144,7 +1148,7 @@ footer {
     border-radius: 6px !important;
   }
 
-  /* Structural 2-Column Print Layout (30% Left / 66% Right) */
+  /* Structural 2-Column Print Layout (Ingredients Left / Instructions Right) */
   .recipe-body {
     display: flex !important;
     flex-direction: row !important;
@@ -1155,13 +1159,15 @@ footer {
   }
 
   .recipe-column-left {
-    width: 30% !important;
+    display: block !important;
+    width: 32% !important;
     padding-left: 0 !important;
     margin-left: 0 !important;
   }
 
   .recipe-column-right {
-    width: 66% !important;
+    display: block !important;
+    width: 64% !important;
   }
 
   .recipe-body h3 {
@@ -1173,8 +1179,10 @@ footer {
     border-bottom: 1px solid #E2E8F0 !important;
   }
 
-  /* Ingredient Sub-group Headers in Print View */
-  .recipe-body h4 {
+  /* Sub-group Ingredient Headers inside columns */
+  .recipe-column-left h4,
+  .recipe-column-right h4 {
+    display: block !important;
     font-size: 0.8rem !important;
     color: #9B2C2C !important;
     margin: 8px 0 4px 0 !important;
