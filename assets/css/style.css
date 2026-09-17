@@ -313,7 +313,7 @@ a.recipe-category-link:hover {
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  text-align: center; /* Centering added here */
+  text-align: center;
 }
 
 #recipeSearchInput:focus {
@@ -358,7 +358,9 @@ a.recipe-category-link:hover {
   z-index: 1 !important;
 }
 
-.recipe-grid-card {
+/* Base Card Styling with Eased Motion */
+.recipe-grid-card,
+.carousel-card {
   background-color: #FFFFFF;
   border: 1px solid #E2E8F0;
   border-radius: 10px;
@@ -367,12 +369,15 @@ a.recipe-category-link:hover {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), 
+              box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.recipe-grid-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+/* Enhanced Hover Lift */
+.recipe-grid-card:hover,
+.carousel-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
 }
 
 .grid-card-img {
