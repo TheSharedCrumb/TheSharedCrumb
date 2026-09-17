@@ -381,12 +381,15 @@ layout: default
       });
     }
 
-    // 4. Mobile Cook Mode (Screen WakeLock API & Floating Footer Avoidance)
+    // 4. Mobile Cook Mode (Screen WakeLock API & Body Mount for Absolute Stacking)
     const cookBtn = document.getElementById('cookModeBtn');
     const footer = document.querySelector('footer');
     let wakeLock = null;
 
     if (cookBtn) {
+      // Reparent button to body so no container stacking traps it under images/tiles
+      document.body.appendChild(cookBtn);
+
       if ('wakeLock' in navigator) {
         cookBtn.addEventListener('click', async () => {
           if (!wakeLock) {
@@ -409,7 +412,8 @@ layout: default
         // Scroll listener to prevent floating Cook Mode button from overlapping footer
         if (footer) {
           window.addEventListener('scroll', () => {
-            if (window.innerWidth <= 600) {
+            const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
+            if (isTouchOrMobile) {
               const footerRect = footer.getBoundingClientRect();
               const windowHeight = window.innerHeight;
 
