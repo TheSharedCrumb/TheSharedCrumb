@@ -1270,7 +1270,7 @@ footer {
 }
 
 /* ==========================================================================
-   13. Fallback Brand Tile
+   13. Fallback Brand Tile (Updated Sizing & Elevation)
    ========================================================================== */
 
 /* Fixed Thumbnail Height Across Grid, Carousel, & Placeholder */
@@ -1290,34 +1290,42 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 10px; /* Reduced gap to accommodate the larger icon */
   box-sizing: border-box;
-  padding: 1.5rem 1rem;
+  padding: 1.25rem 1rem;
   text-align: center;
   border-radius: 8px 8px 0 0;
 }
 
-/* Brand Badge Accent */
+/* Scaled-Down Brand Badge Accent */
 .brand-tile-placeholder::before {
   content: "The Shared Crumb";
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 0.75rem; /* Scaled down from 0.95rem */
   font-weight: 800;
   color: #9B2C2C;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   background-color: #FFFFFF;
-  padding: 6px 16px;
+  padding: 4px 12px; /* Scaled down padding */
   border-radius: 20px;
   border: 1px solid #E2E8F0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Icon Sizing (Used for custom front matter icons & default fallback plate) */
+/* Enlarged Icon with Natural Drop Shadow */
 .custom-recipe-icon {
-  font-size: 5rem;
+  font-size: 6rem; /* Bumped up from 5rem */
   line-height: 1;
   display: block;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.15)); /* Soft 3D lift */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Subtle hover pop effect on card hover */
+.recipe-grid-card:hover .custom-recipe-icon,
+.carousel-card:hover .custom-recipe-icon {
+  transform: scale(1.05);
 }
 
 /* ==========================================================================
