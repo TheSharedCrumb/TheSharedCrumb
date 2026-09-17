@@ -381,8 +381,9 @@ layout: default
       });
     }
 
-    // 4. Mobile Cook Mode (Screen WakeLock API)
+    // 4. Mobile Cook Mode (Screen WakeLock API & Floating Footer Avoidance)
     const cookBtn = document.getElementById('cookModeBtn');
+    const footer = document.querySelector('footer');
     let wakeLock = null;
 
     if (cookBtn) {
@@ -404,6 +405,23 @@ layout: default
             });
           }
         });
+
+        // Scroll listener to prevent floating Cook Mode button from overlapping footer
+        if (footer) {
+          window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 600) {
+              const footerRect = footer.getBoundingClientRect();
+              const windowHeight = window.innerHeight;
+
+              if (footerRect.top < windowHeight) {
+                const overlap = windowHeight - footerRect.top + 10;
+                cookBtn.style.transform = `translateY(-${overlap}px)`;
+              } else {
+                cookBtn.style.transform = 'translateY(0)';
+              }
+            }
+          });
+        }
       } else {
         cookBtn.style.display = 'none';
       }
