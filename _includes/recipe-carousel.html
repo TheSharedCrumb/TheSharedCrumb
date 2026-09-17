@@ -14,7 +14,11 @@
             {% if recipe_img_clean != "" and recipe.image != nil %}
               <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="carousel-card-img">
             {% else %}
-              <div class="brand-tile-placeholder"></div>
+              <div class="brand-tile-placeholder">
+                {% if recipe.icon %}
+                  <span class="custom-recipe-icon">{{ recipe.icon }}</span>
+                {% endif %}
+              </div>
             {% endif %}
 
             <div class="carousel-card-content">
