@@ -28,4 +28,9 @@ It is fast, naturally gluten-free, and requires virtually no cleanup. That means
 * 1 large egg
 
 ### Instructions
-1. **Mix**: 350 degrees 8 minutes
+1. **Prep**: Preheat your oven to 350°F (175°C) and line a baking sheet with parchment paper.
+2. **Mix**: In a medium bowl, combine the peanut butter, sugar, and egg. Stir thoroughly until a smooth, cohesive dough forms.
+3. **Shape**: Roll the dough into 1-inch balls and place them on the prepared baking sheet, leaving about 2 inches of space between each.
+4. **Criss-Cross**: Gently press each dough ball down with the back of a fork, then press again from the crosswise direction to create a classic grid pattern.
+5. **Bake**: Bake at 350°F for 8 to 10 minutes until the edges are golden and set.
+6. **Cool**: Let the cookies rest on the baking sheet for 5 minutes to firm up before moving them to a wire rack.
