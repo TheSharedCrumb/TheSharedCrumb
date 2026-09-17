@@ -846,12 +846,13 @@ a.recipe-category-link:hover {
     bottom: 20px !important;
     right: 20px !important;
     width: auto !important;
-    z-index: 9999 !important;
+    z-index: 999999 !important; /* Forces top display over images & tiles */
+    isolation: isolate !important; /* Escapes parent container stacking context */
     padding: 10px 18px !important;
     border-radius: 25px !important;
     background-color: #FFFFFF !important;
     border: 1px solid #CBD5E0 !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2) !important;
     font-size: 0.85rem !important;
     transition: transform 0.2s ease, background-color 0.2s ease;
   }
