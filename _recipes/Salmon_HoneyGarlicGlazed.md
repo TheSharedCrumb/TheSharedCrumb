@@ -1,7 +1,7 @@
 ---
 layout: recipe
 title: "Honey Garlic Glazed Salmon"
-icon: "🍗"
+icon: "🐟"
 description: "Sticky Sweet Salmon Fillets."
 category: [30 Minutes, Fish]
 prep_time: "5 min"
