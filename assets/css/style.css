@@ -744,16 +744,15 @@ a.recipe-category-link:hover {
   text-align: center;
 }
 
-/* Primary Action: Jump to Recipe */
+/* Jump to Recipe Button (Default Outlined Style) */
 .jump-btn {
-  color: #FFFFFF;
-  background-color: #9B2C2C;
-  border-color: #9B2C2C;
+  color: #4A5568;
+  border-color: #CBD5E0;
 }
 
 .jump-btn:hover {
-  background-color: #7B2222;
-  border-color: #7B2222;
+  background-color: #9B2C2C;
+  border-color: #9B2C2C;
   color: #FFFFFF;
 }
 
