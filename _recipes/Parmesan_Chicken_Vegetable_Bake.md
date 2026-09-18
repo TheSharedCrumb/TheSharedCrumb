@@ -5,7 +5,7 @@ icon: "🍗🥔"
 description: "Zesty-marinated chicken thighs and garlic-parmesan potatoes roasted together for maximum flavor with minimal cleanup."
 category: [One Pan, Chicken, Dinner]
 prep_time: "30 min"
-cook_time: "1 hr"
+cook_time: "60 min"
 yield: "8 servings"
 difficulty: "Medium"
 cost: "$"
@@ -20,7 +20,8 @@ As this dish bakes, the magic happens right at the bottom of the pan. The rich, 
 
 Making a big batch means tonight's effortless, comforting feast transforms into the kind of savory, hot leftover lunch that makes the whole midday break feel like a luxury. The flavors settle and deepen overnight, making day two arguably even better than day one.
 
-#### For Chicken
+### Ingredients
+#### For the Chicken
 * 8 chicken thighs
 * 1 tbsp seasoning salt
 * 1 tbsp paprika
@@ -31,8 +32,7 @@ Making a big batch means tonight's effortless, comforting feast transforms into 
 * 1 lemon juiced
 * 2 tbsp mayonnaise
 
-### Ingredients
-#### For Vegetables
+#### For the Vegetables
 * 1.5 lb baby potatoes diced in large chunks
 * 1 lb of carrots diced
 * ⅓ cups butter melted
@@ -46,7 +46,8 @@ Making a big batch means tonight's effortless, comforting feast transforms into 
 * 2 tsp black pepper
 
 ### Instructions
-1. **Marinate**: Mix all ingredients for the chicken in a bowl to marinate. Mix thouroughly and let sit while preping the rest of the ingredients
-2. **Preheat**: Preheat oven to 400 degrees F.
-3. **Vegetables**: Add all ingredients for the vegetables into a casserole dish and mix thouroughly. Bake in the oven for 20 minutes.
-4. **Chicken**: Mix vegetables in the casserole dish and even out in the pan. Add the chicken with the marinade on top of the vegetables. Return to the oven to bake for an additional 40 minutes.
+1. **Marinate the Chicken:** In a bowl, whisk together the mayonnaise, lemon juice, and all spices until smooth. Add the chicken thighs and toss until thoroughly coated. Let sit at room temperature while prepping the vegetables.
+2. **Prepare Vegetables:** Preheat oven to 400°F (200°C). Dice baby potatoes into 1-inch chunks and cut carrots into ½-inch rounds. Add potatoes, carrots, red onion, garlic, spices, and melted butter to a 9x13-inch casserole dish and toss thoroughly.
+3. **Par-Bake Vegetables:** Bake the seasoned vegetables uncovered for 20 minutes to give them a head start.
+4. **Add Cheese & Chicken:** Remove the casserole dish from the oven. Stir the vegetables, then sprinkle the shredded parmesan cheese evenly over the top. Arrange the chicken thighs in a single layer over the vegetables, pouring any remaining marinade over the meat.
+5. **Final Bake:** Return the dish to the oven and bake for an additional 40 minutes or until the chicken reaches an internal temperature of 165°F (74°C) and the potatoes are fork-tender.
