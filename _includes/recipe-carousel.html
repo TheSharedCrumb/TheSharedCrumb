@@ -6,7 +6,8 @@
     
     <div class="carousel-track-wrapper">
       <div class="carousel-track" id="carouselTrack">
-        {% assign sample_recipes = site.recipes | sample: 10 %}
+        {% assign visible_recipes = site.recipes | where_exp: "recipe", "recipe.hidden != true" %}
+        {% assign sample_recipes = visible_recipes | sample: 10 %}
         {% for recipe in sample_recipes %}
           <a href="{{ recipe.url | relative_url }}" class="carousel-card">
             
