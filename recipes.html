@@ -18,8 +18,10 @@ title: All Recipes
     </div>
   </header>
 
+  {% assign visible_recipes = site.recipes | where_exp: "recipe", "recipe.hidden != true" %}
+
   {% assign raw_categories = "" | split: "" %}
-  {% for recipe in site.recipes %}
+  {% for recipe in visible_recipes %}
     {% if recipe.category %}
       {% assign raw_categories = raw_categories | concat: recipe.category %}
     {% endif %}
@@ -36,7 +38,7 @@ title: All Recipes
 
   <!-- Recipes Grid -->
   <div class="recipes-grid" id="recipesGrid">
-    {% for recipe in site.recipes %}
+    {% for recipe in visible_recipes %}
       {% assign cat_slugs = "" %}
       {% if recipe.category %}
         {% for cat in recipe.category %}
