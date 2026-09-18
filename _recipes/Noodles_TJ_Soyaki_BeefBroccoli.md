@@ -3,7 +3,7 @@ layout: recipe
 title: "5-Ingredient Trader Joe's Soyaki Beef & Broccoli Noodles"
 icon: "🍜🥦"
 description: "A fast, single-pan stir-fry made with shaved beef, tender broccoli, and Thai noodles coated in Soyaki and chili onion crunch."
-category: [Noodles, Dinner, Quick & Easy]
+category: [Noodles, Beef, Quick & Easy]
 prep_time: "2 mins"
 cook_time: "10 mins"
 yield: "2-3 servings"
