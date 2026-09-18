@@ -1,8 +1,8 @@
 ---
 layout: recipe
 title: "Beef Arayas"
-icon: "🍗🥔"
-description: "Quick flavorful recipe filled with lots of spices to excite your tastebuds on a weeknight."
+icon: "🍗🥙"
+description: "Middle Eastern stuffed pitas packed with spiced ground beef, pan-crisped and oven-baked for maximum flavor."
 category: [Beef, Dinner]
 prep_time: "10 min"
 cook_time: "30 hr"
@@ -13,16 +13,15 @@ image: ""
 hidden: false
 ---
 
-Quick flavorful recipe filled with lots of spices to excite your tastebuds on a weeknight
-
+Beef arayas are Middle Eastern street food at its finest: spiced ground beef stuffed directly into raw pita halves and crisp-fried so the bread absorbs every drop of savory juice. As the pita crisps up in olive oil, the fragrant blend of cumin, allspice, and cinnamon toasts right into the meat before a quick finish in the oven locks in the tenderness. Served hot with a side of cold tahini or hummus, it delivers incredible texture and massive flavor with little prep.
 
 ### Ingredients
-* 1 lb ground beef - i use 85% lean
-* 1 sm yellow onion squeezed dry
+* 1 lb ground beef (85% lean)
+* 1 small yellow onion squeezed dry
 * 5 garlic cloves
 * 2 tbsp tomato paste
-* ⅓ cup parsley finely chopped
-* ¼ cup cilantro finely chopped
+* ⅓ cup parsley, finely chopped
+* ¼ cup cilantro, finely chopped
 * 1 tbsp olive oil
 * 1 tbsp cold water
 * 1 tsp salt
@@ -35,10 +34,9 @@ Quick flavorful recipe filled with lots of spices to excite your tastebuds on a 
 * ½  tsp cinnamon
 * 4 pitas cut in half
 
-
 ### Instructions
-1. **Filling**: Finely chop onion and garlic. In a large bowl or food processor add all ingredients except the pita bread.
-2. **Prepare**: Gently separate the pita bread halves and fill with meat mixture.
-3. **Cook**: Cook meat side first for 2 min then flip to each each side another 2 minutes or until browned
-4. **Preheat**: Preheat oven to 350 degrees F. Cook in the oven for 15 minutes to cook the middle of the filling.
-5. **Serve**:  Brush outside with olive oil and sprinkle chopped parsely. Add some hummus or refreshing creamy tahini sauce.
+1. **Make the Filling:** In a large bowl (or food processor), combine the ground beef, onion, garlic, tomato paste, herbs, olive oil, cold water, and spices. Mix until fully incorporated.
+2. **Stuff the Pitas:** Gently open the pita halves to create pockets and stuff each evenly with the meat mixture, pressing lightly to flatten.
+3. **Pan Sear:** Heat a skillet over medium-high heat with a drizzle of olive oil. Sear the pitas meat-side down first for 2 minutes, then flip and cook each side for another 2 minutes until golden and crisp.
+4. **Bake:** Transfer the seared pitas to a baking sheet and bake in a preheated 350°F oven for 15 minutes to fully cook the beef filling through.
+5. **Serve:** Brush the crispy outsides with a touch of olive oil and garnish with chopped parsley. Serve immediately with hummus or creamy tahini sauce.
