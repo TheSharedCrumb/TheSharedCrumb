@@ -1,7 +1,7 @@
 ---
 layout: recipe
 title: "Creamy Garlic Chicken Tenders"
-icon: "🍗🧄"
+icon: "🧄🍗"
 description: "Tender chicken cooked in a rich white wine, garlic, and Parmigiano-Reggiano cream sauce for a fast, restaurant-quality meal."
 category: [30 Minutes, Chicken, Dinner]
 prep_time: "10 min"
