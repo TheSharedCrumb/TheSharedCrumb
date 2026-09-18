@@ -19,8 +19,8 @@ This recipe was born from a total weeknight win. Armed with a bag of knife-cut s
 The real trick here is using a pre-made Soyaki sauce. It combines garlic, ginger, soy, and sesame into one bottle, doing all the heavy flavor lifting so you don't have to pull out ten different condiments. Toss it over those ultra-chewy, ruffled noodles that trap sauce in every wave, and you have a quick meal that easily earned a permanent spot in my weekly lineup.
 
 ### Ingredients
-* 12 oz chopped broccoli
 * 1 tablespoon olive oil
+* 12 oz chopped broccoli
 * 1 lb of ground turkey/chicken/beef
 * 3 packs of knife cut style noodles
 * 1/3 cup Soyaki sauce
