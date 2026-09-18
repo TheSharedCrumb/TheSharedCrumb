@@ -16,7 +16,7 @@ Some nights, standing over a stove for two hours feels like a peaceful culinary 
 
 This recipe was born from a total weeknight win. Armed with a bag of knife-cut squiggly noodles, a bottle of Soyaki sauce, and some fresh broccoli, I had the ultimate low-effort base. Just grab whatever ground meat you're craving (turkey, chicken, or beef) or honestly whatever is on sale, because they will all be delicious here. Before I knew it, dinner went from zero to takeaway quality faster than it takes to scroll through a delivery app. Plus, the broccoli gives it a crisp, bright crunch that makes me feel like an actual responsible adult.
 
-The real trick here is using a pre-made Soyaki sauce. Trader Joe's sells it under their own name, but it is actually a white-label version of Soy Vay's famous Veri Veri Teriyaki sauce, meaning you can grab it at almost any regular grocery store too. It combines garlic, ginger, soy, and sesame into one bottle, doing all the heavy flavor lifting so you don't have to pull out ten different condiments. Toss it over those ultra-chewy, ruffled noodles that trap sauce in every wave, and you have a quick meal that easily earned a permanent spot in my weekly lineup.
+The real trick here is using a pre-made Soyaki sauce. Trader Joe's sells it under their own name, but it is actually a white-label version of Soy Vay's famous Veri Veri Teriyaki sauce. They are the exact same thing, meaning you can grab it at almost any regular grocery store too. It combines garlic, ginger, soy, and sesame into one bottle, doing all the heavy flavor lifting so you don't have to pull out ten different condiments. Toss it over those ultra-chewy, ruffled noodles that trap sauce in every wave, and you have a quick meal that easily earned a permanent spot in my weekly lineup.
 
 ### Ingredients
 * 1 tablespoon olive oil
@@ -25,7 +25,7 @@ The real trick here is using a pre-made Soyaki sauce. Trader Joe's sells it unde
 * 3 packs knife-cut style noodles
 * 1/3 cup Soyaki sauce
 
-> **Ingredient Note:** Not shopping at Trader Joe's? Swap the Soyaki sauce for **Soy Vay Veri Veri Teriyaki** and grab **A-Sha Hakka / Squiggly Noodles** in the Asian food section of any regular grocery store.
+> **Ingredient Note:** Not shopping at Trader Joe's? Trader Joe's Soyaki is a white-label version of **Soy Vay Veri Veri Teriyaki**, so they are the exact same sauce. You can swap in Soy Vay and grab **A-Sha Hakka / Squiggly Noodles** in the Asian food section of any regular grocery store.
 
 ### Instructions
 1. **Sauté the Broccoli:** Heat the olive oil in a large skillet or wok over medium-high heat. Add the chopped broccoli and cook for 4–5 minutes until vibrant green and tender-crisp. Transfer the broccoli to a plate and set aside.
