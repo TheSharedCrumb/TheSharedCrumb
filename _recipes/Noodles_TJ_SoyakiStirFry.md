@@ -12,13 +12,12 @@ cost: "$"
 image: ""
 ---
 
-Some nights, standing over a stove for two hours feels like a peaceful culinary hobby. Other nights, you just want food in your face in under twenty minutes without resorting to plain cereal over the sink.
+Some nights, standing over a stove for two hours feels like a peaceful culinary hobby. Other nights, I just want food in my face in under twenty minutes without resorting to eating cereal over the sink.
 
-Trader Joe's to the rescue.
+This recipe was born from a total weeknight win. Armed with a bag of knife-cut squiggly noodles, a bottle of Soyaki sauce, and some fresh broccoli, I had the ultimate low-effort base. Just grab whatever ground meat you're craving (turkey, chicken, or beef) or honestly whatever is on sale, because they will all be delicious here. Before I knew it, dinner went from zero to takeaway quality faster than it takes to scroll through a delivery app. Plus, the broccoli gives it a crisp, bright crunch that makes me feel like an actual responsible adult.
 
-This recipe was born from a total weeknight win. Armed with a bag of TJ’s famous knife-cut squiggly noodles, a bottle of Soyaki sauce, and whatever ground meat was on sale, dinner went from zero to takeaway quality faster than it takes to scroll through a delivery app. Adding fresh broccoli gives it that crisp, bright crunch that makes you feel like an actual responsible adult.
+The real trick here is using a pre-made Soyaki sauce. It combines garlic, ginger, soy, and sesame into one bottle, doing all the heavy flavor lifting so you don't have to pull out ten different condiments. Toss it over those ultra-chewy, ruffled noodles that trap sauce in every wave, and you have a quick meal that easily earned a permanent spot in my weekly lineup.
 
-The real MVP here is that Trader Joe’s Soyaki sauce. It combines garlic, ginger, soy, and sesame into one bottle, doing all the heavy flavor lifting so you don't have to pull out ten different condiments. Toss it over those ultra-chewy, ruffled noodles that trap sauce in every wave, and you have a low-effort, high-reward meal that easily earns a permanent spot in your weekly lineup.
 ### Ingredients
 * 12 oz chopped broccoli
 * 1 tablespoon olive oil
