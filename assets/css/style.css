@@ -493,9 +493,18 @@ a.recipe-category-link:hover {
 
 .contact-social-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-top: 24px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 600px) {
+  .contact-social-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-social-card {
