@@ -32,9 +32,9 @@ The real beauty of this recipe is how effortlessly it turns into a full meal. Th
 
 ### Instructions
 1. **Prep the Chicken:** Remove the tendons from the chicken tenders. Place each tendon through the tines of a fork, grip the exposed tendon tip with a paper towel, and pull firmly to extract it cleanly. Season one side of the tenders with salt and freshly cracked black pepper.
-2. **Prep Garlic and Shallot:** Thinly slice the garlic and finely dice the shallot.
+2. **Prep Garlic and Shallots:** Thinly slice the garlic and finely dice the shallot.
 3. **Sear the Chicken:** Heat butter (or cooking oil) in a pan over medium-high heat. Lay the chicken tenders in the pan, slanting them away from you to avoid splashes. Season the second side with salt and pepper. Sear for about 90 seconds until golden brown, flip, and cook for another 30 seconds. Remove the chicken from the pan immediately.  The chicken should be slightly underdone so it finishes cooking in the sauce later.
-4. **Sauté Garlic and Shallot:** Reduce the pan to medium heat. Add the sliced garlic and diced shallots directly to the same pan. Sauté for just over 1 minute until fragrant and lightly golden brown, scraping up the flavorful browned bits on the bottom.
+4. **Sauté Garlic and Shallots:** Reduce the pan to medium heat. Add the sliced garlic and diced shallots directly to the same pan. Sauté for just over 1 minute until fragrant and lightly golden brown, scraping up the flavorful browned bits on the bottom.
 5. **Deglaze with Wine:** Pour in the dry white wine and use a spoon to scrape up all the remaining fond from the bottom of the pan. Cook until the wine reduces down and the pan is almost dry.
 6. **Build the Sauce:** Lower the heat to medium-low and pour in the heavy cream. Add the chicken bouillon paste and whisk until completely dissolved and integrated. 
 7. **Incorporate Cheese:** Bring the cream mixture to a gentle bubble. Gradually whisk in the microplaned Parmigiano-Reggiano a little at a time until melted, smooth, and thickened.
