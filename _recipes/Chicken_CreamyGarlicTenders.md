@@ -28,7 +28,7 @@ The real beauty of this recipe is how effortlessly it turns into a full meal. Th
 * 1 tsp chicken bouillon 
 * Salt and freshly ground black pepper to taste 
 
-> **Ingredient Note:** If cooking without alcohol, swap the white wine for ½ cup chicken stock mixed with 1 tsp lemon juice or white wine vinegar to keep that bright, balanced acidity.
+> **Ingredient Note:** If you prefer to cook without alcohol, swap the white wine for ½ cup chicken stock mixed with 1 tsp lemon juice or white wine vinegar to keep that bright, balanced acidity.
 
 ### Instructions
 1. **Prep the Chicken:** Remove the tendons from the chicken tenders. Place each tendon through the tines of a fork, grip the exposed tendon tip with a paper towel, and pull firmly to extract it cleanly. Season one side of the tenders with salt and freshly cracked black pepper.
