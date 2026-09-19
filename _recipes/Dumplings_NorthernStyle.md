@@ -12,7 +12,15 @@ cost: "$$"
 image: ""
 ---
 
-Mark's Dumplings
+Making 350 dumplings sounds like a wild amount of work until you turn it into an event. For us, this recipe was never just about meal prep; it was our excuse to get together, hang out, and turn someone's kitchen into a full-on assembly line.
+
+Whenever we host a dumpling night, we rotate homes, clear off the counters, and get to work. Ten packages of wrappers sit in the middle of the island alongside three giant bowls of filling: pork with chives, beef with Chinese celery, and pork with shrimp.
+
+Everyone grabs a tray, claims a station, and starts folding. Between catching up, snacking, and arguing over whose pleats look the best, the wrapping turns into pure muscle memory. You scoop the filling, wet the edges, pinch it shut, and set it down. Before you know it, every baking sheet in the house is packed with row after row of fresh dumplings.
+
+We always cook up a fresh batch right then and there to eat together, which is the best part of the whole night. Once we're full, we freeze the rest flat on the trays, split them up into freezer bags, and everyone goes home with about a hundred dumplings. Having that massive stockpile waiting in your freezer for a quick pan-fry weeks later makes the whole thing totally worth it.
+
+Special thanks to Mark for showing us how it's done.
 
 ### Ingredients
 
