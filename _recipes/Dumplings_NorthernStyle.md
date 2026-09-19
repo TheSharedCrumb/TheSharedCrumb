@@ -7,7 +7,7 @@ category: [Dumplings, Dinner, Asian]
 prep_time: "1 hour (4 people)"
 cook_time: "15 mins"
 yield: "~350 dumplings (~116 per variation)"
-difficulty: "Medium"
+difficulty: "Hard"
 cost: "$$"
 image: ""
 ---
