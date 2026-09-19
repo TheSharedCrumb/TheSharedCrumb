@@ -60,9 +60,9 @@ Special thanks to Mark for showing us how it's done.
 ### Instructions
 1. **Prep Vegetables & Proteins**
    
-    **1a.** Smash the ginger and scallions for the steeping liquid. Slice the scallions diagonally into 1.5-inch pieces.
-    **1b.** Wash, dry, and finely chop the chives and Chinese celery. 
-    **1c.** Peel, devein, and finely chop the shrimp until it reaches a coarse paste-like texture.
+  - **1a.** Smash the ginger and scallions for the steeping liquid. Slice the scallions diagonally into 1.5-inch pieces.
+  - **1b.** Wash, dry, and finely chop the chives and Chinese celery. 
+  - **1c.** Peel, devein, and finely chop the shrimp until it reaches a coarse paste-like texture.
 
 2. **Make the Ginger-Scallion Water**
    
