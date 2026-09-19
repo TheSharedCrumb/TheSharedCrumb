@@ -32,48 +32,48 @@ Mark's Dumplings
 * *Note: If using meat leaner than 80/20, add 1 whole egg to maintain moisture.*
 
 #### Wrappers & Equipment
-* 10 packages Northern-style dumpling wrappers (~40 wrappers per pack)
+* 10 packages of Northern-style dumpling wrappers (~40 wrappers per pack)
 * Neutral oil (canola, vegetable, or peanut) for pan-frying/testing
 
 ---
 
 ### Filling Variations
 
-#### Variation 1: Pork & Chive
+#### Variation 1: Pork Dumplings
 * 2 lbs ground pork (80% lean / 20% fat)
 * 1.5 packs fresh chives, finely chopped
 
-#### Variation 2: Pork, Beef & Chinese Celery
+#### Variation 2: Pork & Beef Dumplings
 * 2 lbs ground beef
-* ½ lb ground pork (for essential fat)
+* ½ lb ground pork
 * 1 pack Chinese celery, finely chopped
 
 #### Variation 3: Pork & Shrimp
 * 2 lbs ground pork
 * 1 lb fresh shrimp, peeled, deveined, and finely chopped
-* 1 pack fresh chives (or Chinese celery), finely chopped
+* 1 pack of chives or Chinese celery, finely chopped
 
 ---
 
 ### Instructions
 
 #### 1. Prepare the Ginger-Scallion Water
-1. Combine smashed ginger, scallions, Sichuan peppercorns, and ¾ cup water in a small bowl.
-2. Let steep for 5 to 10 minutes (do not steep longer, or the floral aroma turns harsh). Alternatively, blend and strain for a bolder flavor.
+1a. Combine smashed ginger, scallions, Sichuan peppercorns, and ¾ cup water in a small bowl.
+1b. Let steep for 5 to 10 minutes (do not steep longer, or the floral aroma turns harsh). Alternatively, blend and strain for a bolder flavor.
 
 #### 2. Mix & Test the Filling
-1. Clean and finely chop your chosen vegetables and herbs. 
-2. In a large mixing bowl, combine your chosen meat filling, chopped vegetables, and the core seasonings.
-3. Gradually pour in about 6 tablespoons of the strained ginger-scallion water. Stir vigorously in one direction until the meat turns sticky, cohesive, and absorbs all liquid without water pooling at the bottom.
-4. **Test the Filling:** Heat a splash of neutral oil in a small skillet. Fry a small spoonful of filling until cooked through. Taste and adjust salt or soy sauce as needed—it should taste slightly more seasoned than a finished patty to account for the wrapper.
+2a. Clean and finely chop your chosen vegetables and herbs. 
+2b. In a large mixing bowl, combine your chosen meat filling, chopped vegetables, and the core seasonings.
+2c. Gradually pour in about 6 tablespoons of the strained ginger-scallion water. Stir vigorously in one direction until the meat turns sticky, cohesive, and absorbs all liquid without water pooling at the bottom.
+2d. **Test the Filling:** Heat a splash of neutral oil in a small skillet. Fry a small spoonful of filling until cooked through. Taste and adjust salt or soy sauce as needed—it should taste slightly more seasoned than a finished patty to account for the wrapper.
 
 #### 3. Wrap the Dumplings
-1. Place a spoonful of filling in the center of a wrapper.
-2. Lightly brush the outer edge of the wrapper with water.
-3. **Northern Pinch:** Fold the wrapper over the filling, pinch the top center closed with your thumbs, and squeeze the outer edges firmly toward the center to seal tightly.
-4. **Fold Style:** Fold in half into a crescent moon, dampening edges with water, and press the seams firmly closed.
+3a. Place a spoonful of filling in the center of a wrapper.
+3b. Lightly brush the outer edge of the wrapper with water.
+3c. **Northern Pinch:** Fold the wrapper over the filling, pinch the top center closed with your thumbs, and squeeze the outer edges firmly toward the center to seal tightly.
+3d. **Fold Style:** Fold in half into a crescent moon, dampening edges with water, and press the seams firmly closed.
 
 #### 4. Season the Pan & Cook
-1. **Season the Skillet/Wok:** Heat a pan over high until smoking. Add ½ cup neutral oil, swirl to coat, and pour out the oil once edges smoke. Return to high heat until smoking again, then add fresh cooking oil and lower heat to medium.
-2. **Pan-Fry:** Arrange dumplings flat-side down in the pan. Fry for 2 to 3 minutes until bottom crusts are golden brown.
-3
+4a. **Season the Skillet/Wok:** Heat a pan over high until smoking. Add ½ cup neutral oil, swirl to coat, and pour out the oil once edges smoke. Return to high heat until smoking again, then add fresh cooking oil and lower heat to medium.
+4b. **Pan-Fry:** Arrange dumplings flat-side down in the pan. Fry for 2 to 3 minutes until bottom crusts are golden brown.
+4c. **Steam Finish:** Carefully pour ¼ cup water around the dumplings and cover immediately with a lid. Steam for 5 to 7 minutes until the wrapper turns translucent and meat is fully cooked through. Remove lid and let remaining moisture evaporate so the bottoms crisp up again. Serve hot with chinkiang vinegar or chili oil.
