@@ -76,8 +76,8 @@ Special thanks to Mark for showing us how it's done.
 11. Heat a splash of neutral oil in a small skillet over medium heat, fry a small spoonful of filling, and adjust seasonings to taste.
 
 #### **Wrap the Dumplings**   
-12. **For Northern Style:** Place a flat spoonful of filling in the center of the wrapper, lightly brush water around the edges, pinch the top center closed, and squeeze the outer edges firmly toward the center.
 12. **Fold:** Place a small spoonful of filling in the center, lightly brush water around the edges, fold in half into a crescent moon shape, and press the edges firmly together to seal.
+12. **For Northern Style Fold:** Place a flat spoonful of filling in the center of the wrapper, lightly brush water around the edges, pinch the top center closed, and squeeze the outer edges firmly toward the center.
 
 #### **Season the Pan & Cook**    
 13. **Season the Wok/Skillet:** Heat a wok or heavy skillet over high heat until smoking. Add ½ cup neutral oil, swirl to coat, and pour out the oil once the edges smoke. Return to high heat until smoking again, then pour in fresh cooking oil and lower to medium heat.
