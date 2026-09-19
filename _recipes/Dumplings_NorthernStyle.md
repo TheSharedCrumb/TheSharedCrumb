@@ -4,11 +4,11 @@ title: "Handmade Northern-Style Dumplings"
 icon: "🥟"
 description: "Traditional Northern-Style dumplings featuring three savory filling variations."
 category: [Dumplings, Dinner, Asian]
-prep_time: "1 hour (4 people)"
-cook_time: "15 mins"
+prep_time: "2 hours (4 people)"
+cook_time: "15 mins per batch"
 yield: "~350 dumplings (~116 per variation)"
 difficulty: "Hard"
-cost: "$$"
+cost: "$$$"
 image: ""
 ---
 
