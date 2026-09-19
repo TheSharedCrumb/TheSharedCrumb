@@ -3,8 +3,8 @@ layout: recipe
 title: "Handmade Northern-Style Dumplings"
 icon: "🥟"
 description: "Traditional Northern-Style dumplings featuring three savory filling variations."
-category: [Pork, Beef, Seafood, Dinner, Asian]
-prep_time: "45 mins"
+category: [Dumplings, Dinner, Asian]
+prep_time: "60 mins"
 cook_time: "15 mins"
 yield: "116 dumplings (10-12 servings)"
 difficulty: "Medium"
@@ -34,30 +34,25 @@ Mark's Dumplings
 * 10 packages of Northern-style dumpling wrappers (~40 wrappers per pack)
 * Neutral oil like canola or vegetable (not peanut) for pan-frying/testing
 
----
-
 ### Filling Variations
 
 #### Variation 1: Pork Dumplings
 * 2 lbs ground pork (80% lean / 20% fat)
-* 1.5 packs fresh chives, finely chopped
+* 1.5 packs fresh chives
 
 #### Variation 2: Beef & Pork Dumplings
 * 2 lbs ground beef (80% lean / 20% fat)
 * ½ lb ground pork (80% lean / 20% fat)
-* 1 pack Chinese celery, finely chopped
+* 1 pack Chinese celery
 
 #### Variation 3: Pork & Shrimp
 * 2 lbs ground pork (80% lean / 20% fat)
-* 1 lb shrimp, peeled, deveined, and finely chopped
-* 1 pack of chives or Chinese celery, finely chopped
+* 1 lb shrimp
+* 1 pack of chives or Chinese celery
 
 Ingredient Note: If using meat leaner than 80/20, add 1 whole egg to maintain moisture. Target an 80/20 blend and avoid meat with more than 35% fat.
 
----
-
 ### Instructions
-
 1. **Prep Vegetables & Proteins**
    * **1a.** Smash the ginger and scallions for the steeping liquid. Slice the scallions diagonally into 1.5-inch pieces.
    * **1b.** Wash, dry, and finely chop the chives and Chinese celery. 
