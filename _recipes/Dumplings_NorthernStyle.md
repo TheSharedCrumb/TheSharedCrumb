@@ -18,7 +18,7 @@ Whenever we host a dumpling night, we rotate homes, clear off the counters, and 
 
 Everyone grabs a tray, claims a station, and starts folding. Between catching up, snacking, and arguing over whose pleats look the best, the wrapping turns into pure muscle memory. You scoop the filling, wet the edges, pinch it shut, and set it down. Before you know it, every baking sheet in the house is packed with row after row of fresh dumplings.
 
-We always cook up a fresh batch right then and there to eat together, which is the best part of the whole night. Once we're full, we freeze the rest flat on the trays, split them up into freezer bags, and everyone goes home with about a hundred dumplings. Having that massive stockpile waiting in your freezer for a quick pan-fry weeks later makes the whole thing totally worth it.
+We always cook up a fresh batch right then and there to eat together, which is the best part of the whole night. Once we're full, we freeze the rest flat on the trays, split them up into freezer bags, and everyone goes home with about a 80 ready-to-cook dumplings. Having that massive stockpile waiting in your freezer for a quick pan-fry weeks later makes the whole thing totally worth it.
 
 Special thanks to Mark for showing us how it's done.
 
