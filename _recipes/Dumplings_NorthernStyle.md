@@ -1,7 +1,7 @@
 ---
 layout: recipe
 title: "Handmade Northern-Style Dumplings"
-icon: "🥜🍪"
+icon: "🥟"
 description: "Traditional Northern-Style dumplings featuring a fragrant ginger-scallion water technique and three savory filling variations."
 category: [Pork, Beef, Seafood, Dinner, Asian]
 prep_time: "45 mins"
