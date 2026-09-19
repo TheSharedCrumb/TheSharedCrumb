@@ -1,3 +1,209 @@
+---
+layout: default
+---
+<div class="recipe-detail-container">
+  <article class="recipe-article">
+    <header class="recipe-header">
+      
+      <!-- Text & Meta Column -->
+      <div class="recipe-header-text">
+        {% if page.category %}
+          <div class="recipe-category-badges recipe-category-badges-center">
+            {% for cat in page.category %}
+              <a href="{{ '/recipes.html' | relative_url }}?category={{ cat | slugify }}" class="recipe-category-badge recipe-category-link">
+                {{ cat }}
+              </a>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Clean Title without header icon -->
+        <h1>{{ page.title }}</h1>
+
+        {% if page.description %}
+          <p class="recipe-description">{{ page.description }}</p>
+        {% endif %}
+
+        <div class="recipe-meta">
+          {% if page.prep_time %}
+            <div class="meta-item">
+              <span class="meta-label">Prep Time</span>
+              <span class="meta-value">{{ page.prep_time }}</span>
+            </div>
+          {% endif %}
+          {% if page.cook_time %}
+            <div class="meta-item">
+              <span class="meta-label">Cook Time</span>
+              <span class="meta-value">{{ page.cook_time }}</span>
+            </div>
+          {% endif %}
+          {% if page.yield %}
+            <div class="meta-item">
+              <span class="meta-label">Yield</span>
+              <span class="meta-value">{{ page.yield }}</span>
+            </div>
+          {% endif %}
+          {% if page.difficulty %}
+            <div class="meta-item">
+              <span class="meta-label">Difficulty</span>
+              <span class="meta-value">{{ page.difficulty }}</span>
+            </div>
+          {% endif %}
+          {% if page.cost %}
+            <div class="meta-item">
+              <span class="meta-label">Budget</span>
+              <span class="meta-value">{{ page.cost }}</span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Action Buttons Row -->
+      <div class="recipe-actions">
+        <!-- Jump to Recipe Button -->
+        <a href="#recipe-card" class="action-btn jump-btn">
+          🍳 Jump to Recipe
+        </a>
+
+        <button onclick="window.print()" class="action-btn print-btn">
+          🖨️ Print Recipe
+        </button>
+
+        <a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url }}&media={{ page.image | absolute_url }}&description={{ page.description | url_encode }}" 
+           target="_blank" 
+           rel="noopener" 
+           class="action-btn pinterest-btn">
+          📌 Save to Pinterest
+        </a>
+
+        <!-- Native Share Button -->
+        <button id="shareBtn" class="action-btn share-btn">
+          🔗 Share
+        </button>
+
+        <!-- Cook Mode Toggle (Visible ONLY on Mobile/Tablet) -->
+        <button id="cookModeBtn" class="action-btn cook-mode-btn">
+          💡 Cook Mode <span class="cook-mode-status">OFF</span>
+        </button>
+      </div>
+
+      <!-- Main Recipe Image Wrapper -->
+      <div class="recipe-image-container">
+        {% assign page_img_clean = page.image | strip %}
+        {% if page_img_clean != "" and page.image != nil %}
+          <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+        {% else %}
+          <div class="brand-tile-placeholder">
+            {% if page.icon %}
+              <span class="custom-recipe-icon">{{ page.icon }}</span>
+            {% else %}
+              <span class="custom-recipe-icon">🍽️</span>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+    </header>
+
+    <div class="recipe-body">
+      {{ content }}
+    </div>
+  </article>
+
+  <!-- Clean, Guarded Related Recipes Section -->
+  {% assign related_candidates = "" | split: "" %}
+
+  {% comment %} 1. Gather all recipes sharing any category with current recipe {% endcomment %}
+  {% if page.category %}
+    {% for cat in page.category %}
+      {% for recipe in site.recipes %}
+        {% if recipe.url != page.url and recipe.title %}
+          {% if recipe.category contains cat %}
+            {% assign match_arr = site.recipes | where: "url", recipe.url %}
+            {% assign related_candidates = related_candidates | push: match_arr[0] %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    {% assign related_candidates = related_candidates | uniq %}
+  {% endif %}
+
+  {% assign candidate_count = related_candidates | size %}
+
+  {% comment %} 2. Fill missing spots with other non-matching recipes {% endcomment %}
+  {% if candidate_count >= 3 %}
+    {% assign final_related = related_candidates | sample: 3 %}
+  {% else %}
+    {% assign fallback_pool = "" | split: "" %}
+    {% for recipe in site.recipes %}
+      {% if recipe.url != page.url and recipe.title %}
+        {% assign already_in = false %}
+        {% for cand in related_candidates %}
+          {% if cand.url == recipe.url %}
+            {% assign already_in = true %}
+          {% endif %}
+        {% endfor %}
+        {% unless already_in %}
+          {% assign item_arr = site.recipes | where: "url", recipe.url %}
+          {% assign fallback_pool = fallback_pool | push: item_arr[0] %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign fill_needed = 3 | minus: candidate_count %}
+    {% assign random_fills = fallback_pool | sample: fill_needed %}
+
+    {% assign final_related = "" | split: "" %}
+    {% for cand in related_candidates %}
+      {% assign final_related = final_related | push: cand %}
+    {% endfor %}
+    {% for fill in random_fills %}
+      {% assign final_related = final_related | push: fill %}
+    {% endfor %}
+  {% endif %}
+
+  <!-- Display 3-Card Grid -->
+  {% if final_related.size > 0 %}
+    <div class="related-recipes-section">
+      <h2>You Might Also Like</h2>
+      <div class="recipes-grid">
+        {% for recipe in final_related %}
+          {% if recipe.title and recipe.url %}
+            <a href="{{ recipe.url | relative_url }}" class="recipe-grid-card">
+              {% assign recipe_img_clean = recipe.image | strip %}
+              {% if recipe_img_clean != "" and recipe.image != nil %}
+                <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
+              {% else %}
+                <div class="brand-tile-placeholder">
+                  {% if recipe.icon %}
+                    <span class="custom-recipe-icon">{{ recipe.icon }}</span>
+                  {% else %}
+                    <span class="custom-recipe-icon">🍽️</span>
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div class="grid-card-content">
+                {% if recipe.category %}
+                  <div class="recipe-category-badges">
+                    {% for cat in recipe.category %}
+                      <span class="recipe-category-badge">{{ cat }}</span>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                <h3>{{ recipe.title }}</h3>
+                {% if recipe.description %}
+                  <p>{{ recipe.description | truncate: 75 }}</p>
+                {% endif %}
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</div>
+
+<!-- Interactive Checkboxes, Step Dimming, Auto-Copy, Share & Cook Mode Script -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Dynamic Print URL Binding
@@ -43,14 +249,11 @@
           currentElem = nextElem;
         }
 
-        // CONTINUOUS LIST NUMBERING FIX:
-        // Automatically set <ol start="..."> so numbers continue across <h4> headers
-        let globalStepCounter = 1;
-        const olElements = rightCol.querySelectorAll('ol');
-        olElements.forEach(ol => {
-          ol.setAttribute('start', globalStepCounter);
-          const stepCount = ol.querySelectorAll('li').length;
-          globalStepCounter += stepCount;
+        // --- ADDED ONLY THESE 4 LINES TO FIX STEP NUMBERING ---
+        let stepCount = 1;
+        rightCol.querySelectorAll('ol').forEach(ol => {
+          ol.setAttribute('start', stepCount);
+          stepCount += ol.querySelectorAll('li').length;
         });
       }
     }
@@ -194,6 +397,7 @@
     let isFloatingVisible = false;
 
     if (inlineCookBtn) {
+      // 1. Ensure floating clone exists immediately in DOM
       let floatingCookBtn = document.getElementById('floatingCookBtn');
       if (!floatingCookBtn) {
         floatingCookBtn = inlineCookBtn.cloneNode(true);
@@ -202,6 +406,7 @@
         document.body.appendChild(floatingCookBtn);
       }
 
+      // Sync active state between inline button and clone
       const updateCookModeState = (isActive) => {
         const statusText = isActive ? 'ON' : 'OFF';
         [inlineCookBtn, floatingCookBtn].forEach(btn => {
@@ -213,6 +418,7 @@
         });
       };
 
+      // Toggle Screen Wake Lock
       const toggleWakeLock = async () => {
         if ('wakeLock' in navigator) {
           if (!wakeLock) {
@@ -240,6 +446,7 @@
       inlineCookBtn.addEventListener('click', toggleWakeLock);
       floatingCookBtn.addEventListener('click', toggleWakeLock);
 
+      // Idle timer management
       const resetIdleTimer = () => {
         if (!isFloatingVisible) return;
         floatingCookBtn.classList.remove('idle');
@@ -252,12 +459,14 @@
         }, 3000);
       };
 
+      // Unified State Evaluation (Eliminates Vibration & Post-Refresh Disappearance)
       const evaluateFloatingState = () => {
         const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
         if (!isTouchOrMobile) return;
 
         const scrollY = window.scrollY || window.pageYOffset;
         
+        // Force hide at page top
         if (scrollY < 120) {
           if (isFloatingVisible) {
             isFloatingVisible = false;
@@ -268,6 +477,7 @@
           return;
         }
 
+        // Check if top actions row is out of view
         if (recipeActions) {
           const actionsRect = recipeActions.getBoundingClientRect();
           const isOut = actionsRect.bottom < 0;
@@ -279,11 +489,13 @@
               resetIdleTimer();
             }
 
+            // Smooth Footer Docking Calculation
             if (footer) {
               const footerRect = footer.getBoundingClientRect();
               const windowHeight = window.innerHeight;
 
               if (footerRect.top < windowHeight) {
+                // Lift button cleanly above footer without thrashing
                 const overlap = Math.floor(windowHeight - footerRect.top + 12);
                 floatingCookBtn.style.transform = `translate3d(0, -${overlap}px, 0)`;
               } else {
@@ -299,6 +511,7 @@
         }
       };
 
+      // Passive scroll & gesture listeners
       window.addEventListener('scroll', () => {
         evaluateFloatingState();
         if (isFloatingVisible) resetIdleTimer();
@@ -306,6 +519,7 @@
 
       window.addEventListener('touchstart', resetIdleTimer, { passive: true });
 
+      // Run check on load, refresh, and layout restoration
       window.addEventListener('load', evaluateFloatingState);
       setTimeout(evaluateFloatingState, 300);
       setTimeout(evaluateFloatingState, 1000);
