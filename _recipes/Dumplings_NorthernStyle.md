@@ -58,29 +58,29 @@ Special thanks to Mark for showing us how it's done.
 > **Ingredient Note:** If using meat leaner than 80/20, add 1 whole egg to maintain moisture. Target an 80/20 blend and avoid meat with more than 35% fat.
 
 ### Instructions
-**Prep Vegetables & Proteins**
-**1a.** Smash the ginger and scallions for the steeping liquid. Slice the scallions diagonally into 1.5-inch pieces.
-**1b.** Wash, dry, and finely chop the chives and Chinese celery. 
-**1c.** Peel, devein, and finely chop the shrimp until it reaches a coarse paste-like texture.
+#### **Prep Vegetables & Proteins**
+1. Smash the ginger and scallions for the steeping liquid. Slice the scallions diagonally into 1.5-inch pieces.
+2. Wash, dry, and finely chop the chives and Chinese celery. 
+3. Peel, devein, and finely chop the shrimp until it reaches a coarse paste-like texture.
 
-**Make the Ginger-Scallion Water** 
-**2a.** Combine the smashed ginger, scallions, Sichuan peppercorns, and ¾ cup room-temperature water in a small bowl.
-**2b.** Let steep for 5 to 10 minutes (do not steep longer, or the floral aroma turns harsh).
-**2c.** Strain out the solids, reserving the infused water. Alternatively, blend and strain for a bolder flavor.
+#### **Make the Ginger-Scallion Water** 
+4. Combine the smashed ginger, scallions, Sichuan peppercorns, and ¾ cup room-temperature water in a small bowl.
+5. Let steep for 5 to 10 minutes (do not steep longer, or the floral aroma turns harsh).
+6. Strain out the solids, reserving the infused water. Alternatively, blend and strain for a bolder flavor.
 
-**Mix & Test the Filling** 
-**3a.** Combine your chosen meat combination, chopped vegetables, and base seasonings (soy sauce, chicken powder, sugar, salt, white pepper, and sesame oil) in a large bowl.
-**3b.** If using meat leaner than 80/20, crack in 1 egg to maintain moisture.
-**3c.** Slowly pour in 6 tablespoons of the strained ginger-scallion water.
-**3d.** Vigorously mix in one direction until the meat turns sticky, cohesive, and fully absorbs the liquid with no pooling at the bottom.
-**3e.** Heat a splash of neutral oil in a small skillet over medium heat, fry a small spoonful of filling, and adjust seasonings to taste.
+#### **Mix & Test the Filling** 
+7. Combine your chosen meat combination, chopped vegetables, and base seasonings (soy sauce, chicken powder, sugar, salt, white pepper, and sesame oil) in a large bowl.
+8. If using meat leaner than 80/20, crack in 1 egg to maintain moisture.
+9. Slowly pour in 6 tablespoons of the strained ginger-scallion water.
+10. Vigorously mix in one direction until the meat turns sticky, cohesive, and fully absorbs the liquid with no pooling at the bottom.
+11. Heat a splash of neutral oil in a small skillet over medium heat, fry a small spoonful of filling, and adjust seasonings to taste.
 
-**Wrap the Dumplings**   
-**4a. Northern Style:** Place a flat spoonful of filling in the center of the wrapper, lightly brush water around the edges, pinch the top center closed, and squeeze the outer edges firmly toward the center.
-**4b. Fold Style:** Place a small spoonful of filling in the center, lightly brush water around the edges, fold in half into a crescent moon shape, and press the edges firmly together to seal.
+#### **Wrap the Dumplings**   
+12. **For Northern Style:** Place a flat spoonful of filling in the center of the wrapper, lightly brush water around the edges, pinch the top center closed, and squeeze the outer edges firmly toward the center.
+12. **Fold:** Place a small spoonful of filling in the center, lightly brush water around the edges, fold in half into a crescent moon shape, and press the edges firmly together to seal.
 
-**Season the Pan & Cook**    
-**5a. Season the Wok/Skillet:** Heat a wok or heavy skillet over high heat until smoking. Add ½ cup neutral oil, swirl to coat, and pour out the oil once the edges smoke. Return to high heat until smoking again, then pour in fresh cooking oil and lower to medium heat.
-**5b. Pan-Fry:** Arrange dumplings flat-side down in the pan and fry for 2 to 3 minutes until the bottoms are golden brown.
-**5c. Steam Finish:** Carefully pour ¼ cup water into the pan around the dumplings and cover immediately with a lid. Steam for 5 to 7 minutes until the wrappers turn translucent and the meat is cooked through.
-**5d. Crisp Up:** Remove the lid and let any remaining moisture evaporate so the bottoms crisp up again. Serve hot.
+#### **Season the Pan & Cook**    
+13. **Season the Wok/Skillet:** Heat a wok or heavy skillet over high heat until smoking. Add ½ cup neutral oil, swirl to coat, and pour out the oil once the edges smoke. Return to high heat until smoking again, then pour in fresh cooking oil and lower to medium heat.
+14. **Pan-Fry:** Arrange dumplings flat-side down in the pan and fry for 2 to 3 minutes until the bottoms are golden brown.
+15. **Steam Finish:** Carefully pour ¼ cup water into the pan around the dumplings and cover immediately with a lid. Steam for 5 to 7 minutes until the wrappers turn translucent and the meat is cooked through.
+16. **Crisp Up:** Remove the lid and let any remaining moisture evaporate so the bottoms crisp up again. Serve hot.
