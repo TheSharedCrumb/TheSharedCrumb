@@ -13,7 +13,9 @@ image: ""
 ---
 
 Cooking does not always need to be an event. Sometimes you just need dinner on the table in twenty minutes so you can move on with your night.
+
 This is a fast, throw-together noodle dish that relies on a few reliable ingredients. You need a pack of noodles, broccoli, and ground meat. Use whatever meat you want or whatever is on sale: turkey, chicken, or beef all work the exact same way.
+
 The main shortcut is using pre-made teriyaki sauce so you do not have to mess around with five different bottles of condiments. If you shop at Trader Joe’s, grab their Soyaki. If you go to a regular supermarket, buy Soy Vay Veri Veri Teriyaki. They are literally the exact same sauce from the same manufacturer, just in different bottles. It handles the garlic, ginger, soy, and sesame all at once. Toss it with the noodles, and dinner is done.
 
 ### Ingredients
