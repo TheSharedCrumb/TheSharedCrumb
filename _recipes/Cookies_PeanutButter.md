@@ -12,15 +12,15 @@ cost: "$"
 image: ""
 ---
 
-Growing up, I was led to believe that baking was a high-stakes branch of chemistry requiring digital scales, sifted flour, and a quiet prayer to the oven gods. Then I met the three-ingredient peanut butter cookie. It is a recipe so ridiculously simple it feels less like baking and more like a gentle kitchen magic trick.
+People treat baking like high-stakes chemistry, where measuring flour off by half a gram will somehow blow up your kitchen. But these are three-ingredient peanut butter cookies. It is genuinely not that deep.
 
-It started on a Tuesday night around 9:00 PM. The sweet tooth hit with full force, but my pantry was looking like a barren wasteland. I had no flour, no butter, no baking powder, and absolutely zero desire to put on real pants to go to the grocery store. All I had was a jar of peanut butter, a cup of sugar, and one brave egg sitting alone in the fridge door.
+You do not need flour, butter, or a pastry degree. You literally just need a jar of peanut butter, a cup of sugar, and one egg.
 
-I dumped them into a bowl, half-convinced I was making a bizarre dessert soup. I stirred for thirty seconds, rolled the dough into balls, stamped them with the classic fork-crisscross pattern, and threw them in the oven. Ten minutes later, my kitchen smelled like a five-star bakery. I was eating warm, melty cookies that were somehow crispy on the edges and perfectly chewy in the middle. I felt like a culinary criminal who had just robbed the dessert system.
+Dump them into a bowl, stir for thirty seconds, and roll the dough into balls. Stamp them with a fork to give them that classic crisscross look, or do not. The oven does not care about your aesthetics. Ten minutes later, you have warm, chewy cookies, and you didn't even have to put on real pants to get them.
 
-The best part about this ridiculous miracle is that it is basically a canvas for your worst late-night cravings. Throw in a handful of chocolate chips, push a Hershey’s Kiss into the center the second they come out of the oven, swap the white sugar for dark brown sugar to get a rich caramel vibe, or throw a pinch of flaky sea salt on top to pretend you went to pastry school.
+Because the recipe is absurdly simple, it is also hard to mess up. Throw in chocolate chips, push a Hershey Kiss into the middle the second they come out, or sprinkle flaky sea salt on top to trick people into thinking you are a pastry chef.
 
-It is fast, naturally gluten-free, and requires virtually no cleanup. That means you can go from zero to cookie in under fifteen minutes without dirtying more than one bowl.
+It takes one bowl, fifteen minutes total, and leaves almost no dishes.
 
 ### Ingredients
 * 1 cup creamy peanut butter
