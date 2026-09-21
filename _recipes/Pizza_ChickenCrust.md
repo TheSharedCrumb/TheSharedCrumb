@@ -26,9 +26,9 @@ Traditional pizza dough relies on a massive wall of flour, which usually leaves 
 * 1/2 tsp of black pepper
 
 #### Toppings
-1/2 cup pizza sauce
-1 cup grated mozarella cheese
-20 turkey pepperoni slices
+* 1/2 cup pizza sauce
+* 1 cup grated mozarella cheese
+* 20 turkey pepperoni slices
 
 ### Instructions
 1. Preheat the oven to 400°F (200°C) and line a baking sheet with parchment paper.
