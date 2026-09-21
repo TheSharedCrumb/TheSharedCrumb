@@ -59,8 +59,7 @@ layout: default
     <strong style="display: block; margin-bottom: 0.75rem; color: #1f2937; font-size: 1.05rem;">Jump to Recipe:</strong>
     <ol class="roundup-toc-list">
       {% for item in page.recipes %}
-        {% if item.slug %}{% assign r_slug = item.slug %}{% else %}{% assign r_slug = item %}{% endif %}
-        {% assign target_slug = r_slug | downcase %}
+        {% assign target_slug = item | downcase %}
         {% assign recipe = nil %}
         {% for r in site.recipes %}
           {% assign cur_slug = r.slug | downcase %}
@@ -80,19 +79,7 @@ layout: default
   <!-- Horizontal Roundup List -->
   <div class="roundup-list" style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
     {% for item in page.recipes %}
-      
-      {% if item.slug %}
-        {% assign raw_slug = item.slug %}
-        {% assign custom_note = item.note | strip %}
-        {% if custom_note == "" %}
-          {% assign custom_note = nil %}
-        {% endif %}
-      {% else %}
-        {% assign raw_slug = item %}
-        {% assign custom_note = nil %}
-      {% endif %}
-
-      {% assign target_slug = raw_slug | downcase %}
+      {% assign target_slug = item | downcase %}
 
       {% assign recipe = nil %}
       {% for r in site.recipes %}
@@ -137,12 +124,9 @@ layout: default
 
             <h2 style="margin: 0 0 0.5rem 0; font-size: 1.35rem; color: #1f2937;">{{ recipe.title }}</h2>
             
+            <!-- Standard Recipe Description -->
             <p style="margin: 0; color: #4b5563; font-size: 0.95rem; line-height: 1.4;">
-              {% if custom_note %}
-                {{ custom_note }}
-              {% else %}
-                {{ recipe.description }}
-              {% endif %}
+              {{ recipe.description }}
             </p>
 
             <!-- Short Story Snippet -->
