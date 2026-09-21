@@ -26,13 +26,17 @@
 
             <div class="carousel-card-content">
               
-              {% comment %} Render Multi-Category Badges {% endcomment %}
-              {% if recipe.category %}
+              {% comment %} Render Cuisine First, Then Category Badges {% endcomment %}
+              {% if recipe.cuisine or recipe.category %}
                 <div class="recipe-category-badges">
-                  {% assign categories = recipe.category %}
-                  {% for cat in categories %}
-                    <span class="recipe-category-badge">{{ cat }}</span>
-                  {% endfor %}
+                  {% if recipe.cuisine %}
+                    <span class="recipe-category-badge cuisine-badge">{{ recipe.cuisine }}</span>
+                  {% endif %}
+                  {% if recipe.category %}
+                    {% for cat in recipe.category %}
+                      <span class="recipe-category-badge">{{ cat }}</span>
+                    {% endfor %}
+                  {% endif %}
                 </div>
               {% endif %}
 
