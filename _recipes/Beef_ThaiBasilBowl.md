@@ -3,7 +3,9 @@ layout: recipe
 title: "Thai Basil Beef Bowl"
 icon: "🥩"
 description: "A fast, high-protein Thai basil beef skillet with sweet bell peppers, fragrant Thai basil, and a savory-sweet sauce served over rice."
-category: [Beef, Dinner]
+course: Dinner
+cuisine: Thai
+category: [Beef, Skillet]
 prep_time: "10 mins"
 cook_time: "20 mins"
 yield: "4 servings"
