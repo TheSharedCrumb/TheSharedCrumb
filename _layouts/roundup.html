@@ -20,16 +20,27 @@ layout: default
   <div class="roundup-list" style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
     {% for item in page.recipes %}
       
-      {% comment %} Handle both simple string arrays and object lists with custom notes {% endcomment %}
       {% if item.slug %}
-        {% assign recipe_slug = item.slug %}
+        {% assign raw_slug = item.slug %}
         {% assign custom_note = item.note %}
       {% else %}
-        {% assign recipe_slug = item %}
+        {% assign raw_slug = item %}
         {% assign custom_note = nil %}
       {% endif %}
 
-      {% assign recipe = site.recipes | where: "slug", recipe_slug | first %}
+      {% comment %} Convert target slug to lowercase {% endcomment %}
+      {% assign target_slug = raw_slug | downcase %}
+
+      {% comment %} Find matching recipe case-insensitively {% endcomment %}
+      {% assign recipe = nil %}
+      {% for r in site.recipes %}
+        {% assign r_slug = r.slug | downcase %}
+        {% if r_slug == target_slug %}
+          {% assign recipe = r %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
       {% if recipe %}
         <a href="{{ recipe.url | relative_url }}" class="roundup-card-horizontal" style="display: flex; background: #fff; border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid #eaeaea; transition: transform 0.2s ease, box-shadow 0.2s ease;">
           
