@@ -16,38 +16,50 @@ layout: default
     </div>
   {% endif %}
 
-  <!-- Recipes Grid -->
-  <div class="recipes-grid">
+  <!-- Horizontal Roundup List -->
+  <div class="roundup-list" style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
     {% for recipe_slug in page.recipes %}
       {% assign recipe = site.recipes | where: "slug", recipe_slug | first %}
       {% if recipe %}
-        <a href="{{ recipe.url | relative_url }}" class="recipe-grid-card">
+        <a href="{{ recipe.url | relative_url }}" class="roundup-card-horizontal" style="display: flex; background: #fff; border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid #eaeaea; transition: transform 0.2s ease, box-shadow 0.2s ease;">
           
-          {% assign recipe_img_clean = recipe.image | strip %}
-          {% if recipe_img_clean != "" and recipe.image != nil %}
-            <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
-          {% else %}
-            <div class="brand-tile-placeholder">
-              {% if recipe.icon %}
-                <span class="custom-recipe-icon">{{ recipe.icon }}</span>
-              {% else %}
-                <span class="custom-recipe-icon">🍽️</span>
-              {% endif %}
-            </div>
-          {% endif %}
-
-          <div class="grid-card-content">
-            {% if recipe.category %}
-              <div class="recipe-category-badges">
-                {% for cat in recipe.category %}
-                  <span class="recipe-category-badge">{{ cat }}</span>
-                {% endfor %}
+          <!-- Left Image Column -->
+          <div class="roundup-card-media" style="width: 35%; min-width: 200px; max-width: 300px; position: relative;">
+            {% assign recipe_img_clean = recipe.image | strip %}
+            {% if recipe_img_clean != "" and recipe.image != nil %}
+              <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            {% else %}
+              <div class="brand-tile-placeholder" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; min-height: 160px; background: #fdf8f4;">
+                {% if recipe.icon %}
+                  <span class="custom-recipe-icon" style="font-size: 2.5rem;">{{ recipe.icon }}</span>
+                {% else %}
+                  <span class="custom-recipe-icon" style="font-size: 2.5rem;">🍽️</span>
+                {% endif %}
               </div>
             {% endif %}
-
-            <h3>{{ recipe.title }}</h3>
-            <p>{{ recipe.description }}</p>
           </div>
+
+          <!-- Right Content Column -->
+          <div class="roundup-card-details" style="padding: 1.25rem 1.5rem; width: 65%; display: flex; flex-direction: column; justify-content: center;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="font-weight: 700; color: #8b263e; font-size: 1.1rem;">#{{ forloop.index }}</span>
+              {% if recipe.category %}
+                <div class="recipe-category-badges" style="margin: 0;">
+                  {% for cat in recipe.category %}
+                    <span class="recipe-category-badge">{{ cat }}</span>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+
+            <h2 style="margin: 0 0 0.5rem 0; font-size: 1.35rem; color: #1f2937;">{{ recipe.title }}</h2>
+            <p style="margin: 0; color: #4b5563; font-size: 0.95rem; line-height: 1.4;">{{ recipe.description }}</p>
+            
+            <div style="margin-top: 1rem; font-weight: 600; color: #8b263e; font-size: 0.9rem;">
+              View Recipe &rarr;
+            </div>
+          </div>
+
         </a>
       {% endif %}
     {% endfor %}
