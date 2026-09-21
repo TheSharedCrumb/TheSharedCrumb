@@ -21,6 +21,7 @@ title: All Recipes
   {% assign visible_recipes = site.recipes | where_exp: "recipe", "recipe.hidden != true" %}
 
   {% assign raw_cuisines = "" | split: "" %}
+  {% assign raw_courses = "" | split: "" %}
   {% assign raw_categories = "" | split: "" %}
 
   {% for recipe in visible_recipes %}
@@ -28,19 +29,27 @@ title: All Recipes
       {% assign cuisine_arr = recipe.cuisine | split: "___" %}
       {% assign raw_cuisines = raw_cuisines | concat: cuisine_arr %}
     {% endif %}
+    {% if recipe.course %}
+      {% assign course_arr = recipe.course | split: "___" %}
+      {% assign raw_courses = raw_courses | concat: course_arr %}
+    {% endif %}
     {% if recipe.category %}
       {% assign raw_categories = raw_categories | concat: recipe.category %}
     {% endif %}
   {% endfor %}
 
   {% assign unique_cuisines = raw_cuisines | uniq | sort %}
+  {% assign unique_courses = raw_courses | uniq | sort %}
   {% assign unique_categories = raw_categories | uniq | sort %}
 
-  <!-- Filter Pills (Cuisines first, then Categories) -->
+  <!-- Filter Pills (Cuisines, Courses, then Categories) -->
   <div class="category-filter-nav">
     <button class="filter-btn active" data-filter="all">All Recipes</button>
     {% for cuisine in unique_cuisines %}
       <button class="filter-btn" data-filter="{{ cuisine | slugify }}">{{ cuisine }}</button>
+    {% endfor %}
+    {% for course in unique_courses %}
+      <button class="filter-btn" data-filter="{{ course | slugify }}">{{ course }}</button>
     {% endfor %}
     {% for cat in unique_categories %}
       <button class="filter-btn" data-filter="{{ cat | slugify }}">{{ cat }}</button>
@@ -52,8 +61,10 @@ title: All Recipes
     {% for recipe in visible_recipes %}
       {% assign tag_slugs = "" %}
 
-      <!-- Process Course (Searchable in background, hidden from tile visual badges) -->
+      <!-- Process Course (Filterable via button pill & search, hidden from tile visual badges) -->
       {% if recipe.course %}
+        {% assign slug = recipe.course | slugify %}
+        {% assign tag_slugs = tag_slugs | append: slug | append: " " %}
         {% assign course_raw_string = recipe.course | downcase %}
       {% else %}
         {% assign course_raw_string = "" %}
@@ -147,7 +158,6 @@ title: All Recipes
         const cardTitle = card.getAttribute('data-title') || '';
         const cardDesc = card.getAttribute('data-description') || '';
 
-        // Search indexes course in the background along with title, description, cuisine, and categories
         const searchableContent = `${cardTitle} ${cardDesc} ${cardCourse} ${cardCuisine} ${cardRawCats}`;
 
         const matchesFilter = (currentFilter === 'all') || cardTags.includes(currentFilter);
@@ -167,7 +177,7 @@ title: All Recipes
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const filterParam = urlParams.get('filter') || urlParams.get('category') || urlParams.get('cuisine');
+    const filterParam = urlParams.get('filter') || urlParams.get('category') || urlParams.get('cuisine') || urlParams.get('course');
 
     if (filterParam) {
       const targetBtn = document.querySelector(`.filter-btn[data-filter="${filterParam}"]`);
