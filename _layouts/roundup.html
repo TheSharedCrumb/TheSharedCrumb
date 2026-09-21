@@ -22,16 +22,17 @@ layout: default
       
       {% if item.slug %}
         {% assign raw_slug = item.slug %}
-        {% assign custom_note = item.note %}
+        {% assign custom_note = item.note | strip %}
+        {% if custom_note == "" %}
+          {% assign custom_note = nil %}
+        {% endif %}
       {% else %}
         {% assign raw_slug = item %}
         {% assign custom_note = nil %}
       {% endif %}
 
-      {% comment %} Convert target slug to lowercase {% endcomment %}
       {% assign target_slug = raw_slug | downcase %}
 
-      {% comment %} Find matching recipe case-insensitively {% endcomment %}
       {% assign recipe = nil %}
       {% for r in site.recipes %}
         {% assign r_slug = r.slug | downcase %}
