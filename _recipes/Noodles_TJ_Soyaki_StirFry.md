@@ -3,7 +3,9 @@ layout: recipe
 title: "5-Ingredient Trader Joe's Soyaki Noodle Stir-Fry"
 icon: "🍜"
 description: "Packed with flavor and ready in just 20 minutes, this delicious 5-ingredient Trader Joe's stir-fry pairs chewy knife-cut noodles and crisp broccoli with sweet, savory Soyaki sauce."
-category: [Noodles, Dinner, Quick & Easy]
+course: "Dinner"
+cuisine: "Asian-Fusion"
+category: [Noodles, Skillet]
 prep_time: "5 mins"
 cook_time: "15 mins"
 yield: "3-4 servings"
