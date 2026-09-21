@@ -1513,7 +1513,7 @@ a.roundup-card-horizontal *,
   color: #9B2C2C !important;
 }
 
-/* 2. Table of Contents Multi-Column Underline Fix */
+/* 2. Table of Contents Multi-Column Fix */
 .roundup-toc-list {
   margin: 0;
   padding-left: 1.25rem;
@@ -1536,11 +1536,20 @@ a.roundup-card-horizontal *,
   text-decoration: none;
   color: inherit;
   font-weight: 500;
+  position: relative;
 }
 
+/* Kill the header nav's inherited ::after underline bar */
+.roundup-toc-list a::after,
+.roundup-toc-list a:hover::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Apply clean text-only underline on hover */
 .roundup-toc-list a:hover {
-  text-decoration: underline;
-  text-decoration-color: #9B2C2C;
+  text-decoration: underline !important;
+  text-decoration-color: #9B2C2C !important;
 }
 
 @media (max-width: 600px) {
