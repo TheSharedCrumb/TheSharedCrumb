@@ -7,8 +7,21 @@ layout: default
     scroll-behavior: smooth;
   }
   .roundup-card-horizontal {
-    /* Offset the card down so it stops under your fixed header + adds breathing room */
+    /* Offset so cards stop below fixed/sticky navigation headers */
     scroll-margin-top: 100px;
+  }
+  @media (max-width: 600px) {
+    .roundup-card-horizontal {
+      flex-direction: column !important;
+    }
+    .roundup-card-media {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: 200px !important;
+    }
+    .roundup-card-details {
+      width: 100% !important;
+    }
   }
 </style>
 
@@ -28,8 +41,8 @@ layout: default
 
   <!-- Table of Contents -->
   <nav class="roundup-toc" style="background: #fdf8f4; padding: 1.25rem 1.5rem; border-radius: 8px; margin-bottom: 2rem; border: 1px solid #f0e6df; max-width: 900px; margin-left: auto; margin-right: auto;">
-    <strong style="display: block; margin-bottom: 0.75rem; color: #1f2937; font-size: 1.05rem;">In This Roundup:</strong>
-    <ol style="margin: 0; padding-left: 1.25rem; color: #8b263e; line-height: 1.6;">
+    <strong style="display: block; margin-bottom: 0.75rem; color: #1f2937; font-size: 1.05rem;">Jump to Recipe:</strong>
+    <ol style="margin: 0; padding-left: 1.25rem; color: #8b263e; line-height: 1.6; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.25rem 1.5rem;">
       {% for item in page.recipes %}
         {% if item.slug %}{% assign r_slug = item.slug %}{% else %}{% assign r_slug = item %}{% endif %}
         {% assign target_slug = r_slug | downcase %}
