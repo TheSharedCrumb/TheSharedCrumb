@@ -9,12 +9,24 @@ layout: default
   .roundup-card-horizontal {
     /* Offset so cards stop below fixed/sticky navigation headers */
     scroll-margin-top: 100px;
+    text-decoration: none !important;
+  }
+  /* Prevent browser link underline artifacts across card elements */
+  a.roundup-card-horizontal,
+  a.roundup-card-horizontal *,
+  .roundup-card-details,
+  .roundup-card-media {
+    text-decoration: none !important;
   }
   /* Card Hover Lift Effect */
   .roundup-card-horizontal:hover {
     transform: translateY(-3px) !important;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
     border-color: #e0d0c5 !important;
+  }
+  /* Optional: Highlight only the title on card hover */
+  .roundup-card-horizontal:hover h2 {
+    color: #8b263e !important;
   }
   .roundup-toc-list {
     margin: 0;
@@ -173,7 +185,7 @@ layout: default
               {% endif %}
             </div>
 
-            <h2 style="margin: 0 0 0.5rem 0; font-size: 1.35rem; color: #1f2937;">{{ recipe.title }}</h2>
+            <h2 style="margin: 0 0 0.5rem 0; font-size: 1.35rem; color: #1f2937; transition: color 0.2s ease;">{{ recipe.title }}</h2>
             
             <!-- Standard Recipe Description -->
             <p style="margin: 0; color: #4b5563; font-size: 0.95rem; line-height: 1.4;">
@@ -181,8 +193,7 @@ layout: default
             </p>
 
             <!-- Short Story Snippet -->
-            {% assign story_text = recipe.content | strip_html | strip | replace: '
-', ' ' %}
+            {% assign story_text = recipe.content | strip_html | strip %}
             {% if story_text != "" %}
               <p style="margin: 0.5rem 0 0 0; color: #6b7280; font-size: 0.88rem; line-height: 1.4; font-style: italic;">
                 "{{ story_text | truncatewords: 25, "..." }}"
