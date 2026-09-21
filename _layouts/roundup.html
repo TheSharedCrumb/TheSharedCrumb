@@ -2,72 +2,6 @@
 layout: default
 ---
 
-<style>
-  html {
-    scroll-behavior: smooth;
-  }
-  .roundup-card-horizontal {
-    /* Offset so cards stop below fixed/sticky navigation headers */
-    scroll-margin-top: 100px;
-    text-decoration: none !important;
-  }
-  /* Prevent browser link underline artifacts across card elements */
-  a.roundup-card-horizontal,
-  a.roundup-card-horizontal *,
-  .roundup-card-details,
-  .roundup-card-media {
-    text-decoration: none !important;
-  }
-  /* Card Hover Lift Effect */
-  .roundup-card-horizontal:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
-    border-color: #e0d0c5 !important;
-  }
-  /* Optional: Highlight only the title on card hover */
-  .roundup-card-horizontal:hover h2 {
-    color: #8b263e !important;
-  }
-  .roundup-toc-list {
-    margin: 0;
-    padding-left: 1.25rem;
-    color: #8b263e;
-    line-height: 1.6;
-    column-count: 2;
-    column-gap: 2rem;
-  }
-  .roundup-toc-list li {
-    /* Prevent individual items from splitting awkwardly across columns */
-    break-inside: avoid;
-  }
-  @media (max-width: 600px) {
-    .roundup-toc-list {
-      column-count: 1;
-    }
-    .roundup-card-horizontal {
-      flex-direction: column !important;
-    }
-    .roundup-card-media {
-      width: 100% !important;
-      max-width: 100% !important;
-      height: 200px !important;
-    }
-    .roundup-card-details {
-      width: 100% !important;
-    }
-  }
-  @media print {
-    .roundup-toc,
-    .roundup-hero-banner {
-      display: none !important;
-    }
-    .roundup-card-horizontal {
-      break-inside: avoid;
-      border: 1px solid #ccc !important;
-    }
-  }
-</style>
-
 <div class="recipes-archive-container">
   
   <!-- Header & Auto Wide Hero Banner -->
@@ -129,7 +63,7 @@ layout: default
         {% endfor %}
         {% if recipe %}
           <li>
-            <a href="#recipe-{{ forloop.index }}" style="color: inherit; text-decoration: none; font-weight: 500;">
+            <a href="#recipe-{{ forloop.index }}">
               {{ recipe.title }}
             </a>
           </li>
@@ -154,7 +88,7 @@ layout: default
       {% endfor %}
 
       {% if recipe %}
-        <a href="{{ recipe.url | relative_url }}" id="recipe-{{ forloop.index }}" class="roundup-card-horizontal" style="display: flex; background: #fff; border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid #eaeaea; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;">
+        <a href="{{ recipe.url | relative_url }}" id="recipe-{{ forloop.index }}" class="roundup-card-horizontal" style="display: flex; background: #fff; border-radius: 12px; overflow: hidden; color: inherit; border: 1px solid #eaeaea; transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;">
           
           <!-- Left Image Column -->
           <div class="roundup-card-media" style="width: 35%; min-width: 200px; max-width: 300px; position: relative;">
