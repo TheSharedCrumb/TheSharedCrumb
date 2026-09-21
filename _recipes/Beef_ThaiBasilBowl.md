@@ -36,6 +36,6 @@ My favorite move here is serving it over a light jasmine rice. It catches all th
 1. **Prep Veggies**: Medium dice the bell peppers and white onion.
 2. **Sauté Veggies**: Heat 1 tbsp olive oil in a large pan over medium-high heat. Add the peppers and onion with a pinch of salt. Cook 5–6 minutes until tender-crisp and browned in spots. Transfer to a bowl.
 3. **Brown Beef**: Add 1 lb extra lean ground beef to the same pan. Cook 2–3 minutes until browned on one side, then break apart and finish cooking.
-4. **Add Sauce**: Add the oyster sauce, honey, water, fish sauce, and garlic to the beef and stir to combine.  Cook for another 2-3 minutes 
+4. **Add Sauce**: Add the oyster sauce, honey, water, fish sauce, and minced garlic to the beef and stir to combine.  Cook for another 2-3 minutes 
 5. **Combine**: Add the basil and veggies back to the pan, mix, and cook for about 60 seconds.
 7. **Serve**: Serve over steamed jasmine rice with lime wedges, cilantro, and the peanut garnish.
