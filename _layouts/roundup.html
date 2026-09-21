@@ -18,7 +18,17 @@ layout: default
 
   <!-- Horizontal Roundup List -->
   <div class="roundup-list" style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
-    {% for recipe_slug in page.recipes %}
+    {% for item in page.recipes %}
+      
+      {% comment %} Handle both simple string arrays and object lists with custom notes {% endcomment %}
+      {% if item.slug %}
+        {% assign recipe_slug = item.slug %}
+        {% assign custom_note = item.note %}
+      {% else %}
+        {% assign recipe_slug = item %}
+        {% assign custom_note = nil %}
+      {% endif %}
+
       {% assign recipe = site.recipes | where: "slug", recipe_slug | first %}
       {% if recipe %}
         <a href="{{ recipe.url | relative_url }}" class="roundup-card-horizontal" style="display: flex; background: #fff; border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; border: 1px solid #eaeaea; transition: transform 0.2s ease, box-shadow 0.2s ease;">
@@ -53,7 +63,14 @@ layout: default
             </div>
 
             <h2 style="margin: 0 0 0.5rem 0; font-size: 1.35rem; color: #1f2937;">{{ recipe.title }}</h2>
-            <p style="margin: 0; color: #4b5563; font-size: 0.95rem; line-height: 1.4;">{{ recipe.description }}</p>
+            
+            <p style="margin: 0; color: #4b5563; font-size: 0.95rem; line-height: 1.4;">
+              {% if custom_note %}
+                {{ custom_note }}
+              {% else %}
+                {{ recipe.description }}
+              {% endif %}
+            </p>
             
             <div style="margin-top: 1rem; font-weight: 600; color: #8b263e; font-size: 0.9rem;">
               View Recipe &rarr;
