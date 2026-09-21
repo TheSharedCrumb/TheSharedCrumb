@@ -1496,3 +1496,55 @@ footer {
 .about-cta-btn:hover {
   background-color: #7B2222;
 }
+
+/* ==========================================================================
+   15. Roundup Page Layout & Table of Contents Fixes
+   ========================================================================== */
+
+/* 1. Prevent browser link underline artifacts across horizontal cards */
+a.roundup-card-horizontal,
+a.roundup-card-horizontal *,
+.roundup-card-details,
+.roundup-card-media {
+  text-decoration: none !important;
+}
+
+.roundup-card-horizontal:hover h2 {
+  color: #9B2C2C !important;
+}
+
+/* 2. Table of Contents Multi-Column Underline Fix */
+.roundup-toc-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #9B2C2C;
+  line-height: 1.6;
+  column-count: 2;
+  column-gap: 2rem;
+}
+
+.roundup-toc-list li {
+  /* Prevent list items from splitting awkwardly across columns */
+  break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.roundup-toc-list a {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.roundup-toc-list a:hover {
+  text-decoration: underline;
+  text-decoration-color: #9B2C2C;
+}
+
+@media (max-width: 600px) {
+  .roundup-toc-list {
+    column-count: 1;
+  }
+}
