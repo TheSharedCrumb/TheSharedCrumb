@@ -16,7 +16,7 @@ layout: default
 
   <div class="roundup-grid">
     {% for recipe_slug in page.recipes %}
-      {% assign recipe = site.posts | where: "slug", recipe_slug | first %}
+      {% assign recipe = site.recipes | where: "slug", recipe_slug | first %}
       {% if recipe %}
         <div class="roundup-card">
           <a href="{{ recipe.url | relative_url }}" class="roundup-card-link">
