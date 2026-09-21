@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<article class="roundup-container">
+  <header class="roundup-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="roundup-description">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="roundup-intro">
+    {{ content }}
+  </div>
+
+  <div class="roundup-grid">
+    {% for recipe_slug in page.recipes %}
+      {% assign recipe = site.posts | where: "slug", recipe_slug | first %}
+      {% if recipe %}
+        <div class="roundup-card">
+          <a href="{{ recipe.url | relative_url }}" class="roundup-card-link">
+            {% if recipe.image != empty %}
+              <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="roundup-card-img" />
+            {% endif %}
+            <div class="roundup-card-content">
+              {% if recipe.icon %}
+                <span class="roundup-card-icon">{{ recipe.icon }}</span>
+              {% endif %}
+              <h2 class="roundup-card-title">{{ recipe.title }}</h2>
+              <p class="roundup-card-desc">{{ recipe.description }}</p>
+              <span class="roundup-card-btn">Get Recipe &rarr;</span>
+            </div>
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</article>
