@@ -31,11 +31,12 @@ Traditional pizza dough relies on a massive wall of flour, which usually leaves 
 * 20 turkey pepperoni slices
 
 ### Instructions
-1. Preheat the oven to 400°F (200°C) and line a baking sheet with parchment paper.
-2. Combine the ground chicken, eggs, parmesan, garlic powder, Italian seasoning, salt, and black pepper in a large bowl, mixing until evenly distributed.
-3. Spread the chicken mixture onto the prepared baking sheet, pressing it into a thin, uniform layer. A thinner crust is key here so it actually crisps up instead of staying soft.
-4. Bake for 20 to 25 minutes until the crust is firm and golden around the edges. Remove it from the oven and let it sit for 5 minutes to set.
-5. Raise the oven temperature to 425°F (220°C). Layer on your pizza sauce, shredded cheese, and preferred toppings.
-6. Return the sheet to the oven for another 8 to 10 minutes, or until the cheese is fully melted and bubbling.
-7. Let it cool for a couple of minutes before slicing and serving.
+1. **Preheat:** Set the oven to 400°F (200°C) and line a baking sheet with parchment paper.
+2. **Mix:** Combine the ground chicken, eggs, parmesan, garlic powder, Italian seasoning, salt, and black pepper in a large bowl until evenly distributed.
+3. **Shape:** Spread the chicken mixture onto the prepared baking sheet, pressing it into a thin, uniform layer. Keep it thin so it crisps up instead of staying soft.
+4. **Bake:** Cook for 20 to 25 minutes until firm and golden around the edges, then let it rest for 5 minutes to set.
+5. **Toppings:** Increase the oven temperature to 425°F (220°C), then layer on your pizza sauce, shredded cheese, and preferred toppings.
+6. **Melt:** Return the sheet to the oven for another 8 to 10 minutes until the cheese is fully melted and bubbling.
+7. **Rest:** Allow it to cool for a couple of minutes before slicing and serving.
+
 
