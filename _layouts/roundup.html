@@ -110,11 +110,16 @@ layout: default
           <div class="roundup-card-details" style="padding: 1.25rem 1.5rem; width: 65%; display: flex; flex-direction: column; justify-content: center;">
             <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
               <span style="font-weight: 700; color: #8b263e; font-size: 1.1rem;">#{{ forloop.index }}</span>
-              {% if recipe.category %}
+              {% if recipe.cuisine or recipe.category %}
                 <div class="recipe-category-badges" style="margin: 0;">
-                  {% for cat in recipe.category %}
-                    <span class="recipe-category-badge">{{ cat }}</span>
-                  {% endfor %}
+                  {% if recipe.cuisine %}
+                    <span class="recipe-category-badge cuisine-badge">{{ recipe.cuisine }}</span>
+                  {% endif %}
+                  {% if recipe.category %}
+                    {% for cat in recipe.category %}
+                      <span class="recipe-category-badge">{{ cat }}</span>
+                    {% endfor %}
+                  {% endif %}
                 </div>
               {% endif %}
             </div>
