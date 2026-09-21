@@ -13,24 +13,35 @@ title: All Recipes
       <input 
         type="text" 
         id="recipeSearchInput" 
-        placeholder="Search by name, category, or combination (e.g. Parmesan Chicken Dinner)..." 
+        placeholder="Search by name, cuisine, course, or category (e.g. Thai Beef Dinner)..." 
         aria-label="Search recipes">
     </div>
   </header>
 
   {% assign visible_recipes = site.recipes | where_exp: "recipe", "recipe.hidden != true" %}
 
+  {% assign raw_cuisines = "" | split: "" %}
   {% assign raw_categories = "" | split: "" %}
+
   {% for recipe in visible_recipes %}
+    {% if recipe.cuisine %}
+      {% assign cuisine_arr = recipe.cuisine | split: "___" %}
+      {% assign raw_cuisines = raw_cuisines | concat: cuisine_arr %}
+    {% endif %}
     {% if recipe.category %}
       {% assign raw_categories = raw_categories | concat: recipe.category %}
     {% endif %}
   {% endfor %}
+
+  {% assign unique_cuisines = raw_cuisines | uniq | sort %}
   {% assign unique_categories = raw_categories | uniq | sort %}
 
-  <!-- Category Filter Pills -->
+  <!-- Filter Pills (Cuisines first, then Categories) -->
   <div class="category-filter-nav">
     <button class="filter-btn active" data-filter="all">All Recipes</button>
+    {% for cuisine in unique_cuisines %}
+      <button class="filter-btn" data-filter="{{ cuisine | slugify }}">{{ cuisine }}</button>
+    {% endfor %}
     {% for cat in unique_categories %}
       <button class="filter-btn" data-filter="{{ cat | slugify }}">{{ cat }}</button>
     {% endfor %}
@@ -39,11 +50,29 @@ title: All Recipes
   <!-- Recipes Grid -->
   <div class="recipes-grid" id="recipesGrid">
     {% for recipe in visible_recipes %}
-      {% assign cat_slugs = "" %}
+      {% assign tag_slugs = "" %}
+
+      <!-- Process Course (Searchable in background, hidden from tile visual badges) -->
+      {% if recipe.course %}
+        {% assign course_raw_string = recipe.course | downcase %}
+      {% else %}
+        {% assign course_raw_string = "" %}
+      {% endif %}
+
+      <!-- Process Cuisine -->
+      {% if recipe.cuisine %}
+        {% assign slug = recipe.cuisine | slugify %}
+        {% assign tag_slugs = tag_slugs | append: slug | append: " " %}
+        {% assign cuisine_raw_string = recipe.cuisine | downcase %}
+      {% else %}
+        {% assign cuisine_raw_string = "" %}
+      {% endif %}
+
+      <!-- Process Categories -->
       {% if recipe.category %}
         {% for cat in recipe.category %}
           {% assign slug = cat | slugify %}
-          {% assign cat_slugs = cat_slugs | append: slug | append: " " %}
+          {% assign tag_slugs = tag_slugs | append: slug | append: " " %}
         {% endfor %}
         {% assign cat_raw_string = recipe.category | join: " " | downcase %}
       {% else %}
@@ -52,7 +81,9 @@ title: All Recipes
 
       <a href="{{ recipe.url | relative_url }}" 
          class="recipe-grid-card" 
-         data-categories="{{ cat_slugs | strip }}"
+         data-tags="{{ tag_slugs | strip }}"
+         data-raw-course="{{ course_raw_string }}"
+         data-raw-cuisine="{{ cuisine_raw_string }}"
          data-raw-categories="{{ cat_raw_string }}"
          data-title="{{ recipe.title | downcase }}"
          data-description="{{ recipe.description | downcase }}">
@@ -71,13 +102,16 @@ title: All Recipes
         {% endif %}
 
         <div class="grid-card-content">
-          {% if recipe.category %}
-            <div class="recipe-category-badges">
+          <div class="recipe-category-badges">
+            {% if recipe.cuisine %}
+              <span class="recipe-category-badge cuisine-badge">{{ recipe.cuisine }}</span>
+            {% endif %}
+            {% if recipe.category %}
               {% for cat in recipe.category %}
                 <span class="recipe-category-badge">{{ cat }}</span>
               {% endfor %}
-            </div>
-          {% endif %}
+            {% endif %}
+          </div>
 
           <h3>{{ recipe.title }}</h3>
           <p>{{ recipe.description }}</p>
@@ -103,21 +137,23 @@ title: All Recipes
 
     function filterRecipes() {
       let visibleCount = 0;
-
       const queryWords = currentQuery.split(/\s+/).filter(word => word.length > 0);
 
       cards.forEach(card => {
-        const cardCategories = (card.getAttribute('data-categories') || '').split(' ');
+        const cardTags = (card.getAttribute('data-tags') || '').split(' ');
+        const cardCourse = card.getAttribute('data-raw-course') || '';
+        const cardCuisine = card.getAttribute('data-raw-cuisine') || '';
         const cardRawCats = card.getAttribute('data-raw-categories') || '';
         const cardTitle = card.getAttribute('data-title') || '';
         const cardDesc = card.getAttribute('data-description') || '';
 
-        const searchableContent = `${cardTitle} ${cardDesc} ${cardRawCats}`;
+        // Search indexes course in the background along with title, description, cuisine, and categories
+        const searchableContent = `${cardTitle} ${cardDesc} ${cardCourse} ${cardCuisine} ${cardRawCats}`;
 
-        const matchesCategory = (currentFilter === 'all') || cardCategories.includes(currentFilter);
+        const matchesFilter = (currentFilter === 'all') || cardTags.includes(currentFilter);
         const matchesSearch = queryWords.every(word => searchableContent.includes(word));
 
-        if (matchesCategory && matchesSearch) {
+        if (matchesFilter && matchesSearch) {
           card.style.display = 'flex';
           visibleCount++;
         } else {
@@ -131,14 +167,14 @@ title: All Recipes
     }
 
     const urlParams = new URLSearchParams(window.location.search);
-    const categoryParam = urlParams.get('category');
+    const filterParam = urlParams.get('filter') || urlParams.get('category') || urlParams.get('cuisine');
 
-    if (categoryParam) {
-      const targetBtn = document.querySelector(`.filter-btn[data-filter="${categoryParam}"]`);
+    if (filterParam) {
+      const targetBtn = document.querySelector(`.filter-btn[data-filter="${filterParam}"]`);
       if (targetBtn) {
         filterBtns.forEach(b => b.classList.remove('active'));
         targetBtn.classList.add('active');
-        currentFilter = categoryParam;
+        currentFilter = filterParam;
       }
     }
 
