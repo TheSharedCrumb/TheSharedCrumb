@@ -2,6 +2,16 @@
 layout: default
 ---
 
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  .roundup-card-horizontal {
+    /* Offset the card down so it stops under your fixed header + adds breathing room */
+    scroll-margin-top: 100px;
+  }
+</style>
+
 <div class="recipes-archive-container">
   <header class="archive-header">
     <h1>{{ page.title }}</h1>
