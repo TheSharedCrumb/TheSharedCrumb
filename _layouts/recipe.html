@@ -7,13 +7,20 @@ layout: default
       
       <!-- Text & Meta Column -->
       <div class="recipe-header-text">
-        {% if page.category %}
+        {% if page.cuisine or page.category %}
           <div class="recipe-category-badges recipe-category-badges-center">
-            {% for cat in page.category %}
-              <a href="{{ '/recipes.html' | relative_url }}?category={{ cat | slugify }}" class="recipe-category-badge recipe-category-link">
-                {{ cat }}
+            {% if page.cuisine %}
+              <a href="{{ '/recipes.html' | relative_url }}?cuisine={{ page.cuisine | slugify }}" class="recipe-category-badge recipe-category-link cuisine-badge">
+                {{ page.cuisine }}
               </a>
-            {% endfor %}
+            {% endif %}
+            {% if page.category %}
+              {% for cat in page.category %}
+                <a href="{{ '/recipes.html' | relative_url }}?category={{ cat | slugify }}" class="recipe-category-badge recipe-category-link">
+                  {{ cat }}
+                </a>
+              {% endfor %}
+            {% endif %}
           </div>
         {% endif %}
 
@@ -113,7 +120,7 @@ layout: default
   <!-- Clean, Guarded Related Recipes Section -->
   {% assign related_candidates = "" | split: "" %}
 
-  {% comment %} 1. Gather all recipes sharing any category with current recipe {% endcomment %}
+  {% comment %} 1. Gather all recipes sharing any category or cuisine with current recipe {% endcomment %}
   {% if page.category %}
     {% for cat in page.category %}
       {% for recipe in site.recipes %}
@@ -183,11 +190,16 @@ layout: default
                 </div>
               {% endif %}
               <div class="grid-card-content">
-                {% if recipe.category %}
+                {% if recipe.cuisine or recipe.category %}
                   <div class="recipe-category-badges">
-                    {% for cat in recipe.category %}
-                      <span class="recipe-category-badge">{{ cat }}</span>
-                    {% endfor %}
+                    {% if recipe.cuisine %}
+                      <span class="recipe-category-badge cuisine-badge">{{ recipe.cuisine }}</span>
+                    {% endif %}
+                    {% if recipe.category %}
+                      {% for cat in recipe.category %}
+                        <span class="recipe-category-badge">{{ cat }}</span>
+                      {% endfor %}
+                    {% endif %}
                   </div>
                 {% endif %}
                 <h3>{{ recipe.title }}</h3>
@@ -249,7 +261,6 @@ layout: default
           currentElem = nextElem;
         }
 
-        // --- ADDED ONLY THESE 4 LINES TO FIX STEP NUMBERING ---
         let stepCount = 1;
         rightCol.querySelectorAll('ol').forEach(ol => {
           ol.setAttribute('start', stepCount);
@@ -258,7 +269,7 @@ layout: default
       }
     }
 
-    // Dynamic Jump-to-Recipe Scroll Handler (Calculates exact header height at click)
+    // Dynamic Jump-to-Recipe Scroll Handler
     const jumpBtn = document.querySelector('.jump-btn');
     if (jumpBtn) {
       jumpBtn.addEventListener('click', (e) => {
@@ -388,7 +399,7 @@ layout: default
       });
     }
 
-    // 4. Mobile Cook Mode (Screen WakeLock API, Floating Clone & Smooth Footer Docking)
+    // 4. Mobile Cook Mode
     const inlineCookBtn = document.getElementById('cookModeBtn');
     const recipeActions = document.querySelector('.recipe-actions');
     const footer = document.querySelector('footer');
@@ -397,7 +408,6 @@ layout: default
     let isFloatingVisible = false;
 
     if (inlineCookBtn) {
-      // 1. Ensure floating clone exists immediately in DOM
       let floatingCookBtn = document.getElementById('floatingCookBtn');
       if (!floatingCookBtn) {
         floatingCookBtn = inlineCookBtn.cloneNode(true);
@@ -406,7 +416,6 @@ layout: default
         document.body.appendChild(floatingCookBtn);
       }
 
-      // Sync active state between inline button and clone
       const updateCookModeState = (isActive) => {
         const statusText = isActive ? 'ON' : 'OFF';
         [inlineCookBtn, floatingCookBtn].forEach(btn => {
@@ -418,7 +427,6 @@ layout: default
         });
       };
 
-      // Toggle Screen Wake Lock
       const toggleWakeLock = async () => {
         if ('wakeLock' in navigator) {
           if (!wakeLock) {
@@ -446,7 +454,6 @@ layout: default
       inlineCookBtn.addEventListener('click', toggleWakeLock);
       floatingCookBtn.addEventListener('click', toggleWakeLock);
 
-      // Idle timer management
       const resetIdleTimer = () => {
         if (!isFloatingVisible) return;
         floatingCookBtn.classList.remove('idle');
@@ -459,14 +466,12 @@ layout: default
         }, 3000);
       };
 
-      // Unified State Evaluation (Eliminates Vibration & Post-Refresh Disappearance)
       const evaluateFloatingState = () => {
         const isTouchOrMobile = window.matchMedia('(hover: none) and (pointer: coarse), (max-width: 768px)').matches;
         if (!isTouchOrMobile) return;
 
         const scrollY = window.scrollY || window.pageYOffset;
         
-        // Force hide at page top
         if (scrollY < 120) {
           if (isFloatingVisible) {
             isFloatingVisible = false;
@@ -477,7 +482,6 @@ layout: default
           return;
         }
 
-        // Check if top actions row is out of view
         if (recipeActions) {
           const actionsRect = recipeActions.getBoundingClientRect();
           const isOut = actionsRect.bottom < 0;
@@ -489,13 +493,11 @@ layout: default
               resetIdleTimer();
             }
 
-            // Smooth Footer Docking Calculation
             if (footer) {
               const footerRect = footer.getBoundingClientRect();
               const windowHeight = window.innerHeight;
 
               if (footerRect.top < windowHeight) {
-                // Lift button cleanly above footer without thrashing
                 const overlap = Math.floor(windowHeight - footerRect.top + 12);
                 floatingCookBtn.style.transform = `translate3d(0, -${overlap}px, 0)`;
               } else {
@@ -511,7 +513,6 @@ layout: default
         }
       };
 
-      // Passive scroll & gesture listeners
       window.addEventListener('scroll', () => {
         evaluateFloatingState();
         if (isFloatingVisible) resetIdleTimer();
@@ -519,7 +520,6 @@ layout: default
 
       window.addEventListener('touchstart', resetIdleTimer, { passive: true });
 
-      // Run check on load, refresh, and layout restoration
       window.addEventListener('load', evaluateFloatingState);
       setTimeout(evaluateFloatingState, 300);
       setTimeout(evaluateFloatingState, 1000);
