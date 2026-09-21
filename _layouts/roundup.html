@@ -129,12 +129,12 @@ layout: default
               {{ recipe.description }}
             </p>
 
-            <!-- Short Story Snippet -->
+            <!-- Short Story Snippet (Clean word cutoff) -->
             {% assign story_text = recipe.content | strip_html | strip | replace: '
 ', ' ' %}
             {% if story_text != "" %}
               <p style="margin: 0.5rem 0 0 0; color: #6b7280; font-size: 0.88rem; line-height: 1.4; font-style: italic;">
-                "{{ story_text | truncate: 140, "..." }}"
+                "{{ story_text | truncatewords: 25, "..." }}"
               </p>
             {% endif %}
             
