@@ -59,7 +59,9 @@ layout: default
     <strong style="display: block; margin-bottom: 0.75rem; color: #1f2937; font-size: 1.05rem;">Jump to Recipe:</strong>
     <ol class="roundup-toc-list">
       {% for item in page.recipes %}
-        {% assign target_slug = item | downcase %}
+        {% if item.slug %}{% assign raw_slug = item.slug %}{% else %}{% assign raw_slug = item %}{% endif %}
+        {% assign target_slug = raw_slug | downcase %}
+        
         {% assign recipe = nil %}
         {% for r in site.recipes %}
           {% assign cur_slug = r.slug | downcase %}
@@ -79,7 +81,8 @@ layout: default
   <!-- Horizontal Roundup List -->
   <div class="roundup-list" style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
     {% for item in page.recipes %}
-      {% assign target_slug = item | downcase %}
+      {% if item.slug %}{% assign raw_slug = item.slug %}{% else %}{% assign raw_slug = item %}{% endif %}
+      {% assign target_slug = raw_slug | downcase %}
 
       {% assign recipe = nil %}
       {% for r in site.recipes %}
@@ -129,7 +132,7 @@ layout: default
               {{ recipe.description }}
             </p>
 
-            <!-- Short Story Snippet (Clean word cutoff) -->
+            <!-- Short Story Snippet -->
             {% assign story_text = recipe.content | strip_html | strip | replace: '
 ', ' ' %}
             {% if story_text != "" %}
