@@ -3,7 +3,9 @@ layout: recipe
 title: "Korean-Style Beef Bowl"
 icon: "🥩"
 description: "A fast, 15-minute savory-sweet ground beef skillet with soy sauce, brown sugar, garlic, and sesame oil."
-category: [Dinner]
+course: "Dinner"
+cuisine: "Korean"
+category: [Beef, Skillet]
 prep_time: "5 mins"
 cook_time: "10 mins"
 yield: "4 servings"
@@ -34,8 +36,8 @@ This Korean-style beef bowl is the ultimate emergency weeknight dinner when you 
 * ¼ tsp sesame seeds
 
 ### Instructions
-1. **Mix sauce**: In a small bowl, whisk together the brown sugar, soy sauce, sesame oil, red pepper flakes, and ginger until combined.
-1. **Sauté garlic**: Heat vegetable oil in a large cast iron skillet over medium-high heat. Add minced garlic and cook, stirring constantly, for about 1 minute until fragrant.
-1. **Brown beef**: Add ground beef and cook for 3–5 minutes until browned, crumbling the meat as it cooks. Drain any excess fat.
-1. **Simmer sauce**: Stir in the soy sauce mixture and sliced green onions until well combined. Simmer for about 2 minutes until heated through.
-1. **Serve**: Serve immediately, garnished with additional sliced green onions and sesame seeds.
+1. **Mix Sauce**: In a small bowl, whisk together the brown sugar, soy sauce, sesame oil, red pepper flakes, and ginger until combined.
+2. **Sauté Garlic**: Heat vegetable oil in a large skillet over medium-high heat. Add minced garlic and cook, stirring constantly, for about 1 minute until fragrant.
+3. **Brown Beef**: Add ground beef and cook for 3–5 minutes until browned, crumbling the meat as it cooks. Drain any excess fat.
+4. **Simmer Sauce**: Stir in the soy sauce mixture and sliced green onions until well combined. Simmer for about 2 minutes until heated through.
+5. **Serve**: Serve immediately, garnished with additional sliced green onions and sesame seeds.
