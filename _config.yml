@@ -2,3 +2,6 @@ collections:
   recipes:
     output: true
     permalink: /recipes/:slug/
+  roundups:
+    output: true
+    permalink: /roundups/:slug/
