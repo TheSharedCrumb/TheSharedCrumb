@@ -1,0 +1,54 @@
+{% comment %}
+  Schema.org JSON-LD Structured Data for Google Recipe Rich Snippets.
+  Uses Jekyll's jsonify filter to safely escape special characters and quotes.
+{% comment %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": {{ page.title | jsonify }},
+  "image": [
+    {% if page.image and page.image != "" %}
+      {{ page.image | absolute_url | jsonify }}
+    {% else %}
+      {{ '/assets/images/default-recipe-share.jpg' | absolute_url | jsonify }}
+    {% endif %}
+  ],
+  "author": {
+    "@type": "Person",
+    "name": {{ page.author | default: site.title | jsonify }}
+  },
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | jsonify }},
+  {% if page.prep_time %}
+  "prepTime": "{{ page.prep_time }}",
+  {% endif %}
+  {% if page.cook_time %}
+  "cookTime": "{{ page.cook_time }}",
+  {% endif %}
+  {% if page.total_time %}
+  "totalTime": "{{ page.total_time }}",
+  {% endif %}
+  {% if page.servings %}
+  "recipeYield": {{ page.servings | jsonify }},
+  {% endif %}
+  {% if page.category %}
+  "recipeCategory": {{ page.category | first | jsonify }},
+  "keywords": {{ page.category | join: ', ' | jsonify }},
+  {% endif %}
+  "recipeIngredient": [
+    {% for ingredient in page.ingredients %}
+      {{ ingredient | jsonify }}{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "recipeInstructions": [
+    {% for step in page.instructions %}
+    {
+      "@type": "HowToStep",
+      "text": {{ step | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
