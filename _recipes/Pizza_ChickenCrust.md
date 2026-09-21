@@ -3,7 +3,9 @@ layout: recipe
 title: "Chicken-Crust Pizza"
 icon: "🍕"
 description: "A low-carb, high-protein pizza crust made entirely from seasoned ground chicken and parmesan."
-category: [Chicken, Dinner]
+course: "Dinner"
+cuisine: "American"
+category: [Chicken, Pizza]
 prep_time: "10 mins"
 cook_time: "35 mins"
 yield: "1 pizza (2-3 servings)"
