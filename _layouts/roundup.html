@@ -14,22 +14,22 @@ layout: default
     {{ content }}
   </div>
 
-  <div class="roundup-grid">
+  <div class="recipe-grid">
     {% for recipe_slug in page.recipes %}
       {% assign recipe = site.recipes | where: "slug", recipe_slug | first %}
       {% if recipe %}
-        <div class="roundup-card">
-          <a href="{{ recipe.url | relative_url }}" class="roundup-card-link">
-            {% if recipe.image != empty %}
-              <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="roundup-card-img" />
+        <div class="recipe-card">
+          <a href="{{ recipe.url | relative_url }}" class="recipe-card-link">
+            {% if recipe.image and recipe.image != "" %}
+              <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="recipe-card-img" />
             {% endif %}
-            <div class="roundup-card-content">
+            <div class="recipe-card-content">
               {% if recipe.icon %}
-                <span class="roundup-card-icon">{{ recipe.icon }}</span>
+                <span class="recipe-card-icon">{{ recipe.icon }}</span>
               {% endif %}
-              <h2 class="roundup-card-title">{{ recipe.title }}</h2>
-              <p class="roundup-card-desc">{{ recipe.description }}</p>
-              <span class="roundup-card-btn">Get Recipe &rarr;</span>
+              <h2 class="recipe-card-title">{{ recipe.title }}</h2>
+              <p class="recipe-card-desc">{{ recipe.description }}</p>
+              <span class="recipe-card-btn">Get Recipe &rarr;</span>
             </div>
           </a>
         </div>
