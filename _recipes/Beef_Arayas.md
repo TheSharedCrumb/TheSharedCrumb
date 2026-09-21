@@ -3,14 +3,15 @@ layout: recipe
 title: "Beef Arayas"
 icon: "🥩🥙"
 description: "Middle Eastern stuffed pitas packed with spiced ground beef, pan-crisped and oven-baked for maximum flavor."
-category: [Beef, Dinner]
+course: Dinner
+cuisine: Middle Eastern
+category: [Beef, Sandwich]
 prep_time: "10 min"
 cook_time: "30 hr"
 yield: "4 servings"
 difficulty: "Easy"
 cost: "$"
 image: ""
-hidden: false
 ---
 
 Beef arayas are Middle Eastern street food at its finest: spiced ground beef stuffed directly into raw pita halves and crisp-fried so the bread absorbs every drop of savory juice. As the pita crisps up in olive oil, the fragrant blend of cumin, allspice, and cinnamon toasts right into the meat before a quick finish in the oven locks in the tenderness. Served hot with a side of cold tahini or hummus, it delivers incredible texture and massive flavor with little prep.
