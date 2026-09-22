@@ -21,16 +21,26 @@ After flash-searing the chicken tenders, you toss the shallots and garlic direct
 The real beauty of this recipe is how effortlessly it turns into a full meal. That rich garlic parmesan sauce is liquid gold, and it begs to be paired with a hearty side. Spoon it hot over a bed of al dente fettuccine, a bowl of fluffy white rice, or a big mound of buttery mashed potatoes. Whichever base you choose, grab some bread to clean your plate, because you will not want to leave a single drop behind.
 
 ### Ingredients
-* 1 pound of chicken tenders 
-* 2 medium shallots 
-* 5 cloves garlic 
-* 1/2 cup dry white wine
-* 1 1/2 cups heavy cream 
-* 3 oz parmigiana reggiano 
-* 1 tsp chicken bouillon 
-* Salt and freshly ground black pepper to taste 
+
+#### Chicken & Seasoning
+* 1 lb chicken tenders, _tendons removed_
+* Salt and freshly ground black pepper, _to taste_
+* 1 tbsp butter or oil, _for searing_
+
+#### Aromatics & Deglazing
+* 2 medium shallots, _finely diced_
+* 5 cloves garlic, _thinly sliced_
+* ½ cup dry white wine
 
 > **Ingredient Note:** If you prefer to cook without alcohol, swap the white wine for ½ cup chicken stock mixed with 1 tsp lemon juice or white wine vinegar to keep that bright, balanced acidity.
+
+#### Cream Sauce
+* 1½ cups heavy cream
+* 3 oz Parmigiano-Reggiano, _microplaned_
+* 1 tsp chicken bouillon paste
+
+#### For Serving (Optional)
+* Cooked pasta, white rice, or mashed potatoes
 
 ### Instructions
 1. **Prep the Chicken:** Remove the tendons from the chicken tenders. Place each tendon through the tines of a fork, grip the exposed tendon tip with a paper towel, and pull firmly to extract it cleanly. Season one side of the tenders with salt and freshly cracked black pepper.
