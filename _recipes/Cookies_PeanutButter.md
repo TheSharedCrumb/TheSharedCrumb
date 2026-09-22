@@ -35,5 +35,5 @@ It takes one bowl, fifteen minutes total, and leaves almost no dishes.
 3. **Shape**: Roll the dough into 1-inch balls and place them on the prepared baking sheet, leaving about 2 inches of space between each.
 4. **Criss-Cross**: Gently press each dough ball down with the back of a fork, then press again from the crosswise direction to create a classic grid pattern.
 5. **Bake**: Bake at 350°F for 10 minutes until the edges are golden and set.
-6. **Optional Toppings**: Immediately out of the oven, press a single chocolate drop in the middle or sprinkle sea salt.
-6. **Cool**: Let the cookies rest on the baking sheet for 5 minutes to firm up before moving them to a wire rack.
+6. **Optional Toppings**: Immediately out of the oven, press a single chocolate drop in the middle or sprinkle with flaky sea salt if desired.
+7. **Cool**: Let the cookies rest on the baking sheet for 5 minutes to firm up before moving them to a wire rack.
