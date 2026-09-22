@@ -19,17 +19,17 @@ Traditional pizza dough relies on a massive wall of flour, which usually leaves 
 ### Ingredients
 
 #### Chicken Crust
-* 450g of ground chicken
+* 1 lb (450g) ground chicken
 * 2 large eggs
-* 1/2 cup grated parmesan cheese
-* 1 tsp of garlic powder
-* 1 tsp of italian seasoning
-* 1/2 tsp of salt
-* 1/2 tsp of black pepper
+* ½ cup Parmigiano-Reggiano or Parmesan cheese, _grated_
+* 1 tsp garlic powder
+* 1 tsp Italian seasoning
+* ½ tsp salt
+* ½ tsp black pepper
 
 #### Toppings
-* 1/2 cup pizza sauce
-* 1 cup grated mozarella cheese
+* ½ cup pizza sauce
+* 1 cup mozzarella cheese, _shredded_
 * 20 turkey pepperoni slices
 
 ### Instructions
@@ -40,5 +40,3 @@ Traditional pizza dough relies on a massive wall of flour, which usually leaves 
 5. **Toppings:** Increase the oven temperature to 425°F (220°C), then layer on your pizza sauce, shredded cheese, and preferred toppings.
 6. **Melt:** Return the sheet to the oven for another 8 to 10 minutes until the cheese is fully melted and bubbling.
 7. **Rest:** Allow it to cool for a couple of minutes before slicing and serving.
-
-
