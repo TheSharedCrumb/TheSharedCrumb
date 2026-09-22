@@ -1513,43 +1513,52 @@ a.roundup-card-horizontal *,
   color: #9B2C2C !important;
 }
 
-/* 2. Responsive Horizontal Card Layout Fix (Stacked on vertical mobile) */
+/* 2. Responsive Horizontal Card Layout Fix (Stacked & Centered on vertical mobile) */
 .roundup-card-horizontal {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .roundup-card-media {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: none !important;
 }
 
-.roundup-card-media img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+.roundup-card-media img,
+.roundup-card-media > div,
+.roundup-card-media svg {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 12px;
   object-fit: cover;
+  display: block;
 }
 
 .roundup-card-details {
-  width: 100%;
+  width: 100% !important;
+  flex: 1;
 }
 
 /* Side-by-side layout for horizontal phone orientation and desktop screens */
 @media (min-width: 601px) {
   .roundup-card-horizontal {
-    flex-direction: row;
+    flex-direction: row !important;
     align-items: flex-start;
   }
 
   .roundup-card-media {
-    width: 220px;
-    flex-shrink: 0;
+    width: 220px !important;
+    max-width: 220px !important;
+    flex-shrink: 0 !important;
   }
 
   .roundup-card-details {
-    flex: 1;
+    width: auto !important;
   }
 }
 
