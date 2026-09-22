@@ -5,6 +5,7 @@ title: "30 Easy Chicken Dinners"
 description: "High-protein, quick weeknight chicken recipes that skip the fluff."
 recipes:
   - slug: Chicken_CreamyGarlicTenders
+  - slug: Chicken_Marsala
   - slug: Chicken_Parmesan_Vegetable_Bake
   - slug: Chicken_Thighs_HoneyGarlic
   - slug: Pizza_ChickenCrust
