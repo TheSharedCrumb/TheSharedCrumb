@@ -23,20 +23,21 @@ It is the kind of effortless one-pan dinner that saves chaotic weeknights when e
 Whether you are feeding a table full of picky eaters or just craving a deeply satisfying pasta on a chilly evening, this dish hits the spot every single time. It is fast, ridiculously cheesy, and pairs perfectly with a slice of crusty garlic bread for full sauce-mopping duties.
 
 ### Ingredients
+
 * 1 tbsp olive oil
-* 1 yellow onion diced
-* 8 cloves of garlic
-* 1 tsp italian seasoning
-* Salt and pepper to tase
+* 1 yellow onion, _diced_
+* 8 cloves garlic, _minced_
+* 1 tsp Italian seasoning
 * 1 tsp paprika
+* Salt and black pepper, _to taste_
 * 1 lb ground beef
 * 3 tbsp tomato paste
 * 4 cups beef broth
 * 1 cup heavy whipping cream
-* 1lb medium shells
-* 4 oz shredded sharp cheddar cheese
-* Parmesan to sprinkle on top. 
-* Chopped Parsley
+* 1 lb medium pasta shells
+* 4 oz sharp cheddar cheese, _shredded_
+* Microplaned Parmigiano-Reggiano or Parmesan cheese, _for serving_
+* Fresh parsley, _chopped (for garnish)_
 
 ### Instructions
 1. **Saute**: In a large saute pan heat olive oil over medium low heat. Saute onion, Italian seasoning and pinch of salt until onions are translucent. Add garlic and stir until fragrant approximately 30-60 seconds.
