@@ -21,14 +21,15 @@ This recipe keeps things straightforward without requiring hours of chilling or 
 Whether you're baking a batch for a weekend get-together, sending them in school lunchboxes, or sneaking one straight off the cooling rack while the chocolate is still melted, these never last long.
 
 ### Ingredients
-* 1 cup (2 sticks) unsalted butter, softened to room temperature
-* 3/4 cup granulated sugar
-* 3/4 cup packed brown sugar
-* 2 large eggs, room temperature
+
+* 1 cup (2 sticks) unsalted butter, _softened to room temperature_
+* ¾ cup granulated sugar
+* ¾ cup brown sugar, _packed_
+* 2 large eggs, _room temperature_
 * 2 tsp pure vanilla extract
-* 2 1/4 cups all-purpose flour
+* 2 ¼ cups all-purpose flour
 * 1 tsp baking soda
-* 1/2 tsp salt
+* ½ tsp salt
 * 2 cups (12 oz) semi-sweet chocolate chips
 
 ### Instructions
