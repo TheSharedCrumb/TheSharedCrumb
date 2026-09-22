@@ -226,6 +226,8 @@ layout: default
 
     // 0. Group Ingredients & Instructions into Column Containers & Inject Jump Target
     const recipeBody = document.querySelector('.recipe-body');
+    let leftCol = null;
+
     if (recipeBody) {
       const h3s = Array.from(recipeBody.querySelectorAll('h3'));
       const ingredientsH3 = h3s.find(h3 => h3.textContent.trim().toLowerCase().includes('ingredients'));
@@ -235,7 +237,7 @@ layout: default
         // Set anchor target for "Jump to Recipe"
         ingredientsH3.id = 'recipe-card';
 
-        const leftCol = document.createElement('div');
+        leftCol = document.createElement('div');
         leftCol.className = 'recipe-column-left';
         recipeBody.insertBefore(leftCol, ingredientsH3);
         
@@ -291,9 +293,12 @@ layout: default
       });
     }
 
-    // 1. Interactive Checkboxes & Dynamic "Copy Ingredients" Insertion
-    const ingredientLists = document.querySelectorAll('.recipe-body ul');
+    // 1. Interactive Checkboxes & Single "Copy All Ingredients" Button
+    const targetContainer = leftCol || recipeBody;
+    const ingredientLists = targetContainer.querySelectorAll('ul');
+
     if (ingredientLists.length > 0) {
+      // Add checkboxes to every ingredient item across all lists
       ingredientLists.forEach(ul => {
         const items = ul.querySelectorAll('li');
         items.forEach(li => {
@@ -322,38 +327,60 @@ layout: default
             }
           });
         });
+      });
 
-        const copyWrapper = document.createElement('div');
-        copyWrapper.className = 'copy-ingredients-wrapper';
+      // Create a SINGLE copy button at the bottom of the ingredients column
+      const copyWrapper = document.createElement('div');
+      copyWrapper.className = 'copy-ingredients-wrapper';
 
-        const copyBtn = document.createElement('button');
-        copyBtn.className = 'action-btn copy-btn';
-        copyBtn.innerHTML = '📋 Copy Ingredients';
+      const copyBtn = document.createElement('button');
+      copyBtn.className = 'action-btn copy-btn';
+      copyBtn.innerHTML = '📋 Copy Ingredients';
 
-        copyBtn.addEventListener('click', () => {
-          const allTextSpans = ul.querySelectorAll('.ingredient-text');
-          if (allTextSpans.length === 0) return;
+      copyBtn.addEventListener('click', () => {
+        let textBlocks = [];
 
-          const textToCopy = Array.from(allTextSpans)
-            .map(span => `• ${span.innerText.trim()}`)
-            .join('\n');
+        // Traverse the ingredients column to capture section headers and bullet points in order
+        const elems = targetContainer.children;
+        let currentHeader = '';
 
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            copyBtn.innerHTML = '✓ Copied!';
-            copyBtn.classList.add('copied');
+        Array.from(elems).forEach(el => {
+          if (el.tagName === 'H4') {
+            currentHeader = el.innerText.trim();
+          } else if (el.tagName === 'UL') {
+            let itemsText = [];
+            el.querySelectorAll('.ingredient-text').forEach(span => {
+              itemsText.push(`• ${span.innerText.trim()}`);
+            });
 
-            setTimeout(() => {
-              copyBtn.innerHTML = '📋 Copy Ingredients';
-              copyBtn.classList.remove('copied');
-            }, 2000);
-          }).catch(err => {
-            console.error('Clipboard copy failed: ', err);
-          });
+            if (itemsText.length > 0) {
+              if (currentHeader) {
+                textBlocks.push(`[${currentHeader.toUpperCase()}]\n` + itemsText.join('\n'));
+              } else {
+                textBlocks.push(itemsText.join('\n'));
+              }
+            }
+          }
         });
 
-        copyWrapper.appendChild(copyBtn);
-        ul.parentNode.insertBefore(copyWrapper, ul.nextSibling);
+        const fullTextToCopy = textBlocks.join('\n\n');
+        if (!fullTextToCopy) return;
+
+        navigator.clipboard.writeText(fullTextToCopy).then(() => {
+          copyBtn.innerHTML = '✓ Copied!';
+          copyBtn.classList.add('copied');
+
+          setTimeout(() => {
+            copyBtn.innerHTML = '📋 Copy Ingredients';
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        }).catch(err => {
+          console.error('Clipboard copy failed: ', err);
+        });
       });
+
+      copyWrapper.appendChild(copyBtn);
+      targetContainer.appendChild(copyWrapper);
     }
 
     // 2. Native Mobile Web Share API
