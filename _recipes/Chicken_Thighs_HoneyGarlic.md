@@ -23,14 +23,21 @@ Searing the chicken first locks in all the juices, but the real magic happens in
 Spoon it over a steamy bed of white rice or thick noodles to catch every last drop of extra sauce. It is fast, foolproof, and tastes like you spent hours standing over a hot stove instead of just throwing a few kitchen staples together in under forty minutes.
 
 ### Ingredients
-* 6 chicken thighs about 5oz each
-* Salt pepper to taste
-* 2 tbsp of butter divided
-* 6 cloves of garlic diced or crushed
+
+#### Chicken & Seasoning
+* 6 chicken thighs (about 5 oz each)
+* Salt and freshly ground black pepper, _to taste_
+* 2 tbsp butter, _divided_
+
+#### Honey Garlic Sauce
+* 6 cloves garlic, _minced or crushed_
 * 3 tbsp honey
 * 2 tbsp soy sauce
 * ½ tsp ground thyme
 * ½ tsp ground ginger
+
+#### For Serving (Optional)
+* Cooked white rice or noodles
 
 ### Instructions
 1. **Chicken**: Pat dry the chicken thighs thoroughly with paper towels, then season both sides with salt and pepper. Melt 1 tablespoon of butter in a skillet over medium-high heat. Add the chicken and sear for about 5 minutes per side until golden brown.
