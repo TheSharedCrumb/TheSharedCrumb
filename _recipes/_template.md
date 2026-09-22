@@ -18,6 +18,8 @@ hidden: true
 Short story before ingredients and instructions.
 
 ### Ingredients
+
+#### Sub Category (Not always needed)
 * asterisk creates ingredient checkbox _underscore for italic for minced, chopped, diced, etc_
 * asterisk creates ingredient checkbox
 
