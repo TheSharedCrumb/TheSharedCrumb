@@ -20,7 +20,7 @@ Beef arayas are Middle Eastern street food at its finest: spiced ground beef stu
 
 #### Beef & Pita
 * 1 lb ground beef (85% lean)
-* 4 pitas, _cut partially in half to create a pocket_
+* 4 pitas, _cut partially to create a pocket_
 
 #### Aromatics & Binding
 * 1 small yellow onion, _grated and squeezed dry_
