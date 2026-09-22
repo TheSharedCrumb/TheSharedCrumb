@@ -1513,7 +1513,9 @@ a.roundup-card-horizontal *,
   color: #9B2C2C !important;
 }
 
-/* 2. Responsive Horizontal Card Layout Fix (Stacked & Centered on vertical mobile) */
+/* 2. Responsive Horizontal Card Layout Fix */
+
+/* Mobile Base Layout (Stacked) */
 .roundup-card-horizontal {
   display: flex !important;
   flex-direction: column !important;
@@ -1525,39 +1527,51 @@ a.roundup-card-horizontal *,
 .roundup-card-media {
   width: 100% !important;
   max-width: 100% !important;
-  flex: none !important;
-}
-
-.roundup-card-media img,
-.roundup-card-media > div,
-.roundup-card-media svg {
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  border-radius: 12px;
-  object-fit: cover;
-  display: block;
 }
 
 .roundup-card-details {
   width: 100% !important;
-  flex: 1;
 }
 
-/* Side-by-side layout for horizontal phone orientation and desktop screens */
+/* Restrict edge-to-edge media scaling strictly to vertical mobile view */
+@media (max-width: 600px) {
+  .roundup-card-media img,
+  .roundup-card-media > div,
+  .roundup-card-media svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+/* Desktop & Landscape Orientation (Side-by-side with full-height image card) */
 @media (min-width: 601px) {
   .roundup-card-horizontal {
     flex-direction: row !important;
-    align-items: flex-start;
+    align-items: stretch !important; /* Forces image container to match text height */
   }
 
   .roundup-card-media {
-    width: 220px !important;
-    max-width: 220px !important;
+    width: 250px !important;
+    min-width: 250px !important;
+    max-width: 250px !important;
     flex-shrink: 0 !important;
   }
 
+  .roundup-card-media img,
+  .roundup-card-media > div,
+  .roundup-card-media svg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
   .roundup-card-details {
+    flex: 1 !important;
     width: auto !important;
   }
 }
