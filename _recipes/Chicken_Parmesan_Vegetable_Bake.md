@@ -23,26 +23,27 @@ As this dish bakes, the magic happens right at the bottom of the pan. The rich, 
 Making a big batch means tonight's effortless, comforting feast transforms into the kind of savory, hot leftover lunch that makes the whole midday break feel like a luxury. The flavors settle and deepen overnight, making day two arguably even better than day one.
 
 ### Ingredients
+
 #### For the Chicken
 * 8 chicken thighs
 * 1 tbsp seasoning salt
 * 1 tbsp paprika
 * 2 tsp garlic powder
 * 2 tsp onion powder
-* 2 tsp italian seasoning
-* 1 tsp cumin
-* 1 lemon juiced
+* 2 tsp Italian seasoning
+* 1 tsp ground cumin
+* 1 lemon, _juiced_
 * 2 tbsp mayonnaise
 
 #### For the Vegetables
-* 1.5 lb baby potatoes diced in large chunks
-* 1 lb of carrots diced
-* ⅓ cups butter melted
-* 1 cup shredded parmesan cheese
-* 1 red onion finely diced
-* 8 garlic cloves minced
+* 1½ lbs baby potatoes, _diced into 1-inch chunks_
+* 1 lb carrots, _cut into ½-inch rounds_
+* 1 red onion, _finely diced_
+* 8 cloves garlic, _minced_
+* ⅓ cup butter, _melted_
+* 1 cup shredded Parmigiano-Reggiano or Parmesan cheese
 * 2 tsp paprika
-* 2 tsp oregano
+* 2 tsp dried oregano
 * 2 tsp garlic powder
 * 2 tsp salt
 * 2 tsp black pepper
