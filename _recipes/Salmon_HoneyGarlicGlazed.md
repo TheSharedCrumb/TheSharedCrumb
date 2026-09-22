@@ -23,18 +23,27 @@ It looks and tastes like something you would order at a high-end bistro, but it 
 Serve these sticky fillets over a mountain of steamed jasmine rice to soak up every last drop of the pan sauce, toss a few roasted greens on the side, and prepare to feel like a total culinary genius for minimal effort.
 
 ### Ingredients
-* 4 (6oz) salmon filets
+
+#### Salmon & Seasoning
+* 4 salmon fillets (6 oz each), _patted dry_
 * ½ tsp salt
 * ½ tsp black pepper
 * ½ tsp paprika
-* ¼ tsp cajun seasoning
-* 3 Tbsp butter
+* ¼ tsp Cajun seasoning
+
+#### Honey Garlic Glaze
+* 3 tbsp butter
 * 2 tsp olive oil
-* 6 cloves of garlic minced
+* 6 cloves garlic, _minced_
 * ½ cup honey
 * 3 tbsp water
 * 3 tbsp soy sauce
-* 2 tbsp lemon juice
+* 2 tbsp fresh lemon juice
+
+#### For Serving (Optional)
+* Steamed jasmine rice
+* Roasted vegetables or greens
+* Lemon wedges, _for garnish_
 
 ### Instructions
 1. **Seasoning**: Mix together salt, black pepper, paprika, and cajun seasoning. Pat dry salmon and sprinkle seasoning on salmon filets
