@@ -19,20 +19,24 @@ This is one of those high-protein weeknight meals I reach for when I want someth
 My favorite move here is serving it over a light jasmine rice. It catches all that savory, sweet, and garlic-heavy sauce at the bottom of the bowl.
 
 ### Ingredients
-* 1 lb extra lean ground beef
-* 2 bell peppers
-* 1 white onion
-* 1/2 oz fresh Thai basil leaves
+
+#### Beef & Produce
+* 1 lb extra-lean ground beef
+* 2 bell peppers, _medium diced_
+* 1 white onion, _medium diced_
+* ½ oz fresh Thai basil leaves
 * 1 tbsp olive oil
-* Jasmine rice
-* Salt
+* Pinch of salt
 
 #### Sauce
 * 1 tbsp oyster sauce
 * 1 tbsp honey
 * 1 tbsp water
 * 2 tsp fish sauce
-* 2 cloves garlic
+* 2 cloves garlic, _minced_
+
+#### For Serving
+* Cooked jasmine rice
 
 ### Instructions
 1. **Prep Veggies**: Medium dice the bell peppers and white onion.
