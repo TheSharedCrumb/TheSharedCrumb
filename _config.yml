@@ -1,3 +1,9 @@
+title: The Shared Crumb
+description: "Tested, dependable recipes for everyday home cooks: quick weeknight dinners, family favorites, and weekend baking."
+url: "https://thesharedcrumb.com"
+logo: /assets/logos/TheSharedCrumb_logoMark.PNG
+share_image: /assets/images/og-image.png?v=1
+
 collections:
   recipes:
     output: true

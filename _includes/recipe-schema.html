@@ -1,54 +1,158 @@
 {% comment %}
-  Schema.org JSON-LD Structured Data for Google Recipe Rich Snippets.
-  Uses Jekyll's jsonify filter to safely escape special characters and quotes.
-{% comment %}
+  =============================================================================
+  RECIPE STRUCTURED DATA (recipe-schema.html)
+  =============================================================================
+  Describes the recipe to Google in Schema.org format so it can show recipe
+  cards (photo, cook time) in search results. Visitors never see this.
+
+  Reads the recipe exactly as it's written: ingredients are the bullet points
+  under "### Ingredients", steps are the numbered items under
+  "### Instructions" ("#### Sub Headings" there become named sections).
+  Times like "10 mins", "1 hr 15 min" or "2 hours" are converted to the
+  format Google wants (PT10M, PT1H15M, PT2H).
+
+  Usage (in the recipe layout, after the content):
+  {% include recipe-schema.html body=content %}
+
+  Google only shows recipe cards when the recipe has a photo (image: in the
+  front matter). Without one, the data is still published but no card appears.
+  =============================================================================
+{% endcomment %}
+
+{% comment %} --- 1. Find the Ingredients and Instructions sections --- {% endcomment %}
+{% assign ingredients_html = "" %}
+{% assign instructions_html = "" %}
+{% assign h3_chunks = include.body | split: "<h3" %}
+{% for chunk in h3_chunks offset: 1 %}
+  {% assign chunk_head = chunk | split: "</h3>" | first %}
+  {% assign heading = "<h3" | append: chunk_head | strip_html | downcase %}
+  {% assign chunk_body = chunk | remove_first: chunk_head | remove_first: "</h3>" %}
+  {% if heading contains "ingredient" %}
+    {% assign ingredients_html = chunk_body %}
+  {% elsif heading contains "instruction" %}
+    {% assign instructions_html = chunk_body %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} --- 2. Ingredients: every bullet point, as plain text --- {% endcomment %}
+{% assign ingredients = "" | split: "" %}
+{% assign ingredient_items = ingredients_html | split: "<li>" %}
+{% for item in ingredient_items offset: 1 %}
+  {% assign text = item | split: "</li>" | first | strip_html | replace: "&nbsp;", " " | replace: "&lt;", "<" | replace: "&gt;", ">" | replace: "&quot;", '"' | replace: "&#39;", "'" | replace: "&amp;", "&" | split: " " | join: " " %}
+  {% if text != "" %}
+    {% assign ingredients = ingredients | push: text %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} --- 3. Instructions: numbered steps, grouped by any #### sub headings --- {% endcomment %}
+{% capture instructions_json %}
+  {% assign step_groups = instructions_html | split: "<h4" %}
+  {% assign first_entry = true %}
+  {% for group in step_groups %}
+    {% assign group_steps = "" | split: "" %}
+    {% assign step_items = group | split: "<li>" %}
+    {% for item in step_items offset: 1 %}
+      {% assign text = item | split: "</li>" | first | strip_html | replace: "&nbsp;", " " | replace: "&lt;", "<" | replace: "&gt;", ">" | replace: "&quot;", '"' | replace: "&#39;", "'" | replace: "&amp;", "&" | split: " " | join: " " %}
+      {% if text != "" %}
+        {% assign group_steps = group_steps | push: text %}
+      {% endif %}
+    {% endfor %}
+    {% if group_steps.size > 0 %}
+      {% if forloop.first %}
+        {% comment %} Steps before any sub heading stand on their own. {% endcomment %}
+        {% for step in group_steps %}
+          {% unless first_entry %},{% endunless %}{% assign first_entry = false %}
+          {"@type": "HowToStep", "text": {{ step | jsonify }}}
+        {% endfor %}
+      {% else %}
+        {% assign group_head = group | split: "</h4>" | first %}
+        {% assign section_name = "<h4" | append: group_head | strip_html | replace: "&amp;", "&" | split: " " | join: " " %}
+        {% unless first_entry %},{% endunless %}{% assign first_entry = false %}
+        {"@type": "HowToSection", "name": {{ section_name | jsonify }}, "itemListElement": [
+          {% for step in group_steps %}
+            {"@type": "HowToStep", "text": {{ step | jsonify }}}{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+
+{% comment %} --- 4. Times: "10 mins" -> PT10M, "1 hr 15 min" -> PT1H15M --- {% endcomment %}
+{% assign time_fields = "prep_time,cook_time,total_time" | split: "," %}
+{% assign time_minutes = "" | split: "" %}
+{% for field in time_fields %}
+  {% assign words = page[field] | downcase | replace: "(", " " | split: " " %}
+  {% assign minutes = 0 %}
+  {% assign pending = nil %}
+  {% for word in words %}
+    {% assign number = word | plus: 0 %}
+    {% assign number_text = number | append: "" %}
+    {% if number > 0 and number_text == word %}
+      {% assign pending = number %}
+    {% elsif pending %}
+      {% assign unit = word | slice: 0 %}
+      {% if unit == "h" %}
+        {% assign minutes = pending | times: 60 | plus: minutes %}
+      {% elsif unit == "m" %}
+        {% assign minutes = minutes | plus: pending %}
+      {% endif %}
+      {% assign pending = nil %}
+    {% endif %}
+  {% endfor %}
+  {% assign minutes = minutes | round %}
+  {% assign time_minutes = time_minutes | push: minutes %}
+{% endfor %}
+{% assign prep_minutes = time_minutes[0] %}
+{% assign cook_minutes = time_minutes[1] %}
+{% assign total_minutes = time_minutes[2] %}
+{% if total_minutes == 0 and prep_minutes > 0 and cook_minutes > 0 %}
+  {% assign total_minutes = prep_minutes | plus: cook_minutes %}
+{% endif %}
+{% assign schema_minutes = "" | split: "" | push: prep_minutes | push: cook_minutes | push: total_minutes %}
+
+{% comment %} --- 5. Keywords: cuisine, course, and categories --- {% endcomment %}
+{% assign keywords = "" | split: "" %}
+{% if page.cuisine %}{% assign keywords = keywords | push: page.cuisine %}{% endif %}
+{% if page.course %}{% assign keywords = keywords | push: page.course %}{% endif %}
+{% if page.category %}{% assign keywords = keywords | concat: page.category %}{% endif %}
+
+{% assign recipe_image = page.image | strip %}
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
   "@type": "Recipe",
   "name": {{ page.title | jsonify }},
-  "image": [
-    {% if page.image and page.image != "" %}
-      {{ page.image | absolute_url | jsonify }}
-    {% else %}
-      {{ '/assets/images/default-recipe-share.jpg' | absolute_url | jsonify }}
-    {% endif %}
-  ],
+  {% if recipe_image != "" %}
+  "image": [{{ recipe_image | absolute_url | jsonify }}],
+  {% endif %}
   "author": {
-    "@type": "Person",
-    "name": {{ page.author | default: site.title | jsonify }}
+    "@type": "Organization",
+    "name": {{ site.title | jsonify }},
+    "url": {{ "/" | absolute_url | jsonify }}
   },
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "description": {{ page.description | default: page.excerpt | strip_html | strip_newlines | jsonify }},
-  {% if page.prep_time %}
-  "prepTime": "{{ page.prep_time }}",
+  "description": {{ page.description | default: site.description | strip_html | jsonify }},
+  {% for duration in schema_minutes %}
+    {% if duration > 0 %}
+      {% assign hours = duration | divided_by: 60 %}
+      {% assign leftover = duration | modulo: 60 %}
+      {% case forloop.index %}{% when 1 %}"prepTime"{% when 2 %}"cookTime"{% else %}"totalTime"{% endcase %}: "PT{% if hours > 0 %}{{ hours }}H{% endif %}{% if leftover > 0 %}{{ leftover }}M{% endif %}",
+    {% endif %}
+  {% endfor %}
+  {% if page.yield %}
+  "recipeYield": {{ page.yield | jsonify }},
   {% endif %}
-  {% if page.cook_time %}
-  "cookTime": "{{ page.cook_time }}",
+  {% if page.course %}
+  "recipeCategory": {{ page.course | jsonify }},
   {% endif %}
-  {% if page.total_time %}
-  "totalTime": "{{ page.total_time }}",
+  {% if page.cuisine %}
+  "recipeCuisine": {{ page.cuisine | jsonify }},
   {% endif %}
-  {% if page.servings %}
-  "recipeYield": {{ page.servings | jsonify }},
+  {% if keywords.size > 0 %}
+  "keywords": {{ keywords | join: ", " | jsonify }},
   {% endif %}
-  {% if page.category %}
-  "recipeCategory": {{ page.category | first | jsonify }},
-  "keywords": {{ page.category | join: ', ' | jsonify }},
-  {% endif %}
-  "recipeIngredient": [
-    {% for ingredient in page.ingredients %}
-      {{ ingredient | jsonify }}{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ],
-  "recipeInstructions": [
-    {% for step in page.instructions %}
-    {
-      "@type": "HowToStep",
-      "text": {{ step | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ]
+  "recipeIngredient": {{ ingredients | jsonify }},
+  "recipeInstructions": [{{ instructions_json | strip }}]
 }
 </script>

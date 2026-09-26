@@ -5,7 +5,7 @@ icon: "🐟"
 description: "Tender, flaky salmon lacquered in a sticky-sweet garlic-honey glaze that comes together in under thirty minutes."
 course: "Dinner"
 cuisine: "Asian-Fusion"
-category: [Fish, Skillet]
+category: [Seafood, Skillet]
 prep_time: "5 min"
 cook_time: "20 min"
 yield: "4 servings"

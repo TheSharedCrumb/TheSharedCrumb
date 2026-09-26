@@ -1,0 +1,32 @@
+{% comment %}
+  One recipe tile (photo or emoji placeholder, badges, title, description).
+  Usage: {% include recipe-card.html recipe=recipe %}
+{% endcomment %}
+{% assign card = include.recipe %}
+<a href="{{ card.url | relative_url }}" class="recipe-grid-card">
+  {% assign card_img = card.image | strip %}
+  {% if card_img != "" %}
+    <img src="{{ card_img | relative_url }}" alt="{{ card.title }}" class="grid-card-img" loading="lazy">
+  {% else %}
+    <div class="brand-tile-placeholder">
+      <span class="custom-recipe-icon">{{ card.icon | default: "🍽️" }}</span>
+    </div>
+  {% endif %}
+
+  <div class="grid-card-content">
+    {% if card.cuisine or card.category %}
+      <div class="recipe-category-badges">
+        {% if card.cuisine %}
+          <span class="recipe-category-badge cuisine-badge">{{ card.cuisine }}</span>
+        {% endif %}
+        {% for cat in card.category %}
+          <span class="recipe-category-badge">{{ cat }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <h3>{{ card.title }}</h3>
+    {% if card.description %}
+      <p>{{ card.description }}</p>
+    {% endif %}
+  </div>
+</a>

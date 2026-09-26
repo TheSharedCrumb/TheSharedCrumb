@@ -7,7 +7,7 @@ course: "Dinner"
 cuisine: "Middle Eastern"
 category: [Beef, Sandwich]
 prep_time: "10 min"
-cook_time: "30 hr"
+cook_time: "30 min"
 yield: "4 servings"
 difficulty: "Easy"
 cost: "$"
