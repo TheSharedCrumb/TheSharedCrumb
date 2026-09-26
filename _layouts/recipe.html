@@ -58,7 +58,7 @@ layout: default
           {% endif %}
           {% if page.cost %}
             <div class="meta-item">
-              <span class="meta-label">Budget</span>
+              <span class="meta-label">Cost</span>
               <span class="meta-value">{{ page.cost }}</span>
             </div>
           {% endif %}
@@ -76,7 +76,7 @@ layout: default
           🖨️ Print Recipe
         </button>
 
-        <a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url }}&media={{ page.image | absolute_url }}&description={{ page.description | url_encode }}" 
+        <a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url }}&media={{ page.image | strip | default: site.share_image | absolute_url | url_encode }}&description={{ page.description | url_encode }}" 
            target="_blank" 
            rel="noopener" 
            class="action-btn pinterest-btn">
@@ -116,6 +116,9 @@ layout: default
       {{ content }}
     </div>
   </article>
+
+  <!-- Recipe data for Google (invisible to visitors) -->
+  {% include recipe-schema.html body=content %}
 
   <!-- Clean, Guarded Related Recipes Section -->
   {% assign related_candidates = "" | split: "" %}

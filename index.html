@@ -1,22 +1,89 @@
 ---
 layout: default
 title: Home
+seo_title: "The Shared Crumb: Easy, Healthier Dinners for Family and Friends"
+description: "Easy, healthier, budget-friendly dinners from Danielle's kitchen, cooked for family and friends and tested by a toddler."
 ---
 
-<!-- Hero Section -->
+<!-- Hero -->
 <section class="hero-welcome">
-  <h1>Welcome to The Shared Crumb</h1>
-  <p>Your favorite recipes, tested and shared.</p>
-</section>
-
-<!-- Featured Carousel Include -->
-{% include recipe-carousel.html %}
-
-<!-- Modern Minimal Brand Intro -->
-<section class="home-section brand-about-card text-center">
-  <h2>Tested Recipes. Real Food. Made to Share.</h2>
-  <p>
-    At <strong>The Shared Crumb</strong>, we skip the fluff to bring you dependable, flavorful recipes designed for everyday home cooks. Whether you need a quick weeknight dinner or a weekend baking project, you're in the right place.
-  </p>
+  <h1>Easy, healthier dinners for family and friends</h1>
+  <p>Simple, budget-friendly recipes from my kitchen, good enough to share.</p>
   <a href="{{ '/recipes.html' | relative_url }}" class="about-cta-btn">Browse All Recipes &rarr;</a>
 </section>
+
+{% assign visible_recipes = site.recipes | where_exp: "recipe", "recipe.hidden != true" %}
+
+<!-- Browse by category (each links to the Recipes page with that filter on) -->
+<section class="home-browse" aria-labelledby="browse-heading">
+  <h2 id="browse-heading">What are you in the mood for?</h2>
+  <div class="browse-tiles">
+    {% assign browse_items = "🍗|Chicken,🥩|Beef,🦐|Seafood,🍝|Pasta,🍳|Skillet,🍪|Dessert" | split: "," %}
+    {% for item in browse_items %}
+      {% assign parts = item | split: "|" %}
+      {% assign name = parts[1] %}
+      {% assign count = 0 %}
+      {% for recipe in visible_recipes %}
+        {% if recipe.category contains name or recipe.course == name %}
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+      {% if count > 0 %}
+        <a href="{{ '/recipes.html' | relative_url }}?filter={{ name | slugify }}" class="browse-tile">
+          <span class="browse-icon" aria-hidden="true">{{ parts[0] }}</span>
+          <span class="browse-name">{{ name }}</span>
+          <span class="browse-count">{{ count }} recipe{% if count != 1 %}s{% endif %}</span>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Six random recipes (reshuffled on every visit) -->
+<section class="home-recipes" aria-labelledby="recipes-heading">
+  <h2 id="recipes-heading">Try Something New</h2>
+  <div class="recipes-grid home-recipe-grid" id="homeRecipeGrid">
+    {% assign shuffled = visible_recipes | sample: visible_recipes.size %}
+    {% for recipe in shuffled %}
+      {% include recipe-card.html recipe=recipe %}
+    {% endfor %}
+  </div>
+  <div class="home-recipes-more">
+    <a href="{{ '/recipes.html' | relative_url }}" class="home-text-link">See all {{ visible_recipes.size }} recipes &rarr;</a>
+  </div>
+</section>
+
+<!-- Personal intro -->
+<section class="home-section brand-about-card home-intro">
+  <img src="{{ site.logo | relative_url }}" alt="" class="home-intro-logo" width="64" height="64">
+  <h2>Hi, I'm Danielle</h2>
+  <p>
+    I've always cooked for family and friends. After my little one arrived, I started cooking at home more to eat healthier, save money, and know exactly what's going into my food. These are the recipes that made the cut, tested by my toughest critic: my toddler.
+  </p>
+  <a href="{{ '/about.html' | relative_url }}" class="home-text-link">More about me &rarr;</a>
+</section>
+
+<!-- Follow along -->
+<section class="home-follow" aria-labelledby="follow-heading">
+  <h2 id="follow-heading">Follow Along</h2>
+  <div class="follow-links">
+    <a href="https://www.pinterest.com/thesharedcrumb/" target="_blank" rel="noopener" class="follow-link"><i class="fab fa-pinterest pinterest-color" aria-hidden="true"></i> Pinterest</a>
+    <a href="https://www.instagram.com/thesharedcrumb" target="_blank" rel="noopener" class="follow-link"><i class="fab fa-instagram instagram-color" aria-hidden="true"></i> Instagram</a>
+    <a href="https://www.tiktok.com/@thesharedcrumb_" target="_blank" rel="noopener" class="follow-link"><i class="fab fa-tiktok tiktok-color" aria-hidden="true"></i> TikTok</a>
+    <a href="https://www.youtube.com/@TheSharedCrumb" target="_blank" rel="noopener" class="follow-link"><i class="fab fa-youtube youtube-color" aria-hidden="true"></i> YouTube</a>
+  </div>
+</section>
+
+<script>
+  // Shuffle the recipe tiles on every visit; CSS shows only the first six.
+  document.addEventListener('DOMContentLoaded', () => {
+    const grid = document.getElementById('homeRecipeGrid');
+    if (!grid) return;
+    const cards = Array.from(grid.children);
+    for (let i = cards.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cards[i], cards[j]] = [cards[j], cards[i]];
+    }
+    cards.forEach(card => grid.appendChild(card));
+  });
+</script>
