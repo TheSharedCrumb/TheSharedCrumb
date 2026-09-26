@@ -3,13 +3,14 @@ layout: recipe
 title: "Classic Chocolate Chip Cookies"
 icon: "🍪"
 description: "Golden edges, gooey centers, and packed with rich chocolate chips, these classic cookies are the ultimate crowd-pleasing treat."
-course: "Dessert"
-cuisine: "American"
-category: [Baking, Cookies]
+course: "dessert"
+cuisine: "american"
+category: [baking, cookies]
+badge: []
 prep_time: "15 mins"
 cook_time: "10 mins"
 yield: "24 cookies"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 ---

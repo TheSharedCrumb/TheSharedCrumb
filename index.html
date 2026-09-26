@@ -18,7 +18,7 @@ description: "Easy, healthier, budget-friendly dinners from Danielle's kitchen, 
 <section class="home-browse" aria-labelledby="browse-heading">
   <h2 id="browse-heading">What are you in the mood for?</h2>
   <div class="browse-tiles">
-    {% assign browse_items = "🍗|Chicken,🥩|Beef,🦐|Seafood,🍝|Pasta,🍳|Skillet,🍪|Dessert" | split: "," %}
+    {% assign browse_items = "🍗|chicken,🥩|beef,🦐|seafood,🍝|pasta,🍳|skillet,🍪|dessert" | split: "," %}
     {% for item in browse_items %}
       {% assign parts = item | split: "|" %}
       {% assign name = parts[1] %}

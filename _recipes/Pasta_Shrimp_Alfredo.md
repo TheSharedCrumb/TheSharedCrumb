@@ -3,13 +3,14 @@ layout: recipe
 title: "Garlic Shrimp Alfredo Fettuccine"
 icon: "🍝🦐"
 description: "Tender shrimp tossed with fettuccine in a rich, velvety garlic parmesan cream sauce."
-course: "Dinner"
-cuisine: "Italian"
-category: [Seafood, Pasta]
+course: "dinner"
+cuisine: "italian"
+category: [seafood, pasta]
+badge: []
 prep_time: "20 mins"
 cook_time: "20 mins"
 yield: "6 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$$"
 image: ""
 ---

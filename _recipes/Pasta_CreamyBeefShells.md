@@ -3,13 +3,14 @@ layout: recipe
 title: "Creamy Beef and Shells"
 icon: "🥩🍝"
 description: "A rich, cheesy one-pan pasta with ground beef that the whole family will love."
-course: "Dinner"
-cuisine: "American"
-category: [Beef, Pasta]
+course: "dinner"
+cuisine: "american"
+category: [beef, pasta]
+badge: []
 prep_time: "5 min"
 cook_time: "40 min"
 yield: "6 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 ---

@@ -1569,20 +1569,6 @@ footer {
   border-radius: 8px 8px 0 0;
 }
 
-.brand-tile-placeholder::before {
-  content: "the shared crumb";
-  font-family: 'Fredoka', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: #9B2C2C;
-  background-color: #FFFFFF;
-  padding: 4px 14px;
-  border-radius: 20px;
-  border: 1px solid #E5DCD2;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
 .custom-recipe-icon {
   font-size: 5rem;
   line-height: 1;
@@ -1903,5 +1889,77 @@ a.roundup-card-horizontal *,
 @media (max-width: 600px) {
   .roundup-toc-list {
     column-count: 1;
+  }
+}
+
+/* ==========================================================================
+   Recipe badges (list in _data/badges.yml, markup in _includes/recipe-badges.html)
+   ========================================================================== */
+.recipe-badges {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.recipe-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 14px 0 4px;
+  background-color: #9B2C2C;
+  color: #FAF5EF;
+  border-radius: 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.recipe-badge-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #FAF5EF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-badge-icon svg {
+  display: block;
+  width: 19px;
+  height: 19px;
+}
+
+/* Recipe page: centered under the description */
+.page-badges {
+  justify-content: center;
+  margin: 4px 0 18px;
+}
+
+/* Recipe cards: up to two, in a row along the bottom-left of the image */
+.card-media {
+  position: relative;
+}
+
+.card-badges {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  gap: 6px;
+  z-index: 2;
+}
+
+@media print {
+  .card-badges {
+    display: none !important;
   }
 }

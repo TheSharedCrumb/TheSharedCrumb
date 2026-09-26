@@ -3,13 +3,14 @@ layout: recipe
 title: "Three-Ingredient Peanut Butter Cookies"
 icon: "🥜🍪"
 description: "Crispy around the edges, soft in the center, and packed with rich nutty flavor, three-ingredient peanut butter cookies are a quick-fix classic."
-course: "Dessert"
-cuisine: "American"
-category: [Baking, Cookies]
+course: "dessert"
+cuisine: "american"
+category: [baking, cookies]
+badge: [five ingredients]
 prep_time: "10 mins"
 cook_time: "10 mins"
 yield: "18 cookies"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 ---

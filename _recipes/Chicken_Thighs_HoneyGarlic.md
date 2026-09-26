@@ -3,13 +3,14 @@ layout: recipe
 title: "Honey Garlic Chicken Thighs"
 icon: "🍗"
 description: "Chicken thighs with a sweet thick sauce served perfectly over rice or noodles."
-course: "Dinner"
-cuisine: "Asian-Fusion"
-category: [Chicken, Skillet]
+course: "dinner"
+cuisine: "asian-fusion"
+category: [chicken, skillet]
+badge: []
 prep_time: "10 min"
 cook_time: "30 min"
 yield: "6 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 ---

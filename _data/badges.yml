@@ -1,0 +1,26 @@
+# Recipe badges, in display order.
+# "30 minutes" and "one pan" are added automatically (auto: time / pan).
+# The rest appear when a recipe lists them, e.g.  badge: [family favorite, great leftovers]
+# Each badge's icon lives in _includes/badge-icons/<slug>.svg
+- name: 30 minutes
+  slug: 30-minutes
+  auto: time
+- name: one pan
+  slug: one-pan
+  auto: pan
+- name: five ingredients
+  slug: five-ingredients
+- name: toddler approved
+  slug: toddler-approved
+- name: freezer friendly
+  slug: freezer-friendly
+- name: made to share
+  slug: made-to-share
+- name: family favorite
+  slug: family-favorite
+- name: little helpers
+  slug: little-helpers
+- name: great leftovers
+  slug: great-leftovers
+- name: shortcut
+  slug: shortcut

@@ -3,13 +3,14 @@ layout: recipe
 title: "Greek Beef and Orzo Skillet"
 icon: "🥩🍝"
 description: "A hearty one-pot meal featuring seasoned ground beef, tender orzo, fresh herbs, and warm Mediterranean spices."
-course: "Dinner"
-cuisine: "Greek"
-category: [Beef, Pasta]
+course: "dinner"
+cuisine: "greek"
+category: [beef, pasta]
+badge: []
 prep_time: "10 mins"
 cook_time: "30 mins"
 yield: "4 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 ---

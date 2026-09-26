@@ -99,6 +99,7 @@ title: All Recipes
          data-title="{{ recipe.title | downcase }}"
          data-description="{{ recipe.description | downcase }}">
         
+        <div class="card-media">
         {% assign recipe_img_clean = recipe.image | strip %}
         {% if recipe_img_clean != "" and recipe.image != nil %}
           <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
@@ -111,6 +112,8 @@ title: All Recipes
             {% endif %}
           </div>
         {% endif %}
+        {% include recipe-badges.html recipe=recipe limit=2 class="card-badges" %}
+        </div>
 
         <div class="grid-card-content">
           <div class="recipe-category-badges">

@@ -111,11 +111,20 @@
 {% endif %}
 {% assign schema_minutes = "" | split: "" | push: prep_minutes | push: cook_minutes | push: total_minutes %}
 
-{% comment %} --- 5. Keywords: cuisine, course, and categories --- {% endcomment %}
+{% comment %} --- 5. Keywords: cuisine, course, and categories, capitalized for search results ("middle eastern" -> "Middle Eastern") --- {% endcomment %}
+{% assign raw_keywords = "" | split: "" %}
+{% if page.cuisine %}{% assign raw_keywords = raw_keywords | push: page.cuisine %}{% endif %}
+{% if page.course %}{% assign raw_keywords = raw_keywords | push: page.course %}{% endif %}
+{% if page.category %}{% assign raw_keywords = raw_keywords | concat: page.category %}{% endif %}
 {% assign keywords = "" | split: "" %}
-{% if page.cuisine %}{% assign keywords = keywords | push: page.cuisine %}{% endif %}
-{% if page.course %}{% assign keywords = keywords | push: page.course %}{% endif %}
-{% if page.category %}{% assign keywords = keywords | concat: page.category %}{% endif %}
+{% for phrase in raw_keywords %}
+  {% assign titled_words = "" | split: "" %}
+  {% assign phrase_words = phrase | split: " " %}
+  {% for word in phrase_words %}{% assign hyphen_parts = word | split: "-" %}{% assign titled_parts = "" | split: "" %}{% for hp in hyphen_parts %}{% assign titled_hp = hp | capitalize %}{% assign titled_parts = titled_parts | push: titled_hp %}{% endfor %}{% assign titled_word = titled_parts | join: "-" %}{% assign titled_words = titled_words | push: titled_word %}{% endfor %}
+  {% assign titled_phrase = titled_words | join: " " %}
+  {% assign keywords = keywords | push: titled_phrase %}
+{% endfor %}
+{% assign schema_cuisine = keywords.first %}
 
 {% assign recipe_image = page.image | strip %}
 
@@ -144,10 +153,10 @@
   "recipeYield": {{ page.yield | jsonify }},
   {% endif %}
   {% if page.course %}
-  "recipeCategory": {{ page.course | jsonify }},
+  "recipeCategory": {{ page.course | capitalize | jsonify }},
   {% endif %}
   {% if page.cuisine %}
-  "recipeCuisine": {{ page.cuisine | jsonify }},
+  "recipeCuisine": {{ schema_cuisine | jsonify }},
   {% endif %}
   {% if keywords.size > 0 %}
   "keywords": {{ keywords | join: ", " | jsonify }},

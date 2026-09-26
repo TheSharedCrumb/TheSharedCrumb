@@ -3,13 +3,14 @@ layout: recipe
 title: "Honey Garlic Glazed Salmon"
 icon: "🐟"
 description: "Tender, flaky salmon lacquered in a sticky-sweet garlic-honey glaze that comes together in under thirty minutes."
-course: "Dinner"
-cuisine: "Asian-Fusion"
-category: [Seafood, Skillet]
+course: "dinner"
+cuisine: "asian-fusion"
+category: [seafood, skillet]
+badge: []
 prep_time: "5 min"
 cook_time: "20 min"
 yield: "4 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$$"
 image: ""
 ---

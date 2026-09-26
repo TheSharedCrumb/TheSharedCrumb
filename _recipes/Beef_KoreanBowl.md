@@ -3,13 +3,14 @@ layout: recipe
 title: "Korean-Style Beef Bowl"
 icon: "🥩"
 description: "A fast, 15-minute savory-sweet ground beef skillet with soy sauce, brown sugar, garlic, and sesame oil."
-course: "Dinner"
-cuisine: "Korean"
-category: [Beef, Skillet]
+course: "dinner"
+cuisine: "korean"
+category: [beef, skillet]
+badge: []
 prep_time: "5 mins"
 cook_time: "10 mins"
 yield: "4 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 hidden: true

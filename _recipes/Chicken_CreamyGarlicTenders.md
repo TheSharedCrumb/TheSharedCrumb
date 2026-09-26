@@ -3,13 +3,14 @@ layout: recipe
 title: "Creamy Garlic Chicken Tenders"
 icon: "🧄🍗"
 description: "Tender chicken cooked in a rich white wine, garlic, and Parmigiano-Reggiano cream sauce for a fast, restaurant-quality meal."
-course: "Dinner"
-cuisine: "Italian"
-category: [Chicken, Skillet]
+course: "dinner"
+cuisine: "italian"
+category: [chicken, skillet]
+badge: []
 prep_time: "10 min"
 cook_time: "10 min"
 yield: "3-4 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 ---
