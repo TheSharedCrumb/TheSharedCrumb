@@ -12,13 +12,32 @@ html {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 1.0625rem; /* 17px body text */
   background-color: #FAF5EF; /* Warm off-white background */
-  color: #2D3748;
+  color: #2B2118;
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Brand fonts: Fredoka for headings, Nunito (set on body) for everything else */
+h1, h2, h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Brand-voice headings and labels on the homepage are lowercase */
+.home-browse h2,
+.home-recipes h2,
+.home-follow h2,
+.browse-name {
+  text-transform: lowercase;
 }
 
 main {
@@ -34,7 +53,7 @@ main {
    ========================================================================== */
 header {
   background-color: #FFFFFF !important;
-  border-bottom: 2px solid #E2E8F0;
+  border-bottom: 2px solid #E5DCD2;
   padding: 12px 24px;
   position: sticky;
   top: 0;
@@ -68,10 +87,11 @@ header {
 }
 
 .logo-text {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #9B2C2C; /* Warm deep burgundy red */
-  letter-spacing: -0.5px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #5A3A22; /* Cocoa, the wordmark color */
+  line-height: 1;
 }
 
 /* Navigation Menu */
@@ -84,7 +104,7 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: #4A5568;
+  color: #2B2118;
   font-weight: 600;
   font-size: 0.95rem;
   position: relative;
@@ -127,7 +147,7 @@ nav a:hover::after {
 
 .hero-welcome p {
   font-size: 1.1rem;
-  color: #718096;
+  color: #6B625A;
 }
 
 /* ==========================================================================
@@ -149,12 +169,13 @@ nav a:hover::after {
   display: inline-block;
   background-color: #FAF5EF;
   color: #9B2C2C;
-  border: 1px solid #E2E8F0;
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 3px 10px;
+  border: 1px solid #E5DCD2;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.3;
+  text-transform: lowercase;
+  padding: 2px 11px;
   border-radius: 12px;
   white-space: nowrap;
   text-decoration: none;
@@ -204,7 +225,7 @@ a.recipe-category-link:hover {
   flex: 0 0 calc((100% - 40px) / 3);
   max-width: calc((100% - 40px) / 3);
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -235,7 +256,7 @@ a.recipe-category-link:hover {
 
 .carousel-card-content h3 {
   font-size: 1.1rem;
-  color: #2D3748;
+  color: #2B2118;
   margin-bottom: 6px;
   transition: color 0.2s ease;
 }
@@ -245,14 +266,14 @@ a.recipe-category-link:hover {
 }
 
 .carousel-card-content p {
-  color: #718096;
+  color: #6B625A;
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
 .carousel-btn {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   color: #9B2C2C;
   font-size: 1.25rem;
   width: 40px;
@@ -294,7 +315,7 @@ a.recipe-category-link:hover {
 }
 
 .archive-header p {
-  color: #718096;
+  color: #6B625A;
   margin-bottom: 24px;
 }
 
@@ -308,11 +329,11 @@ a.recipe-category-link:hover {
 #recipeSearchInput {
   width: 100%;
   padding: 12px 20px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 25px;
   font-size: 0.95rem;
   background-color: #FFFFFF;
-  color: #2D3748;
+  color: #2B2118;
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -336,14 +357,23 @@ a.recipe-category-link:hover {
 
 .filter-btn {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  color: #4A5568;
+  border: 1px solid #E5DCD2;
+  color: #2B2118;
   padding: 8px 18px;
   border-radius: 20px;
   font-weight: 600;
   font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+/* Recipe filters match the lowercase Fredoka recipe tags */
+.category-filter-nav .filter-btn {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: lowercase;
+  padding: 7px 18px;
 }
 
 .filter-btn:hover,
@@ -364,7 +394,7 @@ a.recipe-category-link:hover {
 .recipe-grid-card,
 .carousel-card {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
@@ -397,7 +427,7 @@ a.recipe-category-link:hover {
 
 .grid-card-content h3 {
   font-size: 1.15rem;
-  color: #2D3748;
+  color: #2B2118;
   margin-bottom: 8px;
   transition: color 0.2s ease;
 }
@@ -407,7 +437,7 @@ a.recipe-category-link:hover {
 }
 
 .grid-card-content p {
-  color: #718096;
+  color: #6B625A;
   font-size: 0.875rem;
   line-height: 1.5;
 }
@@ -415,7 +445,7 @@ a.recipe-category-link:hover {
 .no-results-message {
   text-align: center;
   padding: 60px 20px;
-  color: #A0AEC0;
+  color: #6B625A;
   font-size: 1.1rem;
 }
 
@@ -441,12 +471,12 @@ a.recipe-category-link:hover {
 
 .about-subtitle {
   font-size: 1.1rem;
-  color: #718096;
+  color: #6B625A;
 }
 
 .about-card {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 12px;
   padding: 32px;
   margin-bottom: 24px;
@@ -454,13 +484,13 @@ a.recipe-category-link:hover {
 }
 
 .about-card h2 {
-  color: #2D3748;
+  color: #2B2118;
   font-size: 1.4rem;
   margin-bottom: 12px;
 }
 
 .about-card p {
-  color: #4A5568;
+  color: #2B2118;
   font-size: 1rem;
   line-height: 1.7;
 }
@@ -484,7 +514,7 @@ a.recipe-category-link:hover {
 
 .about-box {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 10px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -497,7 +527,7 @@ a.recipe-category-link:hover {
 }
 
 .about-box p {
-  color: #4A5568;
+  color: #2B2118;
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -505,7 +535,7 @@ a.recipe-category-link:hover {
 .cost-scale {
   list-style: none;
   margin-top: 10px;
-  color: #4A5568;
+  color: #2B2118;
   font-size: 0.9rem;
   line-height: 1.45;
 }
@@ -542,7 +572,7 @@ a.recipe-category-link:hover {
 
 .contact-social-card {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 12px;
   padding: 24px;
   display: flex;
@@ -568,14 +598,68 @@ a.recipe-category-link:hover {
 .youtube-color   { color: #FF0000; }
 
 .contact-social-card h3 {
-  color: #2D3748;
+  color: #2B2118;
   font-size: 1.1rem;
   margin-bottom: 2px;
 }
 
 .contact-social-card p {
-  color: #718096;
+  color: #6B625A;
   font-size: 0.85rem;
+}
+
+.contact-email-card {
+  max-width: 680px;
+  margin: 0 auto 8px;
+  padding: 28px 28px 30px;
+  background-color: #FFFFFF;
+  border: 1px solid #E5DCD2;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  text-align: center;
+}
+
+.contact-email-card h2 {
+  color: #9B2C2C;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.contact-email-card p {
+  color: #2B2118;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto 18px;
+}
+
+.contact-email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #9B2C2C;
+  color: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.contact-email-link:hover {
+  background-color: #7B2222;
+}
+
+@media (max-width: 600px) {
+  .contact-email-card {
+    padding: 24px 16px 26px;
+  }
+
+  .contact-email-link {
+    font-size: 0.95rem;
+    padding: 12px 18px;
+    gap: 8px;
+  }
 }
 
 /* ==========================================================================
@@ -590,7 +674,7 @@ a.recipe-category-link:hover {
 
 .recipe-article {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 12px;
   padding: 40px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -620,7 +704,7 @@ a.recipe-category-link:hover {
 
 .recipe-description {
   font-size: 1.1rem;
-  color: #718096;
+  color: #6B625A;
   max-width: 600px;
   margin: 0 auto 24px;
 }
@@ -634,7 +718,7 @@ a.recipe-category-link:hover {
   padding: 16px;
   background-color: #FAF5EF;
   border-radius: 12px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   width: 100%;
   box-sizing: border-box;
 }
@@ -652,14 +736,14 @@ a.recipe-category-link:hover {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  color: #718096;
+  color: #6B625A;
   font-weight: 700;
   margin-bottom: 4px;
 }
 
 .meta-value {
   font-size: 0.95rem;
-  color: #2D3748;
+  color: #2B2118;
   font-weight: 600;
 }
 
@@ -671,7 +755,7 @@ a.recipe-category-link:hover {
   overflow: hidden;
   margin: 28px 0 36px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  background-color: #EDF2F7;
+  background-color: #F4EDE4;
   position: relative;
   z-index: 1 !important;
 }
@@ -689,12 +773,12 @@ a.recipe-category-link:hover {
   color: #9B2C2C;
   margin: 28px 0 12px;
   padding-bottom: 6px;
-  border-bottom: 1px solid #EDF2F7;
+  border-bottom: 1px solid #F4EDE4;
 }
 
 .recipe-body h4 {
   font-size: 0.95rem;
-  color: #4A5568;
+  color: #2B2118;
   margin: 16px 0 6px 0;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -709,7 +793,7 @@ a.recipe-category-link:hover {
 .recipe-body ol {
   padding-left: 20px;
   margin-bottom: 20px;
-  color: #4A5568;
+  color: #2B2118;
 }
 
 .recipe-body li {
@@ -718,14 +802,14 @@ a.recipe-category-link:hover {
 }
 
 .recipe-body p {
-  color: #4A5568;
+  color: #2B2118;
   margin-bottom: 16px;
   line-height: 1.7;
 }
 
 .recipe-body blockquote {
   font-style: italic;
-  color: #4A5568;
+  color: #2B2118;
   border-left: 3px solid #9B2C2C;
   margin: 1.5rem 0;
   padding: 0.5rem 0 0.5rem 1rem;
@@ -757,7 +841,7 @@ a.recipe-category-link:hover {
 
 .action-btn {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   font-size: 0.875rem;
   font-weight: 700;
   padding: 8px 14px;
@@ -775,8 +859,8 @@ a.recipe-category-link:hover {
 }
 
 .jump-btn {
-  color: #4A5568;
-  border-color: #CBD5E0;
+  color: #2B2118;
+  border-color: #D9CCBE;
 }
 
 .jump-btn:hover {
@@ -807,8 +891,8 @@ a.recipe-category-link:hover {
 }
 
 .share-btn {
-  color: #4A5568;
-  border-color: #CBD5E0;
+  color: #2B2118;
+  border-color: #D9CCBE;
 }
 
 .share-btn:hover {
@@ -826,8 +910,8 @@ a.recipe-category-link:hover {
 /* Cook Mode Button - Inline Header Bar Element */
 .cook-mode-btn {
   display: none;
-  color: #4A5568;
-  border-color: #CBD5E0;
+  color: #2B2118;
+  border-color: #D9CCBE;
 }
 
 .cook-mode-btn .cook-mode-status,
@@ -835,22 +919,22 @@ a.recipe-category-link:hover {
   font-size: 0.75rem;
   padding: 2px 6px;
   border-radius: 10px;
-  background-color: #EDF2F7;
-  color: #718096;
+  background-color: #F4EDE4;
+  color: #6B625A;
   margin-left: 4px;
 }
 
 .cook-mode-btn.active,
 .floating-cook-btn.active {
-  background-color: #2B6CB0 !important;
+  background-color: #9B2C2C !important;
   color: #FFFFFF !important;
-  border-color: #2B6CB0 !important;
+  border-color: #9B2C2C !important;
 }
 
 .cook-mode-btn.active .cook-mode-status,
 .floating-cook-btn.active .cook-mode-status {
   background-color: #FFFFFF !important;
-  color: #2B6CB0 !important;
+  color: #9B2C2C !important;
   font-weight: 800;
 }
 
@@ -891,7 +975,7 @@ a.recipe-category-link:hover {
     padding: 10px 18px !important;
     border-radius: 25px !important;
     background-color: #FFFFFF !important;
-    border: 1px solid #CBD5E0 !important;
+    border: 1px solid #D9CCBE !important;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
     font-size: 0.85rem !important;
     opacity: 0;
@@ -936,7 +1020,7 @@ a.recipe-category-link:hover {
 .ingredient-checkbox-label.checked .ingredient-text {
   text-decoration: none !important;
   opacity: 0.4;
-  color: #A0AEC0;
+  color: #6B625A;
   transition: opacity 0.2s ease;
 }
 
@@ -946,8 +1030,8 @@ a.recipe-category-link:hover {
 }
 
 .copy-btn {
-  color: #4A5568;
-  border-color: #CBD5E0;
+  color: #2B2118;
+  border-color: #D9CCBE;
 }
 
 .copy-btn:hover {
@@ -983,7 +1067,7 @@ a.recipe-category-link:hover {
    ========================================================================== */
 footer {
   background-color: #FFFFFF;
-  border-top: 2px solid #E2E8F0;
+  border-top: 2px solid #E5DCD2;
   padding: 40px 24px 20px;
   margin-top: auto;
 }
@@ -996,7 +1080,7 @@ footer {
   align-items: center;
   gap: 32px;
   padding-bottom: 28px;
-  border-bottom: 1px solid #EDF2F7;
+  border-bottom: 1px solid #F4EDE4;
 }
 
 .footer-logo {
@@ -1015,10 +1099,11 @@ footer {
 }
 
 .footer-logo-text {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #9B2C2C;
-  letter-spacing: -0.5px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #5A3A22;
+  line-height: 1;
   text-decoration: none;
   transition: opacity 0.2s ease;
 }
@@ -1028,7 +1113,7 @@ footer {
 }
 
 .footer-tagline {
-  color: #718096;
+  color: #6B625A;
   font-size: 0.9rem;
   margin-top: 10px;
   max-width: 320px;
@@ -1053,7 +1138,7 @@ footer {
 
 .footer-links a {
   text-decoration: none;
-  color: #4A5568;
+  color: #2B2118;
   font-size: 0.9rem;
   font-weight: 600;
   transition: color 0.2s ease;
@@ -1072,7 +1157,7 @@ footer {
 
 .social-icon-sm {
   font-size: 1.15rem;
-  color: #718096;
+  color: #6B625A;
   text-decoration: none;
   transition: color 0.2s ease, transform 0.2s ease;
   display: inline-flex;
@@ -1087,7 +1172,7 @@ footer {
   max-width: 1050px;
   margin: 20px auto 0;
   text-align: center;
-  color: #A0AEC0;
+  color: #6B625A;
   font-size: 0.825rem;
 }
 
@@ -1170,7 +1255,7 @@ footer {
     top: 0 !important;
     right: 0 !important;
     font-size: 0.75rem !important;
-    color: #718096 !important;
+    color: #6B625A !important;
     font-weight: normal !important;
     line-height: 18px !important;
   }
@@ -1186,8 +1271,8 @@ footer {
     padding-top: 8px !important;
     padding-bottom: 10px !important;
     padding-left: 0 !important;
-    border-top: 1px solid #E2E8F0 !important;
-    border-bottom: 2px solid #E2E8F0 !important;
+    border-top: 1px solid #E5DCD2 !important;
+    border-bottom: 2px solid #E5DCD2 !important;
   }
 
   .recipe-header-text {
@@ -1208,7 +1293,7 @@ footer {
     font-size: 0.85rem !important;
     margin: 0 0 8px 0 !important;
     padding: 0 !important;
-    color: #4A5568 !important;
+    color: #2B2118 !important;
   }
 
   .recipe-meta {
@@ -1256,7 +1341,7 @@ footer {
     padding: 0 !important;
     gap: 0 !important;
     border-radius: 6px !important;
-    border: 1px solid #E2E8F0 !important;
+    border: 1px solid #E5DCD2 !important;
     background: #FAF5EF !important;
     display: flex !important;
     align-items: center !important;
@@ -1300,7 +1385,7 @@ footer {
     margin: 0 0 6px 0 !important;
     padding-bottom: 2px !important;
     padding-left: 0 !important;
-    border-bottom: 1px solid #E2E8F0 !important;
+    border-bottom: 1px solid #E5DCD2 !important;
   }
 
   .recipe-column-left h4,
@@ -1310,7 +1395,7 @@ footer {
     color: #9B2C2C !important;
     margin: 8px 0 4px 0 !important;
     padding-left: 0 !important;
-    border-bottom: 1px dashed #E2E8F0 !important;
+    border-bottom: 1px dashed #E5DCD2 !important;
   }
 
   .recipe-body ul {
@@ -1352,7 +1437,7 @@ footer {
     margin: 8px 0 !important;
     font-size: 0.75rem !important;
     line-height: 1.3 !important;
-    color: #4A5568 !important;
+    color: #2B2118 !important;
   }
 }
 
@@ -1441,8 +1526,8 @@ footer {
 }
 
 .brand-tile-placeholder {
-  background: linear-gradient(135deg, #FAF5EF 0%, #EDF2F7 100%);
-  border-bottom: 2px solid #E2E8F0;
+  background: linear-gradient(135deg, #FAF5EF 0%, #F4EDE4 100%);
+  border-bottom: 2px solid #E5DCD2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1455,17 +1540,16 @@ footer {
 }
 
 .brand-tile-placeholder::before {
-  content: "The Shared Crumb";
-  font-family: inherit;
-  font-size: 0.75rem;
-  font-weight: 800;
+  content: "the shared crumb";
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
   color: #9B2C2C;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
   background-color: #FFFFFF;
-  padding: 4px 12px;
+  padding: 4px 14px;
   border-radius: 20px;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
@@ -1489,7 +1573,7 @@ footer {
    ========================================================================== */
 .brand-about-card {
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 12px;
   padding: 2.5rem 2rem;
   margin: 3rem auto;
@@ -1500,14 +1584,14 @@ footer {
 }
 
 .brand-about-card h2 {
-  color: #1A202C;
+  color: #2B2118;
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 1rem;
 }
 
 .brand-about-card p {
-  color: #4A5568;
+  color: #2B2118;
   font-size: 1.05rem;
   line-height: 1.6;
   margin: 0 auto 1.5rem auto;
@@ -1568,7 +1652,7 @@ footer {
   gap: 4px;
   padding: 18px 10px;
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 12px;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -1588,12 +1672,12 @@ footer {
 
 .browse-name {
   font-weight: 700;
-  color: #2D3748;
+  color: #2B2118;
 }
 
 .browse-count {
   font-size: 0.8rem;
-  color: #718096;
+  color: #6B625A;
 }
 
 /* Only the first six (shuffled) recipes are shown */
@@ -1637,9 +1721,9 @@ footer {
   gap: 8px;
   padding: 10px 18px;
   background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  border: 1px solid #E5DCD2;
   border-radius: 24px;
-  color: #2D3748;
+  color: #2B2118;
   font-weight: 600;
   text-decoration: none;
   transition: border-color 0.2s ease, transform 0.2s ease;
