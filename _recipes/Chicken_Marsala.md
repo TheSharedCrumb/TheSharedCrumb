@@ -3,13 +3,14 @@ layout: recipe
 title: "Chicken Marsala"
 icon: "🍗🍄"
 description: "Golden pan-fried chicken cutlets and tender mushrooms smothered in a rich, creamy Marsala wine sauce."
-course: "Dinner"
-cuisine: "Italian"
-category: [Chicken, Skillet]
+course: "dinner"
+cuisine: "italian"
+category: [chicken, skillet]
+badge: []
 prep_time: "15 mins"
 cook_time: "30 mins"
 yield: "4 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$$"
 image: ""
 ---

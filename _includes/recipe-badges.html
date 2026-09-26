@@ -1,0 +1,29 @@
+{% comment %}
+  Shows a recipe's badges as small red pills (the badge list is in _data/badges.yml).
+  - "30 minutes" appears automatically when prep + cook time is 30 minutes or less.
+  - "one pan" appears automatically for recipes tagged skillet or sheet pan.
+  - Any other badge appears when the recipe lists it:  badge: [family favorite, shortcut]
+  Usage: {% include recipe-badges.html recipe=page %}
+         {% include recipe-badges.html recipe=recipe limit=2 class="card-badges" %}
+{% endcomment %}
+{% include recipe-minutes.html recipe=include.recipe %}
+{% assign rb_tags = include.recipe.category | join: "|" | downcase | split: "|" %}
+{% assign rb_chosen = include.recipe.badge | join: "|" | downcase | split: "|" %}
+{% assign rb_limit = include.limit | default: 99 %}
+{% assign rb_count = 0 %}
+{% capture rb_items %}
+  {% for badge in site.data.badges %}
+    {% assign rb_on = false %}
+    {% if badge.auto == "time" and recipe_minutes > 0 and recipe_minutes <= 30 %}{% assign rb_on = true %}{% endif %}
+    {% if badge.auto == "pan" %}
+      {% if rb_tags contains "skillet" or rb_tags contains "sheet pan" %}{% assign rb_on = true %}{% endif %}
+    {% endif %}
+    {% if rb_chosen contains badge.name %}{% assign rb_on = true %}{% endif %}
+    {% if rb_on and rb_count < rb_limit %}
+      {% assign rb_count = rb_count | plus: 1 %}
+      {% capture rb_icon %}badge-icons/{{ badge.slug }}.svg{% endcapture %}
+      <li class="recipe-badge"><span class="recipe-badge-icon">{% include {{ rb_icon }} %}</span>{{ badge.name }}</li>
+    {% endif %}
+  {% endfor %}
+{% endcapture %}
+{% if rb_count > 0 %}<ul class="recipe-badges {{ include.class }}" aria-label="Recipe badges">{{ rb_items }}</ul>{% endif %}

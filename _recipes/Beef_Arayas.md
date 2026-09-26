@@ -3,13 +3,14 @@ layout: recipe
 title: "Beef Arayas"
 icon: "🥩🥙"
 description: "Middle Eastern stuffed pitas packed with spiced ground beef, pan-crisped and oven-baked for maximum flavor."
-course: "Dinner"
-cuisine: "Middle Eastern"
-category: [Beef, Sandwich]
+course: "dinner"
+cuisine: "middle eastern"
+category: [beef, sandwich]
+badge: []
 prep_time: "10 min"
 cook_time: "30 min"
 yield: "4 servings"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 ---

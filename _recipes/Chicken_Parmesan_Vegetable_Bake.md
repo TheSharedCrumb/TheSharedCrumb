@@ -3,13 +3,14 @@ layout: recipe
 title: "Parmesan Chicken and Vegetable Bake"
 icon: "🍗🥔"
 description: "Zesty-marinated chicken thighs and garlic-parmesan potatoes roasted together for maximum flavor with minimal cleanup."
-course: "Dinner"
-cuisine: "American"
-category: [Chicken, Sheet Pan]
+course: "dinner"
+cuisine: "american"
+category: [chicken, sheet pan]
+badge: []
 prep_time: "30 min"
 cook_time: "60 min"
 yield: "8 servings"
-difficulty: "Medium"
+difficulty: "medium"
 cost: "$"
 image: ""
 ---

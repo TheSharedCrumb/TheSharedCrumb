@@ -1,0 +1,26 @@
+{% comment %}
+  Adds up a recipe's prep_time and cook_time in minutes and stores it in
+  `recipe_minutes`. Understands text like "10 mins", "1 hr 15 min", "2 hours".
+  Usage: {% include recipe-minutes.html recipe=recipe %}
+{% endcomment %}
+{% assign recipe_minutes = 0 %}
+{% assign rm_fields = "prep_time,cook_time" | split: "," %}
+{% for rm_field in rm_fields %}
+  {% assign rm_words = include.recipe[rm_field] | downcase | replace: "(", " " | split: " " %}
+  {% assign rm_pending = nil %}
+  {% for rm_word in rm_words %}
+    {% assign rm_number = rm_word | plus: 0 %}
+    {% assign rm_number_text = rm_number | append: "" %}
+    {% if rm_number > 0 and rm_number_text == rm_word %}
+      {% assign rm_pending = rm_number %}
+    {% elsif rm_pending %}
+      {% assign rm_unit = rm_word | slice: 0 %}
+      {% if rm_unit == "h" %}
+        {% assign recipe_minutes = rm_pending | times: 60 | plus: recipe_minutes %}
+      {% elsif rm_unit == "m" %}
+        {% assign recipe_minutes = recipe_minutes | plus: rm_pending %}
+      {% endif %}
+      {% assign rm_pending = nil %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}

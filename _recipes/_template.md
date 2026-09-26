@@ -3,13 +3,17 @@ layout: recipe
 title: "Recipe Title"
 icon: "🍪"
 description: "short 1-2 line description that shows up on recipe thumbnails."
-course: "Dessert"
-cuisine: "American"
-category: [Baking, Cookies]
+course: "dessert"
+cuisine: "american"
+category: [baking, cookies]
+# badge: pick any of: five ingredients, toddler approved, freezer friendly, made to share,
+#         family favorite, little helpers, great leftovers, shortcut
+# ("30 minutes" and "one pan" are added automatically.) Leave it as [] if none apply.
+badge: []
 prep_time: "10 mins"
 cook_time: "10 mins"
 yield: "12 cookies"
-difficulty: "Easy"
+difficulty: "easy"
 cost: "$"
 image: ""
 hidden: true

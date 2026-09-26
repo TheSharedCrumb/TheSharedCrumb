@@ -4,6 +4,7 @@
 {% endcomment %}
 {% assign card = include.recipe %}
 <a href="{{ card.url | relative_url }}" class="recipe-grid-card">
+  <div class="card-media">
   {% assign card_img = card.image | strip %}
   {% if card_img != "" %}
     <img src="{{ card_img | relative_url }}" alt="{{ card.title }}" class="grid-card-img" loading="lazy">
@@ -12,6 +13,8 @@
       <span class="custom-recipe-icon">{{ card.icon | default: "🍽️" }}</span>
     </div>
   {% endif %}
+  {% include recipe-badges.html recipe=card limit=2 class="card-badges" %}
+  </div>
 
   <div class="grid-card-content">
     {% if card.cuisine or card.category %}

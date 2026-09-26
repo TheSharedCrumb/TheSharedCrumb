@@ -31,6 +31,8 @@ layout: default
           <p class="recipe-description">{{ page.description }}</p>
         {% endif %}
 
+        {% include recipe-badges.html recipe=page class="page-badges" %}
+
         <div class="recipe-meta">
           {% if page.prep_time %}
             <div class="meta-item">
@@ -53,7 +55,7 @@ layout: default
           {% if page.difficulty %}
             <div class="meta-item">
               <span class="meta-label">Difficulty</span>
-              <span class="meta-value">{{ page.difficulty }}</span>
+              <span class="meta-value">{{ page.difficulty | capitalize }}</span>
             </div>
           {% endif %}
           {% if page.cost %}
@@ -180,6 +182,7 @@ layout: default
         {% for recipe in final_related %}
           {% if recipe.title and recipe.url %}
             <a href="{{ recipe.url | relative_url }}" class="recipe-grid-card">
+              <div class="card-media">
               {% assign recipe_img_clean = recipe.image | strip %}
               {% if recipe_img_clean != "" and recipe.image != nil %}
                 <img src="{{ recipe.image | relative_url }}" alt="{{ recipe.title }}" class="grid-card-img">
@@ -192,6 +195,8 @@ layout: default
                   {% endif %}
                 </div>
               {% endif %}
+              {% include recipe-badges.html recipe=recipe limit=2 class="card-badges" %}
+              </div>
               <div class="grid-card-content">
                 {% if recipe.cuisine or recipe.category %}
                   <div class="recipe-category-badges">

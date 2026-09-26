@@ -3,13 +3,14 @@ layout: recipe
 title: "Handmade Northern-Style Dumplings"
 icon: "🥟"
 description: "Traditional Northern-Style dumplings featuring three savory filling variations."
-course: "Dinner"
-cuisine: "Chinese"
-category: [Dumplings, Pork]
+course: "dinner"
+cuisine: "chinese"
+category: [dumplings, pork]
+badge: [freezer friendly, made to share]
 prep_time: "2 hours (4 people)"
 cook_time: "15 mins per batch"
 yield: "~350 dumplings (~116 per variation)"
-difficulty: "Hard"
+difficulty: "hard"
 cost: "$$$"
 image: ""
 ---
