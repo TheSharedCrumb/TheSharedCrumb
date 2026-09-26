@@ -1176,6 +1176,36 @@ footer {
   font-size: 0.825rem;
 }
 
+.footer-bottom a {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+
+.footer-bottom a:hover {
+  color: #9B2C2C;
+}
+
+/* Privacy policy page */
+.privacy-policy h2 {
+  font-size: 1.3rem;
+  color: #9B2C2C;
+  margin: 1.8rem 0 0.5rem;
+}
+
+.privacy-policy ul {
+  padding-left: 1.4rem;
+  margin: 0.6rem 0 1rem;
+}
+
+.privacy-policy li {
+  line-height: 1.65;
+  margin: 0.35rem 0;
+}
+
+.privacy-policy ul + p {
+  margin-top: 0.6rem;
+}
+
 /* Mobile Responsiveness for Footer */
 @media (max-width: 768px) {
   .footer-container {
