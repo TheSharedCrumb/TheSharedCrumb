@@ -10,9 +10,8 @@ badge: []
 prep_time: "5 min"
 cook_time: "40 min"
 yield: "6 servings"
-nutrition:
-  batch: { calories: 4230, protein: 191, carbs: 381, fat: 215 }
-  note: "Parmesan for serving not included."
+nutrition: { calories: 4230, protein: 191, carbs: 381, fat: 215 }
+nutrition_note: "Parmesan for serving not included."
 image: ""
 ---
 

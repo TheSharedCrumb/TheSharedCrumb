@@ -10,8 +10,7 @@ badge: [five ingredients]
 prep_time: "10 mins"
 cook_time: "10 mins"
 yield: "18 cookies"
-nutrition:
-  batch: { calories: 2360, protein: 62, carbs: 257, fat: 136 }
+nutrition: { calories: 2360, protein: 62, carbs: 257, fat: 136 }
 image: ""
 ---
 

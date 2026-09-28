@@ -9,9 +9,8 @@
 
   Front matter:
     yield: "4 servings"
-    nutrition:
-      batch: { calories: 2190, protein: 142, carbs: 150, fat: 116 }
-      note: "Rice and vegetables not included."
+    nutrition: { calories: 2190, protein: 142, carbs: 150, fat: 116 }
+    nutrition_note: "Rice and vegetables not included."
 
   Usage (in the recipe layout, after the content):
   {% include recipe-nutrition.html %}
@@ -20,11 +19,11 @@
 
 {% include recipe-servings.html recipe=page %}
 {% assign n = page.nutrition %}
-{% if n and n.batch and recipe_servings > 0 %}
-  {% assign n_calories = n.batch.calories | times: 1.0 | divided_by: recipe_servings | divided_by: 5 | round | times: 5 %}
-  {% assign n_protein = n.batch.protein | times: 1.0 | divided_by: recipe_servings | round %}
-  {% assign n_carbs = n.batch.carbs | times: 1.0 | divided_by: recipe_servings | round %}
-  {% assign n_fat = n.batch.fat | times: 1.0 | divided_by: recipe_servings | round %}
+{% if n and n.calories and recipe_servings > 0 %}
+  {% assign n_calories = n.calories | times: 1.0 | divided_by: recipe_servings | divided_by: 5 | round | times: 5 %}
+  {% assign n_protein = n.protein | times: 1.0 | divided_by: recipe_servings | round %}
+  {% assign n_carbs = n.carbs | times: 1.0 | divided_by: recipe_servings | round %}
+  {% assign n_fat = n.fat | times: 1.0 | divided_by: recipe_servings | round %}
 
   <section class="recipe-nutrition" aria-labelledby="nutrition-heading">
     <h3 id="nutrition-heading">Nutrition</h3>
@@ -48,8 +47,8 @@
       </div>
     </div>
     <p class="nutrition-fine-print">
-      Whole batch ({{ page.yield }}): {{ n.batch.calories }} calories, {{ n.batch.protein }} g protein, {{ n.batch.carbs }} g carbs, {{ n.batch.fat }} g fat.
-      {% if n.note and n.note != "" %}{{ n.note }}{% endif %}
+      Whole batch ({{ page.yield | split: " (" | first | downcase }}): {{ n.calories }} calories, {{ n.protein }} g protein, {{ n.carbs }} g carbs, {{ n.fat }} g fat.
+      {% if page.nutrition_note and page.nutrition_note != "" %}{{ page.nutrition_note }}{% endif %}
       These are my best estimates from the ingredients, so your brands and portions may change them a little.
     </p>
   </section>
