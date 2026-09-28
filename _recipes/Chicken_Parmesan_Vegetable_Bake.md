@@ -10,8 +10,9 @@ badge: []
 prep_time: "30 min"
 cook_time: "60 min"
 yield: "8 servings"
-difficulty: "medium"
-cost: "$"
+nutrition:
+  batch: { calories: 2940, protein: 230, carbs: 192, fat: 146 }
+  note: "Based on boneless, skinless thighs (about 4 oz each)."
 image: ""
 ---
 

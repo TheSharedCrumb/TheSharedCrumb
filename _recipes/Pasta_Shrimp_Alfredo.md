@@ -10,8 +10,9 @@ badge: []
 prep_time: "20 mins"
 cook_time: "20 mins"
 yield: "6 servings"
-difficulty: "easy"
-cost: "$$"
+nutrition:
+  batch: { calories: 3180, protein: 187, carbs: 353, fat: 114 }
+  note: "Made with heavy cream."
 image: ""
 ---
 

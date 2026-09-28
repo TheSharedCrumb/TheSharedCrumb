@@ -10,8 +10,9 @@ badge: [freezer friendly, made to share]
 prep_time: "2 hours (4 people)"
 cook_time: "15 mins per batch"
 yield: "~350 dumplings (~116 per variation)"
-difficulty: "hard"
-cost: "$$$"
+nutrition:
+  batch: { calories: 16990, protein: 890, carbs: 1778, fat: 656 }
+  note: "All three fillings combined. Frying oil not included."
 image: ""
 ---
 

@@ -13,8 +13,13 @@ badge: []
 prep_time: "10 mins"
 cook_time: "10 mins"
 yield: "12 cookies"
-difficulty: "easy"
-cost: "$"
+# nutrition: estimates for the WHOLE recipe (batch). The page divides by the number
+# in yield ("4 servings" -> per serving, "12 cookies" -> per cookie; a range like
+# "3-4 servings" uses the larger number). Protein, carbs and fat are in grams.
+# The note (optional) says what's left out (rice, sides, garnish). Delete the block to hide the section.
+nutrition:
+  batch: { calories: 0, protein: 0, carbs: 0, fat: 0 }
+  note: ""
 image: ""
 hidden: true
 ---

@@ -10,8 +10,9 @@ badge: []
 prep_time: "10 min"
 cook_time: "10 min"
 yield: "3-4 servings"
-difficulty: "easy"
-cost: "$"
+nutrition:
+  batch: { calories: 2390, protein: 146, carbs: 37, fat: 175 }
+  note: "Pasta, rice or potatoes not included."
 image: ""
 ---
 
