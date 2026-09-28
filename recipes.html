@@ -1,6 +1,7 @@
 ---
 layout: default
 title: All Recipes
+description: "Every recipe on The Shared Crumb: easy, healthier dinners and a few treats, searchable by type and cuisine."
 ---
 
 <div class="recipes-archive-container">
@@ -42,17 +43,34 @@ title: All Recipes
   {% assign unique_courses = raw_courses | uniq | sort %}
   {% assign unique_categories = raw_categories | uniq | sort %}
 
-  <!-- Filter Pills (Cuisines, Courses, then Categories) -->
+  {% comment %}
+    Filters in two rows: Type (courses, then categories) and Cuisine. A filter that
+    matches only one recipe sits behind the row's "+ more" button until there are more.
+  {% endcomment %}
+  {% assign type_tags = unique_courses | concat: unique_categories %}
   <div class="category-filter-nav">
-    <button class="filter-btn active" data-filter="all">All Recipes</button>
-    {% for cuisine in unique_cuisines %}
-      <button class="filter-btn" data-filter="{{ cuisine | slugify }}">{{ cuisine }}</button>
-    {% endfor %}
-    {% for course in unique_courses %}
-      <button class="filter-btn" data-filter="{{ course | slugify }}">{{ course }}</button>
-    {% endfor %}
-    {% for cat in unique_categories %}
-      <button class="filter-btn" data-filter="{{ cat | slugify }}">{{ cat }}</button>
+    {% for row in (1..2) %}
+      {% if row == 1 %}{% assign row_tags = type_tags %}{% assign row_label = "Type" %}{% else %}{% assign row_tags = unique_cuisines %}{% assign row_label = "Cuisine" %}{% endif %}
+      {% assign hidden_count = 0 %}
+      <div class="filter-row">
+        <span class="filter-row-label">{{ row_label }}</span>
+        {% if row == 1 %}<button class="filter-btn active" data-filter="all">all recipes</button>{% endif %}
+        {% for tag in row_tags %}
+          {% assign tag_count = 0 %}
+          {% for recipe in visible_recipes %}
+            {% if row == 1 %}
+              {% if recipe.course == tag or recipe.category contains tag %}{% assign tag_count = tag_count | plus: 1 %}{% endif %}
+            {% elsif recipe.cuisine == tag %}
+              {% assign tag_count = tag_count | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          {% if tag_count < 2 %}{% assign hidden_count = hidden_count | plus: 1 %}{% endif %}
+          <button class="filter-btn{% if tag_count < 2 %} filter-extra{% endif %}" data-filter="{{ tag | slugify }}">{{ tag }}</button>
+        {% endfor %}
+        {% if hidden_count > 0 %}
+          <button type="button" class="filter-more-toggle" aria-expanded="false">+ {{ hidden_count }} more</button>
+        {% endif %}
+      </div>
     {% endfor %}
   </div>
 
@@ -182,12 +200,23 @@ title: All Recipes
     const urlParams = new URLSearchParams(window.location.search);
     const filterParam = urlParams.get('filter') || urlParams.get('category') || urlParams.get('cuisine') || urlParams.get('course');
 
+    // "+ more" shows the filters that match only one recipe
+    const showExtras = (row) => {
+      row.classList.add('show-extras');
+      const toggle = row.querySelector('.filter-more-toggle');
+      if (toggle) toggle.remove();
+    };
+    document.querySelectorAll('.filter-more-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => showExtras(toggle.closest('.filter-row')));
+    });
+
     if (filterParam) {
       const targetBtn = document.querySelector(`.filter-btn[data-filter="${filterParam}"]`);
       if (targetBtn) {
         filterBtns.forEach(b => b.classList.remove('active'));
         targetBtn.classList.add('active');
         currentFilter = filterParam;
+        if (targetBtn.classList.contains('filter-extra')) showExtras(targetBtn.closest('.filter-row'));
       }
     }
 

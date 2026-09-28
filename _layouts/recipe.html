@@ -59,28 +59,28 @@ layout: default
       <div class="recipe-actions">
         <!-- Jump to Recipe Button -->
         <a href="#recipe-card" class="action-btn jump-btn">
-          🍳 Jump to Recipe
+          <span class="btn-icon">{% include site-icons/btn-jump.svg %}</span><span class="label-long">Jump to Recipe</span><span class="label-short">Jump</span>
         </a>
 
         <button onclick="window.print()" class="action-btn print-btn">
-          🖨️ Print Recipe
+          <span class="btn-icon">{% include site-icons/btn-print.svg %}</span><span class="label-long">Print Recipe</span><span class="label-short">Print</span>
         </button>
 
         <a href="https://pinterest.com/pin/create/button/?url={{ page.url | absolute_url }}&media={{ page.image | strip | default: site.share_image | absolute_url | url_encode }}&description={{ page.description | url_encode }}" 
            target="_blank" 
            rel="noopener" 
            class="action-btn pinterest-btn">
-          📌 Save to Pinterest
+          <span class="btn-icon">{% include site-icons/btn-save.svg %}</span><span class="label-long">Save to Pinterest</span><span class="label-short">Save</span>
         </a>
 
         <!-- Native Share Button -->
         <button id="shareBtn" class="action-btn share-btn">
-          🔗 Share
+          <span class="btn-icon">{% include site-icons/btn-share.svg %}</span><span class="share-label">Share</span>
         </button>
 
         <!-- Cook Mode Toggle (Visible ONLY on Mobile/Tablet) -->
         <button id="cookModeBtn" class="action-btn cook-mode-btn">
-          💡 Cook Mode <span class="cook-mode-status">OFF</span>
+          <span class="btn-icon">{% include site-icons/btn-cook-mode.svg %}</span><span class="label-long">Cook Mode</span><span class="label-short">Cook</span> <span class="cook-mode-status">OFF</span>
         </button>
       </div>
 
@@ -214,6 +214,7 @@ layout: default
 </div>
 
 <!-- Interactive Checkboxes, Step Dimming, Auto-Copy, Share & Cook Mode Script -->
+{% capture copy_icon %}{% include site-icons/btn-copy.svg %}{% endcapture %}
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Dynamic Print URL Binding
@@ -333,7 +334,8 @@ layout: default
 
       const copyBtn = document.createElement('button');
       copyBtn.className = 'action-btn copy-btn';
-      copyBtn.innerHTML = '📋 Copy Ingredients';
+      const copyBtnHtml = '<span class="btn-icon">' + {{ copy_icon | strip | jsonify }} + '</span><span class="copy-label">Copy Ingredients</span>';
+      copyBtn.innerHTML = copyBtnHtml;
 
       copyBtn.addEventListener('click', () => {
         let textBlocks = [];
@@ -365,11 +367,11 @@ layout: default
         if (!fullTextToCopy) return;
 
         navigator.clipboard.writeText(fullTextToCopy).then(() => {
-          copyBtn.innerHTML = '✓ Copied!';
+          copyBtn.querySelector('.copy-label').textContent = 'Copied!';
           copyBtn.classList.add('copied');
 
           setTimeout(() => {
-            copyBtn.innerHTML = '📋 Copy Ingredients';
+            copyBtn.querySelector('.copy-label').textContent = 'Copy Ingredients';
             copyBtn.classList.remove('copied');
           }, 2000);
         }).catch(err => {
@@ -399,11 +401,11 @@ layout: default
           }
         } else {
           navigator.clipboard.writeText(window.location.href).then(() => {
-            shareBtn.innerHTML = '✓ Link Copied!';
+            shareBtn.querySelector('.share-label').textContent = 'Link Copied!';
             shareBtn.classList.add('copied');
 
             setTimeout(() => {
-              shareBtn.innerHTML = '🔗 Share';
+              shareBtn.querySelector('.share-label').textContent = 'Share';
               shareBtn.classList.remove('copied');
             }, 2000);
           });
