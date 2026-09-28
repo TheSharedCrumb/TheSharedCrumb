@@ -520,6 +520,14 @@ a.recipe-category-link:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
+/* Brand icons above the About box headings (_includes/site-icons/) */
+.about-icon {
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin: -4px 0 8px -4px;
+}
+
 .about-box h3 {
   color: #9B2C2C;
   font-size: 1.1rem;

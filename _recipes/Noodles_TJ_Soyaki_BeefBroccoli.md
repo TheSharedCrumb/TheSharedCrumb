@@ -10,8 +10,7 @@ badge: [five ingredients, shortcut]
 prep_time: "2 mins"
 cook_time: "10 mins"
 yield: "2-3 servings"
-nutrition:
-  batch: { calories: 1890, protein: 123, carbs: 180, fat: 75 }
+nutrition: { calories: 1890, protein: 123, carbs: 180, fat: 75 }
 image: ""
 ---
 

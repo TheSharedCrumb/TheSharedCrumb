@@ -10,9 +10,8 @@ badge: [five ingredients, shortcut]
 prep_time: "5 mins"
 cook_time: "15 mins"
 yield: "3-4 servings"
-nutrition:
-  batch: { calories: 1930, protein: 130, carbs: 222, fat: 62 }
-  note: "Made with 93% lean ground turkey. With 85% lean beef, add about 75 calories and 8 g fat per serving."
+nutrition: { calories: 1930, protein: 130, carbs: 222, fat: 62 }
+nutrition_note: "Made with 93% lean ground turkey. With 85% lean beef, add about 75 calories and 8 g fat per serving."
 image: ""
 ---
 
