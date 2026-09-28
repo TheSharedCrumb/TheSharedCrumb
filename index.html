@@ -18,10 +18,11 @@ description: "Easy, healthier, budget-friendly dinners from Danielle's kitchen, 
 <section class="home-browse" aria-labelledby="browse-heading">
   <h2 id="browse-heading">What are you in the mood for?</h2>
   <div class="browse-tiles">
-    {% assign browse_items = "🍗|chicken,🥩|beef,🦐|seafood,🍝|pasta,🍳|skillet,🍪|dessert" | split: "," %}
+    {% comment %} Each name needs a matching icon in _includes/site-icons/cat-<name>.svg {% endcomment %}
+    {% assign browse_items = "chicken,beef,seafood,pasta,skillet,dessert" | split: "," %}
     {% for item in browse_items %}
-      {% assign parts = item | split: "|" %}
-      {% assign name = parts[1] %}
+      {% assign name = item %}
+      {% assign icon_path = "site-icons/cat-" | append: name | append: ".svg" %}
       {% assign count = 0 %}
       {% for recipe in visible_recipes %}
         {% if recipe.category contains name or recipe.course == name %}
@@ -30,7 +31,7 @@ description: "Easy, healthier, budget-friendly dinners from Danielle's kitchen, 
       {% endfor %}
       {% if count > 0 %}
         <a href="{{ '/recipes.html' | relative_url }}?filter={{ name | slugify }}" class="browse-tile">
-          <span class="browse-icon" aria-hidden="true">{{ parts[0] }}</span>
+          <span class="browse-icon">{% include {{ icon_path }} %}</span>
           <span class="browse-name">{{ name }}</span>
           <span class="browse-count">{{ count }} recipe{% if count != 1 %}s{% endif %}</span>
         </a>
