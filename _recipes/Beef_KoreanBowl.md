@@ -10,8 +10,9 @@ badge: []
 prep_time: "5 mins"
 cook_time: "10 mins"
 yield: "4 servings"
-difficulty: "easy"
-cost: "$"
+nutrition:
+  batch: { calories: 1460, protein: 92, carbs: 63, fat: 92 }
+  note: "Rice not included."
 image: ""
 hidden: true
 ---

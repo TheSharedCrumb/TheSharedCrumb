@@ -10,8 +10,9 @@ badge: []
 prep_time: "10 min"
 cook_time: "30 min"
 yield: "6 servings"
-difficulty: "easy"
-cost: "$"
+nutrition:
+  batch: { calories: 2320, protein: 137, carbs: 61, fat: 167 }
+  note: "Based on skin-on thighs, 5 oz of meat each. Rice or noodles not included."
 image: ""
 ---
 

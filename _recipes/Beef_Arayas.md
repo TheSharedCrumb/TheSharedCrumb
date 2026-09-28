@@ -10,8 +10,8 @@ badge: []
 prep_time: "10 min"
 cook_time: "30 min"
 yield: "4 servings"
-difficulty: "easy"
-cost: "$"
+nutrition:
+  batch: { calories: 1900, protein: 113, carbs: 161, fat: 88 }
 image: ""
 ---
 

@@ -1,0 +1,43 @@
+{% comment %}
+  Reads how many servings a recipe makes from its `yield` text and stores the
+  number in `recipe_servings` and the singular unit in `recipe_serving_unit`.
+    "4 servings"             -> 4, "serving"
+    "3-4 servings"           -> 4, "serving"   (a range uses the larger number)
+    "1 pizza (2-3 servings)" -> 3, "serving"   (a number before "servings" wins)
+    "24 cookies"             -> 24, "cookie"
+    "~350 dumplings (...)"   -> 350, "dumpling"
+  `recipe_servings` is 0 when the yield has no number.
+  Usage: {% include recipe-servings.html recipe=page %}
+{% endcomment %}
+{% assign recipe_servings = 0 %}
+{% assign recipe_serving_unit = "serving" %}
+{% assign rs_words = include.recipe.yield | downcase | replace: "(", " " | replace: ")", " " | replace: "~", " " | replace: "-", " " | replace: "–", " " | replace: ",", " " | split: " " %}
+{% assign rs_last = 0 %}
+{% assign rs_first = 0 %}
+{% assign rs_first_unit = "" %}
+{% assign rs_found = false %}
+{% for rs_word in rs_words %}
+  {% assign rs_number = rs_word | plus: 0 %}
+  {% assign rs_number_text = rs_number | append: "" %}
+  {% if rs_number > 0 and rs_number_text == rs_word %}
+    {% assign rs_last = rs_number %}
+    {% if rs_first == 0 %}{% assign rs_first = rs_number %}{% endif %}
+  {% else %}
+    {% if rs_first > 0 and rs_first_unit == "" %}{% assign rs_first_unit = rs_word %}{% endif %}
+    {% assign rs_start = rs_word | slice: 0, 7 %}
+    {% if rs_start == "serving" and rs_last > 0 and rs_found == false %}
+      {% assign recipe_servings = rs_last %}
+      {% assign rs_found = true %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% if rs_found == false and rs_first > 0 %}
+  {% assign recipe_servings = rs_first %}
+  {% assign rs_unit_end = rs_first_unit | slice: -1 %}
+  {% if rs_first > 1 and rs_unit_end == "s" %}
+    {% assign rs_unit_size = rs_first_unit | size | minus: 1 %}
+    {% assign recipe_serving_unit = rs_first_unit | slice: 0, rs_unit_size %}
+  {% elsif rs_first_unit != "" %}
+    {% assign recipe_serving_unit = rs_first_unit %}
+  {% endif %}
+{% endif %}

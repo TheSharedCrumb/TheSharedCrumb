@@ -10,8 +10,8 @@ badge: []
 prep_time: "10 mins"
 cook_time: "35 mins"
 yield: "1 pizza (2-3 servings)"
-difficulty: "easy"
-cost: "$$"
+nutrition:
+  batch: { calories: 1540, protein: 155, carbs: 22, fat: 93 }
 image: ""
 ---
 

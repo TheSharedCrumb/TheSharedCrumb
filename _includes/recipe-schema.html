@@ -126,6 +126,19 @@
 {% endfor %}
 {% assign schema_cuisine = keywords.first %}
 
+{% comment %} --- 6. Nutrition per serving (batch divided by the servings in `yield`, same math as recipe-nutrition.html) --- {% endcomment %}
+{% include recipe-servings.html recipe=page %}
+{% assign n = page.nutrition %}
+{% if n and n.batch and recipe_servings > 0 %}
+  {% assign n_calories = n.batch.calories | times: 1.0 | divided_by: recipe_servings | divided_by: 5 | round | times: 5 %}
+  {% assign n_protein = n.batch.protein | times: 1.0 | divided_by: recipe_servings | round %}
+  {% assign n_carbs = n.batch.carbs | times: 1.0 | divided_by: recipe_servings | round %}
+  {% assign n_fat = n.batch.fat | times: 1.0 | divided_by: recipe_servings | round %}
+  {% assign has_nutrition = true %}
+{% else %}
+  {% assign has_nutrition = false %}
+{% endif %}
+
 {% assign recipe_image = page.image | strip %}
 
 <script type="application/ld+json">
@@ -160,6 +173,16 @@
   {% endif %}
   {% if keywords.size > 0 %}
   "keywords": {{ keywords | join: ", " | jsonify }},
+  {% endif %}
+  {% if has_nutrition %}
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "servingSize": "1 {{ recipe_serving_unit }}",
+    "calories": "{{ n_calories }} calories",
+    "proteinContent": "{{ n_protein }} g",
+    "carbohydrateContent": "{{ n_carbs }} g",
+    "fatContent": "{{ n_fat }} g"
+  },
   {% endif %}
   "recipeIngredient": {{ ingredients | jsonify }},
   "recipeInstructions": [{{ instructions_json | strip }}]

@@ -532,28 +532,6 @@ a.recipe-category-link:hover {
   line-height: 1.5;
 }
 
-.cost-scale {
-  list-style: none;
-  margin-top: 10px;
-  color: #2B2118;
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
-.cost-scale li {
-  display: flex;
-  gap: 8px;
-}
-
-.cost-scale li + li {
-  margin-top: 6px;
-}
-
-.cost-scale strong {
-  flex: 0 0 2.2em;
-  color: #9B2C2C;
-}
-
 .contact-social-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -814,6 +792,36 @@ a.recipe-category-link:hover {
   margin: 1.5rem 0;
   padding: 0.5rem 0 0.5rem 1rem;
   line-height: 1.6;
+}
+
+/* Nutrition section at the bottom of a recipe (_includes/recipe-nutrition.html) */
+.recipe-nutrition {
+  margin-top: 36px;
+}
+
+.recipe-nutrition h3 {
+  font-size: 1.3rem;
+  color: #9B2C2C;
+  margin: 0 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #F4EDE4;
+}
+
+.nutrition-per {
+  font-size: 0.95rem;
+  color: #6B625A;
+  margin: 0 0 10px;
+}
+
+.recipe-nutrition .meta-value {
+  font-size: 1.1rem;
+}
+
+.nutrition-fine-print {
+  font-size: 0.875rem;
+  color: #6B625A;
+  line-height: 1.5;
+  margin: 12px 0 0;
 }
 
 .related-recipes-section {

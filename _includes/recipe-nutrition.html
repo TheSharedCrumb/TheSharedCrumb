@@ -1,0 +1,56 @@
+{% comment %}
+  =============================================================================
+  NUTRITION SECTION (recipe-nutrition.html)
+  =============================================================================
+  Shows the recipe's nutrition at the bottom of the recipe page. Only the
+  whole-batch numbers are typed in the front matter. The number of servings
+  comes from `yield` (see recipe-servings.html), and per serving is worked out
+  here (batch divided by servings, calories rounded to the nearest 5).
+
+  Front matter:
+    yield: "4 servings"
+    nutrition:
+      batch: { calories: 2190, protein: 142, carbs: 150, fat: 116 }
+      note: "Rice and vegetables not included."
+
+  Usage (in the recipe layout, after the content):
+  {% include recipe-nutrition.html %}
+  =============================================================================
+{% endcomment %}
+
+{% include recipe-servings.html recipe=page %}
+{% assign n = page.nutrition %}
+{% if n and n.batch and recipe_servings > 0 %}
+  {% assign n_calories = n.batch.calories | times: 1.0 | divided_by: recipe_servings | divided_by: 5 | round | times: 5 %}
+  {% assign n_protein = n.batch.protein | times: 1.0 | divided_by: recipe_servings | round %}
+  {% assign n_carbs = n.batch.carbs | times: 1.0 | divided_by: recipe_servings | round %}
+  {% assign n_fat = n.batch.fat | times: 1.0 | divided_by: recipe_servings | round %}
+
+  <section class="recipe-nutrition" aria-labelledby="nutrition-heading">
+    <h3 id="nutrition-heading">Nutrition</h3>
+    <p class="nutrition-per">Per {{ recipe_serving_unit }}</p>
+    <div class="recipe-meta nutrition-grid">
+      <div class="meta-item">
+        <span class="meta-label">Calories</span>
+        <span class="meta-value">{{ n_calories }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Protein</span>
+        <span class="meta-value">{{ n_protein }} g</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Carbs</span>
+        <span class="meta-value">{{ n_carbs }} g</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Fat</span>
+        <span class="meta-value">{{ n_fat }} g</span>
+      </div>
+    </div>
+    <p class="nutrition-fine-print">
+      Whole batch ({{ page.yield }}): {{ n.batch.calories }} calories, {{ n.batch.protein }} g protein, {{ n.batch.carbs }} g carbs, {{ n.batch.fat }} g fat.
+      {% if n.note and n.note != "" %}{{ n.note }}{% endif %}
+      These are my best estimates from the ingredients, so your brands and portions may change them a little.
+    </p>
+  </section>
+{% endif %}
